@@ -1,18 +1,39 @@
 <?php
 
-use Illuminate\Http\Request;
+Route::group(['namespace' => 'Api'], function () {
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+    Route::group(['prefix' => 'auth'], function () {
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+        Route::post('/register', 'AuthController@register');
+        Route::post('/login', 'AuthController@login');
+        Route::get('/verify/{token}', 'AuthController@verify');
+
+        Route::group(['middleware' => 'jwt'], function() {
+
+            Route::get('/refresh', 'AuthController@refresh');
+            Route::post('/logout', 'AuthController@logout');
+            Route::post('/me', 'AuthController@me');
+
+        });
+
+        Route::post('/forgot-password', 'AuthController@forgotPassword');
+        Route::post('/reset-password', 'AuthController@resetPassword');
+    });
+
+    /*Route::group(['middleware' => 'jwt'], function() {
+
+        Route::get('/countries', 'CountryController');
+        Route::get('/categories', 'CategoryController');
+        Route::get('/cities', 'CityController');
+        Route::get('/experiences', 'ExperienceController');
+        Route::resource('/vacancies', 'VacancyController');
+        Route::put('/users', 'UserController@update')->middleware('jwt');
+        Route::post('/users/password', 'UserController@changePassword')->middleware('jwt');
+
+        Route::get('/profiles', 'ProfileController@show');
+        Route::put('/profiles/{profile}', 'ProfileController@update');
+
+    });*/
+
+
 });
