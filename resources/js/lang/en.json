@@ -1,0 +1,22 @@
+{
+    "lang": "English",
+    "create_account": "Create account",
+    "login": "Login",
+    "remember_me": "Remember me",
+    "forgot_password": "Forget password ?",
+    "add-advert": "Add advert",
+    "speed-advert": "Speed advert",
+    "extended-advert": "Extended advert",
+    "vacancy": "Vacancy",
+    "find-job": "Find job",
+    "rent": "Rent",
+    "country": "Country",
+    "rubric": "Rubric",
+    "description": "Description",
+    "contact-information": "Contact information",
+    "name": "Name",
+    "password": "Password",
+    "phone": "Phone",
+    "site": "Site",
+    "create": "Create"
+}

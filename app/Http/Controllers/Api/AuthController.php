@@ -98,17 +98,17 @@ class AuthController extends BaseController
     public function login(LoginRequest $request)
     {
         $credentials = $request->all(['email', 'password']);
-        $locale = $request->get('locale', 'uk');
-        app()->setLocale($locale);
 
         $user = $this->getUser($credentials);
 
         if (!$user) {
             return $this->sendError('Bad request.', [], 400);
         }
-
-        if(!$user->hasVerifiedEmail()){
-            return $this->sendError('Email not verified', [], 401);
+        if(!$user->hasVerifiedAccount()){
+            return $this->sendError('Email not verified.', [], 401);
+        };
+        if(!$user->isActiveAccount()){
+            return $this->sendError('Account not active', [], 401);
         };
 
         if ($token = $this->guard()->attempt($credentials)) {

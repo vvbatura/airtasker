@@ -99,7 +99,15 @@ class User extends Authenticatable implements JWTSubject
         do {
             $verifyToken = Str::random(15);
             $this->setAttribute('verify_token', $verifyToken);
-        } while (!is_null(static::where('verify_token', $verifyToken)->first()));
+        } while (!is_null(self::where('verify_token', $verifyToken)->first()));
+    }
+    public function hasVerifiedAccount()
+    {
+        return ! is_null($this->verified_at);
+    }
+    public function isActiveAccount()
+    {
+        return $this->status == self::STATUS_ACTIVE;
     }
     //-relations
     public function _profile()
