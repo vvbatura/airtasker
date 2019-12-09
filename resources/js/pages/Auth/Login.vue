@@ -25,13 +25,6 @@
                 <div v-if="has_error" class="not-valid">Login details are incorrect</div>
             </div>
             <div class="form-group">
-                <select class="form-control" v-model="locale" v-on:change="changeLocale">
-                    <option :value="languages.uk">Укораїнська</option>
-                    <option :value="languages.ru">Русский</option>
-                    <option :value="languages.en" selected>English</option>
-                </select>
-            </div>
-            <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block btn-lg">{{$t('login')}}</button>
                 <login-with-google />
             </div>
@@ -68,7 +61,6 @@
                 has_error: false,
                 errors: null,
                 locale: null,
-                languages: {en: this.$i18n.locale, ru: this.$i18n.fallbackLocale, uk: 'uk'}
             };
         },
 
@@ -103,7 +95,6 @@
                         email: this.email,
                         password: this.password,
                         remember_me: this.remember_me,
-                        locale: this.locale
                     },
                     success: function() {
                         this.$store.dispatch('setLocale', {locale: this.locale});

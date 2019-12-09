@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 class UsersSeeder extends Seeder
 {
     const TABLE = 'users';
+    const TABLE_PROFILE = 'profiles';
 
     /**
      * Run the database seeds.
@@ -15,6 +16,7 @@ class UsersSeeder extends Seeder
     {
         DB::table(self::TABLE)->delete();
         DB::statement('ALTER TABLE ' . self::TABLE . ' AUTO_INCREMENT = 1');
+        DB::statement('ALTER TABLE ' . self::TABLE_PROFILE . ' AUTO_INCREMENT = 1');
 
         $this->createUsers(\App\User::ROLE_ADMIN, 1, [
             'first_name' => 'admin',

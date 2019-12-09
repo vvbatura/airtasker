@@ -2,7 +2,8 @@
     <div class="row text-center">
         <div class="col">
             <h1>Email successfully verified</h1>
-            <router-link :to="{name: 'login'}">Return to Login</router-link>
+            <router-link :to="{name: 'login'}" v-if="success">Return to Login</router-link>
+            <p v-else>Error with verify.</p>
         </div>
     </div>
 </template>
@@ -11,7 +12,8 @@
     export default {
         data() {
             return {
-                token: ''
+                token: '',
+                success: false,
             };
         },
 
@@ -21,16 +23,18 @@
 
         methods: {
             verify() {
-                axios.get({
-                    token: this.$route.token
+                axios.get('/auth/verify', {
+                    params: {
+                        token: this.$route.params.token,
+                        type: 'email'
+                    }
                 })
                 .then(response => {
-                        alert('Email was verified')
+                        this.success = true;
                     }
                 )
-                .catch(
-                    error => {
-                        console.log(error);
+                .catch(error => {
+                        //console.log(error);
                     }
                 )
             }

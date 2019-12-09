@@ -11,38 +11,76 @@
                 </div>
                 <div class='row'>
                     <div class='col-md-3 field-label-responsive'>
-                        <label for='name'>Name</label>
+                        <label for='first_name'>First Name</label>
                     </div>
                     <div class='col-md-6'>
                         <div class='form-group'>
                             <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
                                 <div class='input-group-addon' style='width: 2.6rem'><i class='fa fa-user'></i></div>
-                                <input v-model="$v.name.$model" type='text' class='form-control' id='name' placeholder='Name' required autofocus>
+                                <input v-model="$v.first_name.$model" type='text' class='form-control' id='first_name' placeholder='First Name' required autofocus>
                             </div>
                         </div>
                     </div>
                     <div
-                        v-if="!$v.name.required && $v.name.$dirty"
+                        v-if="!$v.first_name.required && $v.first_name.$dirty"
                         class='col-md-3'>
                         <div class='form-control-feedback'>
                     <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Name is required</i>
+                        <i class='fa fa-close'> First Name is required</i>
                     </span>
                         </div>
                     </div>
-                    <div class="col-md-3" v-if="errors.name && has_error">
+                    <div class="col-md-3" v-if="errors.first_name && has_error">
                         <div class='form-control-feedback'>
                     <span class='text-danger align-middle'>
-                        <i class='fa fa-close'>{{errors.name | toString() }}</i>
+                        <i class='fa fa-close'>{{errors.first_name | toString() }}</i>
                     </span>
                         </div>
                     </div>
                     <div
-                        v-if="!$v.name.minLength && $v.name.$dirty || !$v.name.maxLength && $v.name.$dirty"
+                        v-if="!$v.first_name.maxLength && $v.first_name.$dirty"
                         class='col-md-3'>
                         <div class='form-control-feedback'>
                     <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Name must contain at least 3 characters and less 20</i>
+                        <i class='fa fa-close'> First Name must contain at less 150</i>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3 field-label-responsive'>
+                        <label for='last_name'>Last Name</label>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='form-group'>
+                            <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
+                                <div class='input-group-addon' style='width: 2.6rem'><i class='fa fa-user'></i></div>
+                                <input v-model="$v.last_name.$model" type='text' class='form-control' id='last_name' placeholder='Last Name' required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        v-if="!$v.last_name.required && $v.last_name.$dirty"
+                        class='col-md-3'>
+                        <div class='form-control-feedback'>
+                    <span class='text-danger align-middle'>
+                        <i class='fa fa-close'> Last Name is required</i>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="col-md-3" v-if="errors.last_name && has_error">
+                        <div class='form-control-feedback'>
+                    <span class='text-danger align-middle'>
+                        <i class='fa fa-close'>{{errors.last_name | toString() }}</i>
+                    </span>
+                        </div>
+                    </div>
+                    <div
+                        v-if="!$v.last_name.maxLength && $v.last_name.$dirty"
+                        class='col-md-3'>
+                        <div class='form-control-feedback'>
+                    <span class='text-danger align-middle'>
+                        <i class='fa fa-close'> Last Name must contain at less 150</i>
                     </span>
                         </div>
                     </div>
@@ -82,6 +120,54 @@
                         <div class='form-control-feedback'>
                     <span class='text-danger align-middle'>
                         <i class='fa fa-close'>{{errors.email | toString() }}</i>
+                    </span>
+                        </div>
+                    </div>
+                    <div
+                        v-if="!$v.email.maxLength && $v.email.$dirty"
+                        class='col-md-3'>
+                        <div class='form-control-feedback'>
+                    <span class='text-danger align-middle'>
+                        <i class='fa fa-close'> Email must contain at less 150</i>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3 field-label-responsive'>
+                        <label for='email'>Phone Number</label>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='form-group'>
+                            <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
+                                <div class='input-group-addon' style='width: 2.6rem'><i class='fa fa-at'></i></div>
+                                <input type='text' v-model="$v.phone.$model" class='form-control' id='phone'
+                                       placeholder='0981234567' required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        v-if="!$v.phone.required && $v.$dirty"
+                        class='col-md-3'>
+                        <div class='form-control-feedback'>
+                    <span class='text-danger align-middle'>
+                        <i class='fa fa-close'> Phone is required</i>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="col-md-3" v-if="errors.phone && has_error">
+                        <div class='form-control-feedback'>
+                    <span class='text-danger align-middle'>
+                        <i class='fa fa-close'>{{errors.phone | toString() }}</i>
+                    </span>
+                        </div>
+                    </div>
+                    <div
+                        v-if="!$v.phone.maxLength && $v.phone.$dirty"
+                        class='col-md-3'>
+                        <div class='form-control-feedback'>
+                    <span class='text-danger align-middle'>
+                        <i class='fa fa-close'> Phone must contain at less 150</i>
                     </span>
                         </div>
                     </div>
@@ -181,9 +267,10 @@ export default {
 
             role: null,
 
-            name: '',
+            first_name: '',
             last_name: '',
             email: '',
+            phone: '',
             password: '',
             password_confirmation: '',
 
@@ -194,15 +281,22 @@ export default {
     },
 
     validations: {
-        name: {
+        first_name: {
             required,
-            minLength: minLength(3),
-            maxLength: maxLength(255)
+            maxLength: maxLength(150)
+        },
+        last_name: {
+            required,
+            maxLength: maxLength(150)
         },
         email: {
             required,
             email,
-            maxLength: maxLength(255)
+            maxLength: maxLength(150)
+        },
+        phone: {
+            required,
+            maxLength: maxLength(150)
         },
         password: {
             required,
@@ -221,8 +315,10 @@ export default {
 
             this.$auth.register({
                 data: {
-                    name: this.name,
+                    first_name: this.first_name,
+                    last_name: this.last_name,
                     email: this.email,
+                    phone: this.phone,
                     password: this.password,
                     password_confirmation: this.password_confirmation
                 },
@@ -232,7 +328,7 @@ export default {
                 error: function (error) {
                     switch (error.response.status) {
                         case 422:
-                            this.email_exists_popup_modal_show = true;
+                            this.errors_validations_popup_modal_show = true;
                             this.errors = error.response.data.errors;
                             this.has_error = true;
                             break;

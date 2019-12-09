@@ -16,6 +16,6 @@ $factory->define( \App\User::class, function (Faker $faker) {
         'status' =>  \App\User::STATUS_ACTIVE,
         'verify_type' =>  \App\User::VERIFIES[rand(0,1)],
         'verified_at' => now(),
-        'remember_token' => \Illuminate\Support\Str::random(10),
+        'remember_token' => \App\User::makeHash(),
     ];
 });

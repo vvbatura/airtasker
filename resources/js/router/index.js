@@ -4,7 +4,8 @@ import ResetPassword from "../pages/Auth/ResetPassword";
 import Register from '../pages/Auth/Register';
 import Login from '../pages/Auth/Login';
 import HomePage from '../pages/Home';
-import Verify from "../pages/Auth/Verify";
+import VerifyEmail from "../pages/Auth/VerifyEmail";
+import VerifyPhone from "../pages/Auth/VerifyPhone";
 import Profile from "../pages/Profile";
 import CreateAdvert from "../pages/CreateAdvert";
 import store from "../store"
@@ -27,7 +28,13 @@ const routes = [
     {
         path: '/verify/:token',
         name: 'email-verify',
-        component: Verify,
+        component: VerifyEmail,
+        meta: { guest: true, layout: authLayout }
+    },
+    {
+        path: '/verify',
+        name: 'phone-verify',
+        component: VerifyPhone,
         meta: { guest: true, layout: authLayout }
     },
     {

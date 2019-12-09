@@ -39,8 +39,8 @@ class User extends Authenticatable implements JWTSubject
         1 => self::TYPE_SEEKER,
     ];
 
-    const VERIFY_EMAIL = 'employer';
-    const VERIFY_PHONE = 'seeker';
+    const VERIFY_EMAIL = 'email';
+    const VERIFY_PHONE = 'phone';
     const VERIFIES = [
         0 => self::VERIFY_EMAIL,
         1 => self::VERIFY_PHONE,
@@ -65,7 +65,7 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'verify_token',
     ];
 
     //-setters
@@ -94,20 +94,23 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-    public function generateVerifyToken()
+    /*public function generateVerifyToken()
     {
         do {
             $verifyToken = Str::random(15);
             $this->setAttribute('verify_token', $verifyToken);
         } while (!is_null(self::where('verify_token', $verifyToken)->first()));
-    }
-    public function hasVerifiedAccount()
+    }*/
+    public function isVerifiedAccount()
     {
         return ! is_null($this->verified_at);
     }
     public function isActiveAccount()
     {
         return $this->status == self::STATUS_ACTIVE;
+    }
+    public static function makeHash() {
+        return md5(uniqid());
     }
     //-relations
     public function _profile()

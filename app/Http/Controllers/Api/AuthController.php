@@ -6,6 +6,7 @@ use App\Http\Requests\Auth\ForgotPasswordRequest;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterFormRequest;
 use App\Http\Requests\Auth\ResetPasswordFormRequest;
+use App\Http\Requests\Auth\VerifyRequest;
 use App\Mail\Auth\ForgetPasswordUserMail;
 use App\Mail\Auth\VerificationUserEmail;
 use Carbon\Carbon;
@@ -25,8 +26,8 @@ class AuthController extends BaseController
 
     public function register(RegisterFormRequest $request)
     {
-        $user = User::create($request->all());
-        $user->generateVerifyToken();
+        $user = User::create($request->validated());
+        $user->setAttribute('verify_token', User::makeHash());
         $user->save();
 
         Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
@@ -34,28 +35,31 @@ class AuthController extends BaseController
         return $this->sendResponse('Successfully register', new UserResource($user));
     }
 
-    public function verify($token)
+    public function verify(VerifyRequest $request)
     {
+        $token = $request->get('token');
+        $type = $request->get('type');
         if (!$user = User::where('verify_token', $token)->first()) {
-            $this->sendError('Cannot find user by verify token', [], 401);
+            return $this->sendError('Cannot find user by verify token', [], 400);
         }
 
         $user->setAttribute('verify_token', null);
-        $user->setAttribute('email_verified_at', Carbon::now()->timestamp);
-        $user->assignRole(User::ROLE_CLIENT);
+        $user->verify_type = $type;
+        $user->verified_at = Carbon::now()->timestamp;
         $user->save();
+        $user->assignRole(User::ROLE_CLIENT);
+        $user->_profile()->create();
 
-        $this->sendResponse('Email was successful verified');
+        return $this->sendResponse('Email was successful verified');
     }
 
     public function forgotPassword(ForgotPasswordRequest $request)
     {
         $email = $request->get('email');
         $resetTable = DB::table('password_resets');
-        $resetToken = Str::random(60);
-        $hasToken = $resetTable->where('email', $email)->first();
+        $resetToken = User::makeHash();
 
-        if ($hasToken) {
+        if ($resetTable->where('email', $email)->first()) {
             $resetTable->update(['token' => $resetToken, 'created_at' => Carbon::now()]);
         } else {
             $resetTable->insert([
@@ -84,7 +88,7 @@ class AuthController extends BaseController
             $user->save();
 
             return $this->sendResponse('Password successfully changed');
-        }else{
+        } else {
             return $this->sendError('Not found email or token');
         }
     }
@@ -104,10 +108,10 @@ class AuthController extends BaseController
         if (!$user) {
             return $this->sendError('Bad request.', [], 400);
         }
-        if(!$user->hasVerifiedAccount()){
+        if (!$user->isVerifiedAccount()){
             return $this->sendError('Email not verified.', [], 401);
         };
-        if(!$user->isActiveAccount()){
+        if (!$user->isActiveAccount()){
             return $this->sendError('Account not active', [], 401);
         };
 

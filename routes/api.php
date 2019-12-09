@@ -6,7 +6,7 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('/register', 'AuthController@register');
         Route::post('/login', 'AuthController@login');
-        Route::get('/verify/{token}', 'AuthController@verify');
+        Route::get('/verify', 'AuthController@verify');
 
         Route::group(['middleware' => 'jwt'], function() {
 
