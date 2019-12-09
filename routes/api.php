@@ -1,6 +1,7 @@
 <?php
 
 Route::group(['namespace' => 'Api'], function () {
+    Route::get('/test-sms', 'AuthController@TestSms');
 
     Route::group(['prefix' => 'auth'], function () {
 

@@ -15,22 +15,43 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Resources\User\UserResource;
 use App\User;
-use Illuminate\Support\Str;
 
 class AuthController extends BaseController
 {
+    protected $client;
     public function __construct()
     {
         $this->middleware('auth:api')->only(['me', 'logout', 'refresh']);
+
+        $basic  = new \Nexmo\Client\Credentials\Basic('f828df3c', 'z9OS0zX0hynIXeUr');
+        $this->client = new \Nexmo\Client($basic);
+    }
+
+    protected function sendSMS ($number, $message)
+    {
+        $message = $this->client->message()->send([
+            'to' => $number,
+            'from' => 'AirTasker',
+            'text' => $message
+        ]);
+    }
+
+    public function TestSms ()
+    {
+        $message = $this->sendSMS('380983091243', 'Hello from Nexmo');
+
+        dd($message);
     }
 
     public function register(RegisterFormRequest $request)
     {
-        $user = User::create($request->validated());
-        $user->setAttribute('verify_token', User::makeHash());
-        $user->save();
+        $data =$request->validated();
+        $data['verify_token'] = User::makeHash();
+        $user = User::create($data);
 
         Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
+
+        $this->sendSMS($user->phone, $user->verify_token);
 
         return $this->sendResponse('Successfully register', new UserResource($user));
     }
@@ -43,10 +64,11 @@ class AuthController extends BaseController
             return $this->sendError('Cannot find user by verify token', [], 400);
         }
 
-        $user->setAttribute('verify_token', null);
-        $user->verify_type = $type;
-        $user->verified_at = Carbon::now()->timestamp;
-        $user->save();
+        $user->update([
+            'verify_token' => null,
+            'verify_type' => $type,
+            'verified_at' => Carbon::now()->timestamp,
+        ]);
         $user->assignRole(User::ROLE_CLIENT);
         $user->_profile()->create();
 
@@ -167,7 +189,7 @@ class AuthController extends BaseController
         return $this->sendResponse('Successfully refreshed in.', [], ['Authorization' => $token]);
     }
 
-    private function getUser ($credentials)
+    protected function getUser ($credentials)
     {
 
         $user = User::where("email", $credentials['email'])->first();
