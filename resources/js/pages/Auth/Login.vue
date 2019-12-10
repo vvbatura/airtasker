@@ -10,22 +10,21 @@
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="Password" v-model="$v.password.$model">
-                <div
-                    v-if="!$v.password.required && $v.$dirty && !$v.email.$invalid"
-                    class="not-valid"
-                >Password is required</div>
-                <div
-                    v-if="!$v.password.minLength && $v.$dirty && !$v.email.$invalid"
-                    class="not-valid"
-                >Min Password length is 6</div>
-                <div
-                    v-if="!$v.password.maxLength && $v.$dirty && !$v.email.$invalid"
-                    class="not-valid"
-                >Max Password length is 255</div>
+
+                <div v-if="!$v.password.required && $v.$dirty && !$v.email.$invalid" class="not-valid">
+                    Password is required
+                </div>
+                <div v-if="!$v.password.minLength && $v.$dirty && !$v.email.$invalid" class="not-valid">
+                    Min Password length is 6
+                </div>
+                <div v-if="!$v.password.maxLength && $v.$dirty && !$v.email.$invalid" class="not-valid">
+                    Max Password length is 255
+                </div>
                 <div v-if="has_error" class="not-valid">Login details are incorrect</div>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block btn-lg">{{$t('login')}}</button>
+                <login-with-facebook />
                 <login-with-google />
             </div>
             <div class="clearfix">
@@ -49,9 +48,10 @@
         maxLength
     } from "vuelidate/lib/validators";
     import LoginWithGoogle from "../../components/social/google";
+    import LoginWithFacebook from "../../components/social/facebook";
 
     export default {
-        components: {LoginWithGoogle},
+        components: {LoginWithGoogle, LoginWithFacebook},
         data() {
             return {
                 error_dialog: false,

@@ -1,11 +1,11 @@
 <template>
-    <button type="button" class="btn btn-primary btn-block" @click="signInByGoogle">google</button>
+    <button type="button" class="btn btn-primary btn-block" @click="signInByFacebook">facebook</button>
 </template>
 
 <script>
     import {openWindow, authorise} from '../../common/module/helper'
     export default {
-        name: 'LoginWithGoogle',
+        name: 'LoginWithFacebook',
         mounted () {
             window.addEventListener('message', this.onMessage, false)
         },
@@ -15,9 +15,9 @@
         },
 
         methods: {
-            signInByGoogle() {
+            signInByFacebook() {
                 const newWindow = openWindow('', 'login');
-                newWindow.location.href =  '/api/auth/login/google';
+                newWindow.location.href =  '/api/auth/login/facebook';
             },
 
             /**

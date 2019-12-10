@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\AuthProvider;
+use App\Models\Profile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,9 +43,11 @@ class User extends Authenticatable implements JWTSubject
 
     const VERIFY_EMAIL = 'email';
     const VERIFY_PHONE = 'phone';
+    const VERIFY_SOCIAL = 'social';
     const VERIFIES = [
         0 => self::VERIFY_EMAIL,
         1 => self::VERIFY_PHONE,
+        2 => self::VERIFY_SOCIAL,
     ];
 
     const SEX_MAN = 'employer';
@@ -85,6 +89,7 @@ class User extends Authenticatable implements JWTSubject
     {
         $this->attributes['type'] = json_encode($type);
     }
+
     //-methods
     public function getJWTIdentifier()
     {
@@ -94,13 +99,6 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-    /*public function generateVerifyToken()
-    {
-        do {
-            $verifyToken = Str::random(15);
-            $this->setAttribute('verify_token', $verifyToken);
-        } while (!is_null(self::where('verify_token', $verifyToken)->first()));
-    }*/
     public function isVerifiedAccount()
     {
         return ! is_null($this->verified_at);
@@ -112,9 +110,14 @@ class User extends Authenticatable implements JWTSubject
     public static function makeHash() {
         return md5(uniqid());
     }
+
     //-relations
     public function _profile()
     {
-        return $this->hasOne('App\Models\Profile');
+        return $this->hasOne(Profile::class);
+    }
+    public function _socials()
+    {
+        return $this->hasMany(AuthProvider::class);
     }
 }

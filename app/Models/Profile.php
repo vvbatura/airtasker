@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
+    protected $table = 'profiles';
 
     protected $fillable = [
         'user_id',
@@ -32,7 +34,7 @@ class Profile extends Model
     //-relations
     public function _user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
 }

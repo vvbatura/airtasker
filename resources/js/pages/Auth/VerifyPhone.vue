@@ -58,3 +58,9 @@
     }
 </script>
 
+<style scoped lang="scss">
+    .verify-form {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+</style>

@@ -21,29 +21,25 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.first_name.required && $v.first_name.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.first_name.required && $v.first_name.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> First Name is required</i>
-                    </span>
+                        <span class='text-danger align-middle'>
+                            <i class='fa fa-close'> First Name is required</i>
+                        </span>
                         </div>
                     </div>
                     <div class="col-md-3" v-if="errors.first_name && has_error">
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'>{{errors.first_name | toString() }}</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'>{{errors.first_name | toString() }}</i>
+                            </span>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.first_name.maxLength && $v.first_name.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.first_name.maxLength && $v.first_name.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> First Name must contain at less 150</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> First Name must contain at less 150</i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -59,29 +55,25 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.last_name.required && $v.last_name.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.last_name.required && $v.last_name.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Last Name is required</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> Last Name is required</i>
+                            </span>
                         </div>
                     </div>
                     <div class="col-md-3" v-if="errors.last_name && has_error">
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'>{{errors.last_name | toString() }}</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'>{{errors.last_name | toString() }}</i>
+                            </span>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.last_name.maxLength && $v.last_name.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.last_name.maxLength && $v.last_name.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Last Name must contain at less 150</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> Last Name must contain at less 150</i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -98,38 +90,32 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.email.required && $v.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.email.required && $v.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Email is required</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> Email is required</i>
+                            </span>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.email.email && $v.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.email.email && $v.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Email must be email</i>
-                    </span>
+                        <span class='text-danger align-middle'>
+                            <i class='fa fa-close'> Email must be email</i>
+                        </span>
                         </div>
                     </div>
                     <div class="col-md-3" v-if="errors.email && has_error">
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'>{{errors.email | toString() }}</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'>{{errors.email | toString() }}</i>
+                            </span>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.email.maxLength && $v.email.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.email.maxLength && $v.email.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Email must contain at less 150</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> Email must contain at less 150</i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -146,29 +132,25 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.phone.required && $v.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.phone.required && $v.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Phone is required</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> Phone is required</i>
+                            </span>
                         </div>
                     </div>
                     <div class="col-md-3" v-if="errors.phone && has_error">
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'>{{errors.phone | toString() }}</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'>{{errors.phone | toString() }}</i>
+                            </span>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.phone.maxLength && $v.phone.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.phone.maxLength && $v.phone.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Phone must contain at less 150</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> Phone must contain at less 150</i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -184,22 +166,18 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.password.required && $v.password.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.password.required && $v.password.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Password is required</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> Password is required</i>
+                            </span>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.password.minLength && $v.password_confirmation.$dirty || !$v.password.maxLength && $v.password_confirmation.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.password.minLength && $v.password_confirmation.$dirty || !$v.password.maxLength && $v.password_confirmation.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Password must contain at least 6 characters and less 20</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'> Password must contain at least 6 characters and less 20</i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -218,20 +196,18 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        v-if="!$v.password_confirmation.sameAsPassword && $v.password_confirmation.$dirty"
-                        class='col-md-3'>
+                    <div v-if="!$v.password_confirmation.sameAsPassword && $v.password_confirmation.$dirty" class='col-md-3'>
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'>Passwords must be matches</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'>Passwords must be matches</i>
+                            </span>
                         </div>
                     </div>
                     <div class="col-md-3" v-if="errors.password">
                         <div class='form-control-feedback'>
-                    <span class='text-danger align-middle'>
-                        <i class='fa fa-close'>{{errors.password | toString() }}</i>
-                    </span>
+                            <span class='text-danger align-middle'>
+                                <i class='fa fa-close'>{{errors.password | toString() }}</i>
+                            </span>
                         </div>
                     </div>
                 </div>

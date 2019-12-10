@@ -38,7 +38,7 @@ class AuthController extends BaseController
 
     public function TestSms ()
     {
-        $message = $this->sendSMS('380983091243', 'Hello from Nexmo');
+        $message = $this->sendSMS('380983091243', 'Hello from Nexmo.');
 
         dd($message);
     }
@@ -47,13 +47,24 @@ class AuthController extends BaseController
     {
         $data =$request->validated();
         $data['verify_token'] = User::makeHash();
-        $user = User::create($data);
 
-        Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
+        DB::beginTransaction();
 
-        $this->sendSMS($user->phone, $user->verify_token);
+        try {
+            $user = User::create($data);
 
-        return $this->sendResponse('Successfully register', new UserResource($user));
+            Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
+
+            $this->sendSMS($user->phone, $user->verify_token);
+
+            DB::commit();
+            return $this->sendResponse('Successfully register.', new UserResource($user));
+
+        } catch (\Exception $e) {
+
+            DB::rollback();
+            return $this->sendError('Cannot create user.', [], 409);
+        }
     }
 
     public function verify(VerifyRequest $request)
@@ -61,18 +72,28 @@ class AuthController extends BaseController
         $token = $request->get('token');
         $type = $request->get('type');
         if (!$user = User::where('verify_token', $token)->first()) {
-            return $this->sendError('Cannot find user by verify token', [], 400);
+            return $this->sendError('Cannot find user by verify token.', [], 400);
         }
 
-        $user->update([
-            'verify_token' => null,
-            'verify_type' => $type,
-            'verified_at' => Carbon::now()->timestamp,
-        ]);
-        $user->assignRole(User::ROLE_CLIENT);
-        $user->_profile()->create();
+        DB::beginTransaction();
 
-        return $this->sendResponse('Email was successful verified');
+        try {
+            $user->update([
+                'verify_token' => null,
+                'verify_type' => $type,
+                'verified_at' => Carbon::now()->timestamp,
+            ]);
+            $user->assignRole(User::ROLE_CLIENT);
+            $user->_profile()->create();
+
+            DB::commit();
+            return $this->sendResponse('Email was successful verified.');
+
+        } catch (\Exception $e) {
+
+            DB::rollback();
+            return $this->sendError('Cannot verified user.', [], 409);
+        }
     }
 
     public function forgotPassword(ForgotPasswordRequest $request)
@@ -81,19 +102,26 @@ class AuthController extends BaseController
         $resetTable = DB::table('password_resets');
         $resetToken = User::makeHash();
 
-        if ($resetTable->where('email', $email)->first()) {
-            $resetTable->update(['token' => $resetToken, 'created_at' => Carbon::now()]);
-        } else {
-            $resetTable->insert([
-                'email' => $email,
-                'token' => $resetToken,
-                'created_at' => Carbon::now()
-            ]);
+        try {
+            if ($resetTable->where('email', $email)->first()) {
+
+                $resetTable->update(['token' => $resetToken, 'created_at' => Carbon::now()]);
+            } else {
+                $resetTable->insert([
+                    'email' => $email,
+                    'token' => $resetToken,
+                    'created_at' => Carbon::now()
+                ]);
+            }
+
+            Mail::to($email)->queue(new ForgetPasswordUserMail($resetToken, $email));
+
+            return $this->sendResponse('Verified email was send.');
+
+        } catch (\Exception $e) {
+
+            return $this->sendError('Cannot send verified email.', [], 409);
         }
-
-        Mail::to($email)->queue(new ForgetPasswordUserMail($resetToken, $email));
-
-        return $this->sendResponse('Verified email was send');
     }
 
     public function resetPassword(ResetPasswordFormRequest $request)
@@ -102,16 +130,23 @@ class AuthController extends BaseController
         $token = $request->get('token');
         $resetTable = DB::table('password_resets');
 
-        if ($resetTable->where([['email', $email], ['token', $token]])->first()) {
-            $user = User::where('email', $email)->first();
-            app('auth.password.broker')->deleteToken($user);
+        try {
+            if ($resetTable->where([['email', $email], ['token', $token]])->first()) {
+                $user = User::where('email', $email)->first();
+                app('auth.password.broker')->deleteToken($user);
 
-            $user->password = $request->get('password');
-            $user->save();
+                $user->password = $request->get('password');
+                $user->save();
 
-            return $this->sendResponse('Password successfully changed');
-        } else {
-            return $this->sendError('Not found email or token');
+                return $this->sendResponse('Password successfully changed.');
+
+            } else {
+
+                return $this->sendError('Not found email or token.');
+            }
+        } catch (\Exception $e) {
+
+            return $this->sendError('Cannot changed password user.', [], 409);
         }
     }
 
@@ -152,6 +187,7 @@ class AuthController extends BaseController
     public function me()
     {
         $user = $this->guard()->user();
+
         return $this->sendResponse('User data' , new UserResource($user));
     }
 
@@ -200,4 +236,5 @@ class AuthController extends BaseController
 
         return null;
     }
+
 }
