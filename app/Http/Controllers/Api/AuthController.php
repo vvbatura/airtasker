@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\Auth\ForgotPasswordRequest;
+use App\Http\Requests\Auth\ForgotPasswordEmailRequest;
+use App\Http\Requests\Auth\ForgotPasswordPhoneRequest;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterFormRequest;
-use App\Http\Requests\Auth\ResetPasswordFormRequest;
+use App\Http\Requests\Auth\ResetPasswordEmailFormRequest;
+use App\Http\Requests\Auth\ResetPasswordPhoneFormRequest;
 use App\Http\Requests\Auth\VerifyRequest;
 use App\Mail\Auth\ForgetPasswordUserMail;
 use App\Mail\Auth\VerificationUserEmail;
 use Carbon\Carbon;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -96,25 +99,29 @@ class AuthController extends BaseController
         }
     }
 
-    public function forgotPassword(ForgotPasswordRequest $request)
+    protected function forgotPassword(FormRequest $request, $field)
     {
-        $email = $request->get('email');
+        $$field = $request->get($field);
         $resetTable = DB::table('password_resets');
         $resetToken = User::makeHash();
 
         try {
-            if ($resetTable->where('email', $email)->first()) {
+            if ($resetTable->where($field, $$field)->first()) {
 
                 $resetTable->update(['token' => $resetToken, 'created_at' => Carbon::now()]);
             } else {
                 $resetTable->insert([
-                    'email' => $email,
+                    $field => $$field,
                     'token' => $resetToken,
                     'created_at' => Carbon::now()
                 ]);
             }
 
-            Mail::to($email)->queue(new ForgetPasswordUserMail($resetToken, $email));
+            if ($field == 'email') {
+                Mail::to($$field)->queue(new ForgetPasswordUserMail($resetToken, $$field));
+            } else {
+                $message = $this->sendSMS($$field, $resetToken);
+            }
 
             return $this->sendResponse('Verified email was send.');
 
@@ -124,15 +131,27 @@ class AuthController extends BaseController
         }
     }
 
-    public function resetPassword(ResetPasswordFormRequest $request)
+    public function forgotPasswordEmail(ForgotPasswordEmailRequest $request)
     {
-        $email = $request->get('email');
+
+        return $this->forgotPassword($request, 'email');
+    }
+
+    public function forgotPasswordPhone(ForgotPasswordPhoneRequest $request)
+    {
+
+        return $this->forgotPassword($request, 'phone');
+    }
+
+    protected function resetPassword(FormRequest $request, $field)
+    {
+        $$field = $request->get($field);
         $token = $request->get('token');
         $resetTable = DB::table('password_resets');
 
         try {
-            if ($resetTable->where([['email', $email], ['token', $token]])->first()) {
-                $user = User::where('email', $email)->first();
+            if ($resetTable->where([[$field, $$field], ['token', $token]])->first()) {
+                $user = User::where($field, $$field)->first();
                 app('auth.password.broker')->deleteToken($user);
 
                 $user->password = $request->get('password');
@@ -148,6 +167,18 @@ class AuthController extends BaseController
 
             return $this->sendError('Cannot changed password user.', [], 409);
         }
+    }
+
+    public function resetPasswordEmail(ResetPasswordEmailFormRequest $request)
+    {
+
+        return $this->resetPassword($request, 'email');
+    }
+
+    public function resetPasswordPhone(ResetPasswordPhoneFormRequest $request)
+    {
+
+        return $this->resetPassword($request, 'phone');
     }
 
     /**

@@ -3492,6 +3492,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_module_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/module/helper */ "./resources/js/common/module/helper.js");
 //
 //
 //
@@ -3516,6 +3517,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3523,7 +3541,10 @@ __webpack_require__.r(__webpack_exports__);
       error_dialog: false,
       dialog: false,
       email: '',
-      has_error: false
+      phone: '',
+      has_error: false,
+      isEmail: false,
+      isPhone: false
     };
   },
   validations: {
@@ -3531,32 +3552,62 @@ __webpack_require__.r(__webpack_exports__);
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       email: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["email"],
       maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
+    },
+    phone: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
     }
   },
   methods: {
+    fromEmail: function fromEmail() {
+      this.isPhone = false;
+      this.isEmail = true;
+    },
+    fromPhone: function fromPhone() {
+      this.isEmail = false;
+      this.isPhone = true;
+    },
     submit: function submit() {
       var _this = this;
 
-      if (this.$v.$invalid) {
-        return;
+      if (this.$v.$invalid) {//return;
       }
 
       this.has_error = false;
-      axios.post('auth/forgot-password', {
-        email: this.email
-      }).then(function (response) {
-        alert('Check your email');
-      })["catch"](function (error) {
-        switch (error.response.status) {
-          case 422:
-            _this.has_error = true;
-            break;
 
-          default:
-            _this.error_dialog = true;
-            break;
-        }
-      });
+      if (this.isEmail && this.email) {
+        axios.post('auth/forgot-password-email', {
+          email: this.email
+        }).then(function (response) {
+          alert('Check your email');
+        })["catch"](function (error) {
+          switch (error.response.status) {
+            case 422:
+              _this.has_error = true;
+              break;
+
+            default:
+              _this.error_dialog = true;
+              break;
+          }
+        });
+      } else {
+        axios.post('auth/forgot-password-phone', {
+          phone: this.phone
+        }).then(function (response) {
+          alert('Check your phone');
+        })["catch"](function (error) {
+          switch (error.response.status) {
+            case 422:
+              _this.has_error = true;
+              break;
+
+            default:
+              _this.error_dialog = true;
+              break;
+          }
+        });
+      }
     }
   }
 });
@@ -76151,62 +76202,163 @@ var render = function() {
     [
       _c("h2", { staticClass: "text-center mb-5" }, [_vm._v("Reset password")]),
       _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("div", { staticClass: "input-group" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.$v.email.$model,
-                expression: "$v.email.$model"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "email",
-              placeholder: "Enter your Email"
-            },
-            domProps: { value: _vm.$v.email.$model },
-            on: {
-              keyup: function($event) {
-                _vm.has_error = false
-              },
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.$v.email, "$model", $event.target.value)
-              }
-            }
-          })
-        ]),
+      _c("div", { staticClass: "form-group " }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg btn-block",
+            attrs: { type: "button" },
+            on: { click: _vm.fromEmail }
+          },
+          [_vm._v("from Email")]
+        ),
         _vm._v(" "),
-        !_vm.$v.email.required && _vm.$v.$dirty
-          ? _c("span", { staticClass: "text-danger" }, [
-              _vm._v("Email is required")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.$v.email.email && _vm.$v.email.$dirty
-          ? _c("span", { staticClass: "text-danger" }, [
-              _vm._v("Email not found")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.$v.email.maxLength && _vm.$v.email.$dirty
-          ? _c("span", { staticClass: "text-danger" }, [
-              _vm._v("Max email length is 255")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.has_error && _vm.$v.email.$dirty && !_vm.$v.email.$invalid
-          ? _c("span", { staticClass: "text-danger" }, [
-              _vm._v("Email not found")
-            ])
-          : _vm._e()
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg btn-block",
+            attrs: { type: "button" },
+            on: { click: _vm.fromPhone }
+          },
+          [_vm._v("from Phone")]
+        )
       ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isEmail,
+              expression: "isEmail"
+            }
+          ],
+          staticClass: "form-group"
+        },
+        [
+          _c("div", { staticClass: "input-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.email.$model,
+                  expression: "$v.email.$model"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                name: "email",
+                placeholder: "Enter your Email"
+              },
+              domProps: { value: _vm.$v.email.$model },
+              on: {
+                keyup: function($event) {
+                  _vm.has_error = false
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.$v.email, "$model", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          !_vm.$v.email.required && _vm.$v.$dirty
+            ? _c("span", { staticClass: "text-danger" }, [
+                _vm._v("Email is required")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.$v.email.email && _vm.$v.email.$dirty
+            ? _c("span", { staticClass: "text-danger" }, [
+                _vm._v("Email not found")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.$v.email.maxLength && _vm.$v.email.$dirty
+            ? _c("span", { staticClass: "text-danger" }, [
+                _vm._v("Max email length is 255")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.has_error && _vm.$v.email.$dirty && !_vm.$v.email.$invalid
+            ? _c("span", { staticClass: "text-danger" }, [
+                _vm._v("Email not found")
+              ])
+            : _vm._e()
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isPhone,
+              expression: "isPhone"
+            }
+          ],
+          staticClass: "form-group"
+        },
+        [
+          _c("div", { staticClass: "input-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.phone.$model,
+                  expression: "$v.phone.$model"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                name: "phone",
+                placeholder: "Enter your Phone"
+              },
+              domProps: { value: _vm.$v.phone.$model },
+              on: {
+                keyup: function($event) {
+                  _vm.has_error = false
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.$v.phone, "$model", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          !_vm.$v.phone.required && _vm.$v.$dirty
+            ? _c("span", { staticClass: "text-danger" }, [
+                _vm._v("Phone is required")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.$v.phone.maxLength && _vm.$v.phone.$dirty
+            ? _c("span", { staticClass: "text-danger" }, [
+                _vm._v("Max phone length is 255")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.has_error && _vm.$v.phone.$dirty && !_vm.$v.phone.$invalid
+            ? _c("span", { staticClass: "text-danger" }, [
+                _vm._v("Phone not found")
+              ])
+            : _vm._e()
+        ]
+      ),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
