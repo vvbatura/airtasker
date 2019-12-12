@@ -26,7 +26,7 @@ class AuthController extends BaseController
     {
         $this->middleware('auth:api')->only(['me', 'logout', 'refresh']);
 
-        $basic  = new \Nexmo\Client\Credentials\Basic('f828df3c', 'z9OS0zX0hynIXeUr');
+        $basic  = new \Nexmo\Client\Credentials\Basic(env('NEXMO_CLIENT_KEY'), env('NEXMO_CLIENT_SECRET'));
         $this->client = new \Nexmo\Client($basic);
     }
 
@@ -41,7 +41,7 @@ class AuthController extends BaseController
 
     public function TestSms ()
     {
-        $message = $this->sendSMS('380983091243', 'Hello from Nexmo.');
+        $message = $this->sendSMS('4917632281828', 'Hello from WEB.');
 
         dd($message);
     }
@@ -58,7 +58,9 @@ class AuthController extends BaseController
 
             Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
 
-            $this->sendSMS($user->phone, $user->verify_token);
+            try {
+                $this->sendSMS($user->phone, $user->verify_token);
+            } catch (\Exception $e) {}
 
             DB::commit();
             return $this->sendResponse('Successfully register.', new UserResource($user));
@@ -120,7 +122,10 @@ class AuthController extends BaseController
             if ($field == 'email') {
                 Mail::to($$field)->queue(new ForgetPasswordUserMail($resetToken, $$field));
             } else {
-                $message = $this->sendSMS($$field, $resetToken);
+                try {
+                    $message = $this->sendSMS($$field, $resetToken);
+                } catch (\Exception $e) {}
+
             }
 
             return $this->sendResponse('Verified email was send.');

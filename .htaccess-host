@@ -1,6 +1,10 @@
+AuthType Basic
+AuthName "My Protected Area"
+AuthUserFile /home/www/dooditask.com/.htpasswd
+Require valid-user
+
 <IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteRule ^$ public/ [L]
 RewriteRule ((?s).*) public/$1 [L]
 </IfModule>
-
