@@ -1,5 +1,6 @@
 <?php
 
+use App\ConfigProject\Constants;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('birth_date')->nullable();
             $table->json('address')->nullable();
-            $table->enum('sex', \App\User::SEX)->nullable();
+            $table->enum('sex', Constants::SEX)->nullable();
             $table->string('teg_line')->nullable();
             $table->string('abn')->nullable();
             $table->string('description')->nullable();

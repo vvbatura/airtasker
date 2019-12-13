@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests\Auth;
 
-use App\User;
+use App\ConfigProject\Constants;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Validation\Rule;
 
 class VerifyRequest extends FormRequest
@@ -29,7 +27,7 @@ class VerifyRequest extends FormRequest
     {
         return [
             'token' => ['required'],
-            'type' => ['required', 'string', Rule::in(User::VERIFIES)],
+            'type' => ['required', 'string', Rule::in(Constants::VERIFIES)],
         ];
     }
 

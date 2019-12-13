@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\ConfigProject\Constants;
 use App\Models\AuthProvider;
 use App\User;
 use Carbon\Carbon;
@@ -69,11 +70,11 @@ class AuthProviderController extends BaseController
             $user = User::create([
                 'first_name' => $socialUser->getName(),
                 'email' => $socialUser->getEmail(),
-                'verify_type' => User::VERIFY_SOCIAL,
+                'verify_type' => Constants::VERIFY_SOCIAL,
                 'verified_at' => Carbon::now()->timestamp,
             ]);
 
-            $user->assignRole(User::ROLE_CLIENT);
+            $user->assignRole(Constants::ROLE_CLIENT);
             $user->_profile()->create();
 
             $user->_socials()->create([

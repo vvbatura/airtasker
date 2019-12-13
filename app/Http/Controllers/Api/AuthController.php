@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\ConfigProject\Constants;
 use App\Http\Requests\Auth\ForgotPasswordEmailRequest;
 use App\Http\Requests\Auth\ForgotPasswordPhoneRequest;
 use App\Http\Requests\Auth\LoginRequest;
@@ -15,6 +16,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Resources\User\UserResource;
 use App\User;
@@ -60,14 +62,16 @@ class AuthController extends BaseController
 
             try {
                 $this->sendSMS($user->phone, $user->verify_token);
-            } catch (\Exception $e) {}
+            } catch (\Exception $e) {
+                Log::error('Exception send SMS: ', ['exception' => $e]);
+            }
 
             DB::commit();
             return $this->sendResponse('Successfully register.', new UserResource($user));
 
         } catch (\Exception $e) {
-
             DB::rollback();
+            Log::error('Exception create user: ', ['exception' => $e]);
             return $this->sendError('Cannot create user.', [], 409);
         }
     }
@@ -88,15 +92,15 @@ class AuthController extends BaseController
                 'verify_type' => $type,
                 'verified_at' => Carbon::now()->timestamp,
             ]);
-            $user->assignRole(User::ROLE_CLIENT);
+            $user->assignRole(Constants::ROLE_CLIENT);
             $user->_profile()->create();
 
             DB::commit();
             return $this->sendResponse('Email was successful verified.');
 
         } catch (\Exception $e) {
-
             DB::rollback();
+            Log::error('Exception verified user: ', ['exception' => $e]);
             return $this->sendError('Cannot verified user.', [], 409);
         }
     }
@@ -124,14 +128,15 @@ class AuthController extends BaseController
             } else {
                 try {
                     $message = $this->sendSMS($$field, $resetToken);
-                } catch (\Exception $e) {}
-
+                } catch (\Exception $e) {
+                    Log::error('Exception send SMS: ', ['exception' => $e]);
+                }
             }
 
             return $this->sendResponse('Verified email was send.');
 
         } catch (\Exception $e) {
-
+            Log::error('Exception send verified emailS: ', ['exception' => $e]);
             return $this->sendError('Cannot send verified email.', [], 409);
         }
     }
@@ -169,7 +174,7 @@ class AuthController extends BaseController
                 return $this->sendError('Not found email or token.');
             }
         } catch (\Exception $e) {
-
+            Log::error('Exception changed password user: ', ['exception' => $e]);
             return $this->sendError('Cannot changed password user.', [], 409);
         }
     }

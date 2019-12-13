@@ -25,6 +25,19 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/reset-password-phone', 'AuthController@resetPasswordPhone');
     });
 
+    //Route::group(['middleware' => 'jwt'], function() {
+
+        Route::group(['prefix' => 'category'], function () {
+            Route::get('/', 'CategoryController@index');
+            Route::get('/{category}', 'CategoryController@show');
+            Route::post('/', 'CategoryController@store');
+            Route::put('/{category}', 'CategoryController@update');
+            Route::delete('/{category}', 'CategoryController@delete');
+            Route::delete('/', 'CategoryController@deleteMany');
+        });
+
+    //});
+
     /*Route::group(['middleware' => 'jwt'], function() {
 
         Route::get('/countries', 'CountryController');
