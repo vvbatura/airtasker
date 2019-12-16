@@ -5,11 +5,14 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
-    background-color: #f2f4f7;
-    color: #262626;
+    background-color: $body-bg;
+    color: $main-color;
 }
 .logout {
-    color: #000000;
+    color: $dark;
+}
+.wrapper {
+    padding-top: 58px;
 }
 .v-sidebar-menu {
     padding-top: 4%;

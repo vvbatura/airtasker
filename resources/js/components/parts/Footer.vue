@@ -1,6 +1,8 @@
 <template>
     <footer id="footer" class="footer-area">
-        <h2>Footer</h2>
+        <div class="container">
+            <h2>Footer</h2>
+        </div>
     </footer>
 </template>
 
@@ -10,12 +12,12 @@
     }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 #footer {
     position: absolute;
     z-index: 99;
     bottom: 0;
     width: 100%;
-    height: 3rem;
+    background: #292b32;
 }
 </style>

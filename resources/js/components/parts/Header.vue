@@ -1,16 +1,21 @@
+
 <template>
     <header id="header">
-        <div class="container main-menu">
-            <div class="row align-items-center justify-content-between d-flex">
-                <div id="logo">
-                    <a href="/"></a>
-                </div>
-                <nav id="nav-menu-container">
-                    <ul class="nav-menu">
-                        <li><a href="/">Home</a></li>
-                    </ul>
-                </nav>
+        <div class="container align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <router-link class="logo" to="/">
+                    <img src="img/logo.svg" alt="" />
+                </router-link>
             </div>
+            <nav id="nav-menu-container">
+                <ul class="nav_menu">
+                    <li>
+                        <router-link to="/">
+                            Home
+                        </router-link>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 </template>
@@ -21,6 +26,15 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+#header {
+    height: 58px;
+    border-bottom: 1px solid #ccc;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    .container {
+        height: 100%;
+    }
+}
 </style>

@@ -1,12 +1,13 @@
 <template>
-    <main>
-        <v-header />
-        <div id="content-wrap" class="content">
-            <router-view></router-view>
-        </div>
-        <v-footer />
-    </main>
-
+    <div>
+        <Header />
+        <main class="wrapper">
+            <div id="content-wrap" class="content">
+                <router-view></router-view>
+            </div>
+        </main>
+        <Footer />
+    </div>
 </template>
 
 <script>
@@ -22,10 +23,7 @@ export default {
         return {
 
         }
-    },
-    props: {
-
-    },
+    }
 }
 </script>
 

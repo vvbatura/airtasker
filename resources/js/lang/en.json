@@ -8,5 +8,7 @@
     "rubric": "Rubric",
     "name": "Name",
     "password": "Password",
-    "phone": "Phone"
+    "phone": "Phone",
+    "word-403": "You don’t have permission to access on this server!",
+    "page-not-found": "Page not found!"
 }

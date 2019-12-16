@@ -8,5 +8,7 @@
     "rubric": "Rubrik",
     "name": "Name",
     "password": "Passwort",
-    "phone": "Telefon"
+    "phone": "Telefon",
+    "word-403": "Sie haben auf diesem Server keine Zugriffsberechtigung!",
+    "page-not-found": "Seite nicht gefunden!"
 }

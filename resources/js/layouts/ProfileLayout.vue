@@ -1,12 +1,14 @@
 <template>
-    <main>
-        <div class="container">
-            <h1>Profile layout</h1>
-            <router-view></router-view>
-        </div>
-        <v-footer/>
-    </main>
-
+    <div>
+        <Header />
+        <main class="wrapper">
+            <div class="container">
+                <h1>Profile layout</h1>
+                <router-view></router-view>
+            </div>
+        </main>
+        <Footer />
+    </div>
 </template>
 
 <script>
