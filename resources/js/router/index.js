@@ -6,8 +6,6 @@ import Login from '../pages/Auth/Login';
 import HomePage from '../pages/Home';
 import VerifyEmail from "../pages/Auth/VerifyEmail";
 import VerifyPhone from "../pages/Auth/VerifyPhone";
-import Profile from "../pages/Profile";
-import CreateAdvert from "../pages/CreateAdvert";
 import store from "../store"
 
 //Errors
@@ -60,19 +58,6 @@ const routes = [
         name: 'reset_password',
         component: ResetPassword,
         meta: {guest: true, layout: authLayout}
-    },
-    {
-        path: '/profile',
-        name: 'profile',
-        component: Profile,
-        meta: { auth: true, layout: authLayout }
-    },
-
-    {
-        path: '/advert',
-        name: 'creteAdvert',
-        component: CreateAdvert,
-        meta: { guest: true, layout: appLayout }
     },
     //Errors
     {

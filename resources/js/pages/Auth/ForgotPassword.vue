@@ -127,8 +127,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .reset-form {
-        max-width: 500px;
-        margin: 0 auto;
-    }
+.reset-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
 </style>

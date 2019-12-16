@@ -225,8 +225,8 @@
         </div>
     </div>
 </template>
-<script>
 
+<script>
 import {
     required,
     email,
@@ -255,7 +255,6 @@ export default {
             has_error: false
         };
     },
-
     validations: {
         first_name: {
             required,
@@ -283,7 +282,6 @@ export default {
             sameAsPassword: sameAs('password'),
         }
     },
-
     methods: {
         submit() {
             this.show_spiner = true;
@@ -320,7 +318,6 @@ export default {
             });
         },
     },
-
     filters: {
         toString: function (value) {
             if (!value) return '';

@@ -9,10 +9,10 @@
                     <ul class="nav-menu">
                         <li><a href="/">Home</a></li>
                     </ul>
-                </nav><!-- #nav-menu-container -->
+                </nav>
             </div>
         </div>
-    </header><!-- #header -->
+    </header>
 </template>
 
 <script>

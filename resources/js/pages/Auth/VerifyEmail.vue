@@ -9,36 +9,34 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                token: '',
-                success: false,
-            };
-        },
-
-        created() {
-            this.verify();
-        },
-
-        methods: {
-            verify() {
-                axios.get('/auth/verify', {
-                    params: {
-                        token: this.$route.params.token,
-                        type: 'email'
-                    }
-                })
-                .then(response => {
-                        this.success = true;
-                    }
-                )
-                .catch(error => {
-                        //console.log(error);
-                    }
-                )
-            }
+export default {
+    data() {
+        return {
+            token: '',
+            success: false,
+        };
+    },
+    created() {
+        this.verify();
+    },
+    methods: {
+        verify() {
+            axios.get('/auth/verify', {
+                params: {
+                    token: this.$route.params.token,
+                    type: 'email'
+                }
+            })
+            .then(response => {
+                    this.success = true;
+                }
+            )
+            .catch(error => {
+                    //console.log(error);
+                }
+            )
         }
     }
+}
 </script>
 

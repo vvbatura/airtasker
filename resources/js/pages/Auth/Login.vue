@@ -41,94 +41,94 @@
 </template>
 
 <script>
-    import {
-        required,
-        email,
-        minLength,
-        maxLength
-    } from "vuelidate/lib/validators";
-    import LoginWithGoogle from "../../components/social/google";
-    import LoginWithFacebook from "../../components/social/facebook";
+import {
+    required,
+    email,
+    minLength,
+    maxLength
+} from "vuelidate/lib/validators";
+import LoginWithGoogle from "../../components/social/google";
+import LoginWithFacebook from "../../components/social/facebook";
 
-    export default {
-        components: {LoginWithGoogle, LoginWithFacebook},
-        data() {
-            return {
-                error_dialog: false,
-                email: null,
-                password: null,
-                remember_me: false,
-                has_error: false,
-                errors: null,
-                locale: null,
-            };
+export default {
+    components: {LoginWithGoogle, LoginWithFacebook},
+    data() {
+        return {
+            error_dialog: false,
+            email: null,
+            password: null,
+            remember_me: false,
+            has_error: false,
+            errors: null,
+            locale: null,
+        };
+    },
+
+    validations: {
+        email: {
+            required,
+            email,
+            maxLength: maxLength(255)
         },
-
-        validations: {
-            email: {
-                required,
-                email,
-                maxLength: maxLength(255)
-            },
-            password: {
-                required,
-                minLength: minLength(6),
-                maxLength: maxLength(255)
-            }
-        },
-
-        beforeMount() {
-            this.locale = this.$store.getters.locale
-        },
-
-        methods: {
-            submit() {
-                this.has_error = false;
-                this.$v.$touch();
-                if (this.$v.$invalid) {
-                    return;
-                }
-                this.errors = null;
-
-                this.$auth.login({
-                    data: {
-                        email: this.email,
-                        password: this.password,
-                        remember_me: this.remember_me,
-                    },
-                    success: function() {
-                        this.$store.dispatch('setLocale', {locale: this.locale});
-                    },
-                    error: function(error) {
-                        switch (error.response.status) {
-                            case 422:
-                            case 400:
-                                this.has_error = true;
-                                this.errors = error.response.data;
-                                break;
-                            case 423:
-                                app.has_error = true;
-                                this.errors = error.response.data;
-                                break;
-                            default:
-                                this.error_dialog = true;
-                                break;
-                        }
-                    },
-                    rememberMe: true,
-                });
-            },
-            changeLocale() {
-                this.$i18n.locale = this.locale;
-            }
+        password: {
+            required,
+            minLength: minLength(6),
+            maxLength: maxLength(255)
         }
+    },
 
+    beforeMount() {
+        this.locale = this.$store.getters.locale
+    },
+
+    methods: {
+        submit() {
+            this.has_error = false;
+            this.$v.$touch();
+            if (this.$v.$invalid) {
+                return;
+            }
+            this.errors = null;
+
+            this.$auth.login({
+                data: {
+                    email: this.email,
+                    password: this.password,
+                    remember_me: this.remember_me,
+                },
+                success: function() {
+                    this.$store.dispatch('setLocale', {locale: this.locale});
+                },
+                error: function(error) {
+                    switch (error.response.status) {
+                        case 422:
+                        case 400:
+                            this.has_error = true;
+                            this.errors = error.response.data;
+                            break;
+                        case 423:
+                            app.has_error = true;
+                            this.errors = error.response.data;
+                            break;
+                        default:
+                            this.error_dialog = true;
+                            break;
+                    }
+                },
+                rememberMe: true,
+            });
+        },
+        changeLocale() {
+            this.$i18n.locale = this.locale;
+        }
     }
+
+}
 </script>
 
 <style scoped lang="scss">
-    .login-form {
-        max-width: 500px;
-        margin: 0 auto;
-    }
+.login-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
 </style>

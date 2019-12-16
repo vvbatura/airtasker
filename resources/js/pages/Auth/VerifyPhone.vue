@@ -21,41 +21,39 @@
 </template>
 
 <script>
-    import {email, maxLength, minLength, required} from "vuelidate/lib/validators";
+import {email, maxLength, minLength, required} from "vuelidate/lib/validators";
 
-    export default {
-        data() {
-            return {
-                code: '',
-                message: '',
-            };
-        },
-
-        validations: {
-            code: {
-                required
-            }
-        },
-
-        methods: {
-            submit() {
-                axios.get('/auth/verify', {
-                    params: {
-                        token: this.code,
-                        type: 'phone'
-                    }
-                })
-                .then(response => {
-                        this.message = 'Successfully You verified email.';
-                    }
-                )
-                .catch(error => {
-                        this.message = 'Error You didn\'t verify email.';
-                    }
-                )
-            }
+export default {
+    data() {
+        return {
+            code: '',
+            message: '',
+        };
+    },
+    validations: {
+        code: {
+            required
+        }
+    },
+    methods: {
+        submit() {
+            axios.get('/auth/verify', {
+                params: {
+                    token: this.code,
+                    type: 'phone'
+                }
+            })
+            .then(response => {
+                    this.message = 'Successfully You verified email.';
+                }
+            )
+            .catch(error => {
+                    this.message = 'Error You didn\'t verify email.';
+                }
+            )
         }
     }
+}
 </script>
 
 <style scoped lang="scss">
