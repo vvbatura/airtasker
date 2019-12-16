@@ -3,26 +3,24 @@
 namespace App\Http\Controllers\Api;
 
 use App\ConfigProject\Constants;
-use App\Http\Requests\Category\CategoriesRequest;
-use App\Http\Requests\Category\CategoryDataRequest;
-use App\Http\Requests\Category\CategoryRequest;
-use App\Http\Resources\Category\CategoryResource;
-use App\Models\Category;
+use App\Http\Requests\User\UsersRequest;
+use App\Http\Resources\User\UserResource;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-class CategoryController extends BaseController
+class UserController extends BaseController
 {
 
-    public function index (CategoriesRequest $request)
+    public function index (UsersRequest $request)
     {
         $itemIds = $request->get('ids', []);
         $perPage = $request->get('per_page', Constants::PAGINATE_PER_PAGE);
         if (count($itemIds)) {
-            $perPage = $request->get('per_page', Category::count());
+            $perPage = $request->get('per_page', User::count());
         }
 
-        $items = Category::
+        $items = User::
             when(count($itemIds), function ($query) use ($itemIds) {
                 $query->whereIn('id', $itemIds);
             })
@@ -30,14 +28,14 @@ class CategoryController extends BaseController
             ->search($request)
             ->paginate($perPage);
 
-        return CategoryResource::collection($items);
+        return UserResource::collection($items);
     }
 
-    public function store(CategoryDataRequest $request)
+    public function store(UserDataRequest $request)
     {
         DB::beginTransaction();
         try{
-            $item = Category::create($request->only('title', 'description'));
+            $item = User::create($request->only('title', 'description'));
 
             if ($imageBase64 = $request->get('image', false)) {
                 $fileName = $item->getId() . '_' . time() .'.png';

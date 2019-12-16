@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/reset-password-phone', 'AuthController@resetPasswordPhone');
     });
 
-    //Route::group(['middleware' => 'jwt'], function() {
+    Route::group(['middleware' => 'jwt'], function() {
 
         Route::group(['prefix' => 'category'], function () {
             Route::get('/', 'CategoryController@index');
@@ -36,7 +36,7 @@ Route::group(['namespace' => 'Api'], function () {
             Route::delete('/', 'CategoryController@deleteMany');
         });
 
-    //});
+    });
 
     /*Route::group(['middleware' => 'jwt'], function() {
 

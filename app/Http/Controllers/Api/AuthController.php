@@ -43,7 +43,8 @@ class AuthController extends BaseController
 
     public function TestSms ()
     {
-        $message = $this->sendSMS('4917632281828', 'Hello from WEB.');
+        $message = $this->sendSMS('380983091243', 'Hello from WEB.');
+        //$message = $this->sendSMS('4917632281828', 'Hello from WEB.');
 
         dd($message);
     }
