@@ -11,8 +11,11 @@ body {
 .logout {
     color: $dark;
 }
-.wrapper {
+.wrapper_box {
     padding-top: 58px;
+}
+main {
+    min-height: 100vh;
 }
 .v-sidebar-menu {
     padding-top: 4%;

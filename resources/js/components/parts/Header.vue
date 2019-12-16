@@ -14,6 +14,11 @@
                             Home
                         </router-link>
                     </li>
+                    <li>
+                        <router-link to="/login">
+                            Log in
+                        </router-link>
+                    </li>
                 </ul>
             </nav>
         </div>

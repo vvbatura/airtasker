@@ -4,7 +4,12 @@
 
 //============================ HEADER PAGE
 .nav_menu {
+    display: flex;
     li {
+        margin-right: 20px;
+        &:last-of-type {
+            margin-right: 0;
+        }
         a {
             color: $main-color;
         }
@@ -33,4 +38,23 @@
             font-size: 30px;
         }
     }
+}
+
+//============================ LOGIN PAGE
+.form-control {
+    background: #ffffff;
+    height: 46px;
+}
+.btn_social {
+    height: 45px;
+    border-radius: 45px;
+    width: 48%;
+}
+.btn_media {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(187, 194, 220);
+    font-size: 18px;
+}
+.btn {
+    font-size: 16px;
 }

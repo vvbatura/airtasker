@@ -1,7 +1,7 @@
 {
     "lang": "English",
-    "create_account": "Create account",
-    "login": "Login",
+    "sign_up": "Sign up",
+    "login": "Log in",
     "remember_me": "Remember me",
     "forgot_password": "Forget password ?",
     "country": "Country",

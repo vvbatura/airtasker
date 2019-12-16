@@ -1,5 +1,11 @@
 <template>
-    <button type="button" class="btn btn-primary btn-block" @click="signInByFacebook">facebook</button>
+    <button
+        type="button"
+        class="btn btn_facebook btn_social"
+        @click="signInByFacebook">
+        <i class="ri-facebook-circle-fill"></i>
+        Facebook
+    </button>
 </template>
 
 <script>
@@ -35,8 +41,24 @@
             }
         }
     }
-
-
-
-
 </script>
+
+<style lang="scss">
+.btn_facebook {
+    background: rgb(24, 119, 242);
+    color: #ffffff;
+    font-size: 16px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        color: #ffffff;
+    }
+    i {
+        line-height: 1;
+        font-size: 22px;
+        margin-right: 5px;
+    }
+}
+</style>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/fonts/FontAwesome/css/fontawesome-all.min.css">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <link href="https://cdn.remixicon.com/releases/v2.1.0/remixicon.css" rel="stylesheet">
 </head>
 <body>
     <div id="app" data-app="true">

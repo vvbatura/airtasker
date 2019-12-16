@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header />
-        <main class="wrapper">
+        <main class="wrapper_box">
             <div id="content-wrap" class="content">
                 <router-view></router-view>
             </div>

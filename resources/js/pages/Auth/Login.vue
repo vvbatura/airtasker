@@ -1,16 +1,17 @@
 <template>
     <div class="login-form">
         <form v-on:submit.prevent="submit">
-            <h2 class="text-center mb-5">Log in</h2>
+            <h2 class="text-center mb-4">Log in</h2>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" v-model.trim="$v.email.$model">
+                <label for="email-login">Email</label>
+                <input id="email-login" type="email" class="form-control" placeholder="Email" v-model.trim="$v.email.$model">
                 <div v-if="!$v.email.required && $v.email.$dirty" class="not-valid">Email is required</div>
                 <div v-if="!$v.email.email && $v.email.$dirty" class="not-valid">Incorrect email</div>
                 <div v-if="!$v.email.maxLength && $v.email.$dirty" class="not-valid">Max email length is 255</div>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" v-model="$v.password.$model">
-
+                <label for="password-login">Password</label>
+                <input id="password-login" type="password" class="form-control" placeholder="Password" v-model="$v.password.$model">
                 <div v-if="!$v.password.required && $v.$dirty && !$v.email.$invalid" class="not-valid">
                     Password is required
                 </div>
@@ -22,21 +23,26 @@
                 </div>
                 <div v-if="has_error" class="not-valid">Login details are incorrect</div>
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block btn-lg">{{$t('login')}}</button>
-                <login-with-facebook />
-                <login-with-google />
-            </div>
-            <div class="clearfix">
-                <label class="pull-left checkbox-inline"><input type="checkbox" v-model="remember_me"> {{$t('remember_me')}}</label>
+            <div class="forget_btn">
                 <router-link :to="{name: 'forgot'}" class="pull-right">{{$t('forgot_password')}}</router-link>
             </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block btn-lg">{{$t('login')}}</button>
+                <div class="login_with text-center">
+                    <span>or login with</span>
+                </div>
+                <div class="d-flex justify-content-between btn_media">
+                    <login-with-facebook />
+                    <login-with-google />
+                </div>
+            </div>
         </form>
-        <p class="text-center">
+        <div class="d-flex justify-content-between">
+            <p>Don't have an account ?</p>
             <router-link :to="{ name: 'register'}">
-                {{$t('create_account')}}
+                {{$t('sign_up')}}
             </router-link>
-        </p>
+        </div>
     </div>
 </template>
 
@@ -126,9 +132,62 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .login-form {
-    max-width: 500px;
+    width: 400px;
     margin: 0 auto;
+    padding: 20px 20px 30px 20px;
+    border-radius: 5px;
+    background: #ffffff;
+}
+@media (max-width: 560px) {
+    .login-form {
+        max-width: 100%;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+.forget_btn {
+    text-align: right;
+    margin-bottom: 20px;
+    a {
+        font-size: 20px;
+    }
+}
+.btn-lg {
+    background: rgb(125, 179, 67);
+    color: #ffffff;
+    height: 45px;
+    border-radius: 45px;
+    margin-bottom: 15px;
+    &:hover {
+        color: #ffffff;
+    }
+}
+.login_with {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: rgb(84, 90, 119);
+    position: relative;
+    span {
+        background: #ffffff;
+        position: relative;
+        z-index: 10;
+        padding: 0 15px;
+    }
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: rgb(187, 194, 220);
+        height: 1px;
+        width: 100%;
+        top: 55%;
+        left: 0;
+        transform: translateY(-50%);
+    }
 }
 </style>

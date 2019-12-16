@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #f6f8fd;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -512,7 +512,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: #f6f8fd;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4491,15 +4491,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4708,8 +4708,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+  background-color: #f6f8fd;
+  border-color: #dee2e6 #dee2e6 #f6f8fd;
 }
 
 .nav-tabs .dropdown-menu {
@@ -11879,17 +11879,17 @@ input[type=color].form-control:disabled {
 
 .was-validated .custom-range:valid:focus::-webkit-slider-thumb,
 .custom-range.is-valid:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem #bfecd2;
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem #bfecd2;
 }
 
 .was-validated .custom-range:valid:focus::-moz-range-thumb,
 .custom-range.is-valid:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem #bfecd2;
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem #bfecd2;
 }
 
 .was-validated .custom-range:valid:focus::-ms-thumb,
 .custom-range.is-valid:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem #bfecd2;
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem #bfecd2;
 }
 
 .was-validated .custom-range:valid::-webkit-slider-thumb,
@@ -11968,17 +11968,17 @@ input[type=color].form-control:disabled {
 
 .was-validated .custom-range:invalid:focus::-webkit-slider-thumb,
 .custom-range.is-invalid:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem #f8cecc;
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem #f8cecc;
 }
 
 .was-validated .custom-range:invalid:focus::-moz-range-thumb,
 .custom-range.is-invalid:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem #f8cecc;
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem #f8cecc;
 }
 
 .was-validated .custom-range:invalid:focus::-ms-thumb,
 .custom-range.is-invalid:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem #f8cecc;
+  box-shadow: 0 0 0 1px #f6f8fd, 0 0 0 0.2rem #f8cecc;
 }
 
 .was-validated .custom-range:invalid::-webkit-slider-thumb,
@@ -12719,7 +12719,7 @@ input[type=color].form-control:disabled {
   .table.b-table > tbody > tr > .table-b-table-default,
   .table.b-table > tfoot > tr > .table-b-table-default {
     color: #212529;
-    background-color: #f8fafc;
+    background-color: #f6f8fd;
   }
 
   .table.b-table.table-dark > thead > tr > .bg-b-table-default,
@@ -13730,7 +13730,7 @@ input[type=color].form-control:disabled {
 body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
-  background-color: #f8fafc;
+  background-color: #f6f8fd;
   color: #545a77;
 }
 
@@ -13738,8 +13738,12 @@ body {
   color: #000000;
 }
 
-.wrapper {
+.wrapper_box {
   padding-top: 58px;
+}
+
+main {
+  min-height: 100vh;
 }
 
 .v-sidebar-menu {
@@ -13760,6 +13764,19 @@ body {
 
 .error {
   color: red;
+}
+
+.nav_menu {
+  display: -webkit-box;
+  display: flex;
+}
+
+.nav_menu li {
+  margin-right: 20px;
+}
+
+.nav_menu li:last-of-type {
+  margin-right: 0;
 }
 
 .nav_menu li a {
@@ -13788,6 +13805,27 @@ body {
 
 .access_error .error_box h2 {
   font-size: 30px;
+}
+
+.form-control {
+  background: #ffffff;
+  height: 46px;
+}
+
+.btn_social {
+  height: 45px;
+  border-radius: 45px;
+  width: 48%;
+}
+
+.btn_media {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #bbc2dc;
+  font-size: 18px;
+}
+
+.btn {
+  font-size: 16px;
 }
 
 ul,

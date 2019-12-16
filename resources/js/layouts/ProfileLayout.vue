@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header />
-        <main class="wrapper">
+        <main class="wrapper_box">
             <div class="container">
                 <h1>Profile layout</h1>
                 <router-view></router-view>

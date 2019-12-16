@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div id="content-wrap" class="content">
+        <div id="content-auth" class="content ">
             <router-view></router-view>
         </div>
     </main>
@@ -17,7 +17,11 @@ export default {
 </script>
 
 <style lang="scss">
-
+#content-auth {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
 </style>
 
 
