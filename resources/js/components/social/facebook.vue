@@ -57,7 +57,7 @@
     }
     i {
         line-height: 1;
-        font-size: 22px;
+        font-size: 24px;
         margin-right: 5px;
     }
 }

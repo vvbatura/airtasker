@@ -13762,6 +13762,15 @@ main {
   display: none;
 }
 
+.btn {
+  outline: none;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
 .error {
   color: red;
 }
@@ -13826,6 +13835,10 @@ main {
 
 .btn {
   font-size: 16px;
+}
+
+.btn_reset {
+  background: #1877f2 !important;
 }
 
 ul,
