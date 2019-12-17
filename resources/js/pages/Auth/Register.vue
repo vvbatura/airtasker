@@ -5,13 +5,13 @@
             <div class="form-group">
                 <label for="first_name">{{$t('name')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input v-model="$v.first_name.$model" type="text" class="form-control" id="first_name" placeholder="Name" required autofocus>
+                    <input v-model="$v.first_name.$model" type="text" class="form-control" id="first_name" :placeholder="$t('name')" required autofocus>
                 </div>
             </div>
             <div class="form-group">
                 <label for="last_name">{{$t('surname')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input v-model="$v.last_name.$model" type="text" class="form-control" id="last_name" placeholder="Surname" required autofocus>
+                    <input v-model="$v.last_name.$model" type="text" class="form-control" id="last_name" :placeholder="$t('surname')" required autofocus>
                 </div>
             </div>
             <div class="form-group">
@@ -25,13 +25,13 @@
                 <label for="email">{{$t('phone')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input type="tel" v-mask="'(+499) 999 99 99'" v-model="$v.phone.$model" class="form-control" id="phone"
-                            placeholder="Phone" required autofocus/>
+                            :placeholder="$t('phone')" required autofocus/>
                 </div>
             </div>
             <div class="form-group has-danger">
                 <label for="password">{{$t('password')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input type="password" v-model.trim="$v.password.$model" class="form-control" id="password" placeholder="Password" required>
+                    <input type="password" v-model.trim="$v.password.$model" class="form-control" id="password" :placeholder="$t('password')" required>
                 </div>
             </div>
             <div class="form-group">

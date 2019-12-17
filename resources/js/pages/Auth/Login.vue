@@ -1,27 +1,27 @@
 <template>
     <div class="login-form">
         <form v-on:submit.prevent="submit">
-            <h2 class="text-center mb-4">Log in</h2>
+            <h2 class="text-center mb-4">{{$t('login')}}</h2>
             <div class="form-group">
-                <label for="email-login">Email</label>
-                <input id="email-login" type="email" class="form-control" placeholder="Email" v-model.trim="$v.email.$model">
-                <div v-if="!$v.email.required && $v.email.$dirty" class="not-valid">Email is required</div>
-                <div v-if="!$v.email.email && $v.email.$dirty" class="not-valid">Incorrect email</div>
-                <div v-if="!$v.email.maxLength && $v.email.$dirty" class="not-valid">Max email length is 255</div>
+                <label for="email-login">{{$t('email')}}</label>
+                <input id="email-login" type="email" class="form-control" :placeholder="$t('email')" v-model.trim="$v.email.$model">
+                <div v-if="!$v.email.required && $v.email.$dirty" class="not-valid">{{$t('email-is-required')}}</div>
+                <div v-if="!$v.email.email && $v.email.$dirty" class="not-valid">{{$t('incorrect-email')}}</div>
+                <div v-if="!$v.email.maxLength && $v.email.$dirty" class="not-valid">{{$t('max-email-length-is-255')}}</div>
             </div>
             <div class="form-group">
-                <label for="password-login">Password</label>
-                <input id="password-login" type="password" class="form-control" placeholder="Password" v-model="$v.password.$model">
+                <label for="password-login">{{$t('password')}}</label>
+                <input id="password-login" type="password" class="form-control" :placeholder="$t('password')" v-model="$v.password.$model">
                 <div v-if="!$v.password.required && $v.$dirty && !$v.email.$invalid" class="not-valid">
-                    Password is required
+                    {{$t('password-is-required')}}
                 </div>
                 <div v-if="!$v.password.minLength && $v.$dirty && !$v.email.$invalid" class="not-valid">
-                    Min Password length is 6
+                    {{$t('min-password-length-is-6')}}
                 </div>
                 <div v-if="!$v.password.maxLength && $v.$dirty && !$v.email.$invalid" class="not-valid">
-                    Max Password length is 255
+                    {{$t('max-password-length-is-255')}}
                 </div>
-                <div v-if="has_error" class="not-valid">Login details are incorrect</div>
+                <div v-if="has_error" class="not-valid">{{$t('login-details-are-incorrect')}}</div>
             </div>
             <div class="forget_btn">
                 <router-link :to="{name: 'forgot'}" class="pull-right">{{$t('forgot_password')}}</router-link>
@@ -29,7 +29,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-block btn-lg">{{$t('login')}}</button>
                 <div class="login_with text-center">
-                    <span>or login with</span>
+                    <span>{{$t('or-login-with')}}</span>
                 </div>
                 <div class="d-flex justify-content-between btn_media">
                     <login-with-facebook />

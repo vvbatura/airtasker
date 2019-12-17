@@ -17,5 +17,14 @@
     "join-airtasker": "Beitreten airtasker",
     "join-us": "Begleiten Sie uns",
     "surname": "Nachname",
-    "or-sign-up-with": "oder melde dich an mit"
+    "or-sign-up-with": "oder melde dich an mit",
+    "or-login-with": "oder einloggen mit",
+    "max-password-length-is-255": "Die maximale Kennwortlänge beträgt 255",
+    "max-email-length-is-255": "Die maximale email länge beträgt 255",
+    "password-is-required": "Passwort wird benötigt",
+    "min-password-length-is-6": "Die Mindestlänge des Passworts beträgt 6",
+    "email-is-required": "Email ist erforderlich",
+    "name-is-required": "Name ist erforderlich",
+    "incorrect-email": "Falsche email",
+    "login-details-are-incorrect": "Anmeldedaten sind falsch"
 }

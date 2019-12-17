@@ -80008,10 +80008,14 @@ var render = function() {
         }
       },
       [
-        _c("h2", { staticClass: "text-center mb-4" }, [_vm._v("Log in")]),
+        _c("h2", { staticClass: "text-center mb-4" }, [
+          _vm._v(_vm._s(_vm.$t("login")))
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "email-login" } }, [_vm._v("Email")]),
+          _c("label", { attrs: { for: "email-login" } }, [
+            _vm._v(_vm._s(_vm.$t("email")))
+          ]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -80024,7 +80028,11 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { id: "email-login", type: "email", placeholder: "Email" },
+            attrs: {
+              id: "email-login",
+              type: "email",
+              placeholder: _vm.$t("email")
+            },
             domProps: { value: _vm.$v.email.$model },
             on: {
               input: function($event) {
@@ -80041,26 +80049,26 @@ var render = function() {
           _vm._v(" "),
           !_vm.$v.email.required && _vm.$v.email.$dirty
             ? _c("div", { staticClass: "not-valid" }, [
-                _vm._v("Email is required")
+                _vm._v(_vm._s(_vm.$t("email-is-required")))
               ])
             : _vm._e(),
           _vm._v(" "),
           !_vm.$v.email.email && _vm.$v.email.$dirty
             ? _c("div", { staticClass: "not-valid" }, [
-                _vm._v("Incorrect email")
+                _vm._v(_vm._s(_vm.$t("incorrect-email")))
               ])
             : _vm._e(),
           _vm._v(" "),
           !_vm.$v.email.maxLength && _vm.$v.email.$dirty
             ? _c("div", { staticClass: "not-valid" }, [
-                _vm._v("Max email length is 255")
+                _vm._v(_vm._s(_vm.$t("max-email-length-is-255")))
               ])
             : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "password-login" } }, [
-            _vm._v("Password")
+            _vm._v(_vm._s(_vm.$t("password")))
           ]),
           _vm._v(" "),
           _c("input", {
@@ -80076,7 +80084,7 @@ var render = function() {
             attrs: {
               id: "password-login",
               type: "password",
-              placeholder: "Password"
+              placeholder: _vm.$t("password")
             },
             domProps: { value: _vm.$v.password.$model },
             on: {
@@ -80091,14 +80099,20 @@ var render = function() {
           _vm._v(" "),
           !_vm.$v.password.required && _vm.$v.$dirty && !_vm.$v.email.$invalid
             ? _c("div", { staticClass: "not-valid" }, [
-                _vm._v("\n                Password is required\n            ")
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$t("password-is-required")) +
+                    "\n            "
+                )
               ])
             : _vm._e(),
           _vm._v(" "),
           !_vm.$v.password.minLength && _vm.$v.$dirty && !_vm.$v.email.$invalid
             ? _c("div", { staticClass: "not-valid" }, [
                 _vm._v(
-                  "\n                Min Password length is 6\n            "
+                  "\n                " +
+                    _vm._s(_vm.$t("min-password-length-is-6")) +
+                    "\n            "
                 )
               ])
             : _vm._e(),
@@ -80106,14 +80120,16 @@ var render = function() {
           !_vm.$v.password.maxLength && _vm.$v.$dirty && !_vm.$v.email.$invalid
             ? _c("div", { staticClass: "not-valid" }, [
                 _vm._v(
-                  "\n                Max Password length is 255\n            "
+                  "\n                " +
+                    _vm._s(_vm.$t("max-password-length-is-255")) +
+                    "\n            "
                 )
               ])
             : _vm._e(),
           _vm._v(" "),
           _vm.has_error
             ? _c("div", { staticClass: "not-valid" }, [
-                _vm._v("Login details are incorrect")
+                _vm._v(_vm._s(_vm.$t("login-details-are-incorrect")))
               ])
             : _vm._e()
         ]),
@@ -80138,7 +80154,9 @@ var render = function() {
             [_vm._v(_vm._s(_vm.$t("login")))]
           ),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "login_with text-center" }, [
+            _c("span", [_vm._v(_vm._s(_vm.$t("or-login-with")))])
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -80164,16 +80182,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "login_with text-center" }, [
-      _c("span", [_vm._v("or login with")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -80231,7 +80240,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 id: "first_name",
-                placeholder: "Name",
+                placeholder: _vm.$t("name"),
                 required: "",
                 autofocus: ""
               },
@@ -80267,7 +80276,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 id: "last_name",
-                placeholder: "Surname",
+                placeholder: _vm.$t("surname"),
                 required: "",
                 autofocus: ""
               },
@@ -80345,7 +80354,7 @@ var render = function() {
               attrs: {
                 type: "tel",
                 id: "phone",
-                placeholder: "Phone",
+                placeholder: _vm.$t("phone"),
                 required: "",
                 autofocus: ""
               },
@@ -80382,7 +80391,7 @@ var render = function() {
               attrs: {
                 type: "password",
                 id: "password",
-                placeholder: "Password",
+                placeholder: _vm.$t("password"),
                 required: ""
               },
               domProps: { value: _vm.$v.password.$model },
@@ -99870,10 +99879,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot_password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, default */
+/*! exports provided: lang, sign_up, login, remember_me, forgot_password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot_password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot_password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\"}");
 
 /***/ }),
 
