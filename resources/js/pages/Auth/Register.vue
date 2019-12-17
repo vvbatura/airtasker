@@ -24,8 +24,6 @@
             <div class="form-group">
                 <label for="email">Phone Number</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <!-- <input type="text" v-model="$v.phone.$model" class="form-control" id="phone"
-                            placeholder="Phone Number" required autofocus> -->
                     <input type="tel" v-mask="'(+499) 999 99 99'" v-model="$v.phone.$model" class="form-control" id="phone"
                             placeholder="Phone Number" required autofocus/>
                 </div>
@@ -36,8 +34,23 @@
                     <input type="password" v-model.trim="$v.password.$model" class="form-control" id="password" placeholder="Password" required>
                 </div>
             </div>
-            <button class="btn btn-success">Register</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block btn-lg">Join airtasker</button>
+                <div class="login_with text-center">
+                    <span>or sign up with</span>
+                </div>
+                <div class="d-flex justify-content-between btn_media">
+                    <login-with-facebook />
+                    <login-with-google />
+                </div>
+            </div>
         </form>
+        <div class="d-flex justify-content-between">
+            <p>Already have an account ?</p>
+            <router-link :to="{ name: 'login'}">
+                {{$t('login')}}
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -49,8 +62,14 @@ import {
     maxLength,
     sameAs
 } from 'vuelidate/lib/validators';
+import LoginWithGoogle from "../../components/social/google";
+import LoginWithFacebook from "../../components/social/facebook";
 
 export default {
+    components: {
+        LoginWithGoogle,
+        LoginWithFacebook
+    },
     data() {
         return {
             error_dialog: false,

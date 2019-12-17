@@ -144,7 +144,7 @@ export default {
     .login-form {
         max-width: 100%;
         width: 100vw;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         flex-direction: column;

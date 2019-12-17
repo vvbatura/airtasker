@@ -3622,6 +3622,21 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_social_google__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/social/google */ "./resources/js/components/social/google.vue");
+/* harmony import */ var _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/social/facebook */ "./resources/js/components/social/facebook.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3666,7 +3681,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    LoginWithGoogle: _components_social_google__WEBPACK_IMPORTED_MODULE_1__["default"],
+    LoginWithFacebook: _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   data: function data() {
     return {
       error_dialog: false,
@@ -32900,7 +32921,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#content-auth {\n  height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}", ""]);
+exports.push([module.i, "#content-auth {\n  min-height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}", ""]);
 
 // exports
 
@@ -32938,7 +32959,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".login-form {\n  width: 400px;\n  margin: 0 auto;\n  padding: 20px 20px 30px 20px;\n  border-radius: 5px;\n  background: #ffffff;\n}\n@media (max-width: 560px) {\n.login-form {\n    max-width: 100%;\n    width: 100vw;\n    height: 100vh;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n}\n.forget_btn {\n  text-align: right;\n  margin-bottom: 20px;\n}\n.forget_btn a {\n  font-size: 20px;\n}\n.btn-lg {\n  background: #7db343;\n  color: #ffffff;\n  height: 45px;\n  border-radius: 45px;\n  margin-bottom: 15px;\n}\n.btn-lg:hover {\n  color: #ffffff;\n}\n.login_with {\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #545a77;\n  position: relative;\n}\n.login_with span {\n  background: #ffffff;\n  position: relative;\n  z-index: 10;\n  padding: 0 15px;\n}\n.login_with:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  background: #bbc2dc;\n  height: 1px;\n  width: 100%;\n  top: 55%;\n  left: 0;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}", ""]);
+exports.push([module.i, ".login-form {\n  width: 400px;\n  margin: 0 auto;\n  padding: 20px 20px 30px 20px;\n  border-radius: 5px;\n  background: #ffffff;\n}\n@media (max-width: 560px) {\n.login-form {\n    max-width: 100%;\n    width: 100vw;\n    min-height: 100vh;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n}\n.forget_btn {\n  text-align: right;\n  margin-bottom: 20px;\n}\n.forget_btn a {\n  font-size: 20px;\n}\n.btn-lg {\n  background: #7db343;\n  color: #ffffff;\n  height: 45px;\n  border-radius: 45px;\n  margin-bottom: 15px;\n}\n.btn-lg:hover {\n  color: #ffffff;\n}\n.login_with {\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #545a77;\n  position: relative;\n}\n.login_with span {\n  background: #ffffff;\n  position: relative;\n  z-index: 10;\n  padding: 0 15px;\n}\n.login_with:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  background: #bbc2dc;\n  height: 1px;\n  width: 100%;\n  top: 55%;\n  left: 0;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}", ""]);
 
 // exports
 
@@ -80372,12 +80393,49 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Register")])
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "button",
+            { staticClass: "btn btn-block btn-lg", attrs: { type: "submit" } },
+            [_vm._v("Join airtasker")]
+          ),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "d-flex justify-content-between btn_media" },
+            [_c("login-with-facebook"), _vm._v(" "), _c("login-with-google")],
+            1
+          )
+        ])
       ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "d-flex justify-content-between" },
+      [
+        _c("p", [_vm._v("Already have an account ?")]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "login" } } }, [
+          _vm._v("\n            " + _vm._s(_vm.$t("login")) + "\n        ")
+        ])
+      ],
+      1
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "login_with text-center" }, [
+      _c("span", [_vm._v("or sign up with")])
+    ])
+  }
+]
 render._withStripped = true
 
 
