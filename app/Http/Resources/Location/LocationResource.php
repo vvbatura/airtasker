@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\User;
+namespace App\Http\Resources\Location;
 
 use App\Http\Resources\Role\RoleResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class LocationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +18,10 @@ class UserResource extends JsonResource
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
-            'email' => $this->getEmail(),
-            'roles' => RoleResource::collection($this->roles),
+            'short_name' => $this->getShortName(),
+            'google_place_id' => $this->getGooglePlaceId(),
+            'lat' => $this->Lat(),
+            'lng' => $this->Lng(),
         ];
     }
 }

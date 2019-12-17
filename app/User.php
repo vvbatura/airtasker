@@ -4,19 +4,28 @@ namespace App;
 
 use App\ConfigProject\Constants;
 use App\Models\AuthProvider;
+use App\Models\Location;
 use App\Models\Profile;
+use App\Models\Skill;
+use App\Traits\TableData;
+use App\Traits\UserData;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, HasMedia
 {
     use Notifiable;
     use HasRoles;
     use SoftDeletes;
+    use TableData, UserData;
+    use HasMediaTrait;
 
     //-data
     protected $fillable = [
@@ -37,7 +46,22 @@ class User extends Authenticatable implements JWTSubject
     //-setters
     public function setCreatedAtAttribute($date) { $this->attributes['created_at'] = $date; }
     public function setUpdatedAtAttribute($date) { $this->attributes['updated_at'] = $date; }
-    public function setPasswordAttribute($password) { $this->attributes['password'] = bcrypt($password); }
+    public function setPasswordAttribute($password) { $this->attributes['password'] = Hash::make($password); }
+
+    //-getters
+    public function getId() { return $this->id; }
+    public function getFirstName() { return $this->first_name; }
+    public function getLastName() { return $this->last_name; }
+    public function getName() { return $this->first_name . ' ' . $this->last_name; }
+    public function getEmail() { return $this->email; }
+    public function getPhone() { return $this->phone; }
+    public function getAddress() { return $this->_address ? $this->_address->title : null; }
+    public function getTagLinePhone() { return $this->_profile ? $this->_profile->tag_line : null; }
+    public function getBirthDay() { return $this->_profile ? $this->_profile->birth_day : null; }
+    public function getSex() { return $this->_profile ? $this->_profile->sex : null; }
+    public function getAbn() { return $this->_profile ? $this->_profile->abn : null; }
+    public function getDescription() { return $this->_profile ? $this->_profile->description : null; }
+    public function getType() { return $this->type; }
 
     //-methods
     public function getJWTIdentifier()
@@ -61,12 +85,24 @@ class User extends Authenticatable implements JWTSubject
     }
 
     //-relations
+    public function _socials()
+    {
+        return $this->hasMany(AuthProvider::class);
+    }
     public function _profile()
     {
         return $this->hasOne(Profile::class);
     }
-    public function _socials()
+    public function _location()
     {
-        return $this->hasMany(AuthProvider::class);
+        return $this->belongsTo(Location::class);
+    }
+    public function _skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+    public function _tasks()
+    {
+        //return $this->hasMany(Task::class);
     }
 }

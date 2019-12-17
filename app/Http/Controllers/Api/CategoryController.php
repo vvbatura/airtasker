@@ -16,15 +16,15 @@ class CategoryController extends BaseController
 
     public function index (CategoriesRequest $request)
     {
-        $categoryIds = $request->get('ids', []);
+        $itemIds = $request->get('ids', []);
         $perPage = $request->get('per_page', Constants::PAGINATE_PER_PAGE);
-        if (count($categoryIds)) {
+        if (count($itemIds)) {
             $perPage = $request->get('per_page', Category::count());
         }
 
         $items = Category::
-            when(count($categoryIds), function ($query) use ($categoryIds) {
-                $query->whereIn('id', $categoryIds);
+            when(count($itemIds), function ($query) use ($itemIds) {
+                $query->whereIn('id', $itemIds);
             })
             ->sort($request)
             ->search($request)
@@ -37,7 +37,7 @@ class CategoryController extends BaseController
     {
         DB::beginTransaction();
         try{
-            $item = Category::create($request->only('title', 'description'));
+            $item = Category::create($request->only(['title', 'description']));
 
             if ($imageBase64 = $request->get('image', false)) {
                 $fileName = $item->getId() . '_' . time() .'.png';
@@ -68,7 +68,7 @@ class CategoryController extends BaseController
         DB::beginTransaction();
         try{
             $item = Category::find($id);
-            $item->update($request->only('title', 'description'));
+            $item->update($request->only(['title', 'description']));
 
             $item->clearMediaCollection($item->getTable());
             if ($imageBase64 = $request->get('image', false)) {

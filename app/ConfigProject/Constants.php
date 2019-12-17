@@ -51,4 +51,19 @@ class Constants
         0 => self::SEX_MAN,
         1 => self::SEX_WOMAN,
     ];
+
+    const SKILL_GET_AROUND_BICYCLE = 'bicycle';
+    const SKILL_GET_AROUND_CAR = 'car';
+    const SKILL_GET_AROUND_ONLINE = 'online';
+    const SKILL_GET_AROUND_SCOOTER = 'scooter';
+    const SKILL_GET_AROUND_TRUCK = 'truck';
+    const SKILL_GET_AROUND_WALK = 'walk';
+    const SKILLS_GET_AROUND = [
+        1 => self::SKILL_GET_AROUND_BICYCLE,
+        2 => self::SKILL_GET_AROUND_CAR,
+        3 => self::SKILL_GET_AROUND_ONLINE,
+        4 => self::SKILL_GET_AROUND_SCOOTER,
+        5 => self::SKILL_GET_AROUND_TRUCK,
+        6 => self::SKILL_GET_AROUND_WALK,
+    ];
 }

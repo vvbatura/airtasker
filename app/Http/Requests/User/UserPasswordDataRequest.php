@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\User;
 
 use App\ConfigProject\Constants;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
-class CategoryDataRequest extends FormRequest
+class UserPasswordDataRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,19 +27,10 @@ class CategoryDataRequest extends FormRequest
      */
     public function rules()
     {
-        $fieldTitleL1 = 'title.' . Constants::LANGUAGE_EN;
-        $fieldTitleL2 = 'title.' . Constants::LANGUAGE_DE;
-        $fieldDescriptionL1 = 'description.' . Constants::LANGUAGE_EN;
-        $fieldDescriptionL2 = 'description.' . Constants::LANGUAGE_DE;
         return [
-            'category' => ['numeric', 'exists:categories,id'],
-            'title' => ['required', 'array'],
-            $fieldTitleL1 => ['required', 'string', 'max:150'],
-            $fieldTitleL2 => ['required', 'string', 'max:150'],
-            'description' => ['required', 'array'],
-            $fieldDescriptionL1 => ['required', 'string', 'max:3000'],
-            $fieldDescriptionL2 => ['required', 'string', 'max:3000'],
-            'image' => ['nullable', 'string'],
+            'user' => ['numeric', 'exists:users,id'],
+            'current_password' => 'required|string|min:6|max:25',
+            'password' => 'required|string|min:6|max:25|confirmed',
         ];
     }
 
@@ -55,8 +47,7 @@ class CategoryDataRequest extends FormRequest
     /**
      * @param Validator $validator
      */
-    protected function failedValidation(Validator $validator)
-    {
+    protected function failedValidation(Validator $validator) {
         throw new HttpResponseException(response()->json($validator->errors(),422));
     }
 }
