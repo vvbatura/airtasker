@@ -11,6 +11,8 @@ use App\Http\Requests\User\UserSkillsDataRequest;
 use App\Http\Requests\User\UsersRequest;
 use App\Http\Resources\User\UserProfileResource;
 use App\Http\Resources\User\UserResource;
+use App\Http\Resources\User\UserSkillsResource;
+use App\Models\Skill;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -43,6 +45,13 @@ class UserController extends BaseController
         $item = User::relations()->find($id);
 
         return new UserProfileResource($item);
+    }
+
+    public function showSkills(UserRequest $request, $id)
+    {
+        $item = Skill::where('user_id', $id)->first();
+
+        return new UserSkillsResource($item);
     }
 
     public function update(UserDataRequest $request, $id)

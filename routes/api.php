@@ -26,7 +26,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/reset-password-phone', 'AuthController@resetPasswordPhone');
     });
 
-    //Route::group(['middleware' => 'jwt'], function() {
+    Route::group(['middleware' => 'jwt'], function() {
 
         Route::group(['prefix' => 'category'], function () {
             Route::get('/', 'CategoryController@index');
@@ -40,6 +40,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::group(['prefix' => 'user'], function () {
             Route::get('/', 'UserController@index');
             Route::get('/{user}', 'UserController@show');
+            Route::get('/{user}/skills', 'UserController@showSkills');
             Route::put('/{user}', 'UserController@update');
             Route::patch('/{user}/image', 'UserController@saveImage');
             Route::patch('/{user}/skills', 'UserController@saveSkills');
@@ -48,7 +49,7 @@ Route::group(['namespace' => 'Api'], function () {
             Route::delete('/', 'UserController@deleteMany');
         });
 
-    //});
+    });
 
     /*Route::group(['middleware' => 'jwt'], function() {
 
