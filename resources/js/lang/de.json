@@ -10,5 +10,12 @@
     "password": "Passwort",
     "phone": "Telefon",
     "word-403": "Sie haben auf diesem Server keine Zugriffsberechtigung!",
-    "page-not-found": "Seite nicht gefunden!"
+    "page-not-found": "Seite nicht gefunden!",
+    "email": "Email",
+    "already-have": "Hast du schon ein Konto ?",
+    "dont-have": "Sie haben noch keinen Account?",
+    "join-airtasker": "Beitreten airtasker",
+    "join-us": "Begleiten Sie uns",
+    "surname": "Nachname",
+    "or-sign-up-with": "oder melde dich an mit"
 }

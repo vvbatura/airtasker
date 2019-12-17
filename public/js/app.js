@@ -80154,7 +80154,7 @@ var render = function() {
       "div",
       { staticClass: "d-flex justify-content-between" },
       [
-        _c("p", [_vm._v("Don't have an account ?")]),
+        _c("p", [_vm._v(_vm._s(_vm.$t("dont-have")))]),
         _vm._v(" "),
         _c("router-link", { attrs: { to: { name: "register" } } }, [
           _vm._v("\n            " + _vm._s(_vm.$t("sign_up")) + "\n        ")
@@ -80208,10 +80208,14 @@ var render = function() {
         }
       },
       [
-        _c("h2", { staticClass: "text-center" }, [_vm._v("Join us")]),
+        _c("h2", { staticClass: "text-center" }, [
+          _vm._v(_vm._s(_vm.$t("join-us")))
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "first_name" } }, [_vm._v("Name")]),
+          _c("label", { attrs: { for: "first_name" } }, [
+            _vm._v(_vm._s(_vm.$t("name")))
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
             _c("input", {
@@ -80245,7 +80249,9 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "last_name" } }, [_vm._v("Surname")]),
+          _c("label", { attrs: { for: "last_name" } }, [
+            _vm._v(_vm._s(_vm.$t("surname")))
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
             _c("input", {
@@ -80279,7 +80285,9 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "email" } }, [_vm._v("E-Mail Address")]),
+          _c("label", { attrs: { for: "email" } }, [
+            _vm._v(_vm._s(_vm.$t("email")))
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
             _c("input", {
@@ -80313,7 +80321,9 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "email" } }, [_vm._v("Phone Number")]),
+          _c("label", { attrs: { for: "email" } }, [
+            _vm._v(_vm._s(_vm.$t("phone")))
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
             _c("input", {
@@ -80335,7 +80345,7 @@ var render = function() {
               attrs: {
                 type: "tel",
                 id: "phone",
-                placeholder: "Phone Number",
+                placeholder: "Phone",
                 required: "",
                 autofocus: ""
               },
@@ -80353,7 +80363,9 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group has-danger" }, [
-          _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+          _c("label", { attrs: { for: "password" } }, [
+            _vm._v(_vm._s(_vm.$t("password")))
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
             _c("input", {
@@ -80397,10 +80409,12 @@ var render = function() {
           _c(
             "button",
             { staticClass: "btn btn-block btn-lg", attrs: { type: "submit" } },
-            [_vm._v("Join airtasker")]
+            [_vm._v(_vm._s(_vm.$t("join-airtasker")))]
           ),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "login_with text-center" }, [
+            _c("span", [_vm._v(_vm._s(_vm.$t("or-sign-up-with")))])
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -80416,7 +80430,7 @@ var render = function() {
       "div",
       { staticClass: "d-flex justify-content-between" },
       [
-        _c("p", [_vm._v("Already have an account ?")]),
+        _c("p", [_vm._v(_vm._s(_vm.$t("already-have")))]),
         _vm._v(" "),
         _c("router-link", { attrs: { to: { name: "login" } } }, [
           _vm._v("\n            " + _vm._s(_vm.$t("login")) + "\n        ")
@@ -80426,16 +80440,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "login_with text-center" }, [
-      _c("span", [_vm._v("or sign up with")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -99865,10 +99870,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot_password, country, rubric, name, password, phone, word-403, page-not-found, default */
+/*! exports provided: lang, sign_up, login, remember_me, forgot_password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot_password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot_password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\"}");
 
 /***/ }),
 

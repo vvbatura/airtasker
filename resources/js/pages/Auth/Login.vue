@@ -38,7 +38,7 @@
             </div>
         </form>
         <div class="d-flex justify-content-between">
-            <p>Don't have an account ?</p>
+            <p>{{$t('dont-have')}}</p>
             <router-link :to="{ name: 'register'}">
                 {{$t('sign_up')}}
             </router-link>

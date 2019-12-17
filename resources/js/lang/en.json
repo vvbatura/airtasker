@@ -10,5 +10,12 @@
     "password": "Password",
     "phone": "Phone",
     "word-403": "You don’t have permission to access on this server!",
-    "page-not-found": "Page not found!"
+    "page-not-found": "Page not found!",
+    "email": "Email",
+    "already-have": "Already have an account ?",
+    "dont-have": "Don't have an account ?",
+    "join-airtasker": "Join airtasker",
+    "join-us": "Join us",
+    "surname": "Surname",
+    "or-sign-up-with": "or sign up with"
 }

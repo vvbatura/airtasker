@@ -1,43 +1,43 @@
 <template>
     <div class="login-form">
         <form class="form-horizontal" @submit.prevent="submit">
-            <h2 class="text-center">Join us</h2>
+            <h2 class="text-center">{{$t('join-us')}}</h2>
             <div class="form-group">
-                <label for="first_name">Name</label>
+                <label for="first_name">{{$t('name')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input v-model="$v.first_name.$model" type="text" class="form-control" id="first_name" placeholder="Name" required autofocus>
                 </div>
             </div>
             <div class="form-group">
-                <label for="last_name">Surname</label>
+                <label for="last_name">{{$t('surname')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input v-model="$v.last_name.$model" type="text" class="form-control" id="last_name" placeholder="Surname" required autofocus>
                 </div>
             </div>
             <div class="form-group">
-                <label for="email">E-Mail Address</label>
+                <label for="email">{{$t('email')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input type="text" v-model="$v.email.$model" class="form-control" id="email"
                             placeholder="you@example.com" required autofocus>
                 </div>
             </div>
             <div class="form-group">
-                <label for="email">Phone Number</label>
+                <label for="email">{{$t('phone')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input type="tel" v-mask="'(+499) 999 99 99'" v-model="$v.phone.$model" class="form-control" id="phone"
-                            placeholder="Phone Number" required autofocus/>
+                            placeholder="Phone" required autofocus/>
                 </div>
             </div>
             <div class="form-group has-danger">
-                <label for="password">Password</label>
+                <label for="password">{{$t('password')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input type="password" v-model.trim="$v.password.$model" class="form-control" id="password" placeholder="Password" required>
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-block btn-lg">Join airtasker</button>
+                <button type="submit" class="btn btn-block btn-lg">{{$t('join-airtasker')}}</button>
                 <div class="login_with text-center">
-                    <span>or sign up with</span>
+                    <span>{{$t('or-sign-up-with')}}</span>
                 </div>
                 <div class="d-flex justify-content-between btn_media">
                     <login-with-facebook />
@@ -46,7 +46,7 @@
             </div>
         </form>
         <div class="d-flex justify-content-between">
-            <p>Already have an account ?</p>
+            <p>{{$t('already-have')}}</p>
             <router-link :to="{ name: 'login'}">
                 {{$t('login')}}
             </router-link>
