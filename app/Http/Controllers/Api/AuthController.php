@@ -51,13 +51,14 @@ class AuthController extends BaseController
 
     public function register(RegisterFormRequest $request)
     {
-        $data =$request->validated();
+        $data =$request->except('location');
         $data['verify_token'] = User::makeHash();
 
         DB::beginTransaction();
 
         try {
             $user = User::create($data);
+            $user->_location->create($request->only('location'));
 
             Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
 

@@ -2,6 +2,7 @@
 
 Route::group(['namespace' => 'Api'], function () {
     Route::get('/test-sms', 'AuthController@TestSms');
+    Route::get('/location/get-geo', 'LocationController@getFromGEO');
 
     Route::group(['prefix' => 'auth'], function () {
 
@@ -25,7 +26,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/reset-password-phone', 'AuthController@resetPasswordPhone');
     });
 
-    Route::group(['middleware' => 'jwt'], function() {
+    //Route::group(['middleware' => 'jwt'], function() {
 
         Route::group(['prefix' => 'category'], function () {
             Route::get('/', 'CategoryController@index');
@@ -36,7 +37,18 @@ Route::group(['namespace' => 'Api'], function () {
             Route::delete('/', 'CategoryController@deleteMany');
         });
 
-    });
+        Route::group(['prefix' => 'user'], function () {
+            Route::get('/', 'UserController@index');
+            Route::get('/{user}', 'UserController@show');
+            Route::put('/{user}', 'UserController@update');
+            Route::patch('/{user}/image', 'UserController@saveImage');
+            Route::patch('/{user}/skills', 'UserController@saveSkills');
+            Route::patch('/{user}/password', 'UserController@savePassword');
+            Route::delete('/{user}', 'UserController@delete');
+            Route::delete('/', 'UserController@deleteMany');
+        });
+
+    //});
 
     /*Route::group(['middleware' => 'jwt'], function() {
 

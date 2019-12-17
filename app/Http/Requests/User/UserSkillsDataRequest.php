@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\User;
 
+use App\ConfigProject\Constants;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
-class CategoryRequest extends FormRequest
+class UserSkillsDataRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +28,13 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => ['numeric', 'exists:categories,id'],
+            'user' => ['numeric', 'exists:users,id'],
+            'good_at' => ['required', 'string', 'max:1000'],
+            'get_around' => ['required', 'array'],
+            'get_around.*' => ['required', 'array', Rule::in(Constants::SKILLS_GET_AROUND)],
+            'languages' => ['required', 'string', 'max:1000'],
+            'qualifications' => ['required', 'string', 'max:1000'],
+            'experience' => ['required', 'string', 'max:1000'],
         ];
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\User;
 
 use App\ConfigProject\Constants;
 use Illuminate\Contracts\Validation\Validator;
@@ -31,16 +31,20 @@ class UserDataRequest extends FormRequest
             'user' => ['numeric', 'exists:users,id'],
             'first_name' => ['required', 'string', 'max:150'],
             'last_name' => ['required', 'string', 'max:150'],
-            'teg_line' => ['required', 'string', 'max:150'],
             'email' => ['required', 'email', 'max:150'],
             'phone' => ['required', 'string', 'max:150'],
-            'birth_date' => ['required', 'date', 'max:01.01.2001'],
-
+            'tag_line' => ['required', 'string', 'max:150'],
+            'birth_date' => ['required', 'date', 'before:01.01.2001'],
+            'abn' => ['required', 'string', 'max:150'],
+            'description' => ['required', 'string', 'max:3000'],
             'type' => ['nullable', 'array', 'max:150'],
             'type.*' => ['nullable', 'string', Rule::in(Constants::TYPES)],
-
-            'description' => ['required', 'array'],
-
+            'location' => ['required', 'array'],
+            'location.name' => ['required', 'string', 'max:150'],
+            'location.short_name' => ['required', 'string', 'max:150'],
+            'location.google_place_id' => ['required', 'string', 'max:150'],
+            'location.lat' => ['required', 'string', 'max:150'],
+            'location.lng' => ['required', 'string', 'max:150'],
         ];
     }
 

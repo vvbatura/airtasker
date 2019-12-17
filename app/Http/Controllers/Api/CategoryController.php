@@ -37,7 +37,7 @@ class CategoryController extends BaseController
     {
         DB::beginTransaction();
         try{
-            $item = Category::create($request->only('title', 'description'));
+            $item = Category::create($request->only(['title', 'description']));
 
             if ($imageBase64 = $request->get('image', false)) {
                 $fileName = $item->getId() . '_' . time() .'.png';
@@ -68,7 +68,7 @@ class CategoryController extends BaseController
         DB::beginTransaction();
         try{
             $item = Category::find($id);
-            $item->update($request->only('title', 'description'));
+            $item->update($request->only(['title', 'description']));
 
             $item->clearMediaCollection($item->getTable());
             if ($imageBase64 = $request->get('image', false)) {

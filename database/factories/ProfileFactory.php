@@ -11,9 +11,8 @@ use Faker\Generator as Faker;
 $factory->define(Profile::class, function (Faker $faker) {
     return [
         'birth_date' => now(),
-        //'address' => ,
         'sex' => Constants::SEX[rand(0,1)],
-        'teg_line' => $faker->title,
+        'tag_line' => $faker->title,
         'abn' => $faker->text,
         'description' => $faker->text,
     ];
