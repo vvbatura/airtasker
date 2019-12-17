@@ -12,6 +12,7 @@ import Vuex from 'vuex';
 import store from './store';
 import i18n from './i18n'
 import BootstrapVue from 'bootstrap-vue'
+import VueInputMask from 'vue-inputmask-ng'
 // import VueSocialauth from 'vue-social-auth'
 
 // Set Vue globally
@@ -26,6 +27,9 @@ Vue.use(VueAxios, axios);
 axios.defaults.baseURL = '/api';
 
 Vue.use(VueAuth, auth);
+ 
+Vue.use(VueInputMask)
+
 
 // Load Index
 Vue.component('index', Index);

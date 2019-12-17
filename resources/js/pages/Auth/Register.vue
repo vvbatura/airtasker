@@ -24,8 +24,10 @@
             <div class="form-group">
                 <label for="email">Phone Number</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input type="text" v-model="$v.phone.$model" class="form-control" id="phone"
-                            placeholder="0981234567" required autofocus>
+                    <!-- <input type="text" v-model="$v.phone.$model" class="form-control" id="phone"
+                            placeholder="Phone Number" required autofocus> -->
+                    <input type="tel" v-mask="'(+499) 999 99 99'" v-model="$v.phone.$model" class="form-control" id="phone"
+                            placeholder="Phone Number" required autofocus/>
                 </div>
             </div>
             <div class="form-group has-danger">
