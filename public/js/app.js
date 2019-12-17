@@ -3663,193 +3663,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -75981,686 +75794,204 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row mb-5 mt-lg-5 text-center" }, [
-    _c("div", { staticClass: "col" }, [
-      _c(
-        "form",
-        {
-          staticClass: "form-horizontal",
-          attrs: { role: "form" },
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.submit($event)
-            }
+  return _c("div", { staticClass: "login-form" }, [
+    _c(
+      "form",
+      {
+        staticClass: "form-horizontal",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submit($event)
           }
-        },
-        [
-          _vm._m(0),
+        }
+      },
+      [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Join us")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "first_name" } }, [_vm._v("Name")]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.$v.first_name.$model,
-                        expression: "$v.first_name.$model"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "first_name",
-                      placeholder: "First Name",
-                      required: "",
-                      autofocus: ""
-                    },
-                    domProps: { value: _vm.$v.first_name.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.$v.first_name,
-                          "$model",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.$v.first_name.required && _vm.$v.first_name.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(3)])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.first_name && _vm.has_error
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("div", { staticClass: "form-control-feedback" }, [
-                    _c("span", { staticClass: "text-danger align-middle" }, [
-                      _c("i", { staticClass: "fa fa-close" }, [
-                        _vm._v(
-                          _vm._s(_vm._f("toString")(_vm.errors.first_name))
-                        )
-                      ])
-                    ])
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            !_vm.$v.first_name.maxLength && _vm.$v.first_name.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(4)])
-              : _vm._e()
-          ]),
+          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.first_name.$model,
+                  expression: "$v.first_name.$model"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "first_name",
+                placeholder: "Name",
+                required: "",
+                autofocus: ""
+              },
+              domProps: { value: _vm.$v.first_name.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.$v.first_name, "$model", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "last_name" } }, [_vm._v("Surname")]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(5),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.$v.last_name.$model,
-                        expression: "$v.last_name.$model"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "last_name",
-                      placeholder: "Last Name",
-                      required: "",
-                      autofocus: ""
-                    },
-                    domProps: { value: _vm.$v.last_name.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.$v.last_name,
-                          "$model",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.$v.last_name.required && _vm.$v.last_name.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(7)])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.last_name && _vm.has_error
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("div", { staticClass: "form-control-feedback" }, [
-                    _c("span", { staticClass: "text-danger align-middle" }, [
-                      _c("i", { staticClass: "fa fa-close" }, [
-                        _vm._v(_vm._s(_vm._f("toString")(_vm.errors.last_name)))
-                      ])
-                    ])
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            !_vm.$v.last_name.maxLength && _vm.$v.last_name.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(8)])
-              : _vm._e()
-          ]),
+          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.last_name.$model,
+                  expression: "$v.last_name.$model"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "last_name",
+                placeholder: "Surname",
+                required: "",
+                autofocus: ""
+              },
+              domProps: { value: _vm.$v.last_name.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.$v.last_name, "$model", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "email" } }, [_vm._v("E-Mail Address")]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(9),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(10),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.$v.email.$model,
-                        expression: "$v.email.$model"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "email",
-                      placeholder: "you@example.com",
-                      required: "",
-                      autofocus: ""
-                    },
-                    domProps: { value: _vm.$v.email.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.$v.email, "$model", $event.target.value)
-                      }
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.$v.email.required && _vm.$v.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(11)])
-              : _vm._e(),
-            _vm._v(" "),
-            !_vm.$v.email.email && _vm.$v.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(12)])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.email && _vm.has_error
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("div", { staticClass: "form-control-feedback" }, [
-                    _c("span", { staticClass: "text-danger align-middle" }, [
-                      _c("i", { staticClass: "fa fa-close" }, [
-                        _vm._v(_vm._s(_vm._f("toString")(_vm.errors.email)))
-                      ])
-                    ])
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            !_vm.$v.email.maxLength && _vm.$v.email.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(13)])
-              : _vm._e()
-          ]),
+          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.email.$model,
+                  expression: "$v.email.$model"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "email",
+                placeholder: "you@example.com",
+                required: "",
+                autofocus: ""
+              },
+              domProps: { value: _vm.$v.email.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.$v.email, "$model", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Phone Number")]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(14),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(15),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.$v.phone.$model,
-                        expression: "$v.phone.$model"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "phone",
-                      placeholder: "0981234567",
-                      required: "",
-                      autofocus: ""
-                    },
-                    domProps: { value: _vm.$v.phone.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.$v.phone, "$model", $event.target.value)
-                      }
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.$v.phone.required && _vm.$v.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(16)])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.phone && _vm.has_error
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("div", { staticClass: "form-control-feedback" }, [
-                    _c("span", { staticClass: "text-danger align-middle" }, [
-                      _c("i", { staticClass: "fa fa-close" }, [
-                        _vm._v(_vm._s(_vm._f("toString")(_vm.errors.phone)))
-                      ])
-                    ])
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            !_vm.$v.phone.maxLength && _vm.$v.phone.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(17)])
-              : _vm._e()
-          ]),
+          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.phone.$model,
+                  expression: "$v.phone.$model"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "phone",
+                placeholder: "0981234567",
+                required: "",
+                autofocus: ""
+              },
+              domProps: { value: _vm.$v.phone.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.$v.phone, "$model", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group has-danger" }, [
+          _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(18),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group has-danger" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(19),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.password.$model,
-                        expression: "$v.password.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "password",
-                      id: "password",
-                      placeholder: "Password",
-                      required: ""
-                    },
-                    domProps: { value: _vm.$v.password.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.$v.password,
-                          "$model",
-                          $event.target.value.trim()
-                        )
-                      },
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.$v.password.required && _vm.$v.password.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(20)])
-              : _vm._e(),
-            _vm._v(" "),
-            (!_vm.$v.password.minLength &&
-              _vm.$v.password_confirmation.$dirty) ||
-            (!_vm.$v.password.maxLength && _vm.$v.password_confirmation.$dirty)
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(21)])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(22),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(23),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.password_confirmation.$model,
-                        expression: "$v.password_confirmation.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "password",
-                      name: "password_confirmation",
-                      id: "password_confirmation",
-                      placeholder: "Password",
-                      required: ""
-                    },
-                    domProps: { value: _vm.$v.password_confirmation.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.$v.password_confirmation,
-                          "$model",
-                          $event.target.value.trim()
-                        )
-                      },
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.$v.password_confirmation.sameAsPassword &&
-            _vm.$v.password_confirmation.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(24)])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.errors.password
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("div", { staticClass: "form-control-feedback" }, [
-                    _c("span", { staticClass: "text-danger align-middle" }, [
-                      _c("i", { staticClass: "fa fa-close" }, [
-                        _vm._v(_vm._s(_vm._f("toString")(_vm.errors.password)))
-                      ])
-                    ])
-                  ])
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _vm._m(25)
-        ]
-      )
-    ])
+          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.trim",
+                  value: _vm.$v.password.$model,
+                  expression: "$v.password.$model",
+                  modifiers: { trim: true }
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "password",
+                id: "password",
+                placeholder: "Password",
+                required: ""
+              },
+              domProps: { value: _vm.$v.password.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.$v.password,
+                    "$model",
+                    $event.target.value.trim()
+                  )
+                },
+                blur: function($event) {
+                  return _vm.$forceUpdate()
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn btn-success" }, [_vm._v("Register")])
+      ]
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("h2", [_vm._v("Register New User")]),
-        _vm._v(" "),
-        _c("hr")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
-      _c("label", { attrs: { for: "first_name" } }, [_vm._v("First Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-user" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" First Name is required")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" First Name must contain at less 150")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
-      _c("label", { attrs: { for: "last_name" } }, [_vm._v("Last Name")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-user" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Last Name is required")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Last Name must contain at less 150")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
-      _c("label", { attrs: { for: "email" } }, [_vm._v("E-Mail Address")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-at" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [_vm._v(" Email is required")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Email must be email")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Email must contain at less 150")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
-      _c("label", { attrs: { for: "email" } }, [_vm._v("Phone Number")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-at" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [_vm._v(" Phone is required")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Phone must contain at less 150")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
-      _c("label", { attrs: { for: "password" } }, [_vm._v("Password")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-key" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Password is required")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Password must contain at least 6 characters and less 20")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
-      _c("label", { attrs: { for: "password_confirmation" } }, [
-        _vm._v("Confirm Password")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-repeat" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v("Passwords must be matches")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("button", { staticClass: "btn btn-success" }, [
-          _c("i", { staticClass: "fa fa-user-plus" }),
-          _vm._v("\n                        Register\n                    ")
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
