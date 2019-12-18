@@ -22,6 +22,13 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="email">{{$t('city')}}</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input type="text" v-model="$v.city.$model" @keyup="selectCity" class="form-control" id="city"
+                            :placeholder="$t('city')" required autofocus autocomplete="off">
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="email">{{$t('phone')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input type="tel" v-mask="'(+499) 999 99 99'" v-model="$v.phone.$model" class="form-control" id="phone"
@@ -81,6 +88,7 @@ export default {
             last_name: '',
             email: '',
             phone: '',
+            city: '',
             password: '',
             password_confirmation: '',
 
@@ -107,6 +115,9 @@ export default {
             required,
             maxLength: maxLength(150)
         },
+        city: {
+            required
+        },
         password: {
             required,
             minLength: minLength(6),
@@ -126,6 +137,7 @@ export default {
                     first_name: this.first_name,
                     last_name: this.last_name,
                     email: this.email,
+                    city: this.city,
                     phone: this.phone,
                     password: this.password,
                     password_confirmation: this.password_confirmation
@@ -151,6 +163,16 @@ export default {
                 redirect: 'login'
             });
         },
+        selectCity: function (){
+            //console.log("test")
+            axios.get('/location/get-geo?query=' + this.city, {
+                
+            })
+            .then(response => {
+                console.log(response);
+            })
+        },
+        
     },
     filters: {
         toString: function (value) {

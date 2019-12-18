@@ -26,5 +26,19 @@
     "email-is-required": "Email ist erforderlich",
     "name-is-required": "Name ist erforderlich",
     "incorrect-email": "Falsche email",
-    "login-details-are-incorrect": "Anmeldedaten sind falsch"
+    "login-details-are-incorrect": "Anmeldedaten sind falsch",
+    "city": "Stadt",
+    "forgot-password": "Forgot password ?",
+    "send": "Senden",
+    "cancel": "Stornieren",
+    "email-not-found": "Email wurde nicht gefunden",
+    "phone-not-found": "Handy nicht gefunden",
+    "max-phone-length-is-255": "Die maximale Telefonlänge beträgt 255",
+    "phone-is-required": "Telefon ist erforderlich",
+    "enter-your-phone": "Geben Sie Ihr Telefon ein",
+    "enter-your-email": "Geben sie ihre email adresse ein",
+    "from-email": "aus der Email",
+    "from-phone": "vom Telefon",
+    "enter-your-email-phone": "Geben Sie unten Ihre email oder Ihr Telefon ein und wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts"
+
 }

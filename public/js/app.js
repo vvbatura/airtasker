@@ -3384,7 +3384,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3680,6 +3679,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3697,6 +3703,7 @@ __webpack_require__.r(__webpack_exports__);
       last_name: '',
       email: '',
       phone: '',
+      city: '',
       password: '',
       password_confirmation: '',
       errors: {},
@@ -3722,6 +3729,9 @@ __webpack_require__.r(__webpack_exports__);
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(150)
     },
+    city: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+    },
     password: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6),
@@ -3740,6 +3750,7 @@ __webpack_require__.r(__webpack_exports__);
           first_name: this.first_name,
           last_name: this.last_name,
           email: this.email,
+          city: this.city,
           phone: this.phone,
           password: this.password,
           password_confirmation: this.password_confirmation
@@ -3765,6 +3776,12 @@ __webpack_require__.r(__webpack_exports__);
           }
         },
         redirect: 'login'
+      });
+    },
+    selectCity: function selectCity() {
+      //console.log("test")
+      axios.get('/location/get-geo?query=' + this.city, {}).then(function (response) {
+        console.log(response);
       });
     }
   },
@@ -79782,13 +79799,11 @@ var render = function() {
       },
       [
         _c("h2", { staticClass: "text-center mb-4" }, [
-          _vm._v("Forgot password ?")
+          _vm._v(_vm._s(_vm.$t("forgot-password")))
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "notice_reset" }, [
-          _vm._v(
-            "Enter your email or phone below and we will send you instructions\n        on how to reset your password"
-          )
+          _vm._v(_vm._s(_vm.$t("enter-your-email-phone")))
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -79799,7 +79814,7 @@ var render = function() {
               attrs: { type: "button" },
               on: { click: _vm.fromEmail }
             },
-            [_vm._v("from Email")]
+            [_vm._v(_vm._s(_vm.$t("from-email")))]
           ),
           _vm._v(" "),
           _c(
@@ -79809,7 +79824,7 @@ var render = function() {
               attrs: { type: "button" },
               on: { click: _vm.fromPhone }
             },
-            [_vm._v("from Phone")]
+            [_vm._v(_vm._s(_vm.$t("from-phone")))]
           )
         ]),
         _vm._v(" "),
@@ -79841,7 +79856,7 @@ var render = function() {
                 attrs: {
                   type: "text",
                   name: "email",
-                  placeholder: "Enter your Email"
+                  placeholder: _vm.$t("enter-your-email")
                 },
                 domProps: { value: _vm.$v.email.$model },
                 on: {
@@ -79860,25 +79875,25 @@ var render = function() {
             _vm._v(" "),
             !_vm.$v.email.required && _vm.$v.$dirty
               ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v("Email is required")
+                  _vm._v(_vm._s(_vm.$t("email-is-required")))
                 ])
               : _vm._e(),
             _vm._v(" "),
             !_vm.$v.email.email && _vm.$v.email.$dirty
               ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v("Email not found")
+                  _vm._v(_vm._s(_vm.$t("email-not-found")))
                 ])
               : _vm._e(),
             _vm._v(" "),
             !_vm.$v.email.maxLength && _vm.$v.email.$dirty
               ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v("Max email length is 255")
+                  _vm._v(_vm._s(_vm.$t("max-email-length-is-255")))
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.has_error && _vm.$v.email.$dirty && !_vm.$v.email.$invalid
               ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v("Email not found")
+                  _vm._v(_vm._s(_vm.$t("email-not-found")))
                 ])
               : _vm._e()
           ]
@@ -79912,7 +79927,7 @@ var render = function() {
                 attrs: {
                   type: "text",
                   name: "phone",
-                  placeholder: "Enter your Phone"
+                  placeholder: _vm.$t("enter-your-phone")
                 },
                 domProps: { value: _vm.$v.phone.$model },
                 on: {
@@ -79931,19 +79946,19 @@ var render = function() {
             _vm._v(" "),
             !_vm.$v.phone.required && _vm.$v.$dirty
               ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v("Phone is required")
+                  _vm._v(_vm._s(_vm.$t("phone-is-required")))
                 ])
               : _vm._e(),
             _vm._v(" "),
             !_vm.$v.phone.maxLength && _vm.$v.phone.$dirty
               ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v("Max phone length is 255")
+                  _vm._v(_vm._s(_vm.$t("max-phone-length-is-255")))
                 ])
               : _vm._e(),
             _vm._v(" "),
             _vm.has_error && _vm.$v.phone.$dirty && !_vm.$v.phone.$invalid
               ? _c("span", { staticClass: "text-danger" }, [
-                  _vm._v("Phone not found")
+                  _vm._v(_vm._s(_vm.$t("phone-not-found")))
                 ])
               : _vm._e()
           ]
@@ -79959,13 +79974,13 @@ var render = function() {
                 staticClass: "frg_btn cancel_btn",
                 attrs: { to: { name: "login" } }
               },
-              [_vm._v("Cancel")]
+              [_vm._v(_vm._s(_vm.$t("cancel")))]
             ),
             _vm._v(" "),
             _c(
               "button",
               { staticClass: "btn btn-lg frg_btn", attrs: { type: "submit" } },
-              [_vm._v("Send")]
+              [_vm._v(_vm._s(_vm.$t("send")))]
             )
           ],
           1
@@ -80141,7 +80156,7 @@ var render = function() {
             _c(
               "router-link",
               { staticClass: "pull-right", attrs: { to: { name: "forgot" } } },
-              [_vm._v(_vm._s(_vm.$t("forgot_password")))]
+              [_vm._v(_vm._s(_vm.$t("forgot-password")))]
             )
           ],
           1
@@ -80323,6 +80338,44 @@ var render = function() {
                     return
                   }
                   _vm.$set(_vm.$v.email, "$model", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "email" } }, [
+            _vm._v(_vm._s(_vm.$t("city")))
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.$v.city.$model,
+                  expression: "$v.city.$model"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "city",
+                placeholder: _vm.$t("city"),
+                required: "",
+                autofocus: "",
+                autocomplete: "off"
+              },
+              domProps: { value: _vm.$v.city.$model },
+              on: {
+                keyup: _vm.selectCity,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.$v.city, "$model", $event.target.value)
                 }
               }
             })
@@ -99879,10 +99932,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot_password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, default */
+/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot_password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\"}");
 
 /***/ }),
 

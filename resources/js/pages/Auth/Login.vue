@@ -24,7 +24,7 @@
                 <div v-if="has_error" class="not-valid">{{$t('login-details-are-incorrect')}}</div>
             </div>
             <div class="forget_btn">
-                <router-link :to="{name: 'forgot'}" class="pull-right">{{$t('forgot_password')}}</router-link>
+                <router-link :to="{name: 'forgot'}" class="pull-right">{{$t('forgot-password')}}</router-link>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-block btn-lg">{{$t('login')}}</button>
@@ -126,7 +126,7 @@ export default {
         },
         changeLocale() {
             this.$i18n.locale = this.locale;
-        }
+        },
     }
 
 }

@@ -1,37 +1,36 @@
 <template>
     <div class="login-form">
         <form class="reset-form" @submit.prevent="submit">
-            <h2 class="text-center mb-4">Forgot password ?</h2>
-            <p class="notice_reset">Enter your email or phone below and we will send you instructions
-            on how to reset your password</p>
+            <h2 class="text-center mb-4">{{$t('forgot-password')}}</h2>
+            <p class="notice_reset">{{$t('enter-your-email-phone')}}</p>
             <div class="form-group">
-                <button type="button" class="btn btn_reset btn-lg btn-block" @click="fromEmail">from Email</button>
-                <button type="button" class="btn btn_reset btn-lg btn-block" @click="fromPhone">from Phone</button>
+                <button type="button" class="btn btn_reset btn-lg btn-block" @click="fromEmail">{{$t('from-email')}}</button>
+                <button type="button" class="btn btn_reset btn-lg btn-block" @click="fromPhone">{{$t('from-phone')}}</button>
             </div>
             <div class="form-group" v-show="isEmail">
                 <div class="input-group">
                 <input
                     type="text" v-model="$v.email.$model" @keyup="has_error = false"
-                    class="form-control" name="email" placeholder="Enter your Email"/>
+                    class="form-control" name="email" :placeholder="$t('enter-your-email')"/>
                 </div>
-                <span v-if="!$v.email.required && $v.$dirty" class="text-danger">Email is required</span>
-                <span v-if="!$v.email.email && $v.email.$dirty" class="text-danger">Email not found</span>
-                <span v-if="!$v.email.maxLength && $v.email.$dirty" class="text-danger">Max email length is 255</span>
-                <span v-if="has_error && $v.email.$dirty && !$v.email.$invalid" class="text-danger">Email not found</span>
+                <span v-if="!$v.email.required && $v.$dirty" class="text-danger">{{$t('email-is-required')}}</span>
+                <span v-if="!$v.email.email && $v.email.$dirty" class="text-danger">{{$t('email-not-found')}}</span>
+                <span v-if="!$v.email.maxLength && $v.email.$dirty" class="text-danger">{{$t('max-email-length-is-255')}}</span>
+                <span v-if="has_error && $v.email.$dirty && !$v.email.$invalid" class="text-danger">{{$t('email-not-found')}}</span>
             </div>
             <div class="form-group" v-show="isPhone">
                 <div class="input-group">
                     <input
                     type="text" v-model="$v.phone.$model" @keyup="has_error = false"
-                    class="form-control" name="phone" placeholder="Enter your Phone"/>
+                    class="form-control" name="phone" :placeholder="$t('enter-your-phone')"/>
                 </div>
-                <span v-if="!$v.phone.required && $v.$dirty" class="text-danger">Phone is required</span>
-                <span v-if="!$v.phone.maxLength && $v.phone.$dirty" class="text-danger">Max phone length is 255</span>
-                <span v-if="has_error && $v.phone.$dirty && !$v.phone.$invalid" class="text-danger">Phone not found</span>
+                <span v-if="!$v.phone.required && $v.$dirty" class="text-danger">{{$t('phone-is-required')}}</span>
+                <span v-if="!$v.phone.maxLength && $v.phone.$dirty" class="text-danger">{{$t('max-phone-length-is-255')}}</span>
+                <span v-if="has_error && $v.phone.$dirty && !$v.phone.$invalid" class="text-danger">{{$t('phone-not-found')}}</span>
             </div>
             <div class="d-flex justify-content-between">
-                <router-link class="frg_btn cancel_btn" :to="{name: 'login'}">Cancel</router-link>
-                <button type="submit" class="btn btn-lg frg_btn">Send</button>
+                <router-link class="frg_btn cancel_btn" :to="{name: 'login'}">{{$t('cancel')}}</router-link>
+                <button type="submit" class="btn btn-lg frg_btn">{{$t('send')}}</button>
             </div>
         </form>
     </div>

@@ -3,7 +3,7 @@
     "sign_up": "Sign up",
     "login": "Log in",
     "remember_me": "Remember me",
-    "forgot_password": "Forgot password ?",
+    "forgot-password": "Forgot password ?",
     "country": "Country",
     "rubric": "Rubric",
     "name": "Name",
@@ -26,5 +26,17 @@
     "email-is-required": "Email is required",
     "name-is-required": "Name is required",
     "incorrect-email": "Incorrect email",
-    "login-details-are-incorrect": "Login details are incorrect"
+    "login-details-are-incorrect": "Login details are incorrect",
+    "city": "City",
+    "send": "Send",
+    "cancel": "Cancel",
+    "email-not-found": "Email not found",
+    "phone-not-found": "Phone not found",
+    "max-phone-length-is-255": "Max phone length is 255",
+    "phone-is-required": "Phone is required",
+    "enter-your-phone": "Enter your Phone",
+    "enter-your-email": "Enter your Email",
+    "from-email": "from Email",
+    "from-phone": "from Phone",
+    "enter-your-email-phone": "Enter your email or phone below and we will send you instructions on how to reset your password"
 }
