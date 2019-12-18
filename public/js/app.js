@@ -3718,10 +3718,8 @@ __webpack_require__.r(__webpack_exports__);
       errors: {},
       user_exists: false,
       has_error: false,
-      //value: '',
-      suggestionAttribute: 'name',
-      suggestions: [] //selectedEvent: ""
-
+      suggestionAttribute: 'long_name',
+      suggestions: []
     };
   },
   validations: {
@@ -3791,37 +3789,9 @@ __webpack_require__.r(__webpack_exports__);
         redirect: 'login'
       });
     },
-    // clickInput: function() {
-    //     this.selectedEvent = 'click input'
-    // },
-    // clickButton: function() {
-    //     this.selectedEvent = 'click button'
-    // },
-    // selected: function() {
-    //     this.selectedEvent = 'selection changed'
-    // },
-    // enter: function() {
-    //     this.selectedEvent = 'enter'
-    // },
-    // keyUp: function() {
-    //     this.selectedEvent = 'keyup pressed'
-    // },
-    // keyDown: function() {
-    //     this.selectedEvent = 'keyDown pressed'
-    // },
-    // keyRight: function() {
-    //     this.selectedEvent = 'keyRight pressed'
-    // },
-    // clear: function() {
-    //     this.selectedEvent = 'clear input'
-    // },
-    // escape: function() {
-    //     this.selectedEvent = 'escape'
-    // },
     changed: function changed() {
       var that = this;
-      this.suggestions = []; //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.city)
-
+      this.suggestions = [];
       axios.get('/location/get-geo?query=' + this.city).then(function (response) {
         response.data.data.forEach(function (a) {
           that.suggestions.push(a);
