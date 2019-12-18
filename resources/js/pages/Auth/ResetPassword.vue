@@ -36,7 +36,7 @@
                         class='col-md-3'>
                         <div class='form-control-feedback'>
                     <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Email must be email</i>
+                        <i class='fa fa-close'>Email must be email</i>
                     </span>
                         </div>
                     </div>

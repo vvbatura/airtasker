@@ -24,8 +24,17 @@
             <div class="form-group">
                 <label for="email">{{$t('city')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input type="text" v-model="$v.city.$model" @keyup="selectCity" class="form-control" id="city"
-                            :placeholder="$t('city')" required autofocus autocomplete="off">
+                    <vue-instant :suggestOnAllWords="true"
+                                :suggestion-attribute="suggestionAttribute"
+                                v-model="city" :disabled="false"
+                                @input="changed"
+                                :show-autocomplete="true"
+                                :autofocus="true"
+                                :suggestions="suggestions"
+                                name="customName"
+                                :placeholder="$t('city')"
+                                type="google">
+                    </vue-instant>
                 </div>
             </div>
             <div class="form-group">
@@ -94,7 +103,12 @@ export default {
 
             errors: {},
             user_exists: false,
-            has_error: false
+            has_error: false,
+
+            //value: '',
+            suggestionAttribute: 'name',
+            suggestions: [],
+            //selectedEvent: ""
         };
     },
     validations: {
@@ -163,16 +177,44 @@ export default {
                 redirect: 'login'
             });
         },
-        selectCity: function (){
-            //console.log("test")
-            axios.get('/location/get-geo?query=' + this.city, {
-                
-            })
-            .then(response => {
-                console.log(response);
-            })
-        },
-        
+        // clickInput: function() {
+        //     this.selectedEvent = 'click input'
+        // },
+        // clickButton: function() {
+        //     this.selectedEvent = 'click button'
+        // },
+        // selected: function() {
+        //     this.selectedEvent = 'selection changed'
+        // },
+        // enter: function() {
+        //     this.selectedEvent = 'enter'
+        // },
+        // keyUp: function() {
+        //     this.selectedEvent = 'keyup pressed'
+        // },
+        // keyDown: function() {
+        //     this.selectedEvent = 'keyDown pressed'
+        // },
+        // keyRight: function() {
+        //     this.selectedEvent = 'keyRight pressed'
+        // },
+        // clear: function() {
+        //     this.selectedEvent = 'clear input'
+        // },
+        // escape: function() {
+        //     this.selectedEvent = 'escape'
+        // },
+        changed: function() {
+            var that = this
+            this.suggestions = []
+            //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.city)
+            axios.get('/location/get-geo?query=' + this.city)    
+                .then(function(response) {
+                    response.data.data.forEach(function(a) {
+                        that.suggestions.push(a)
+                    })
+                })
+        }        
     },
     filters: {
         toString: function (value) {

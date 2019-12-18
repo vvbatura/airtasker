@@ -28,7 +28,6 @@
     "incorrect-email": "Falsche email",
     "login-details-are-incorrect": "Anmeldedaten sind falsch",
     "city": "Stadt",
-    "forgot-password": "Forgot password ?",
     "send": "Senden",
     "cancel": "Stornieren",
     "email-not-found": "Email wurde nicht gefunden",
@@ -40,5 +39,4 @@
     "from-email": "aus der Email",
     "from-phone": "vom Telefon",
     "enter-your-email-phone": "Geben Sie unten Ihre email oder Ihr Telefon ein und wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts"
-
 }
