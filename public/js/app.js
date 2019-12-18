@@ -3695,6 +3695,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -80514,7 +80515,9 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" },
+            {
+              staticClass: "input-group input-group-city mb-2 mr-sm-2 mb-sm-0"
+            },
             [
               _c("vue-instant", {
                 attrs: {
@@ -99451,7 +99454,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- //import VueInstant from 'vue-instant/dist/vue-instant.common'
 
 
  // import VueSocialauth from 'vue-social-auth'

@@ -23,17 +23,18 @@
             </div>
             <div class="form-group">
                 <label for="email">{{$t('city')}}</label>
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <vue-instant :suggestOnAllWords="true"
-                                :suggestion-attribute="suggestionAttribute"
-                                v-model="city" :disabled="false"
-                                @input="changed"
-                                :show-autocomplete="true"
-                                :autofocus="true"
-                                :suggestions="suggestions"
-                                name="customName"
-                                :placeholder="$t('city')"
-                                type="google">
+                <div class="input-group input-group-city mb-2 mr-sm-2 mb-sm-0">
+                    <vue-instant
+                        :suggestOnAllWords="true"
+                        :suggestion-attribute="suggestionAttribute"
+                        v-model="city" :disabled="false"
+                        @input="changed"
+                        :show-autocomplete="true"
+                        :autofocus="true"
+                        :suggestions="suggestions"
+                        name="customName"
+                        :placeholder="$t('city')"
+                        type="google">
                     </vue-instant>
                 </div>
             </div>

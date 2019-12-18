@@ -61,3 +61,19 @@
 .btn_reset {
     background: rgb(24, 119, 242) !important;
 }
+
+//============================ STYLE FOR CITY INPUT
+.sbx-google__submit,
+.sbx-google__reset {
+    display: none !important;
+}
+.sbx-google__input,
+.sbx-google__input-placeholder {
+    padding-right: 0 !important;
+}
+.sbx-google {
+    width: 100% !important;
+}
+.input-group-city > div {
+    width: 100%;
+}
