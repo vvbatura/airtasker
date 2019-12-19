@@ -27,7 +27,7 @@
                     <vue-instant
                         :suggestOnAllWords="true"
                         :suggestion-attribute="suggestionAttribute"
-                        v-model="city" :disabled="false"
+                        v-model="location.long_name" :disabled="false"
                         @input="changed"
                         :show-autocomplete="true"
                         :autofocus="true"
@@ -49,6 +49,13 @@
                 <label for="password">{{$t('password')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input type="password" v-model.trim="$v.password.$model" class="form-control" id="password" :placeholder="$t('password')" required>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label for="password">{{$t('password-confirmation')}}</label>
+                <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
+                    <input type='password' name='password_confirmation' class='form-control'
+                            v-model.trim="$v.password_confirmation.$model" id='password_confirmation' placeholder='Password' required>
                 </div>
             </div>
             <div class="form-group">
@@ -98,7 +105,14 @@ export default {
             last_name: '',
             email: '',
             phone: '',
-            city: '',
+            //location: '',
+            location: {
+                name: '',
+                long_name: '',
+                google_place_id: '',
+                lat: '',
+                lng: ''
+            },
             password: '',
             password_confirmation: '',
 
@@ -128,7 +142,7 @@ export default {
             required,
             maxLength: maxLength(150)
         },
-        city: {
+        location: {
             required
         },
         password: {
@@ -150,7 +164,14 @@ export default {
                     first_name: this.first_name,
                     last_name: this.last_name,
                     email: this.email,
-                    city: this.city,
+                    location: {
+                        short_name: this.location.name,
+                        name: this.location.name,
+                        long_name: this.location.long_name,
+                        google_place_id: this.location.google_place_id,
+                        lat: this.location.lat,
+                        lng: this.location.lng
+                    },
                     phone: this.phone,
                     password: this.password,
                     password_confirmation: this.password_confirmation
@@ -175,17 +196,25 @@ export default {
                 },
                 redirect: 'login'
             });
-        },
-        changed: function() {
-            var that = this
-            this.suggestions = []
-            axios.get('/location/get-geo?query=' + this.city)    
-                .then(function(response) {
-                    response.data.data.forEach(function(a) {
-                        that.suggestions.push(a)
+        }, 
+        changed: function () {
+            //var that = this
+            //this.suggestions = []
+            //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.city)
+            axios.get('/location/get-geo?query=' + this.location.long_name)    
+                .then((response) => {
+                    response.data.data.forEach((a) => {
+                        console.log(a.name)
+                        console.log(this.location, 'test')
+                        this.location.name = a.name;
+                        this.location.long_name = a.long_name;
+                        this.location.google_place_id = a.google_place_id;
+                        this.location.lat = a.lat.toString();
+                        this.location.lng = a.lng.toString();
+                        this.suggestions.push(a)
                     })
                 })
-        }        
+        }     
     },
     filters: {
         toString: function (value) {

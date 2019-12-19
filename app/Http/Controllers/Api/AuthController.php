@@ -58,7 +58,7 @@ class AuthController extends BaseController
 
         try {
             $user = User::create($data);
-            $user->_location->create($request->only('location'));
+            $user->_location()->create($request->only('location'));
 
             Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
 

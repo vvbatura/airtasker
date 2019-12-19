@@ -20,7 +20,7 @@ class RegisterFormRequest extends FormRequest
             'password' => 'required|string|min:6|max:25|confirmed',
             'location' => ['required', 'array'],
             'location.name' => ['required', 'string', 'max:150'],
-            'location.short_name' => ['required', 'string', 'max:150'],
+            'location.long_name' => ['required', 'string', 'max:150'],
             'location.google_place_id' => ['required', 'string', 'max:150'],
             'location.lat' => ['required', 'string', 'max:150'],
             'location.lng' => ['required', 'string', 'max:150'],
