@@ -3777,7 +3777,6 @@ __webpack_require__.r(__webpack_exports__);
           last_name: this.last_name,
           email: this.email,
           location: {
-            short_name: this.location.name,
             name: this.location.name,
             long_name: this.location.long_name,
             google_place_id: this.location.google_place_id,
