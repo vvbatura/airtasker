@@ -10,20 +10,20 @@
 </template>
 
 <script>
-    import AppLayout from './layouts/AppLayout'
-    import AuthLayout from './layouts/AuthLayout'
-    import ErrorLayout from "./layouts/ErrorLayout";
+import AppLayout from './layouts/AppLayout'
+import AuthLayout from './layouts/AuthLayout'
+import ErrorLayout from "./layouts/ErrorLayout";
 
-    export default {
-        computed: {
-            layout () {
-                return this.$route.meta.layout;
-            }
-        },
-        components: {
-            AppLayout,
-            AuthLayout,
-            ErrorLayout
+export default {
+    computed: {
+        layout () {
+            return this.$route.meta.layout;
         }
+    },
+    components: {
+        AppLayout,
+        AuthLayout,
+        ErrorLayout
     }
+}
 </script>

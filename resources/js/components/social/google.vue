@@ -1,5 +1,8 @@
 <template>
-    <button type="button" class="btn btn-primary btn-block" @click="signInByGoogle">google</button>
+    <button type="button" class="btn btn_google btn_social" @click="signInByGoogle">
+        <img src="/img/search.svg" alt="" />
+        Google
+    </button>
 </template>
 
 <script>
@@ -35,8 +38,16 @@
             }
         }
     }
-
-
-
-
 </script>
+
+<style lang="scss">
+.btn_google {
+    border: 1px solid rgb(231, 235, 251);
+    color: rgb(41, 43, 50);
+    font-weight: bold;
+    img {
+        width: 24px;
+        margin-right: 8px;
+    }
+}
+</style>

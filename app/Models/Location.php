@@ -34,6 +34,6 @@ class Location extends Model
     //-relations
     public function _user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }

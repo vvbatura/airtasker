@@ -1,0 +1,79 @@
+.error {
+    color: red;
+}
+
+//============================ HEADER PAGE
+.nav_menu {
+    display: flex;
+    li {
+        margin-right: 20px;
+        &:last-of-type {
+            margin-right: 0;
+        }
+        a {
+            color: $main-color;
+        }
+    }
+}
+
+//============================ ERRORS PAGE
+.forbidden-page {
+    margin-top: -58px;
+    .container {
+        height: calc(100vh - 11.5rem);
+    }
+}
+.error_box {
+    text-align: center;
+    h1 {
+        font-size: 80px;
+    }
+    h2 {
+        font-size: 42px;
+    }
+}
+.access_error {
+    .error_box {
+        h2 {
+            font-size: 30px;
+        }
+    }
+}
+
+//============================ LOGIN PAGE
+.form-control {
+    background: #ffffff;
+    height: 46px;
+}
+.btn_social {
+    height: 45px;
+    border-radius: 45px;
+    width: 48%;
+}
+.btn_media {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(187, 194, 220);
+    font-size: 18px;
+}
+.btn {
+    font-size: 16px;
+}
+.btn_reset {
+    background: rgb(24, 119, 242) !important;
+}
+
+//============================ STYLE FOR CITY INPUT, REGISTER PAGE
+.sbx-google__submit,
+.sbx-google__reset {
+    display: none !important;
+}
+.sbx-google__input,
+.sbx-google__input-placeholder {
+    padding-right: 0 !important;
+}
+.sbx-google {
+    width: 100% !important;
+}
+.input-group-city > div {
+    width: 100%;
+}

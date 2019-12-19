@@ -36,14 +36,14 @@ class Constants
         1 => self::TYPE_SEEKER,
     ];
 
-    const VERIFY_EMAIL = 'email';
+    /*const VERIFY_EMAIL = 'email';
     const VERIFY_PHONE = 'phone';
     const VERIFY_SOCIAL = 'social';
     const VERIFIES = [
         0 => self::VERIFY_EMAIL,
         1 => self::VERIFY_PHONE,
         2 => self::VERIFY_SOCIAL,
-    ];
+    ];*/
 
     const SEX_MAN = 'employer';
     const SEX_WOMAN = 'seeker';

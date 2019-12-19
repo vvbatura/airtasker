@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\ConfigProject\Constants;
+use App\Http\Requests\Auth\CheckTokenEmail;
 use App\Http\Requests\Auth\ForgotPasswordEmailRequest;
 use App\Http\Requests\Auth\ForgotPasswordPhoneRequest;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterFormRequest;
-use App\Http\Requests\Auth\ResetPasswordEmailFormRequest;
-use App\Http\Requests\Auth\ResetPasswordPhoneFormRequest;
+use App\Http\Requests\Auth\ResetPasswordFormRequest;
 use App\Http\Requests\Auth\VerifyRequest;
 use App\Mail\Auth\ForgetPasswordUserMail;
 use App\Mail\Auth\VerificationUserEmail;
@@ -58,15 +58,16 @@ class AuthController extends BaseController
 
         try {
             $user = User::create($data);
-            $user->_location->create($request->only('location'));
+            $user->assignRole(Constants::ROLE_CLIENT);
+            $user->_location()->create($request->only('location')['location']);
 
             Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
 
-            try {
+            /*try {
                 $this->sendSMS($user->phone, $user->verify_token);
             } catch (\Exception $e) {
                 Log::error('Exception send SMS: ', ['exception' => $e]);
-            }
+            }*/
 
             DB::commit();
             return $this->sendResponse('Successfully register.', new UserResource($user));
@@ -81,9 +82,8 @@ class AuthController extends BaseController
     public function verify(VerifyRequest $request)
     {
         $token = $request->get('token');
-        $type = $request->get('type');
         if (!$user = User::where('verify_token', $token)->first()) {
-            return $this->sendError('Cannot find user by verify token.', [], 400);
+            return $this->sendError('Verify token is not valid.', [], 400);
         }
 
         DB::beginTransaction();
@@ -94,7 +94,6 @@ class AuthController extends BaseController
                 'verify_type' => $type,
                 'verified_at' => Carbon::now()->timestamp,
             ]);
-            $user->assignRole(Constants::ROLE_CLIENT);
             $user->_profile()->create();
 
             DB::commit();
@@ -127,18 +126,21 @@ class AuthController extends BaseController
 
             if ($field == 'email') {
                 Mail::to($$field)->queue(new ForgetPasswordUserMail($resetToken, $$field));
+
+                return $this->sendResponse('Verified email was send.');
             } else {
                 try {
                     $message = $this->sendSMS($$field, $resetToken);
+
+                    return $this->sendResponse('Verified SMS was send.');
+
                 } catch (\Exception $e) {
                     Log::error('Exception send SMS: ', ['exception' => $e]);
                 }
             }
 
-            return $this->sendResponse('Verified email was send.');
-
         } catch (\Exception $e) {
-            Log::error('Exception send verified emailS: ', ['exception' => $e]);
+            Log::error('Exception send verified emails: ', ['exception' => $e]);
             return $this->sendError('Cannot send verified email.', [], 409);
         }
     }
@@ -155,42 +157,39 @@ class AuthController extends BaseController
         return $this->forgotPassword($request, 'phone');
     }
 
-    protected function resetPassword(FormRequest $request, $field)
+    public function checkTokenEmail (CheckTokenEmail $request)
     {
-        $$field = $request->get($field);
         $token = $request->get('token');
         $resetTable = DB::table('password_resets');
 
+        if (!$resetPassword = $resetTable->where('token', $token)->first()) {
+            return $this->sendError('Reset token is not valid.', [], 400);
+        }
+        return $this->sendResponse('Reset token verified.');
+    }
+
+    protected function resetPassword(ResetPasswordFormRequest $request)
+    {
+        $token = $request->get('token');
+        $resetTable = DB::table('password_resets');
+
+        if (!$resetPassword = $resetTable->where('token', $token)->first()) {
+            return $this->sendError('Token is not valid.', [], 400);
+        }
         try {
-            if ($resetTable->where([[$field, $$field], ['token', $token]])->first()) {
-                $user = User::where($field, $$field)->first();
-                app('auth.password.broker')->deleteToken($user);
+            $queryField = $resetPassword->email ? [ 'email' => $resetPassword->email ] : [ 'phone' => $resetPassword->phone ];
+            $user = User::where($queryField)->first();
+            app('auth.password.broker')->deleteToken($user);
 
-                $user->password = $request->get('password');
-                $user->save();
+            $user->password = $request->get('password');
+            $user->save();
 
-                return $this->sendResponse('Password successfully changed.');
+            return $this->sendResponse('Password successfully changed.');
 
-            } else {
-
-                return $this->sendError('Not found email or token.');
-            }
         } catch (\Exception $e) {
             Log::error('Exception changed password user: ', ['exception' => $e]);
             return $this->sendError('Cannot changed password user.', [], 409);
         }
-    }
-
-    public function resetPasswordEmail(ResetPasswordEmailFormRequest $request)
-    {
-
-        return $this->resetPassword($request, 'email');
-    }
-
-    public function resetPasswordPhone(ResetPasswordPhoneFormRequest $request)
-    {
-
-        return $this->resetPassword($request, 'phone');
     }
 
     /**

@@ -36,7 +36,7 @@
                         class='col-md-3'>
                         <div class='form-control-feedback'>
                     <span class='text-danger align-middle'>
-                        <i class='fa fa-close'> Email must be email</i>
+                        <i class='fa fa-close'>Email must be email</i>
                     </span>
                         </div>
                     </div>
@@ -125,8 +125,8 @@
         </div>
     </div>
 </template>
-<script>
 
+<script>
 import {
     required,
     email,
@@ -147,7 +147,6 @@ export default {
             has_error: false
         };
     },
-
     validations: {
         email: {
             required,
@@ -163,18 +162,15 @@ export default {
             sameAsPassword: sameAs('password'),
         }
     },
-
     beforeMount() {
         this.getEmail();
         this.getToken();
     },
-
     filters: {
         toString: function (value) {
             return !value ? '' : value.toString();
         }
     },
-
     methods: {
         submit() {
             this.has_error = false;
@@ -182,7 +178,6 @@ export default {
             if (this.$v.$invalid) {
                 return;
             }
-
             axios.post('auth/reset-password', {
                 token: this.token,
                 email: this.email,
@@ -203,11 +198,9 @@ export default {
                 }
             })
         },
-
         getEmail() {
             this.email = this.$route.query.email;
         },
-
         getToken() {
             this.token = this.$route.params.token;
         }

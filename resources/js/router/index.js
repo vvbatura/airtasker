@@ -6,8 +6,7 @@ import Login from '../pages/Auth/Login';
 import HomePage from '../pages/Home';
 import VerifyEmail from "../pages/Auth/VerifyEmail";
 import VerifyPhone from "../pages/Auth/VerifyPhone";
-import Profile from "../pages/Profile";
-import CreateAdvert from "../pages/CreateAdvert";
+import ConfirmPhone from "../pages/Auth/ConfirmPhone";
 import store from "../store"
 
 //Errors
@@ -62,17 +61,10 @@ const routes = [
         meta: {guest: true, layout: authLayout}
     },
     {
-        path: '/profile',
-        name: 'profile',
-        component: Profile,
-        meta: { auth: true, layout: authLayout }
-    },
-
-    {
-        path: '/advert',
-        name: 'creteAdvert',
-        component: CreateAdvert,
-        meta: { guest: true, layout: appLayout }
+        path: '/confirm-phone/',
+        name: 'ConfirmPhone',
+        component: ConfirmPhone,
+        meta: {guest: true, layout: authLayout}
     },
     //Errors
     {
@@ -93,7 +85,10 @@ const router = new VueRouter({
     history: true,
     mode: 'history',
     linkExactActiveClass: 'is-active',
-    routes
+    routes,
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }
 });
 
 export default router;

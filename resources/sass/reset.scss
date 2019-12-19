@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    background-color: $body-bg;
+    color: $main-color;
+}
+.logout {
+    color: $dark;
+}
+.wrapper_box {
+    padding-top: 58px;
+}
+main {
+    min-height: 100vh;
+}
+.v-sidebar-menu {
+    padding-top: 4%;
+    z-index: 1;
+    flex-direction: column-reverse;
+
+    &.vsm_collapsed {
+        .vsm--title,
+        .vsm--mobile-bg,
+        .v-sidebar-menu .vsm--link, .vsm--dropdown, .vsm--item.vsm--item_open {
+            display: none;
+        }
+    }
+}
+.btn {
+    outline: none;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}

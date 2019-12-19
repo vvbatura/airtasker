@@ -1,232 +1,121 @@
 <template>
-    <div class="row mb-5 mt-lg-5 text-center">
-        <div class="col">
-            <form class='form-horizontal' role='form' @submit.prevent="submit">
-                <div class='row'>
-                    <div class='col-md-3'></div>
-                    <div class='col-md-6'>
-                        <h2>Register New User</h2>
-                        <hr>
-                    </div>
+    <div class="login-form">
+        <form class="form-horizontal" @submit.prevent="submit">
+            <h2 class="text-center">{{$t('join-us')}}</h2>
+            <div class="form-group">
+                <label for="first_name">{{$t('name')}}</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input
+                        v-model="$v.first_name.$model"
+                        type="text"
+                        class="form-control"
+                        id="first_name"
+                        :placeholder="$t('name')"
+                        required autofocus>
                 </div>
-                <div class='row'>
-                    <div class='col-md-3 field-label-responsive'>
-                        <label for='first_name'>First Name</label>
-                    </div>
-                    <div class='col-md-6'>
-                        <div class='form-group'>
-                            <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
-                                <div class='input-group-addon' style='width: 2.6rem'><i class='fa fa-user'></i></div>
-                                <input v-model="$v.first_name.$model" type='text' class='form-control' id='first_name' placeholder='First Name' required autofocus>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-if="!$v.first_name.required && $v.first_name.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                        <span class='text-danger align-middle'>
-                            <i class='fa fa-close'> First Name is required</i>
-                        </span>
-                        </div>
-                    </div>
-                    <div class="col-md-3" v-if="errors.first_name && has_error">
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'>{{errors.first_name | toString() }}</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div v-if="!$v.first_name.maxLength && $v.first_name.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> First Name must contain at less 150</i>
-                            </span>
-                        </div>
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="last_name">{{$t('surname')}}</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input
+                        v-model="$v.last_name.$model"
+                        type="text" class="form-control"
+                        id="last_name"
+                        :placeholder="$t('surname')"
+                        required
+                        autofocus>
                 </div>
-                <div class='row'>
-                    <div class='col-md-3 field-label-responsive'>
-                        <label for='last_name'>Last Name</label>
-                    </div>
-                    <div class='col-md-6'>
-                        <div class='form-group'>
-                            <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
-                                <div class='input-group-addon' style='width: 2.6rem'><i class='fa fa-user'></i></div>
-                                <input v-model="$v.last_name.$model" type='text' class='form-control' id='last_name' placeholder='Last Name' required autofocus>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-if="!$v.last_name.required && $v.last_name.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> Last Name is required</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-3" v-if="errors.last_name && has_error">
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'>{{errors.last_name | toString() }}</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div v-if="!$v.last_name.maxLength && $v.last_name.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> Last Name must contain at less 150</i>
-                            </span>
-                        </div>
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="email">{{$t('email')}}</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input
+                        type="text"
+                        v-model="$v.email.$model"
+                        class="form-control"
+                        id="email"
+                        placeholder="you@example.com"
+                        required
+                        autofocus>
                 </div>
-                <div class='row'>
-                    <div class='col-md-3 field-label-responsive'>
-                        <label for='email'>E-Mail Address</label>
-                    </div>
-                    <div class='col-md-6'>
-                        <div class='form-group'>
-                            <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
-                                <div class='input-group-addon' style='width: 2.6rem'><i class='fa fa-at'></i></div>
-                                <input type='text' v-model="$v.email.$model" class='form-control' id='email'
-                                       placeholder='you@example.com' required autofocus>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-if="!$v.email.required && $v.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> Email is required</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div v-if="!$v.email.email && $v.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                        <span class='text-danger align-middle'>
-                            <i class='fa fa-close'> Email must be email</i>
-                        </span>
-                        </div>
-                    </div>
-                    <div class="col-md-3" v-if="errors.email && has_error">
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'>{{errors.email | toString() }}</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div v-if="!$v.email.maxLength && $v.email.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> Email must contain at less 150</i>
-                            </span>
-                        </div>
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="email">{{$t('city')}}</label>
+                <div class="input-group input-group-city mb-2 mr-sm-2 mb-sm-0">
+                    <vue-instant
+                        :suggestOnAllWords="true"
+                        :suggestion-attribute="suggestionAttribute"
+                        v-model="location.long_name" :disabled="false"
+                        @input="changed"
+                        :show-autocomplete="true"
+                        :autofocus="true"
+                        :suggestions="suggestions"
+                        name="customName"
+                        :placeholder="$t('city')"
+                        type="google">
+                    </vue-instant>
                 </div>
-                <div class='row'>
-                    <div class='col-md-3 field-label-responsive'>
-                        <label for='email'>Phone Number</label>
-                    </div>
-                    <div class='col-md-6'>
-                        <div class='form-group'>
-                            <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
-                                <div class='input-group-addon' style='width: 2.6rem'><i class='fa fa-at'></i></div>
-                                <input type='text' v-model="$v.phone.$model" class='form-control' id='phone'
-                                       placeholder='0981234567' required autofocus>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-if="!$v.phone.required && $v.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> Phone is required</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-3" v-if="errors.phone && has_error">
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'>{{errors.phone | toString() }}</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div v-if="!$v.phone.maxLength && $v.phone.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> Phone must contain at less 150</i>
-                            </span>
-                        </div>
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="email">{{$t('phone')}}</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input
+                        type="tel"
+                        v-mask="'(+499) 999 99 99'"
+                        v-model="$v.phone.$model"
+                        class="form-control"
+                        id="phone"
+                        :placeholder="$t('phone')"
+                        required
+                        autofocus/>
                 </div>
-                <div class='row'>
-                    <div class='col-md-3 field-label-responsive'>
-                        <label for='password'>Password</label>
-                    </div>
-                    <div class='col-md-6'>
-                        <div class='form-group has-danger'>
-                            <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
-                                <div class='input-group-addon' style='width: 2.6rem'><i class='fa fa-key'></i></div>
-                                <input type='password' v-model.trim="$v.password.$model" class='form-control' id='password' placeholder='Password' required>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-if="!$v.password.required && $v.password.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> Password is required</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div v-if="!$v.password.minLength && $v.password_confirmation.$dirty || !$v.password.maxLength && $v.password_confirmation.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'> Password must contain at least 6 characters and less 20</i>
-                            </span>
-                        </div>
-                    </div>
+            </div>
+            <div class="form-group has-danger">
+                <label for="password">{{$t('password')}}</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input
+                        type="password"
+                        v-model.trim="$v.password.$model"
+                        class="form-control"
+                        id="password"
+                        :placeholder="$t('password')"
+                        required>
                 </div>
-                <div class='row'>
-                    <div class='col-md-3 field-label-responsive'>
-                        <label for='password_confirmation'>Confirm Password</label>
-                    </div>
-                    <div class='col-md-6'>
-                        <div class='form-group'>
-                            <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
-                                <div class='input-group-addon' style='width: 2.6rem'>
-                                    <i class='fa fa-repeat'></i>
-                                </div>
-                                <input type='password' name='password_confirmation' class='form-control'
-                                       v-model.trim="$v.password_confirmation.$model" id='password_confirmation' placeholder='Password' required>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-if="!$v.password_confirmation.sameAsPassword && $v.password_confirmation.$dirty" class='col-md-3'>
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'>Passwords must be matches</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-3" v-if="errors.password">
-                        <div class='form-control-feedback'>
-                            <span class='text-danger align-middle'>
-                                <i class='fa fa-close'>{{errors.password | toString() }}</i>
-                            </span>
-                        </div>
-                    </div>
+            </div>
+            <div class='form-group'>
+                <label for="password">{{$t('password-confirmation')}}</label>
+                <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
+                    <input
+                        type="password"
+                        name="password_confirmation"
+                        class="form-control"
+                        v-model.trim="$v.password_confirmation.$model"
+                        id="password_confirmation"
+                        :placeholder="$t('password')"
+                        required>
                 </div>
-                <div class='row'>
-                    <div class='col-md-3'></div>
-                    <div class='col-md-6'>
-                        <button class='btn btn-success'>
-                            <i class='fa fa-user-plus'></i>
-                            Register
-                        </button>
-                    </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block btn-lg">{{$t('join-airtasker')}}</button>
+                <div class="login_with text-center">
+                    <span>{{$t('or-sign-up-with')}}</span>
                 </div>
-            </form>
-
+                <div class="d-flex justify-content-between btn_media">
+                    <login-with-facebook />
+                    <login-with-google />
+                </div>
+            </div>
+        </form>
+        <div class="d-flex justify-content-between">
+            <p>{{$t('already-have')}}</p>
+            <router-link :to="{ name: 'login'}">
+                {{$t('login')}}
+            </router-link>
         </div>
     </div>
 </template>
-<script>
 
+<script>
 import {
     required,
     email,
@@ -234,8 +123,14 @@ import {
     maxLength,
     sameAs
 } from 'vuelidate/lib/validators';
+import LoginWithGoogle from "../../components/social/google";
+import LoginWithFacebook from "../../components/social/facebook";
 
 export default {
+    components: {
+        LoginWithGoogle,
+        LoginWithFacebook
+    },
     data() {
         return {
             error_dialog: false,
@@ -247,15 +142,24 @@ export default {
             last_name: '',
             email: '',
             phone: '',
+            location: {
+                name: '',
+                long_name: '',
+                google_place_id: '',
+                lat: '',
+                lng: ''
+            },
             password: '',
             password_confirmation: '',
 
             errors: {},
             user_exists: false,
-            has_error: false
+            has_error: false,
+
+            suggestionAttribute: 'long_name',
+            suggestions: [],
         };
     },
-
     validations: {
         first_name: {
             required,
@@ -274,6 +178,9 @@ export default {
             required,
             maxLength: maxLength(150)
         },
+        location: {
+            required
+        },
         password: {
             required,
             minLength: minLength(6),
@@ -283,7 +190,6 @@ export default {
             sameAsPassword: sameAs('password'),
         }
     },
-
     methods: {
         submit() {
             this.show_spiner = true;
@@ -294,6 +200,13 @@ export default {
                     first_name: this.first_name,
                     last_name: this.last_name,
                     email: this.email,
+                    location: {
+                        name: this.location.name,
+                        long_name: this.location.long_name,
+                        google_place_id: this.location.google_place_id,
+                        lat: this.location.lat,
+                        lng: this.location.lng
+                    },
                     phone: this.phone,
                     password: this.password,
                     password_confirmation: this.password_confirmation
@@ -318,9 +231,22 @@ export default {
                 },
                 redirect: 'login'
             });
-        },
+        }, 
+        changed: function () {
+            //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.city)
+            axios.get('/location/get-geo?query=' + this.location.long_name)    
+                .then((response) => {
+                    response.data.data.forEach((a) => {
+                        this.location.name = a.name;
+                        this.location.long_name = a.long_name;
+                        this.location.google_place_id = a.google_place_id;
+                        this.location.lat = a.lat.toString();
+                        this.location.lng = a.lng.toString();
+                        this.suggestions.push(a)
+                    })
+                })
+        }     
     },
-
     filters: {
         toString: function (value) {
             if (!value) return '';

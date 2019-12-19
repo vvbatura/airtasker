@@ -26,8 +26,7 @@ class VerifyRequest extends FormRequest
     public function rules()
     {
         return [
-            'token' => ['required'],
-            'type' => ['required', 'string', Rule::in(Constants::VERIFIES)],
+            'token' => ['required|string'],
         ];
     }
 

@@ -22,11 +22,11 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('/forgot-password-email', 'AuthController@forgotPasswordEmail');
         Route::post('/forgot-password-phone', 'AuthController@forgotPasswordPhone');
-        Route::post('/reset-password-email', 'AuthController@resetPasswordEmail');
-        Route::post('/reset-password-phone', 'AuthController@resetPasswordPhone');
+        Route::post('/check-token', 'AuthController@checkTokenEmail');
+        Route::post('/reset-password', 'AuthController@resetPassword');
     });
 
-    //Route::group(['middleware' => 'jwt'], function() {
+    Route::group(['middleware' => 'jwt'], function() {
 
         Route::group(['prefix' => 'category'], function () {
             Route::get('/', 'CategoryController@index');
@@ -40,6 +40,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::group(['prefix' => 'user'], function () {
             Route::get('/', 'UserController@index');
             Route::get('/{user}', 'UserController@show');
+            Route::get('/{user}/skills', 'UserController@showSkills');
             Route::put('/{user}', 'UserController@update');
             Route::patch('/{user}/image', 'UserController@saveImage');
             Route::patch('/{user}/skills', 'UserController@saveSkills');
@@ -48,22 +49,7 @@ Route::group(['namespace' => 'Api'], function () {
             Route::delete('/', 'UserController@deleteMany');
         });
 
-    //});
-
-    /*Route::group(['middleware' => 'jwt'], function() {
-
-        Route::get('/countries', 'CountryController');
-        Route::get('/categories', 'CategoryController');
-        Route::get('/cities', 'CityController');
-        Route::get('/experiences', 'ExperienceController');
-        Route::resource('/vacancies', 'VacancyController');
-        Route::put('/users', 'UserController@update')->middleware('jwt');
-        Route::post('/users/password', 'UserController@changePassword')->middleware('jwt');
-
-        Route::get('/profiles', 'ProfileController@show');
-        Route::put('/profiles/{profile}', 'ProfileController@update');
-
-    });*/
+    });
 
 
 });

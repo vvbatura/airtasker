@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->json('type')->nullable();
             $table->enum('status', Constants::STATUSES)->default(Constants::STATUS_ACTIVE);
             $table->string('verify_token')->nullable()->unique();
-            $table->enum('verify_type', Constants::VERIFIES)->nullable();
             $table->timestamp('verified_at')->nullable();
 
             $table->softDeletes();
