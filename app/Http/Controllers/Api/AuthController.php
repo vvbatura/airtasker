@@ -58,7 +58,8 @@ class AuthController extends BaseController
 
         try {
             $user = User::create($data);
-            $user->_location()->create($request->only('location'));
+            $user->assignRole(Constants::ROLE_CLIENT);
+            $user->_location()->create($request->only('location')['location']);
 
             Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
 
@@ -94,7 +95,6 @@ class AuthController extends BaseController
                 'verify_type' => $type,
                 'verified_at' => Carbon::now()->timestamp,
             ]);
-            $user->assignRole(Constants::ROLE_CLIENT);
             $user->_profile()->create();
 
             DB::commit();

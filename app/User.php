@@ -103,7 +103,7 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     }
     public function _location()
     {
-        return $this->belongsTo(Location::class);
+        return $this->hasOne(Location::class);
     }
     public function _skills()
     {
