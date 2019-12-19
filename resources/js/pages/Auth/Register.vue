@@ -5,20 +5,38 @@
             <div class="form-group">
                 <label for="first_name">{{$t('name')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input v-model="$v.first_name.$model" type="text" class="form-control" id="first_name" :placeholder="$t('name')" required autofocus>
+                    <input
+                        v-model="$v.first_name.$model"
+                        type="text"
+                        class="form-control"
+                        id="first_name"
+                        :placeholder="$t('name')"
+                        required autofocus>
                 </div>
             </div>
             <div class="form-group">
                 <label for="last_name">{{$t('surname')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input v-model="$v.last_name.$model" type="text" class="form-control" id="last_name" :placeholder="$t('surname')" required autofocus>
+                    <input
+                        v-model="$v.last_name.$model"
+                        type="text" class="form-control"
+                        id="last_name"
+                        :placeholder="$t('surname')"
+                        required
+                        autofocus>
                 </div>
             </div>
             <div class="form-group">
                 <label for="email">{{$t('email')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input type="text" v-model="$v.email.$model" class="form-control" id="email"
-                            placeholder="you@example.com" required autofocus>
+                    <input
+                        type="text"
+                        v-model="$v.email.$model"
+                        class="form-control"
+                        id="email"
+                        placeholder="you@example.com"
+                        required
+                        autofocus>
                 </div>
             </div>
             <div class="form-group">
@@ -41,21 +59,40 @@
             <div class="form-group">
                 <label for="email">{{$t('phone')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input type="tel" v-mask="'(+499) 999 99 99'" v-model="$v.phone.$model" class="form-control" id="phone"
-                            :placeholder="$t('phone')" required autofocus/>
+                    <input
+                        type="tel"
+                        v-mask="'(+499) 999 99 99'"
+                        v-model="$v.phone.$model"
+                        class="form-control"
+                        id="phone"
+                        :placeholder="$t('phone')"
+                        required
+                        autofocus/>
                 </div>
             </div>
             <div class="form-group has-danger">
                 <label for="password">{{$t('password')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input type="password" v-model.trim="$v.password.$model" class="form-control" id="password" :placeholder="$t('password')" required>
+                    <input
+                        type="password"
+                        v-model.trim="$v.password.$model"
+                        class="form-control"
+                        id="password"
+                        :placeholder="$t('password')"
+                        required>
                 </div>
             </div>
             <div class='form-group'>
                 <label for="password">{{$t('password-confirmation')}}</label>
                 <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
-                    <input type='password' name='password_confirmation' class='form-control'
-                            v-model.trim="$v.password_confirmation.$model" id='password_confirmation' placeholder='Password' required>
+                    <input
+                        type="password"
+                        name="password_confirmation"
+                        class="form-control"
+                        v-model.trim="$v.password_confirmation.$model"
+                        id="password_confirmation"
+                        :placeholder="$t('password')"
+                        required>
                 </div>
             </div>
             <div class="form-group">
@@ -105,7 +142,6 @@ export default {
             last_name: '',
             email: '',
             phone: '',
-            //location: '',
             location: {
                 name: '',
                 long_name: '',
@@ -197,14 +233,10 @@ export default {
             });
         }, 
         changed: function () {
-            //var that = this
-            //this.suggestions = []
             //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.city)
             axios.get('/location/get-geo?query=' + this.location.long_name)    
                 .then((response) => {
                     response.data.data.forEach((a) => {
-                        console.log(a.name)
-                        console.log(this.location, 'test')
                         this.location.name = a.name;
                         this.location.long_name = a.long_name;
                         this.location.google_place_id = a.google_place_id;
