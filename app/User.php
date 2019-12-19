@@ -62,6 +62,14 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     public function getAbn() { return $this->_profile ? $this->_profile->abn : null; }
     public function getDescription() { return $this->_profile ? $this->_profile->description : null; }
     public function getType() { return $this->type; }
+    public function getImagePath()
+    {
+        if ($this->hasMedia($this->table)) {
+            $image = $this->getFirstMedia($this->table);
+            return $image->getUrl();
+        }
+        return null;
+    }
 
     //-methods
     public function getJWTIdentifier()
