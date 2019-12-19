@@ -6,6 +6,7 @@ import Login from '../pages/Auth/Login';
 import HomePage from '../pages/Home';
 import VerifyEmail from "../pages/Auth/VerifyEmail";
 import VerifyPhone from "../pages/Auth/VerifyPhone";
+import ConfirmPhone from "../pages/Auth/ConfirmPhone";
 import store from "../store"
 
 //Errors
@@ -57,6 +58,12 @@ const routes = [
         path: '/reset-password/:token',
         name: 'reset_password',
         component: ResetPassword,
+        meta: {guest: true, layout: authLayout}
+    },
+    {
+        path: '/confirm-phone/',
+        name: 'ConfirmPhone',
+        component: ConfirmPhone,
         meta: {guest: true, layout: authLayout}
     },
     //Errors

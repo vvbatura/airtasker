@@ -33,14 +33,36 @@
                 <button type="submit" class="btn btn-lg frg_btn">{{$t('send')}}</button>
             </div>
         </form>
+        <div>
+            <b-modal ref="my-modal" hide-header hide-footer> 
+                <div class="d-block text-center">
+                    <h3 class="mb-0">Your email was checked!</h3>
+                    <router-link class="custom_close" to="/login">
+                        <i class="ri-close-line"></i>
+                    </router-link>
+                </div>
+            </b-modal>
+        </div>
     </div>
 </template>
 
 <script>
 import { required, email, maxLength } from 'vuelidate/lib/validators';
 import {openWindow} from "../../common/module/helper";
+import { BFormCheckbox, BButton, BModal, BForm, BFormGroup, BFormInput, BFormTextarea, BListGroup, BListGroupItem  } from 'bootstrap-vue'
 
 export default {
+    components: {
+        'b-form-checkbox': BFormCheckbox,
+        'b-button': BButton,
+        'b-modal': BModal,
+        'b-form': BForm,
+        'b-form-group': BFormGroup,
+        'b-form-input': BFormInput,
+        'b-form-textarea': BFormTextarea,
+        'b-list-group' : BListGroup,
+        'b-list-group-item' : BListGroupItem
+    },
     data: function () {
         return {
             error_dialog: false,
@@ -50,6 +72,7 @@ export default {
             has_error: false,
             isEmail: false,
             isPhone: false,
+            modalShow: true
         };
     },
 
@@ -87,7 +110,7 @@ export default {
                         email: this.email
                     })
                     .then(response => {
-                        alert('Check your email')
+                        this.$refs['my-modal'].show()
                     })
                     .catch(error => {
                         switch (error.response.status) {
@@ -105,7 +128,7 @@ export default {
                         phone: this.phone
                     })
                     .then(response => {
-                        alert('Check your phone')
+                        this.$router.push('confirm-phone') 
                     })
                     .catch(error => {
                         switch (error.response.status) {
@@ -142,6 +165,18 @@ export default {
     line-height: 45px;
     border: 1px solid rgb(231, 235, 251);
     border-radius: 45px;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.custom_close {
+    text-decoration: none;
+    color: #000000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
     &:hover {
         text-decoration: none;
     }

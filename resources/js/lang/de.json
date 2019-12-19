@@ -39,5 +39,6 @@
     "from-email": "aus der Email",
     "from-phone": "vom Telefon",
     "enter-your-email-phone": "Geben Sie unten Ihre email oder Ihr Telefon ein und wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts",
-    "password-confirmation": "Passwort Bestätigung"
+    "password-confirmation": "Passwort Bestätigung",
+    "enter-your-sms": "Gib deinen Code ein"
 }
