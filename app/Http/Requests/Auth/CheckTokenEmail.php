@@ -13,7 +13,7 @@ class CheckTokenEmail extends FormRequest
     public function rules()
     {
         return [
-            'token' => 'required|string|exists:password_resets,token',
+            'token' => 'required|string',
         ];
     }
 }

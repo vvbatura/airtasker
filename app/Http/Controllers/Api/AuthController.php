@@ -63,11 +63,11 @@ class AuthController extends BaseController
 
             Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
 
-            try {
+            /*try {
                 $this->sendSMS($user->phone, $user->verify_token);
             } catch (\Exception $e) {
                 Log::error('Exception send SMS: ', ['exception' => $e]);
-            }
+            }*/
 
             DB::commit();
             return $this->sendResponse('Successfully register.', new UserResource($user));
@@ -82,9 +82,8 @@ class AuthController extends BaseController
     public function verify(VerifyRequest $request)
     {
         $token = $request->get('token');
-        $type = $request->get('type');
         if (!$user = User::where('verify_token', $token)->first()) {
-            return $this->sendError('Cannot find user by verify token.', [], 400);
+            return $this->sendError('Verify token is not valid.', [], 400);
         }
 
         DB::beginTransaction();
@@ -160,7 +159,13 @@ class AuthController extends BaseController
 
     public function checkTokenEmail (CheckTokenEmail $request)
     {
-        return $this->sendResponse('Token verified.');
+        $token = $request->get('token');
+        $resetTable = DB::table('password_resets');
+
+        if (!$resetPassword = $resetTable->where('token', $token)->first()) {
+            return $this->sendError('Reset token is not valid.', [], 400);
+        }
+        return $this->sendResponse('Reset token verified.');
     }
 
     protected function resetPassword(ResetPasswordFormRequest $request)
@@ -168,8 +173,10 @@ class AuthController extends BaseController
         $token = $request->get('token');
         $resetTable = DB::table('password_resets');
 
+        if (!$resetPassword = $resetTable->where('token', $token)->first()) {
+            return $this->sendError('Token is not valid.', [], 400);
+        }
         try {
-            $resetPassword = $resetTable->where('token', $token)->first();
             $queryField = $resetPassword->email ? [ 'email' => $resetPassword->email ] : [ 'phone' => $resetPassword->phone ];
             $user = User::where($queryField)->first();
             app('auth.password.broker')->deleteToken($user);

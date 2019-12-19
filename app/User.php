@@ -32,7 +32,7 @@ class User extends Authenticatable implements JWTSubject, HasMedia
         'first_name', 'last_name',
         'email', 'phone', 'password',
         'type', 'status',
-        'verify_token', 'verify_type', 'verified_at',
+        'verify_token', 'verified_at',
     ];
 
     protected $casts = [

@@ -17,7 +17,6 @@ $factory->define( User::class, function (Faker $faker) {
         'password' => 'Qwerty1@',
         'type' => rand(0,1) ?  Constants::TYPES : [Constants::TYPES[rand(0,1)]],
         'status' =>  Constants::STATUS_ACTIVE,
-        'verify_type' =>  Constants::VERIFIES[rand(0,1)],
         'verified_at' => now(),
         'remember_token' => User::makeHash(),
     ];
