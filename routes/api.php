@@ -22,8 +22,8 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('/forgot-password-email', 'AuthController@forgotPasswordEmail');
         Route::post('/forgot-password-phone', 'AuthController@forgotPasswordPhone');
-        Route::post('/reset-password-email', 'AuthController@resetPasswordEmail');
-        Route::post('/reset-password-phone', 'AuthController@resetPasswordPhone');
+        Route::post('/check-token', 'AuthController@checkTokenEmail');
+        Route::post('/reset-password', 'AuthController@resetPassword');
     });
 
     Route::group(['middleware' => 'jwt'], function() {
