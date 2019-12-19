@@ -34,9 +34,12 @@
             </div>
         </form>
         <div>
-            <b-modal ref="my-modal" hide-header hide-footer>
+            <b-modal ref="my-modal" hide-header hide-footer> 
                 <div class="d-block text-center">
                     <h3 class="mb-0">Your email was checked!</h3>
+                    <router-link class="custom_close" to="/login">
+                        <i class="ri-close-line"></i>
+                    </router-link>
                 </div>
             </b-modal>
         </div>
@@ -162,6 +165,18 @@ export default {
     line-height: 45px;
     border: 1px solid rgb(231, 235, 251);
     border-radius: 45px;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.custom_close {
+    text-decoration: none;
+    color: #000000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
     &:hover {
         text-decoration: none;
     }

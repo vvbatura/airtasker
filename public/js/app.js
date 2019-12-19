@@ -3435,6 +3435,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -33111,7 +33114,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".reset-form {\n  max-width: 500px;\n  margin: 0 auto;\n}\n.notice_reset {\n  margin-bottom: 30px;\n}\n.frg_btn {\n  width: 48%;\n  margin: 0 !important;\n}\n.cancel_btn {\n  color: #008fb4;\n  text-align: center;\n  line-height: 45px;\n  border: 1px solid #e7ebfb;\n  border-radius: 45px;\n}\n.cancel_btn:hover {\n  text-decoration: none;\n}", ""]);
+exports.push([module.i, ".reset-form {\n  max-width: 500px;\n  margin: 0 auto;\n}\n.notice_reset {\n  margin-bottom: 30px;\n}\n.frg_btn {\n  width: 48%;\n  margin: 0 !important;\n}\n.cancel_btn {\n  color: #008fb4;\n  text-align: center;\n  line-height: 45px;\n  border: 1px solid #e7ebfb;\n  border-radius: 45px;\n}\n.cancel_btn:hover {\n  text-decoration: none;\n}\n.custom_close {\n  text-decoration: none;\n  color: #000000;\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 30px;\n  height: 30px;\n}\n.custom_close:hover {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -80390,11 +80393,22 @@ var render = function() {
           "b-modal",
           { ref: "my-modal", attrs: { "hide-header": "", "hide-footer": "" } },
           [
-            _c("div", { staticClass: "d-block text-center" }, [
-              _c("h3", { staticClass: "mb-0" }, [
-                _vm._v("Your email was checked!")
-              ])
-            ])
+            _c(
+              "div",
+              { staticClass: "d-block text-center" },
+              [
+                _c("h3", { staticClass: "mb-0" }, [
+                  _vm._v("Your email was checked!")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "custom_close", attrs: { to: "/login" } },
+                  [_c("i", { staticClass: "ri-close-line" })]
+                )
+              ],
+              1
+            )
           ]
         )
       ],
