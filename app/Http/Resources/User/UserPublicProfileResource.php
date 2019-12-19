@@ -2,9 +2,11 @@
 
 namespace App\Http\Resources\User;
 
+use App\Http\Resources\Location\LocationResource;
+use App\Http\Resources\Role\RoleResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserProfileResource extends JsonResource
+class UserPublicProfileResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -29,6 +31,10 @@ class UserProfileResource extends JsonResource
             'description' => $this->getDescription(),
             'type' => $this->getType(),
             'image' => $this->getImagePath(),
+            'roles' => RoleResource::collection($this->roles),
+            'location' => new LocationResource($this->_location),
+            'skills' => new UserSkillsResource($this->_skills),
+            'tasks' => $this->_tasks,
         ];
     }
 }
