@@ -1,7 +1,6 @@
 <template>
     <div class="login-form">
-        <h2 class="text-center pt-3">{{ message }}</h2>
-        <form v-show="formShow" class="form-horizontal" role="form" @submit.prevent="submit">
+        <form v-if="formShow" class="form-horizontal" role="form" @submit.prevent="submit">
             <h2 class="text-center mb-4">Change password</h2>
             <div class="form-group has-danger">
                 <label for="password">Password</label>
@@ -14,7 +13,7 @@
                         placeholder="Password">
                 </div>
                 <div v-if="!$v.password.required && $v.password.$dirty">
-                <div class="form-control-feedback">
+                    <div class="form-control-feedback">
                         <span class="text-danger align-middle">
                             Password is required
                         </span>
@@ -61,6 +60,10 @@
                 <button type="submit" class="btn btn-lg frg_btn">{{$t('send')}}</button>
             </div>
         </form>
+        <div class="text-center" v-else>
+            <h2 class="text-center mb-3">{{ message }}</h2>
+            <router-link class="btn-lg link_login" to="/login">Return to login</router-link>
+        </div>
     </div>
 </template>
 
@@ -105,12 +108,16 @@ export default {
             }
         )
         .catch(error => {
-                // this.message = 'Invalid token';
-                // this.formShow = false;
+                this.formShow = false;
                 switch (error.response.status) {
-                    case 400: 
-                        this.message = 'Invalid token';
-                        this.formShow = false;
+                    case 400:  //not valid token
+                        this.message = 'Not valid token';
+                        break;
+                    case 409:   //conflict, unknown problem
+                        this.message = 'Conflict, unknown problem';
+                        break;
+                    case 422:   //not the same password
+                        this.message = 'Not the same password';
                         break;
                     default:
                         this.error_dialog = true;

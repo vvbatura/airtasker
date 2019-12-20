@@ -13,6 +13,13 @@
                         :placeholder="$t('name')"
                         required autofocus>
                 </div>
+                <div v-if="!$v.first_name.required && $v.first_name.$dirty">
+                    <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            Password is required
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="last_name">{{$t('surname')}}</label>
@@ -61,7 +68,6 @@
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input
                         type="tel"
-                        v-mask="'(+499) 999 99 99'"
                         v-model="$v.phone.$model"
                         class="form-control"
                         id="phone"

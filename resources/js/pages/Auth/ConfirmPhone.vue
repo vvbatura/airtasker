@@ -91,7 +91,6 @@ export default {
                 password_confirmation: this.confirmPassword
             })
             .then(response => {
-                    //this.message = 'Successfully You verified phone.';
                     this.$router.push('login')
                 }
             )
