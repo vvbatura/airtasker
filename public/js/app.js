@@ -3442,13 +3442,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       axios.post('/auth/reset-password', {
-        params: {
-          token: this.code,
-          password: this.password,
-          password_confirmation: this.confirmPassword
-        }
+        token: this.code,
+        password: this.password,
+        password_confirmation: this.confirmPassword
       }).then(function (response) {
-        _this.message = 'Successfully You verified phone.';
+        //this.message = 'Successfully You verified phone.';
+        _this.$router.push('login');
       })["catch"](function (error) {
         switch (error.response.status) {
           case 400:
