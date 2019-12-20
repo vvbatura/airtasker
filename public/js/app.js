@@ -3921,8 +3921,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -3953,7 +3951,8 @@ __webpack_require__.r(__webpack_exports__);
       user_exists: false,
       has_error: false,
       suggestionAttribute: 'long_name',
-      suggestions: []
+      suggestions: [],
+      submitted: false
     };
   },
   validations: {
@@ -3988,7 +3987,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      this.show_spiner = true;
+      this.submitted = true; // stop here if form is invalid
+
+      this.$v.$touch();
+
+      if (this.$v.$invalid) {
+        return;
+      } //this.show_spiner = true;
+
+
       this.has_error = false;
       this.$auth.register({
         data: {
@@ -4032,7 +4039,6 @@ __webpack_require__.r(__webpack_exports__);
     changed: function changed() {
       var _this = this;
 
-      //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.city)
       axios.get('/location/get-geo?query=' + this.location.long_name).then(function (response) {
         response.data.data.forEach(function (a) {
           _this.location.name = a.name;
@@ -4256,7 +4262,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       token: '',
-      success: true,
+      verifiedAccount: true,
       message: '',
       error_dialog: ''
     };
@@ -4269,7 +4275,7 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function (response) {
       console.log("check");
     })["catch"](function (error) {
-      _this.success = false;
+      _this.verifiedAccount = false;
 
       switch (error.response.status) {
         case 400:
@@ -4283,8 +4289,8 @@ __webpack_require__.r(__webpack_exports__);
           break;
 
         case 409:
-          //conflict, unknown problem
-          _this.message = 'Conflict, unknown problem';
+          //conflict, something happend
+          _this.message = 'Conflict, something happend';
           break;
 
         case 422:
@@ -80919,79 +80925,83 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "first_name" } }, [
+          _c("label", { attrs: { for: "name" } }, [
             _vm._v(_vm._s(_vm.$t("name")))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.first_name.$model,
-                  expression: "$v.first_name.$model"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "first_name",
-                placeholder: _vm.$t("name"),
-                required: "",
-                autofocus: ""
-              },
-              domProps: { value: _vm.$v.first_name.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.$v.first_name, "$model", $event.target.value)
-                }
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.first_name,
+                expression: "first_name"
               }
-            })
-          ]),
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.first_name.$error },
+            attrs: {
+              type: "text",
+              id: "name",
+              name: "name",
+              placeholder: _vm.$t("name")
+            },
+            domProps: { value: _vm.first_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.first_name = $event.target.value
+              }
+            }
+          }),
           _vm._v(" "),
-          !_vm.$v.first_name.required && _vm.$v.first_name.$dirty
-            ? _c("div", [_vm._m(0)])
+          _vm.submitted && !_vm.$v.first_name.required
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v("First Name is required")
+              ])
             : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "last_name" } }, [
+          _c("label", { attrs: { for: "surname" } }, [
             _vm._v(_vm._s(_vm.$t("surname")))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.last_name.$model,
-                  expression: "$v.last_name.$model"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "last_name",
-                placeholder: _vm.$t("surname"),
-                required: "",
-                autofocus: ""
-              },
-              domProps: { value: _vm.$v.last_name.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.$v.last_name, "$model", $event.target.value)
-                }
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.last_name,
+                expression: "last_name"
               }
-            })
-          ])
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.last_name.$error },
+            attrs: {
+              type: "text",
+              id: "surname",
+              name: "surname",
+              placeholder: _vm.$t("surname")
+            },
+            domProps: { value: _vm.last_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.last_name = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && !_vm.$v.last_name.required
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v("Last Name is required")
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -81005,28 +81015,34 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.$v.email.$model,
-                  expression: "$v.email.$model"
+                  value: _vm.email,
+                  expression: "email"
                 }
               ],
               staticClass: "form-control",
+              class: { "is-invalid": _vm.submitted && _vm.$v.email.$error },
               attrs: {
                 type: "text",
                 id: "email",
-                placeholder: "you@example.com",
-                required: "",
-                autofocus: ""
+                name: "email",
+                placeholder: "you@example.com"
               },
-              domProps: { value: _vm.$v.email.$model },
+              domProps: { value: _vm.email },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.$v.email, "$model", $event.target.value)
+                  _vm.email = $event.target.value
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.submitted && !_vm.$v.email.required
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v("Email is required")
+                ])
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
@@ -81078,116 +81094,124 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.$v.phone.$model,
-                  expression: "$v.phone.$model"
+                  value: _vm.phone,
+                  expression: "phone"
                 }
               ],
               staticClass: "form-control",
-              attrs: {
-                type: "tel",
-                id: "phone",
-                placeholder: _vm.$t("phone"),
-                required: "",
-                autofocus: ""
-              },
-              domProps: { value: _vm.$v.phone.$model },
+              class: { "is-invalid": _vm.submitted && _vm.$v.email.$error },
+              attrs: { type: "tel", id: "phone", placeholder: _vm.$t("phone") },
+              domProps: { value: _vm.phone },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.$v.phone, "$model", $event.target.value)
+                  _vm.phone = $event.target.value
                 }
               }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group has-danger" }, [
-          _c("label", { attrs: { for: "password" } }, [
-            _vm._v(_vm._s(_vm.$t("password")))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.$v.password.$model,
-                  expression: "$v.password.$model",
-                  modifiers: { trim: true }
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "password",
-                id: "password",
-                placeholder: _vm.$t("password"),
-                required: ""
-              },
-              domProps: { value: _vm.$v.password.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.$v.password,
-                    "$model",
-                    $event.target.value.trim()
-                  )
-                },
-                blur: function($event) {
-                  return _vm.$forceUpdate()
-                }
-              }
-            })
+            }),
+            _vm._v(" "),
+            _vm.submitted && !_vm.$v.phone.required
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v("Phone is required")
+                ])
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "password" } }, [
+          _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.password,
+                expression: "password"
+              }
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.password.$error },
+            attrs: {
+              type: "password",
+              id: "password",
+              name: "password",
+              placeholder: _vm.$t("password")
+            },
+            domProps: { value: _vm.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.password = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && _vm.$v.password.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.password.required
+                  ? _c("span", [_vm._v("Password is required")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.password.minLength
+                  ? _c("span", [
+                      _vm._v("Password must be at least 6 characters")
+                    ])
+                  : _vm._e()
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "password_confirmation" } }, [
             _vm._v(_vm._s(_vm.$t("password-confirmation")))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.$v.password_confirmation.$model,
-                  expression: "$v.password_confirmation.$model",
-                  modifiers: { trim: true }
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "password",
-                name: "password_confirmation",
-                id: "password_confirmation",
-                placeholder: _vm.$t("password"),
-                required: ""
-              },
-              domProps: { value: _vm.$v.password_confirmation.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.$v.password_confirmation,
-                    "$model",
-                    $event.target.value.trim()
-                  )
-                },
-                blur: function($event) {
-                  return _vm.$forceUpdate()
-                }
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.password_confirmation,
+                expression: "password_confirmation"
               }
-            })
-          ])
+            ],
+            staticClass: "form-control",
+            class: {
+              "is-invalid": _vm.submitted && _vm.$v.password_confirmation.$error
+            },
+            attrs: {
+              type: "password",
+              id: "password_confirmation",
+              name: "password_confirmation",
+              placeholder: _vm.$t("password-confirmation")
+            },
+            domProps: { value: _vm.password_confirmation },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.password_confirmation = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && _vm.$v.password_confirmation.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.password_confirmation.required
+                  ? _c("span", [
+                      _vm._v(_vm._s(_vm.$t("confirm-password-is-required")))
+                    ])
+                  : !_vm.$v.password_confirmation.sameAsPassword
+                  ? _c("span", [_vm._v(_vm._s(_vm.$t("passwords-must-match")))])
+                  : _vm._e()
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -81225,20 +81249,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _vm._v(
-          "\n                        Password is required\n                    "
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -81505,7 +81516,7 @@ var render = function() {
     "div",
     { staticClass: "account_box text-center" },
     [
-      _vm.success
+      _vm.verifiedAccount
         ? _c("h2", { staticClass: "verified_h mb-4" }, [
             _vm._v("Account successfully verified")
           ])

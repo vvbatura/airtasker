@@ -1,6 +1,6 @@
 <template>
     <div class="account_box text-center">
-        <h2  v-if="success" class="verified_h mb-4">Account successfully verified</h2>
+        <h2  v-if="verifiedAccount" class="verified_h mb-4">Account successfully verified</h2>
         <h2 class="mb-3" v-else>{{ message }}</h2>
         <router-link class="link_login btn-lg" to="/login">Return to Login</router-link>
     </div>
@@ -11,7 +11,7 @@ export default {
     data() {
         return {
             token: '',
-            success: true,
+            verifiedAccount: true,
             message: '',
             error_dialog: ''
         };
@@ -25,7 +25,7 @@ export default {
             }
         )
         .catch(error => {
-                this.success = false;
+                this.verifiedAccount = false;
                 switch (error.response.status) {
                     case 400:  //not valid token
                         this.message = 'Not valid token';
@@ -33,8 +33,8 @@ export default {
                     case 405:  //not valid token
                         this.message = 'Not valid token';
                         break;
-                    case 409:   //conflict, unknown problem
-                        this.message = 'Conflict, unknown problem';
+                    case 409:   //conflict, something happend
+                        this.message = 'Conflict, something happend';
                         break;
                     case 422:   //not the same password
                         this.message = 'Not the same password';
