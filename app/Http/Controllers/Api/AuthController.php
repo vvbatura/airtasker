@@ -91,7 +91,6 @@ class AuthController extends BaseController
         try {
             $user->update([
                 'verify_token' => null,
-                'verify_type' => $type,
                 'verified_at' => Carbon::now()->timestamp,
             ]);
             $user->_profile()->create();
