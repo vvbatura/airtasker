@@ -40,5 +40,7 @@
     "from-phone": "from Phone",
     "enter-your-email-phone": "Enter your email or phone below and we will send you instructions on how to reset your password",
     "password-confirmation": "Password confirmation",
-    "enter-your-sms": "Enter your code"
+    "enter-code": "Enter your code",
+    "passwords-must-match": "Passwords must match",
+    "confirm-password-is-required": "Confirm Password is required"
 }

@@ -40,5 +40,7 @@
     "from-phone": "vom Telefon",
     "enter-your-email-phone": "Geben Sie unten Ihre email oder Ihr Telefon ein und wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts",
     "password-confirmation": "Passwort Bestätigung",
-    "enter-your-sms": "Gib deinen Code ein"
+    "enter-code": "Gib deinen Code ein",
+    "passwords-must-match": "Die Passwörter müssen übereinstimmen",
+    "confirm-password-is-required": "Passwort bestätigen ist erforderlich"
 }

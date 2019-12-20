@@ -3343,6 +3343,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+var _validations;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3366,12 +3372,104 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ConfirmPhone",
   data: function data() {
     return {
-      sms: ''
+      message: '',
+      code: "",
+      password: "",
+      confirmPassword: "",
+      submitted: false
     };
+  },
+  validations: (_validations = {
+    code: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+    }
+  }, _defineProperty(_validations, "code", {
+    required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+  }), _defineProperty(_validations, "password", {
+    required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+    minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6)
+  }), _defineProperty(_validations, "confirmPassword", {
+    required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+    sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
+  }), _validations),
+  methods: {
+    handleSubmit: function handleSubmit(e) {
+      var _this = this;
+
+      this.submitted = true; // stop here if form is invalid
+
+      this.$v.$touch();
+
+      if (this.$v.$invalid) {
+        return;
+      }
+
+      axios.post('/auth/reset-password', {
+        token: this.code,
+        password: this.password,
+        password_confirmation: this.confirmPassword
+      }).then(function (response) {
+        _this.$router.push('login');
+      })["catch"](function (error) {
+        switch (error.response.status) {
+          case 400:
+            //not valid token
+            _this.message = 'Not valid token';
+            break;
+
+          case 409:
+            //conflict, unknown problem
+            _this.message = 'Conflict, unknown problem';
+            break;
+
+          case 422:
+            //not the same password
+            _this.message = 'Not the same password';
+            break;
+
+          default:
+            _this.error_dialog = true;
+            break;
+        }
+      });
+    }
   }
 });
 
@@ -3819,6 +3917,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3849,7 +3951,8 @@ __webpack_require__.r(__webpack_exports__);
       user_exists: false,
       has_error: false,
       suggestionAttribute: 'long_name',
-      suggestions: []
+      suggestions: [],
+      submitted: false
     };
   },
   validations: {
@@ -3884,7 +3987,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      this.show_spiner = true;
+      this.submitted = true; // stop here if form is invalid
+
+      this.$v.$touch();
+
+      if (this.$v.$invalid) {
+        return;
+      } //this.show_spiner = true;
+
+
       this.has_error = false;
       this.$auth.register({
         data: {
@@ -3928,7 +4039,6 @@ __webpack_require__.r(__webpack_exports__);
     changed: function changed() {
       var _this = this;
 
-      //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.city)
       axios.get('/location/get-geo?query=' + this.location.long_name).then(function (response) {
         response.data.data.forEach(function (a) {
           _this.location.name = a.name;
@@ -4032,83 +4142,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      message: '',
       token: '',
-      email: '',
       password: '',
       password_confirmation: '',
+      formShow: true,
       errors: {},
       has_error: false
     };
   },
   validations: {
-    email: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-      email: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["email"],
-      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
-    },
     password: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6),
@@ -4118,8 +4165,39 @@ __webpack_require__.r(__webpack_exports__);
       sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
     }
   },
+  created: function created() {
+    var _this = this;
+
+    axios.post('/auth/check-token', {
+      token: this.$route.params.token
+    }).then(function (response) {
+      console.log("check");
+    })["catch"](function (error) {
+      _this.formShow = false;
+
+      switch (error.response.status) {
+        case 400:
+          //not valid token
+          _this.message = 'Not valid token';
+          break;
+
+        case 409:
+          //conflict, unknown problem
+          _this.message = 'Conflict, unknown problem';
+          break;
+
+        case 422:
+          //not the same password
+          _this.message = 'Not the same password';
+          break;
+
+        default:
+          _this.error_dialog = true;
+          break;
+      }
+    });
+  },
   beforeMount: function beforeMount() {
-    this.getEmail();
     this.getToken();
   },
   filters: {
@@ -4129,7 +4207,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      var _this = this;
+      var _this2 = this;
 
       this.has_error = false;
       this.$v.$touch();
@@ -4140,25 +4218,20 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('auth/reset-password', {
         token: this.token,
-        email: this.email,
         password: this.password,
         password_confirmation: this.password_confirmation
-      }).then(function (response) {
-        alert('Password was successfully changed');
+      }).then(function (response) {//this.$router.push('login' )
       })["catch"](function (error) {
         switch (error.response.status) {
           case 422:
-            _this.has_error = true;
+            _this2.has_error = true;
             break;
 
           default:
-            _this.error_dialog = true;
+            _this2.error_dialog = true;
             break;
         }
       });
-    },
-    getEmail: function getEmail() {
-      this.email = this.$route.query.email;
     },
     getToken: function getToken() {
       this.token = this.$route.params.token;
@@ -4185,31 +4258,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       token: '',
-      success: false
+      verifiedAccount: true,
+      message: '',
+      error_dialog: ''
     };
   },
   created: function created() {
-    this.verify();
+    var _this = this;
+
+    axios.post('/auth/verify', {
+      token: this.$route.params.token
+    }).then(function (response) {
+      console.log("check");
+    })["catch"](function (error) {
+      _this.verifiedAccount = false;
+
+      switch (error.response.status) {
+        case 400:
+          //not valid token
+          _this.message = 'Not valid token';
+          break;
+
+        case 405:
+          //not valid token
+          _this.message = 'Not valid token';
+          break;
+
+        case 409:
+          //conflict, something happend
+          _this.message = 'Conflict, something happend';
+          break;
+
+        case 422:
+          //not the same password
+          _this.message = 'Not the same password';
+          break;
+
+        default:
+          _this.error_dialog = true;
+          break;
+      }
+    });
+  },
+  beforeMount: function beforeMount() {
+    this.getToken();
   },
   methods: {
-    verify: function verify() {
-      var _this = this;
-
-      axios.get('/auth/verify', {
-        params: {
-          token: this.$route.params.token,
-          type: 'email'
-        }
-      }).then(function (response) {
-        _this.success = true;
-      })["catch"](function (error) {//console.log(error);
-      });
+    getToken: function getToken() {
+      this.token = this.$route.params.token;
     }
   }
 });
@@ -33134,6 +33234,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, ".login-form {\n  width: 400px;\n  margin: 0 auto;\n  padding: 20px 20px 30px 20px;\n  border-radius: 5px;\n  background: #ffffff;\n}\n@media (max-width: 560px) {\n.login-form {\n    max-width: 100%;\n    width: 100vw;\n    min-height: 100vh;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n}\n.forget_btn {\n  text-align: right;\n  margin-bottom: 20px;\n}\n.forget_btn a {\n  font-size: 20px;\n}\n.btn-lg {\n  background: #7db343;\n  color: #ffffff;\n  height: 45px;\n  border-radius: 45px;\n  margin-bottom: 15px;\n}\n.btn-lg:hover {\n  color: #ffffff;\n}\n.login_with {\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #545a77;\n  position: relative;\n}\n.login_with span {\n  background: #ffffff;\n  position: relative;\n  z-index: 10;\n  padding: 0 15px;\n}\n.login_with:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  background: #bbc2dc;\n  height: 1px;\n  width: 100%;\n  top: 55%;\n  left: 0;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".link_login {\n  text-decoration: none;\n}\n.link_login:hover {\n  text-decoration: none;\n}\n.account_box {\n  margin: 0 auto;\n  padding: 0 15px;\n}", ""]);
 
 // exports
 
@@ -72625,6 +72744,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./VerifyEmail.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Auth/VerifyPhone.vue?vue&type=style&index=0&id=2fad70f7&scoped=true&lang=scss&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Auth/VerifyPhone.vue?vue&type=style&index=0&id=2fad70f7&scoped=true&lang=scss& ***!
@@ -80095,10 +80244,11 @@ var render = function() {
     _c(
       "form",
       {
+        attrs: { autocomplete: "off" },
         on: {
           submit: function($event) {
             $event.preventDefault()
-            return _vm.submit($event)
+            return _vm.handleSubmit($event)
           }
         }
       },
@@ -80106,34 +80256,141 @@ var render = function() {
         _c("h2", { staticClass: "text-center mb-4" }, [_vm._v("Check SMS")]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.sms,
-                  expression: "sms"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                name: "text",
-                placeholder: _vm.$t("enter-your-sms"),
-                required: ""
-              },
-              domProps: { value: _vm.sms },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.sms = $event.target.value
-                }
+          _c("p", [_vm._v(_vm._s(_vm.message))])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "code" } }, [
+            _vm._v(_vm._s(_vm.$t("enter-code")))
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.code,
+                expression: "code"
               }
-            })
-          ])
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.code.$error },
+            attrs: {
+              type: "text",
+              id: "code",
+              name: "code",
+              placeholder: _vm.$t("enter-code")
+            },
+            domProps: { value: _vm.code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.code = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && !_vm.$v.code.required
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v("Code is required")
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.password,
+                expression: "password"
+              }
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.password.$error },
+            attrs: {
+              type: "password",
+              id: "password",
+              name: "password",
+              placeholder: _vm.$t("password")
+            },
+            domProps: { value: _vm.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.password = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && _vm.$v.password.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.password.required
+                  ? _c("span", [_vm._v("Password is required")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.password.minLength
+                  ? _c("span", [
+                      _vm._v("Password must be at least 6 characters")
+                    ])
+                  : _vm._e()
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "confirmPassword" } }, [
+            _vm._v(_vm._s(_vm.$t("password-confirmation")))
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.confirmPassword,
+                expression: "confirmPassword"
+              }
+            ],
+            staticClass: "form-control",
+            class: {
+              "is-invalid": _vm.submitted && _vm.$v.confirmPassword.$error
+            },
+            attrs: {
+              type: "password",
+              id: "confirmPassword",
+              name: "confirmPassword",
+              placeholder: _vm.$t("password-confirmation")
+            },
+            domProps: { value: _vm.confirmPassword },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.confirmPassword = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && _vm.$v.confirmPassword.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.confirmPassword.required
+                  ? _c("span", [
+                      _vm._v(_vm._s(_vm.$t("confirm-password-is-required")))
+                    ])
+                  : !_vm.$v.confirmPassword.sameAsPassword
+                  ? _c("span", [_vm._v(_vm._s(_vm.$t("passwords-must-match")))])
+                  : _vm._e()
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c(
@@ -80668,75 +80925,83 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "first_name" } }, [
+          _c("label", { attrs: { for: "name" } }, [
             _vm._v(_vm._s(_vm.$t("name")))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.first_name.$model,
-                  expression: "$v.first_name.$model"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "first_name",
-                placeholder: _vm.$t("name"),
-                required: "",
-                autofocus: ""
-              },
-              domProps: { value: _vm.$v.first_name.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.$v.first_name, "$model", $event.target.value)
-                }
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.first_name,
+                expression: "first_name"
               }
-            })
-          ])
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.first_name.$error },
+            attrs: {
+              type: "text",
+              id: "name",
+              name: "name",
+              placeholder: _vm.$t("name")
+            },
+            domProps: { value: _vm.first_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.first_name = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && !_vm.$v.first_name.required
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v("First Name is required")
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "last_name" } }, [
+          _c("label", { attrs: { for: "surname" } }, [
             _vm._v(_vm._s(_vm.$t("surname")))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.$v.last_name.$model,
-                  expression: "$v.last_name.$model"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "last_name",
-                placeholder: _vm.$t("surname"),
-                required: "",
-                autofocus: ""
-              },
-              domProps: { value: _vm.$v.last_name.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.$v.last_name, "$model", $event.target.value)
-                }
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.last_name,
+                expression: "last_name"
               }
-            })
-          ])
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.last_name.$error },
+            attrs: {
+              type: "text",
+              id: "surname",
+              name: "surname",
+              placeholder: _vm.$t("surname")
+            },
+            domProps: { value: _vm.last_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.last_name = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && !_vm.$v.last_name.required
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v("Last Name is required")
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -80750,28 +81015,34 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.$v.email.$model,
-                  expression: "$v.email.$model"
+                  value: _vm.email,
+                  expression: "email"
                 }
               ],
               staticClass: "form-control",
+              class: { "is-invalid": _vm.submitted && _vm.$v.email.$error },
               attrs: {
                 type: "text",
                 id: "email",
-                placeholder: "you@example.com",
-                required: "",
-                autofocus: ""
+                name: "email",
+                placeholder: "you@example.com"
               },
-              domProps: { value: _vm.$v.email.$model },
+              domProps: { value: _vm.email },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.$v.email, "$model", $event.target.value)
+                  _vm.email = $event.target.value
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.submitted && !_vm.$v.email.required
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v("Email is required")
+                ])
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
@@ -80821,124 +81092,126 @@ var render = function() {
             _c("input", {
               directives: [
                 {
-                  name: "mask",
-                  rawName: "v-mask",
-                  value: "(+499) 999 99 99",
-                  expression: "'(+499) 999 99 99'"
-                },
-                {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.$v.phone.$model,
-                  expression: "$v.phone.$model"
+                  value: _vm.phone,
+                  expression: "phone"
                 }
               ],
               staticClass: "form-control",
-              attrs: {
-                type: "tel",
-                id: "phone",
-                placeholder: _vm.$t("phone"),
-                required: "",
-                autofocus: ""
-              },
-              domProps: { value: _vm.$v.phone.$model },
+              class: { "is-invalid": _vm.submitted && _vm.$v.email.$error },
+              attrs: { type: "tel", id: "phone", placeholder: _vm.$t("phone") },
+              domProps: { value: _vm.phone },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.$v.phone, "$model", $event.target.value)
+                  _vm.phone = $event.target.value
                 }
               }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group has-danger" }, [
-          _c("label", { attrs: { for: "password" } }, [
-            _vm._v(_vm._s(_vm.$t("password")))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.$v.password.$model,
-                  expression: "$v.password.$model",
-                  modifiers: { trim: true }
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "password",
-                id: "password",
-                placeholder: _vm.$t("password"),
-                required: ""
-              },
-              domProps: { value: _vm.$v.password.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.$v.password,
-                    "$model",
-                    $event.target.value.trim()
-                  )
-                },
-                blur: function($event) {
-                  return _vm.$forceUpdate()
-                }
-              }
-            })
+            }),
+            _vm._v(" "),
+            _vm.submitted && !_vm.$v.phone.required
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v("Phone is required")
+                ])
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "password" } }, [
+          _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.password,
+                expression: "password"
+              }
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.password.$error },
+            attrs: {
+              type: "password",
+              id: "password",
+              name: "password",
+              placeholder: _vm.$t("password")
+            },
+            domProps: { value: _vm.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.password = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && _vm.$v.password.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.password.required
+                  ? _c("span", [_vm._v("Password is required")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.password.minLength
+                  ? _c("span", [
+                      _vm._v("Password must be at least 6 characters")
+                    ])
+                  : _vm._e()
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "password_confirmation" } }, [
             _vm._v(_vm._s(_vm.$t("password-confirmation")))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.$v.password_confirmation.$model,
-                  expression: "$v.password_confirmation.$model",
-                  modifiers: { trim: true }
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "password",
-                name: "password_confirmation",
-                id: "password_confirmation",
-                placeholder: _vm.$t("password"),
-                required: ""
-              },
-              domProps: { value: _vm.$v.password_confirmation.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.$v.password_confirmation,
-                    "$model",
-                    $event.target.value.trim()
-                  )
-                },
-                blur: function($event) {
-                  return _vm.$forceUpdate()
-                }
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.password_confirmation,
+                expression: "password_confirmation"
               }
-            })
-          ])
+            ],
+            staticClass: "form-control",
+            class: {
+              "is-invalid": _vm.submitted && _vm.$v.password_confirmation.$error
+            },
+            attrs: {
+              type: "password",
+              id: "password_confirmation",
+              name: "password_confirmation",
+              placeholder: _vm.$t("password-confirmation")
+            },
+            domProps: { value: _vm.password_confirmation },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.password_confirmation = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && _vm.$v.password_confirmation.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.password_confirmation.required
+                  ? _c("span", [
+                      _vm._v(_vm._s(_vm.$t("confirm-password-is-required")))
+                    ])
+                  : !_vm.$v.password_confirmation.sameAsPassword
+                  ? _c("span", [_vm._v(_vm._s(_vm.$t("passwords-must-match")))])
+                  : _vm._e()
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -80998,207 +81271,188 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row mb-5 text-center" }, [
-    _c("div", { staticClass: "col" }, [
-      _c(
-        "form",
-        {
-          staticClass: "form-horizontal",
-          attrs: { role: "form" },
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.submit($event)
+  return _c("div", { staticClass: "login-form" }, [
+    _vm.formShow
+      ? _c(
+          "form",
+          {
+            staticClass: "form-horizontal",
+            attrs: { role: "form" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
             }
-          }
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.$v.email.$model,
-                        expression: "$v.email.$model"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "email",
-                      placeholder: "you@example.com",
-                      autofocus: "",
-                      autocomplete: "off"
-                    },
-                    domProps: { value: _vm.$v.email.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.$v.email, "$model", $event.target.value)
-                      }
-                    }
-                  })
-                ])
-              ])
+          },
+          [
+            _c("h2", { staticClass: "text-center mb-4" }, [
+              _vm._v("Change password")
             ]),
             _vm._v(" "),
-            !_vm.$v.email.required && _vm.$v.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(3)])
-              : _vm._e(),
+            _c("div", { staticClass: "form-group has-danger" }, [
+              _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model.trim",
+                      value: _vm.$v.password.$model,
+                      expression: "$v.password.$model",
+                      modifiers: { trim: true }
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "password",
+                    id: "password",
+                    placeholder: "Password"
+                  },
+                  domProps: { value: _vm.$v.password.$model },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.password,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    blur: function($event) {
+                      return _vm.$forceUpdate()
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              !_vm.$v.password.required && _vm.$v.password.$dirty
+                ? _c("div", [_vm._m(0)])
+                : _vm._e(),
+              _vm._v(" "),
+              (!_vm.$v.password.minLength &&
+                _vm.$v.password_confirmation.$dirty) ||
+              (!_vm.$v.password.maxLength &&
+                _vm.$v.password_confirmation.$dirty)
+                ? _c("div", [_vm._m(1)])
+                : _vm._e()
+            ]),
             _vm._v(" "),
-            !_vm.$v.email.email && _vm.$v.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(4)])
-              : _vm._e(),
+            _vm._m(2),
             _vm._v(" "),
-            _vm.errors.email && _vm.has_error
-              ? _c("div", { staticClass: "col-md-3" }, [
-                  _c("div", { staticClass: "form-control-feedback" }, [
-                    _c("span", { staticClass: "text-danger align-middle" }, [
-                      _c("i", { staticClass: "fa fa-close" }, [
-                        _vm._v(_vm._s(_vm._f("toString")(_vm.errors.email)))
+            _c("div", { staticClass: "form-group" }, [
+              _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model.trim",
+                      value: _vm.$v.password_confirmation.$model,
+                      expression: "$v.password_confirmation.$model",
+                      modifiers: { trim: true }
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "password",
+                    name: "password_confirmation",
+                    id: "password_confirmation",
+                    placeholder: "Password"
+                  },
+                  domProps: { value: _vm.$v.password_confirmation.$model },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.$v.password_confirmation,
+                        "$model",
+                        $event.target.value.trim()
+                      )
+                    },
+                    blur: function($event) {
+                      return _vm.$forceUpdate()
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              !_vm.$v.password_confirmation.sameAsPassword &&
+              _vm.$v.password_confirmation.$dirty
+                ? _c("div", [
+                    _c("div", { staticClass: "form-control-feedback" }, [
+                      _c("span", { staticClass: "text-danger align-middle" }, [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(_vm.$t("passwords-must-match")) +
+                            "\n                    "
+                        )
                       ])
                     ])
                   ])
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(5),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group has-danger" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.password.$model,
-                        expression: "$v.password.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "password",
-                      id: "password",
-                      placeholder: "Password"
-                    },
-                    domProps: { value: _vm.$v.password.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.$v.password,
-                          "$model",
-                          $event.target.value.trim()
-                        )
-                      },
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ])
-              ])
+                : _vm._e()
             ]),
-            _vm._v(" "),
-            !_vm.$v.password.required && _vm.$v.password.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(7)])
-              : _vm._e(),
-            _vm._v(" "),
-            (!_vm.$v.password.minLength &&
-              _vm.$v.password_confirmation.$dirty) ||
-            (!_vm.$v.password.maxLength && _vm.$v.password_confirmation.$dirty)
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(8)])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _vm._m(9),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
-                  _vm._m(10),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.$v.password_confirmation.$model,
-                        expression: "$v.password_confirmation.$model",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "password",
-                      name: "password_confirmation",
-                      id: "password_confirmation",
-                      placeholder: "Password"
-                    },
-                    domProps: { value: _vm.$v.password_confirmation.$model },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.$v.password_confirmation,
-                          "$model",
-                          $event.target.value.trim()
-                        )
-                      },
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.$v.password_confirmation.sameAsPassword &&
-            _vm.$v.password_confirmation.$dirty
-              ? _c("div", { staticClass: "col-md-3" }, [_vm._m(11)])
-              : _vm._e(),
             _vm._v(" "),
             _vm.errors.password
-              ? _c("div", { staticClass: "col-md-3" }, [
+              ? _c("div", [
                   _c("div", { staticClass: "form-control-feedback" }, [
                     _c("span", { staticClass: "text-danger align-middle" }, [
-                      _c("i", { staticClass: "fa fa-close" }, [
-                        _vm._v(_vm._s(_vm._f("toString")(_vm.errors.password)))
-                      ])
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm._f("toString")(_vm.errors.password)) +
+                          "\n                "
+                      )
                     ])
                   ])
                 ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _vm._m(12)
-        ]
-      )
-    ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "d-flex justify-content-between" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "frg_btn cancel_btn",
+                    attrs: { to: { name: "login" } }
+                  },
+                  [_vm._v(_vm._s(_vm.$t("cancel")))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-lg frg_btn",
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v(_vm._s(_vm.$t("send")))]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      : _c(
+          "div",
+          { staticClass: "text-center" },
+          [
+            _c("h2", { staticClass: "text-center mb-3" }, [
+              _vm._v(_vm._s(_vm.message))
+            ]),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              { staticClass: "btn-lg link_login", attrs: { to: "/login" } },
+              [_vm._v("Return to login")]
+            )
+          ],
+          1
+        )
   ])
 }
 var staticRenderFns = [
@@ -81206,41 +81460,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("h2", [_vm._v("Change password")]),
-        _vm._v(" "),
-        _c("hr")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
-      _c("label", { attrs: { for: "email" } }, [_vm._v("E-Mail Address")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-at" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-control-feedback" }, [
       _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [_vm._v(" Email is required")])
+        _vm._v(
+          "\n                        Password is required\n                    "
+        )
       ])
     ])
   },
@@ -81250,7 +81474,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-control-feedback" }, [
       _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [_vm._v("Email must be email")])
+        _vm._v(
+          "\n                        Password must contain at least 6 characters and less 20\n                    "
+        )
       ])
     ])
   },
@@ -81258,90 +81484,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
-      _c("label", { attrs: { for: "password" } }, [_vm._v("Password")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-key" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Password is required")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v(" Password must contain at least 6 characters and less 20")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 field-label-responsive" }, [
+    return _c("div", { staticClass: "field-label-responsive" }, [
       _c("label", { attrs: { for: "password_confirmation" } }, [
         _vm._v("Confirm Password")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-group-addon", staticStyle: { width: "2.6rem" } },
-      [_c("i", { staticClass: "fa fa-repeat" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _c("i", { staticClass: "fa fa-close" }, [
-          _vm._v("Passwords must be matches")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-3" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("button", { staticClass: "btn btn-success" }, [
-          _c("i", { staticClass: "fa fa-user-plus" }),
-          _vm._v(
-            "\n                        Change password\n                    "
-          )
-        ])
       ])
     ])
   }
@@ -81367,22 +81512,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row text-center" }, [
-    _c(
-      "div",
-      { staticClass: "col" },
-      [
-        _c("h1", [_vm._v("Email successfully verified")]),
-        _vm._v(" "),
-        _vm.success
-          ? _c("router-link", { attrs: { to: { name: "login" } } }, [
-              _vm._v("Return to Login")
-            ])
-          : _c("p", [_vm._v("Error with verify.")])
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "account_box text-center" },
+    [
+      _vm.verifiedAccount
+        ? _c("h2", { staticClass: "verified_h mb-4" }, [
+            _vm._v("Account successfully verified")
+          ])
+        : _c("h2", { staticClass: "mb-3" }, [_vm._v(_vm._s(_vm.message))]),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        { staticClass: "link_login btn-lg", attrs: { to: "/login" } },
+        [_vm._v("Return to Login")]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -100411,10 +100558,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-your-sms, default */
+/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-your-sms\":\"Enter your code\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\"}");
 
 /***/ }),
 
@@ -101053,7 +101200,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VerifyEmail_vue_vue_type_template_id_29348fb6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VerifyEmail.vue?vue&type=template&id=29348fb6& */ "./resources/js/pages/Auth/VerifyEmail.vue?vue&type=template&id=29348fb6&");
 /* harmony import */ var _VerifyEmail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VerifyEmail.vue?vue&type=script&lang=js& */ "./resources/js/pages/Auth/VerifyEmail.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _VerifyEmail_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./VerifyEmail.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -101061,7 +101210,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _VerifyEmail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _VerifyEmail_vue_vue_type_template_id_29348fb6___WEBPACK_IMPORTED_MODULE_0__["render"],
   _VerifyEmail_vue_vue_type_template_id_29348fb6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -101090,6 +101239,22 @@ component.options.__file = "resources/js/pages/Auth/VerifyEmail.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./VerifyEmail.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Auth/VerifyEmail.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss& ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./VerifyEmail.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Auth/VerifyEmail.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_VerifyEmail_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

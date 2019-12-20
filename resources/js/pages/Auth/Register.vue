@@ -3,40 +3,41 @@
         <form class="form-horizontal" @submit.prevent="submit">
             <h2 class="text-center">{{$t('join-us')}}</h2>
             <div class="form-group">
-                <label for="first_name">{{$t('name')}}</label>
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input
-                        v-model="$v.first_name.$model"
-                        type="text"
-                        class="form-control"
-                        id="first_name"
-                        :placeholder="$t('name')"
-                        required autofocus>
-                </div>
+                <label for="name">{{$t('name')}}</label>
+                <input
+                    type="text"
+                    v-model="first_name"
+                    id="name"
+                    name="name"
+                    class="form-control"
+                    :placeholder="$t('name')"
+                    :class="{ 'is-invalid': submitted && $v.first_name.$error }" />
+                <div v-if="submitted && !$v.first_name.required" class="invalid-feedback">First Name is required</div>
             </div>
             <div class="form-group">
-                <label for="last_name">{{$t('surname')}}</label>
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input
-                        v-model="$v.last_name.$model"
-                        type="text" class="form-control"
-                        id="last_name"
-                        :placeholder="$t('surname')"
-                        required
-                        autofocus>
-                </div>
+                <label for="surname">{{$t('surname')}}</label>
+                <input
+                    type="text"
+                    v-model="last_name"
+                    id="surname"
+                    name="surname"
+                    class="form-control"
+                    :placeholder="$t('surname')"
+                    :class="{ 'is-invalid': submitted && $v.last_name.$error }" />
+                <div v-if="submitted && !$v.last_name.required" class="invalid-feedback">Last Name is required</div>
             </div>
             <div class="form-group">
                 <label for="email">{{$t('email')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input
                         type="text"
-                        v-model="$v.email.$model"
+                        v-model="email"
                         class="form-control"
                         id="email"
+                        name="email"
                         placeholder="you@example.com"
-                        required
-                        autofocus>
+                        :class="{ 'is-invalid': submitted && $v.email.$error }">
+                    <div v-if="submitted && !$v.email.required" class="invalid-feedback">Email is required</div>
                 </div>
             </div>
             <div class="form-group">
@@ -61,38 +62,41 @@
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input
                         type="tel"
-                        v-mask="'(+499) 999 99 99'"
-                        v-model="$v.phone.$model"
+                        v-model="phone"
                         class="form-control"
                         id="phone"
                         :placeholder="$t('phone')"
-                        required
-                        autofocus/>
+                        :class="{ 'is-invalid': submitted && $v.email.$error }"/>
+                    <div v-if="submitted && !$v.phone.required" class="invalid-feedback">Phone is required</div>
                 </div>
             </div>
-            <div class="form-group has-danger">
-                <label for="password">{{$t('password')}}</label>
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input
-                        type="password"
-                        v-model.trim="$v.password.$model"
-                        class="form-control"
-                        id="password"
-                        :placeholder="$t('password')"
-                        required>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    v-model="password"
+                    id="password" name="password"
+                    class="form-control"
+                    :placeholder="$t('password')"
+                    :class="{ 'is-invalid': submitted && $v.password.$error }" />
+                <div v-if="submitted && $v.password.$error" class="invalid-feedback">
+                    <span v-if="!$v.password.required">Password is required</span>
+                    <span v-if="!$v.password.minLength">Password must be at least 6 characters</span>
                 </div>
             </div>
-            <div class='form-group'>
-                <label for="password">{{$t('password-confirmation')}}</label>
-                <div class='input-group mb-2 mr-sm-2 mb-sm-0'>
-                    <input
-                        type="password"
-                        name="password_confirmation"
-                        class="form-control"
-                        v-model.trim="$v.password_confirmation.$model"
-                        id="password_confirmation"
-                        :placeholder="$t('password')"
-                        required>
+            <div class="form-group">
+                <label for="password_confirmation">{{$t('password-confirmation')}}</label>
+                <input
+                    type="password"
+                    v-model="password_confirmation"
+                    id="password_confirmation"
+                    name="password_confirmation"
+                    class="form-control"
+                    :placeholder="$t('password-confirmation')"
+                    :class="{ 'is-invalid': submitted && $v.password_confirmation.$error }" />
+                <div v-if="submitted && $v.password_confirmation.$error" class="invalid-feedback">
+                    <span v-if="!$v.password_confirmation.required">{{$t('confirm-password-is-required')}}</span>
+                    <span v-else-if="!$v.password_confirmation.sameAsPassword">{{$t('passwords-must-match')}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -158,6 +162,8 @@ export default {
 
             suggestionAttribute: 'long_name',
             suggestions: [],
+
+            submitted: false
         };
     },
     validations: {
@@ -192,7 +198,14 @@ export default {
     },
     methods: {
         submit() {
-            this.show_spiner = true;
+            this.submitted = true;
+
+            // stop here if form is invalid
+            this.$v.$touch();
+            if (this.$v.$invalid) {
+                return;
+            }
+            //this.show_spiner = true;
             this.has_error = false;
 
             this.$auth.register({
@@ -233,7 +246,6 @@ export default {
             });
         }, 
         changed: function () {
-            //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.city)
             axios.get('/location/get-geo?query=' + this.location.long_name)    
                 .then((response) => {
                     response.data.data.forEach((a) => {
