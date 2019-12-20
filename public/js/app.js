@@ -3345,6 +3345,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+var _validations;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3406,34 +3410,29 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       message: '',
-      user: {
-        code: "",
-        password: "",
-        confirmPassword: ""
-      },
+      code: "",
+      password: "",
+      confirmPassword: "",
       submitted: false
     };
   },
-  validations: {
+  validations: (_validations = {
     code: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
-    },
-    user: {
-      code: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
-      },
-      password: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6)
-      },
-      confirmPassword: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-        sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
-      }
     }
-  },
+  }, _defineProperty(_validations, "code", {
+    required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+  }), _defineProperty(_validations, "password", {
+    required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+    minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6)
+  }), _defineProperty(_validations, "confirmPassword", {
+    required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+    sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
+  }), _validations),
   methods: {
     handleSubmit: function handleSubmit(e) {
+      var _this = this;
+
       this.submitted = true; // stop here if form is invalid
 
       this.$v.$touch();
@@ -3442,38 +3441,37 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      alert("SUCCESS!! :-)\n\n" + JSON.stringify(this.user));
-    } // submit() {
-    //     axios.get('/auth/reset-password', {
-    //         params: {
-    //             token: this.code,
-    //             password: this.password,
-    //             password_confirmation: this.password_confirmation
-    //         }
-    //     })
-    //     .then(response => {
-    //             this.message = 'Successfully You verified phone.';
-    //         }
-    //     )
-    //     .catch(error => {
-    //             switch (error.response.status) {
-    //                 case 400:  //not valid token
-    //                     this.message = 'Not valid token';
-    //                     break;
-    //                 case 409:   //conflict, unknown problem
-    //                     this.message = 'Conflict, unknown problem';
-    //                     break;
-    //                 case 422:   //not the same password
-    //                     this.message = 'Not the same password';
-    //                     break;
-    //                 default:
-    //                     this.error_dialog = true;
-    //                     break;
-    //             }
-    //         }
-    //     )
-    // }
+      axios.post('/auth/reset-password', {
+        params: {
+          token: this.code,
+          password: this.password,
+          password_confirmation: this.confirmPassword
+        }
+      }).then(function (response) {
+        _this.message = 'Successfully You verified phone.';
+      })["catch"](function (error) {
+        switch (error.response.status) {
+          case 400:
+            //not valid token
+            _this.message = 'Not valid token';
+            break;
 
+          case 409:
+            //conflict, unknown problem
+            _this.message = 'Conflict, unknown problem';
+            break;
+
+          case 422:
+            //not the same password
+            _this.message = 'Not the same password';
+            break;
+
+          default:
+            _this.error_dialog = true;
+            break;
+        }
+      });
+    }
   }
 });
 
@@ -80222,30 +80220,30 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.user.code,
-                expression: "user.code"
+                value: _vm.code,
+                expression: "code"
               }
             ],
             staticClass: "form-control",
-            class: { "is-invalid": _vm.submitted && _vm.$v.user.code.$error },
+            class: { "is-invalid": _vm.submitted && _vm.$v.code.$error },
             attrs: {
               type: "text",
               id: "code",
               name: "code",
               placeholder: _vm.$t("enter-code")
             },
-            domProps: { value: _vm.user.code },
+            domProps: { value: _vm.code },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.user, "code", $event.target.value)
+                _vm.code = $event.target.value
               }
             }
           }),
           _vm._v(" "),
-          _vm.submitted && !_vm.$v.user.code.required
+          _vm.submitted && !_vm.$v.code.required
             ? _c("div", { staticClass: "invalid-feedback" }, [
                 _vm._v("Code is required")
               ])
@@ -80260,38 +80258,36 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.user.password,
-                expression: "user.password"
+                value: _vm.password,
+                expression: "password"
               }
             ],
             staticClass: "form-control",
-            class: {
-              "is-invalid": _vm.submitted && _vm.$v.user.password.$error
-            },
+            class: { "is-invalid": _vm.submitted && _vm.$v.password.$error },
             attrs: {
               type: "password",
               id: "password",
               name: "password",
               placeholder: _vm.$t("password")
             },
-            domProps: { value: _vm.user.password },
+            domProps: { value: _vm.password },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.user, "password", $event.target.value)
+                _vm.password = $event.target.value
               }
             }
           }),
           _vm._v(" "),
-          _vm.submitted && _vm.$v.user.password.$error
+          _vm.submitted && _vm.$v.password.$error
             ? _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.user.password.required
+                !_vm.$v.password.required
                   ? _c("span", [_vm._v("Password is required")])
                   : _vm._e(),
                 _vm._v(" "),
-                !_vm.$v.user.password.minLength
+                !_vm.$v.password.minLength
                   ? _c("span", [
                       _vm._v("Password must be at least 6 characters")
                     ])
@@ -80310,13 +80306,13 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.user.confirmPassword,
-                expression: "user.confirmPassword"
+                value: _vm.confirmPassword,
+                expression: "confirmPassword"
               }
             ],
             staticClass: "form-control",
             class: {
-              "is-invalid": _vm.submitted && _vm.$v.user.confirmPassword.$error
+              "is-invalid": _vm.submitted && _vm.$v.confirmPassword.$error
             },
             attrs: {
               type: "password",
@@ -80324,24 +80320,24 @@ var render = function() {
               name: "confirmPassword",
               placeholder: _vm.$t("password-confirmation")
             },
-            domProps: { value: _vm.user.confirmPassword },
+            domProps: { value: _vm.confirmPassword },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.user, "confirmPassword", $event.target.value)
+                _vm.confirmPassword = $event.target.value
               }
             }
           }),
           _vm._v(" "),
-          _vm.submitted && _vm.$v.user.confirmPassword.$error
+          _vm.submitted && _vm.$v.confirmPassword.$error
             ? _c("div", { staticClass: "invalid-feedback" }, [
-                !_vm.$v.user.confirmPassword.required
+                !_vm.$v.confirmPassword.required
                   ? _c("span", [
                       _vm._v(_vm._s(_vm.$t("confirm-password-is-required")))
                     ])
-                  : !_vm.$v.user.confirmPassword.sameAsPassword
+                  : !_vm.$v.confirmPassword.sameAsPassword
                   ? _c("span", [_vm._v(_vm._s(_vm.$t("passwords-must-match")))])
                   : _vm._e()
               ])
