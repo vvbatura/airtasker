@@ -4256,7 +4256,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       token: '',
-      success: false,
+      success: true,
       message: '',
       error_dialog: ''
     };
@@ -4269,6 +4269,8 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function (response) {
       console.log("check");
     })["catch"](function (error) {
+      _this.success = false;
+
       switch (error.response.status) {
         case 400:
           //not valid token

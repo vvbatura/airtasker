@@ -11,7 +11,7 @@ export default {
     data() {
         return {
             token: '',
-            success: false,
+            success: true,
             message: '',
             error_dialog: ''
         };
@@ -25,6 +25,7 @@ export default {
             }
         )
         .catch(error => {
+                this.success = false;
                 switch (error.response.status) {
                     case 400:  //not valid token
                         this.message = 'Not valid token';
