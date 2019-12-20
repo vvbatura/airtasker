@@ -86,14 +86,13 @@ export default {
             }
 
             axios.post('/auth/reset-password', {
-                params: {
-                    token: this.code,
-                    password: this.password,
-                    password_confirmation: this.confirmPassword
-                }
+                token: this.code,
+                password: this.password,
+                password_confirmation: this.confirmPassword
             })
             .then(response => {
-                    this.message = 'Successfully You verified phone.';
+                    //this.message = 'Successfully You verified phone.';
+                    this.$router.push('login')
                 }
             )
             .catch(error => {
