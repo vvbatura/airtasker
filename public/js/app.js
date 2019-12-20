@@ -3343,6 +3343,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3366,12 +3368,112 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ConfirmPhone",
   data: function data() {
     return {
-      sms: ''
+      message: '',
+      user: {
+        code: "",
+        password: "",
+        confirmPassword: ""
+      },
+      submitted: false
     };
+  },
+  validations: {
+    code: {
+      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+    },
+    user: {
+      code: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"]
+      },
+      password: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6)
+      },
+      confirmPassword: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
+      }
+    }
+  },
+  methods: {
+    handleSubmit: function handleSubmit(e) {
+      this.submitted = true; // stop here if form is invalid
+
+      this.$v.$touch();
+
+      if (this.$v.$invalid) {
+        return;
+      }
+
+      alert("SUCCESS!! :-)\n\n" + JSON.stringify(this.user));
+    } // submit() {
+    //     axios.get('/auth/reset-password', {
+    //         params: {
+    //             token: this.code,
+    //             password: this.password,
+    //             password_confirmation: this.password_confirmation
+    //         }
+    //     })
+    //     .then(response => {
+    //             this.message = 'Successfully You verified phone.';
+    //         }
+    //     )
+    //     .catch(error => {
+    //             switch (error.response.status) {
+    //                 case 400:  //not valid token
+    //                     this.message = 'Not valid token';
+    //                     break;
+    //                 case 409:   //conflict, unknown problem
+    //                     this.message = 'Conflict, unknown problem';
+    //                     break;
+    //                 case 422:   //not the same password
+    //                     this.message = 'Not the same password';
+    //                     break;
+    //                 default:
+    //                     this.error_dialog = true;
+    //                     break;
+    //             }
+    //         }
+    //     )
+    // }
+
   }
 });
 
@@ -80095,10 +80197,11 @@ var render = function() {
     _c(
       "form",
       {
+        attrs: { autocomplete: "off" },
         on: {
           submit: function($event) {
             $event.preventDefault()
-            return _vm.submit($event)
+            return _vm.handleSubmit($event)
           }
         }
       },
@@ -80106,34 +80209,143 @@ var render = function() {
         _c("h2", { staticClass: "text-center mb-4" }, [_vm._v("Check SMS")]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("div", { staticClass: "input-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.sms,
-                  expression: "sms"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                name: "text",
-                placeholder: _vm.$t("enter-your-sms"),
-                required: ""
-              },
-              domProps: { value: _vm.sms },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.sms = $event.target.value
-                }
+          _c("p", [_vm._v(_vm._s(_vm.message))])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "code" } }, [
+            _vm._v(_vm._s(_vm.$t("enter-code")))
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user.code,
+                expression: "user.code"
               }
-            })
-          ])
+            ],
+            staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.user.code.$error },
+            attrs: {
+              type: "text",
+              id: "code",
+              name: "code",
+              placeholder: _vm.$t("enter-code")
+            },
+            domProps: { value: _vm.user.code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.user, "code", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && !_vm.$v.user.code.required
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v("Code is required")
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user.password,
+                expression: "user.password"
+              }
+            ],
+            staticClass: "form-control",
+            class: {
+              "is-invalid": _vm.submitted && _vm.$v.user.password.$error
+            },
+            attrs: {
+              type: "password",
+              id: "password",
+              name: "password",
+              placeholder: _vm.$t("password")
+            },
+            domProps: { value: _vm.user.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.user, "password", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && _vm.$v.user.password.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.user.password.required
+                  ? _c("span", [_vm._v("Password is required")])
+                  : _vm._e(),
+                _vm._v(" "),
+                !_vm.$v.user.password.minLength
+                  ? _c("span", [
+                      _vm._v("Password must be at least 6 characters")
+                    ])
+                  : _vm._e()
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "confirmPassword" } }, [
+            _vm._v(_vm._s(_vm.$t("password-confirmation")))
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user.confirmPassword,
+                expression: "user.confirmPassword"
+              }
+            ],
+            staticClass: "form-control",
+            class: {
+              "is-invalid": _vm.submitted && _vm.$v.user.confirmPassword.$error
+            },
+            attrs: {
+              type: "password",
+              id: "confirmPassword",
+              name: "confirmPassword",
+              placeholder: _vm.$t("password-confirmation")
+            },
+            domProps: { value: _vm.user.confirmPassword },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.user, "confirmPassword", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.submitted && _vm.$v.user.confirmPassword.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
+                !_vm.$v.user.confirmPassword.required
+                  ? _c("span", [
+                      _vm._v(_vm._s(_vm.$t("confirm-password-is-required")))
+                    ])
+                  : !_vm.$v.user.confirmPassword.sameAsPassword
+                  ? _c("span", [_vm._v(_vm._s(_vm.$t("passwords-must-match")))])
+                  : _vm._e()
+              ])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c(
@@ -100411,10 +100623,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-your-sms, default */
+/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-your-sms\":\"Enter your code\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\"}");
 
 /***/ }),
 
