@@ -8,7 +8,7 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('/register', 'AuthController@register');
         Route::post('/login', 'AuthController@login');
-        Route::get('/verify', 'AuthController@verify');
+        Route::post('/verify', 'AuthController@verify');
         Route::get('/login/{provider}', 'AuthProviderController@redirectToProvider');
         Route::get('/{provider}/callback', 'AuthProviderController@handleProviderCallback');
 
