@@ -168,7 +168,7 @@ class AuthController extends BaseController
         return $this->sendResponse('Reset token verified.');
     }
 
-    protected function resetPassword(ResetPasswordFormRequest $request)
+    public function resetPassword(ResetPasswordFormRequest $request)
     {
         $token = $request->get('token');
         $resetTable = DB::table('password_resets');
