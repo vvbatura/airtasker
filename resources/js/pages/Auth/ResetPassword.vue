@@ -1,53 +1,20 @@
 <template>
     <div class="login-form">
-        <form class="form-horizontal" role="form" @submit.prevent="submit">
+        <h2 class="text-center pt-3">{{ message }}</h2>
+        <form v-show="formShow" class="form-horizontal" role="form" @submit.prevent="submit">
             <h2 class="text-center mb-4">Change password</h2>
-                <!-- <div class="form-group">
-                    <label for="email">E-Mail Address</label>
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <input
-                            type="text"
-                            v-model="$v.email.$model"
-                            class="form-control"
-                            id="email"
-                            placeholder="you@example.com"
-                            autofocus autocomplete="off">
-                    </div>
-                </div> -->
-                <div v-if="!$v.email.required && $v.$dirty">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            Email is required
-                        </span>
-                    </div>
-                </div>
-                <div v-if="!$v.email.email && $v.$dirty">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            Email must be email
-                        </span>
-                    </div>
-                </div>
-                <div v-if="errors.email && has_error">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            {{errors.email | toString() }}
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group has-danger">
-                    <label for="password">Password</label>
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <input
-                            type="password"
-                            v-model.trim="$v.password.$model"
-                            class="form-control"
-                            id="password"
-                            placeholder="Password">
-                    </div>
+            <div class="form-group has-danger">
+                <label for="password">Password</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input
+                        type="password"
+                        v-model.trim="$v.password.$model"
+                        class="form-control"
+                        id="password"
+                        placeholder="Password">
                 </div>
                 <div v-if="!$v.password.required && $v.password.$dirty">
-                    <div class="form-control-feedback">
+                <div class="form-control-feedback">
                         <span class="text-danger align-middle">
                             Password is required
                         </span>
@@ -60,19 +27,19 @@
                         </span>
                     </div>
                 </div>
-                <div class="field-label-responsive">
-                    <label for="password_confirmation">Confirm Password</label>
-                </div>
-                <div class="form-group">
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <input
-                            type="password"
-                            name="password_confirmation"
-                            class="form-control"
-                            v-model.trim="$v.password_confirmation.$model"
-                            id="password_confirmation"
-                            placeholder="Password">
-                    </div>
+            </div>
+            <div class="field-label-responsive">
+                <label for="password_confirmation">Confirm Password</label>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input
+                        type="password"
+                        name="password_confirmation"
+                        class="form-control"
+                        v-model.trim="$v.password_confirmation.$model"
+                        id="password_confirmation"
+                        placeholder="Password">
                 </div>
                 <div v-if="!$v.password_confirmation.sameAsPassword && $v.password_confirmation.$dirty">
                     <div class="form-control-feedback">
@@ -81,17 +48,18 @@
                         </span>
                     </div>
                 </div>
-                <div v-if="errors.password">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                           {{errors.password | toString() }}
-                        </span>
-                    </div>
+            </div>
+            <div v-if="errors.password">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                        {{errors.password | toString() }}
+                    </span>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <router-link class="frg_btn cancel_btn" :to="{name: 'login'}">{{$t('cancel')}}</router-link>
-                    <button type="submit" class="btn btn-lg frg_btn">{{$t('send')}}</button>
-                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <router-link class="frg_btn cancel_btn" :to="{name: 'login'}">{{$t('cancel')}}</router-link>
+                <button type="submit" class="btn btn-lg frg_btn">{{$t('send')}}</button>
+            </div>
         </form>
     </div>
 </template>
@@ -108,21 +76,17 @@ import {
 export default {
     data() {
         return {
+            message: '',
             token: '',
-            //email: '',
             password: '',
             password_confirmation: '',
+            formShow: true,
 
             errors: {},
             has_error: false
         };
     },
     validations: {
-        email: {
-            required,
-            email,
-            maxLength: maxLength(255)
-        },
         password: {
             required,
             minLength: minLength(6),
@@ -132,8 +96,30 @@ export default {
             sameAsPassword: sameAs('password'),
         }
     },
+    created() {
+        axios.post('/auth/check-token', {
+            token: this.$route.params.token
+        })
+        .then(response => {
+                console.log("check")
+            }
+        )
+        .catch(error => {
+                // this.message = 'Invalid token';
+                // this.formShow = false;
+                switch (error.response.status) {
+                    case 400: 
+                        this.message = 'Invalid token';
+                        this.formShow = false;
+                        break;
+                    default:
+                        this.error_dialog = true;
+                        break;
+                }
+            }
+        )
+    },
     beforeMount() {
-        this.getEmail();
         this.getToken();
     },
     filters: {
@@ -150,12 +136,11 @@ export default {
             }
             axios.post('auth/reset-password', {
                 token: this.token,
-                email: this.email,
                 password: this.password,
                 password_confirmation: this.password_confirmation
             })
             .then(response => {
-                alert('Password was successfully changed')
+                //this.$router.push('login' )
             })
             .catch(error => {
                 switch (error.response.status) {
@@ -167,9 +152,6 @@ export default {
                         break;
                 }
             })
-        },
-        getEmail() {
-            this.email = this.$route.query.email;
         },
         getToken() {
             this.token = this.$route.params.token;

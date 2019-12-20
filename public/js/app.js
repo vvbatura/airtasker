@@ -4128,56 +4128,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      message: '',
       token: '',
-      //email: '',
       password: '',
       password_confirmation: '',
+      formShow: true,
       errors: {},
       has_error: false
     };
   },
   validations: {
-    email: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-      email: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["email"],
-      maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(255)
-    },
     password: {
       required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
       minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(6),
@@ -4187,8 +4151,29 @@ __webpack_require__.r(__webpack_exports__);
       sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
     }
   },
+  created: function created() {
+    var _this = this;
+
+    axios.post('/auth/check-token', {
+      token: this.$route.params.token
+    }).then(function (response) {
+      console.log("check");
+    })["catch"](function (error) {
+      // this.message = 'Invalid token';
+      // this.formShow = false;
+      switch (error.response.status) {
+        case 400:
+          _this.message = 'Invalid token';
+          _this.formShow = false;
+          break;
+
+        default:
+          _this.error_dialog = true;
+          break;
+      }
+    });
+  },
   beforeMount: function beforeMount() {
-    this.getEmail();
     this.getToken();
   },
   filters: {
@@ -4198,7 +4183,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      var _this = this;
+      var _this2 = this;
 
       this.has_error = false;
       this.$v.$touch();
@@ -4209,25 +4194,20 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('auth/reset-password', {
         token: this.token,
-        email: this.email,
         password: this.password,
         password_confirmation: this.password_confirmation
-      }).then(function (response) {
-        alert('Password was successfully changed');
+      }).then(function (response) {//this.$router.push('login' )
       })["catch"](function (error) {
         switch (error.response.status) {
           case 422:
-            _this.has_error = true;
+            _this2.has_error = true;
             break;
 
           default:
-            _this.error_dialog = true;
+            _this2.error_dialog = true;
             break;
         }
       });
-    },
-    getEmail: function getEmail() {
-      this.email = this.$route.query.email;
     },
     getToken: function getToken() {
       this.token = this.$route.params.token;
@@ -81176,9 +81156,21 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "login-form" }, [
+    _c("h2", { staticClass: "text-center pt-3" }, [
+      _vm._v(_vm._s(_vm.message))
+    ]),
+    _vm._v(" "),
     _c(
       "form",
       {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.formShow,
+            expression: "formShow"
+          }
+        ],
         staticClass: "form-horizontal",
         attrs: { role: "form" },
         on: {
@@ -81192,28 +81184,6 @@ var render = function() {
         _c("h2", { staticClass: "text-center mb-4" }, [
           _vm._v("Change password")
         ]),
-        _vm._v(" "),
-        !_vm.$v.email.required && _vm.$v.$dirty
-          ? _c("div", [_vm._m(0)])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.$v.email.email && _vm.$v.$dirty
-          ? _c("div", [_vm._m(1)])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.errors.email && _vm.has_error
-          ? _c("div", [
-              _c("div", { staticClass: "form-control-feedback" }, [
-                _c("span", { staticClass: "text-danger align-middle" }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm._f("toString")(_vm.errors.email)) +
-                      "\n                    "
-                  )
-                ])
-              ])
-            ])
-          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group has-danger" }, [
           _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
@@ -81252,19 +81222,19 @@ var render = function() {
                 }
               }
             })
-          ])
+          ]),
+          _vm._v(" "),
+          !_vm.$v.password.required && _vm.$v.password.$dirty
+            ? _c("div", [_vm._m(0)])
+            : _vm._e(),
+          _vm._v(" "),
+          (!_vm.$v.password.minLength && _vm.$v.password_confirmation.$dirty) ||
+          (!_vm.$v.password.maxLength && _vm.$v.password_confirmation.$dirty)
+            ? _c("div", [_vm._m(1)])
+            : _vm._e()
         ]),
         _vm._v(" "),
-        !_vm.$v.password.required && _vm.$v.password.$dirty
-          ? _c("div", [_vm._m(2)])
-          : _vm._e(),
-        _vm._v(" "),
-        (!_vm.$v.password.minLength && _vm.$v.password_confirmation.$dirty) ||
-        (!_vm.$v.password.maxLength && _vm.$v.password_confirmation.$dirty)
-          ? _c("div", [_vm._m(3)])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm._m(4),
+        _vm._m(2),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
@@ -81302,32 +81272,32 @@ var render = function() {
                 }
               }
             })
-          ])
-        ]),
-        _vm._v(" "),
-        !_vm.$v.password_confirmation.sameAsPassword &&
-        _vm.$v.password_confirmation.$dirty
-          ? _c("div", [
-              _c("div", { staticClass: "form-control-feedback" }, [
-                _c("span", { staticClass: "text-danger align-middle" }, [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.$t("passwords-must-match")) +
-                      "\n                    "
-                  )
+          ]),
+          _vm._v(" "),
+          !_vm.$v.password_confirmation.sameAsPassword &&
+          _vm.$v.password_confirmation.$dirty
+            ? _c("div", [
+                _c("div", { staticClass: "form-control-feedback" }, [
+                  _c("span", { staticClass: "text-danger align-middle" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.$t("passwords-must-match")) +
+                        "\n                    "
+                    )
+                  ])
                 ])
               ])
-            ])
-          : _vm._e(),
+            : _vm._e()
+        ]),
         _vm._v(" "),
         _vm.errors.password
           ? _c("div", [
               _c("div", { staticClass: "form-control-feedback" }, [
                 _c("span", { staticClass: "text-danger align-middle" }, [
                   _vm._v(
-                    "\n                       " +
+                    "\n                    " +
                       _vm._s(_vm._f("toString")(_vm.errors.password)) +
-                      "\n                    "
+                      "\n                "
                   )
                 ])
               ])
@@ -81360,30 +81330,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _vm._v(
-          "\n                        Email is required\n                    "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _vm._v(
-          "\n                        Email must be email\n                    "
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
