@@ -3536,6 +3536,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3560,7 +3569,9 @@ __webpack_require__.r(__webpack_exports__);
       has_error: false,
       isEmail: false,
       isPhone: false,
-      modalShow: true
+      modalShow: true,
+      submitted: false,
+      message: ''
     };
   },
   validations: {
@@ -3585,6 +3596,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     submit: function submit() {
       var _this = this;
+
+      this.submitted = true;
+      this.$v.$touch();
 
       if (this.$v.$invalid) {//return;
       }
@@ -3616,6 +3630,7 @@ __webpack_require__.r(__webpack_exports__);
           switch (error.response.status) {
             case 422:
               _this.has_error = true;
+              _this.message = "Fill one of the field!";
               break;
 
             default:
@@ -80349,6 +80364,10 @@ var render = function() {
           _vm._v(_vm._s(_vm.$t("enter-your-email-phone")))
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "text-danger mb-2" }, [
+          _vm._v(_vm._s(_vm.message))
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c(
             "button",
@@ -80391,26 +80410,24 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.$v.email.$model,
-                    expression: "$v.email.$model"
+                    value: _vm.email,
+                    expression: "email"
                   }
                 ],
                 staticClass: "form-control",
+                class: { "is-invalid": _vm.submitted && _vm.$v.email.$error },
                 attrs: {
                   type: "text",
                   name: "email",
                   placeholder: _vm.$t("enter-your-email")
                 },
-                domProps: { value: _vm.$v.email.$model },
+                domProps: { value: _vm.email },
                 on: {
-                  keyup: function($event) {
-                    _vm.has_error = false
-                  },
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.$v.email, "$model", $event.target.value)
+                    _vm.email = $event.target.value
                   }
                 }
               })
@@ -80462,26 +80479,24 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.$v.phone.$model,
-                    expression: "$v.phone.$model"
+                    value: _vm.phone,
+                    expression: "phone"
                   }
                 ],
                 staticClass: "form-control",
+                class: { "is-invalid": _vm.submitted && _vm.$v.phone.$error },
                 attrs: {
                   type: "text",
                   name: "phone",
                   placeholder: _vm.$t("enter-your-phone")
                 },
-                domProps: { value: _vm.$v.phone.$model },
+                domProps: { value: _vm.phone },
                 on: {
-                  keyup: function($event) {
-                    _vm.has_error = false
-                  },
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.$v.phone, "$model", $event.target.value)
+                    _vm.phone = $event.target.value
                   }
                 }
               })
