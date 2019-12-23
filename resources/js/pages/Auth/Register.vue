@@ -49,7 +49,7 @@
                         v-model="location.long_name" :disabled="false"
                         @input="changed"
                         :show-autocomplete="true"
-                        :autofocus="true"
+                        :autofocus="false"
                         :suggestions="suggestions"
                         name="customName"
                         :placeholder="$t('city')"
