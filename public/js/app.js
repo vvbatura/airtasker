@@ -4149,26 +4149,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -4178,6 +4158,7 @@ __webpack_require__.r(__webpack_exports__);
       password: '',
       password_confirmation: '',
       formShow: true,
+      //currentRoute: window.location.hostname,
       errors: {},
       has_error: false,
       submitted: false
@@ -4249,7 +4230,8 @@ __webpack_require__.r(__webpack_exports__);
         token: this.token,
         password: this.password,
         password_confirmation: this.password_confirmation
-      }).then(function (response) {//this.$router.push('login' )
+      }).then(function (response) {
+        _this2.router(window.location.href = '/login');
       })["catch"](function (error) {
         switch (error.response.status) {
           case 422:
@@ -81264,13 +81246,11 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "field-label-responsive" }, [
+            _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "password_confirmation" } }, [
                 _vm._v(_vm._s(_vm.$t("confirm-password")))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
                 _c("input", {
                   directives: [

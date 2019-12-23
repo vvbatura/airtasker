@@ -18,28 +18,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                    type="password"
-                    v-model="password"
-                    id="password" name="password"
-                    class="form-control"
-                    :placeholder="$t('password')"
-                    :class="{ 'is-invalid': submitted && $v.password.$error }" />
-                <div v-if="submitted && $v.password.$error" class="invalid-feedback">
-                    <span v-if="!$v.password.required">Password is required</span>
-                    <span v-if="!$v.password.minLength">Password must be at least 6 characters</span>
-                </div>
-            </div> -->
-
-
-
-            <div class="field-label-responsive">
-                <label for="password_confirmation">{{$t('confirm-password')}}</label>
-            </div>
             <div class="form-group">
+                <label for="password_confirmation">{{$t('confirm-password')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input
                         type="password"
@@ -93,6 +73,7 @@ export default {
             password: '',
             password_confirmation: '',
             formShow: true,
+            //currentRoute: window.location.hostname,
 
             errors: {},
             has_error: false,
@@ -162,7 +143,7 @@ export default {
                 password_confirmation: this.password_confirmation
             })
             .then(response => {
-                //this.$router.push('login' )
+                this.router(window.location.href = '/login')
             })
             .catch(error => {
                 switch (error.response.status) {
