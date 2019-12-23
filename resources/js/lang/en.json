@@ -46,5 +46,7 @@
     "password-must-contain": "Password must contain at least 6 characters",
     "return-to-login": "Return to Login",
     "confirm-password": "Confirm password",
-    "change-password": "Change password"
+    "change-password": "Change password",
+    "last-name-is-required": "Last Name is required",
+    "first-name-is-required": "First Name is required"
 }

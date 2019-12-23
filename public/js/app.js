@@ -80858,7 +80858,7 @@ var render = function() {
           _vm._v(" "),
           _vm.submitted && !_vm.$v.first_name.required
             ? _c("div", { staticClass: "invalid-feedback" }, [
-                _vm._v("First Name is required")
+                _vm._v(_vm._s(_vm.$t("first-name-is-required")))
               ])
             : _vm._e()
         ]),
@@ -80898,7 +80898,7 @@ var render = function() {
           _vm._v(" "),
           _vm.submitted && !_vm.$v.last_name.required
             ? _c("div", { staticClass: "invalid-feedback" }, [
-                _vm._v("Last Name is required")
+                _vm._v(_vm._s(_vm.$t("last-name-is-required")))
               ])
             : _vm._e()
         ]),
@@ -80939,7 +80939,7 @@ var render = function() {
             _vm._v(" "),
             _vm.submitted && !_vm.$v.email.required
               ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v("Email is required")
+                  _vm._v(_vm._s(_vm.$t("email-is-required")))
                 ])
               : _vm._e()
           ])
@@ -81013,14 +81013,16 @@ var render = function() {
             _vm._v(" "),
             _vm.submitted && !_vm.$v.phone.required
               ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v("Phone is required")
+                  _vm._v(_vm._s(_vm.$t("phone-is-required")))
                 ])
               : _vm._e()
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+          _c("label", { attrs: { for: "password" } }, [
+            _vm._v(_vm._s(_vm.$t("password")))
+          ]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -81053,12 +81055,12 @@ var render = function() {
           _vm.submitted && _vm.$v.password.$error
             ? _c("div", { staticClass: "invalid-feedback" }, [
                 !_vm.$v.password.required
-                  ? _c("span", [_vm._v("Password is required")])
+                  ? _c("span", [_vm._v(_vm._s(_vm.$t("password-is-required")))])
                   : _vm._e(),
                 _vm._v(" "),
                 !_vm.$v.password.minLength
                   ? _c("span", [
-                      _vm._v("Password must be at least 6 characters")
+                      _vm._v(_vm._s(_vm.$t("password-must-contain")))
                     ])
                   : _vm._e()
               ])
@@ -100331,10 +100333,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, default */
+/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\"}");
 
 /***/ }),
 
