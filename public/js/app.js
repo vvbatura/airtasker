@@ -4160,6 +4160,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -4170,7 +4179,8 @@ __webpack_require__.r(__webpack_exports__);
       password_confirmation: '',
       formShow: true,
       errors: {},
-      has_error: false
+      has_error: false,
+      submitted: false
     };
   },
   validations: {
@@ -4227,13 +4237,14 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this2 = this;
 
-      this.has_error = false;
+      this.submitted = true;
       this.$v.$touch();
 
       if (this.$v.$invalid) {
         return;
       }
 
+      this.has_error = false;
       axios.post('auth/reset-password', {
         token: this.token,
         password: this.password,
@@ -81193,11 +81204,13 @@ var render = function() {
           },
           [
             _c("h2", { staticClass: "text-center mb-4" }, [
-              _vm._v("Change password")
+              _vm._v(_vm._s(_vm.$t("change-password")))
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group has-danger" }, [
-              _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+              _c("label", { attrs: { for: "password" } }, [
+                _vm._v(_vm._s(_vm.$t("password")))
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
                 _c("input", {
@@ -81205,49 +81218,57 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model.trim",
-                      value: _vm.$v.password.$model,
-                      expression: "$v.password.$model",
+                      value: _vm.password,
+                      expression: "password",
                       modifiers: { trim: true }
                     }
                   ],
                   staticClass: "form-control",
+                  class: {
+                    "is-invalid": _vm.submitted && _vm.$v.password.$error
+                  },
                   attrs: {
                     type: "password",
                     id: "password",
-                    placeholder: "Password"
+                    placeholder: _vm.$t("password")
                   },
-                  domProps: { value: _vm.$v.password.$model },
+                  domProps: { value: _vm.password },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(
-                        _vm.$v.password,
-                        "$model",
-                        $event.target.value.trim()
-                      )
+                      _vm.password = $event.target.value.trim()
                     },
                     blur: function($event) {
                       return _vm.$forceUpdate()
                     }
                   }
-                })
-              ]),
-              _vm._v(" "),
-              !_vm.$v.password.required && _vm.$v.password.$dirty
-                ? _c("div", [_vm._m(0)])
-                : _vm._e(),
-              _vm._v(" "),
-              (!_vm.$v.password.minLength &&
-                _vm.$v.password_confirmation.$dirty) ||
-              (!_vm.$v.password.maxLength &&
-                _vm.$v.password_confirmation.$dirty)
-                ? _c("div", [_vm._m(1)])
-                : _vm._e()
+                }),
+                _vm._v(" "),
+                _vm.submitted && _vm.$v.password.$error
+                  ? _c("div", { staticClass: "invalid-feedback" }, [
+                      !_vm.$v.password.required
+                        ? _c("span", [
+                            _vm._v(_vm._s(_vm.$t("password-is-required")))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      !_vm.$v.password.minLength
+                        ? _c("span", [
+                            _vm._v(_vm._s(_vm.$t("password-must-contain")))
+                          ])
+                        : _vm._e()
+                    ])
+                  : _vm._e()
+              ])
             ]),
             _vm._v(" "),
-            _vm._m(2),
+            _c("div", { staticClass: "field-label-responsive" }, [
+              _c("label", { attrs: { for: "password_confirmation" } }, [
+                _vm._v(_vm._s(_vm.$t("confirm-password")))
+              ])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c("div", { staticClass: "input-group mb-2 mr-sm-2 mb-sm-0" }, [
@@ -81354,49 +81375,14 @@ var render = function() {
             _c(
               "router-link",
               { staticClass: "btn-lg link_login", attrs: { to: "/login" } },
-              [_vm._v("Return to login")]
+              [_vm._v(_vm._s(_vm.$t("return-to-login")))]
             )
           ],
           1
         )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _vm._v(
-          "\n                        Password is required\n                    "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control-feedback" }, [
-      _c("span", { staticClass: "text-danger align-middle" }, [
-        _vm._v(
-          "\n                        Password must contain at least 6 characters and less 20\n                    "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field-label-responsive" }, [
-      _c("label", { attrs: { for: "password_confirmation" } }, [
-        _vm._v("Confirm Password")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -100365,10 +100351,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, default */
+/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\"}");
 
 /***/ }),
 
