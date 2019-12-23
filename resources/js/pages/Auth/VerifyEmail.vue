@@ -47,10 +47,10 @@ export default {
         )
     },
     beforeMount() {
-        this.getTokens();
+        this.getToken();
     },
     methods: {
-        getTokens() {
+        getToken() {
             this.token = this.$route.params.token;
         }
     }

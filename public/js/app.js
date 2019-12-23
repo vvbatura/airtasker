@@ -4308,10 +4308,10 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   beforeMount: function beforeMount() {
-    this.getTokens();
+    this.getToken();
   },
   methods: {
-    getTokens: function getTokens() {
+    getToken: function getToken() {
       this.token = this.$route.params.token;
     }
   }
