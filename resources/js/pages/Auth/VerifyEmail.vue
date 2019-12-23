@@ -1,8 +1,7 @@
 <template>
     <div class="account_box text-center">
-        <h2  class="verified_h mb-4">Account successfully verified</h2>
-        <!-- <h2  v-if="verifiedAccount" class="verified_h mb-4">Account successfully verified</h2>
-        <h2 class="mb-3" v-else>{{ message }}</h2> -->
+        <h2  v-if="verifiedAccount" class="verified_h mb-4">Account successfully verified</h2>
+        <h2 class="mb-3" v-else>{{ message }}</h2>
         <router-link class="link_login btn-lg" to="/login">Return to Login</router-link>
     </div>
 </template>
@@ -12,7 +11,7 @@ export default {
     data() {
         return {
             token: '',
-            //verifiedAccount: true,
+            verifiedAccount: true,
             message: '',
             error_dialog: ''
         };

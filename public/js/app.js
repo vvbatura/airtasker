@@ -4258,12 +4258,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       token: '',
-      //verifiedAccount: true,
+      verifiedAccount: true,
       message: '',
       error_dialog: ''
     };
@@ -81402,9 +81401,11 @@ var render = function() {
     "div",
     { staticClass: "account_box text-center" },
     [
-      _c("h2", { staticClass: "verified_h mb-4" }, [
-        _vm._v("Account successfully verified")
-      ]),
+      _vm.verifiedAccount
+        ? _c("h2", { staticClass: "verified_h mb-4" }, [
+            _vm._v("Account successfully verified")
+          ])
+        : _c("h2", { staticClass: "mb-3" }, [_vm._v(_vm._s(_vm.message))]),
       _vm._v(" "),
       _c(
         "router-link",
