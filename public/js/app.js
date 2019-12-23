@@ -80551,7 +80551,14 @@ var render = function() {
       [
         _c(
           "b-modal",
-          { ref: "my-modal", attrs: { "hide-header": "", "hide-footer": "" } },
+          {
+            ref: "my-modal",
+            attrs: {
+              "no-close-on-backdrop": "",
+              "hide-header": "",
+              "hide-footer": ""
+            }
+          },
           [
             _c(
               "div",
