@@ -3703,6 +3703,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3719,7 +3720,8 @@ __webpack_require__.r(__webpack_exports__);
       remember_me: false,
       has_error: false,
       errors: null,
-      locale: null
+      locale: null,
+      submitted: false
     };
   },
   validations: {
@@ -3739,6 +3741,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
+      this.submitted = true;
       this.has_error = false;
       this.$v.$touch();
 
@@ -80606,48 +80609,43 @@ var render = function() {
             directives: [
               {
                 name: "model",
-                rawName: "v-model.trim",
-                value: _vm.$v.email.$model,
-                expression: "$v.email.$model",
-                modifiers: { trim: true }
+                rawName: "v-model",
+                value: _vm.email,
+                expression: "email"
               }
             ],
             staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.email.$error },
             attrs: {
               id: "email-login",
               type: "email",
-              placeholder: _vm.$t("email"),
-              required: "",
-              autocomplete: "off"
+              placeholder: _vm.$t("email")
             },
-            domProps: { value: _vm.$v.email.$model },
+            domProps: { value: _vm.email },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.$v.email, "$model", $event.target.value.trim())
-              },
-              blur: function($event) {
-                return _vm.$forceUpdate()
+                _vm.email = $event.target.value
               }
             }
           }),
           _vm._v(" "),
-          !_vm.$v.email.required && _vm.$v.email.$dirty
-            ? _c("div", { staticClass: "not-valid" }, [
+          _vm.submitted && !_vm.$v.email.required
+            ? _c("div", { staticClass: "invalid-feedback" }, [
                 _vm._v(_vm._s(_vm.$t("email-is-required")))
               ])
             : _vm._e(),
           _vm._v(" "),
           !_vm.$v.email.email && _vm.$v.email.$dirty
-            ? _c("div", { staticClass: "not-valid" }, [
+            ? _c("div", { staticClass: "not-valid invalid-feedback" }, [
                 _vm._v(_vm._s(_vm.$t("incorrect-email")))
               ])
             : _vm._e(),
           _vm._v(" "),
           !_vm.$v.email.maxLength && _vm.$v.email.$dirty
-            ? _c("div", { staticClass: "not-valid" }, [
+            ? _c("div", { staticClass: "not-valid invalid-feedback" }, [
                 _vm._v(_vm._s(_vm.$t("max-email-length-is-255")))
               ])
             : _vm._e()
@@ -80663,30 +80661,31 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.$v.password.$model,
-                expression: "$v.password.$model"
+                value: _vm.password,
+                expression: "password"
               }
             ],
             staticClass: "form-control",
+            class: { "is-invalid": _vm.submitted && _vm.$v.password.$error },
             attrs: {
-              id: "password-login",
               type: "password",
-              placeholder: _vm.$t("password"),
-              autocomplete: "off"
+              id: "password",
+              name: "password",
+              placeholder: _vm.$t("password")
             },
-            domProps: { value: _vm.$v.password.$model },
+            domProps: { value: _vm.password },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.$v.password, "$model", $event.target.value)
+                _vm.password = $event.target.value
               }
             }
           }),
           _vm._v(" "),
-          !_vm.$v.password.required && _vm.$v.$dirty && !_vm.$v.email.$invalid
-            ? _c("div", { staticClass: "not-valid" }, [
+          _vm.submitted && _vm.$v.password.$error
+            ? _c("div", { staticClass: "invalid-feedback" }, [
                 _vm._v(
                   "\n                " +
                     _vm._s(_vm.$t("password-is-required")) +
