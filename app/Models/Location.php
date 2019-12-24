@@ -14,7 +14,7 @@ class Location extends Model
         'user_id',
         'name',
         'long_name',
-        'google_place_id',
+        'place_id',
         'lat',
         'lng',
     ];
@@ -26,8 +26,8 @@ class Location extends Model
     //-getters
     public function getId() { return $this->id; }
     public function getName() { return $this->name; }
-    public function getShortName() { return $this->short_name; }
-    public function getGooglePlaceId() { return $this->google_place_id; }
+    public function getLongName() { return $this->long_name; }
+    public function getPlaceId() { return $this->place_id; }
     public function getLat() { return $this->lat; }
     public function getLng() { return $this->lng; }
 

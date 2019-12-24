@@ -18,7 +18,7 @@ class CreateLocationsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('long_name');
-            $table->string('google_place_id');
+            $table->string('place_id');
             $table->string('lat');
             $table->string('lng');
             $table->timestamps();
