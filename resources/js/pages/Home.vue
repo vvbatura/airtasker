@@ -20,13 +20,27 @@
 
 <style lang="scss">
 .view-content {
-    background: url("../../images/homepage.jpg") no-repeat center top;
+    background: url("/img/home-1.jpeg") no-repeat center top;
     background-size: cover; 
     min-height: 900px;
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
+    position: relative;
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.47);
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
     .container {
         height: 100vh;
+        position: relative;
+        z-index: 10;
     }
     h1 {
         font-size: 50px;
