@@ -55,6 +55,15 @@
                         :placeholder="$t('city')"
                         type="google">
                     </vue-instant>
+                    <!-- <autocomplete 
+                        :place-holder-text="placeHolderInputText"
+                        :result-items="autoCompleteResult"
+                        :on-key-up="onKeyUpAutoCompleteEvent"
+                        :on-selected="onSelectedAutoCompleteEvent"
+                        :auto-complete-progress="autoCompleteProgress"
+                        :item-text="autoCompleteText"
+                        :item-id="autoCompleteFieldId">
+                    </autocomplete> -->
                 </div>
             </div>
             <div class="form-group">
@@ -129,6 +138,7 @@ import {
 } from 'vuelidate/lib/validators';
 import LoginWithGoogle from "../../components/social/google";
 import LoginWithFacebook from "../../components/social/facebook";
+//import Autocomplete from "../../components/autocomplete";
 
 export default {
     components: {
@@ -163,7 +173,7 @@ export default {
             suggestionAttribute: 'long_name',
             suggestions: [],
 
-            submitted: false
+            submitted: false,
         };
     },
     validations: {
@@ -257,7 +267,18 @@ export default {
                         this.suggestions.push(a)
                     })
                 })
-        }     
+        },
+        // changed: function() {
+        //     var that = this
+        //     this.suggestions = []
+        //     //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
+        //     axios.get('/location/get-geo?query=' + this.location.long_name) 
+        //      .then(function(response) {
+        //             response.data.results.forEach(function(a) {
+        //                 that.suggestions.push(a)
+        //             })
+        //         })
+        // },
     },
     filters: {
         toString: function (value) {

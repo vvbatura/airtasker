@@ -45,7 +45,7 @@
         <div>
             <b-modal ref="my-modal" no-close-on-backdrop hide-header hide-footer> 
                 <div class="d-block text-center">
-                    <h3 class="mb-0">Your email was checked!</h3>
+                    <h3 class="mb-0">{{$t('your-email-was-checked')}}</h3>
                     <router-link class="custom_close" to="/login">
                         <i class="ri-close-line"></i>
                     </router-link>

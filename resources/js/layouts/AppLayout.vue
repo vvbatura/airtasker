@@ -2,9 +2,9 @@
     <div>
         <Header />
         <main class="wrapper_box">
-            <div class="container">
+            <!-- <div class="container"> -->
                 <router-view></router-view>
-            </div>
+            <!-- </div> -->
         </main>
         <Footer />
     </div>
@@ -31,7 +31,9 @@ export default {
 </script>
 
 <style lang="scss">
-
+.wrapper_box {
+    padding-bottom: 11.5rem;
+}
 </style>
 
 
