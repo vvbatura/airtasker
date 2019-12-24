@@ -12,7 +12,7 @@
                     class="form-control"
                     :placeholder="$t('name')"
                     :class="{ 'is-invalid': submitted && $v.first_name.$error }" />
-                <div v-if="submitted && !$v.first_name.required" class="invalid-feedback">First Name is required</div>
+                <div v-if="submitted && !$v.first_name.required" class="invalid-feedback">{{$t('first-name-is-required')}}</div>
             </div>
             <div class="form-group">
                 <label for="surname">{{$t('surname')}}</label>
@@ -24,7 +24,7 @@
                     class="form-control"
                     :placeholder="$t('surname')"
                     :class="{ 'is-invalid': submitted && $v.last_name.$error }" />
-                <div v-if="submitted && !$v.last_name.required" class="invalid-feedback">Last Name is required</div>
+                <div v-if="submitted && !$v.last_name.required" class="invalid-feedback">{{$t('last-name-is-required')}}</div>
             </div>
             <div class="form-group">
                 <label for="email">{{$t('email')}}</label>
@@ -37,7 +37,7 @@
                         name="email"
                         placeholder="you@example.com"
                         :class="{ 'is-invalid': submitted && $v.email.$error }">
-                    <div v-if="submitted && !$v.email.required" class="invalid-feedback">Email is required</div>
+                    <div v-if="submitted && !$v.email.required" class="invalid-feedback">{{$t('email-is-required')}}</div>
                 </div>
             </div>
             <div class="form-group">
@@ -49,7 +49,7 @@
                         v-model="location.long_name" :disabled="false"
                         @input="changed"
                         :show-autocomplete="true"
-                        :autofocus="true"
+                        :autofocus="false"
                         :suggestions="suggestions"
                         name="customName"
                         :placeholder="$t('city')"
@@ -67,11 +67,11 @@
                         id="phone"
                         :placeholder="$t('phone')"
                         :class="{ 'is-invalid': submitted && $v.email.$error }"/>
-                    <div v-if="submitted && !$v.phone.required" class="invalid-feedback">Phone is required</div>
+                    <div v-if="submitted && !$v.phone.required" class="invalid-feedback">{{$t('phone-is-required')}}</div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">{{$t('password')}}</label>
                 <input
                     type="password"
                     v-model="password"
@@ -80,8 +80,8 @@
                     :placeholder="$t('password')"
                     :class="{ 'is-invalid': submitted && $v.password.$error }" />
                 <div v-if="submitted && $v.password.$error" class="invalid-feedback">
-                    <span v-if="!$v.password.required">Password is required</span>
-                    <span v-if="!$v.password.minLength">Password must be at least 6 characters</span>
+                    <span v-if="!$v.password.required">{{$t('password-is-required')}}</span>
+                    <span v-if="!$v.password.minLength">{{$t('password-must-contain')}}</span>
                 </div>
             </div>
             <div class="form-group">

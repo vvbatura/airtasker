@@ -41,8 +41,8 @@ class UserDataRequest extends FormRequest
             'type.*' => ['nullable', 'string', Rule::in(Constants::TYPES)],
             'location' => ['required', 'array'],
             'location.name' => ['required', 'string', 'max:150'],
-            'location.short_name' => ['required', 'string', 'max:150'],
-            'location.google_place_id' => ['required', 'string', 'max:150'],
+            'location.long_name' => ['required', 'string', 'max:150'],
+            'location.place_id' => ['required', 'string', 'max:150'],
             'location.lat' => ['required', 'string', 'max:150'],
             'location.lng' => ['required', 'string', 'max:150'],
         ];

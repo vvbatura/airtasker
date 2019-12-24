@@ -5,26 +5,27 @@
             <div class="form-group">
                 <label for="email-login">{{$t('email')}}</label>
                 <input
+                    v-model="email"
                     id="email-login"
                     type="email"
                     class="form-control"
                     :placeholder="$t('email')"
-                    v-model.trim="$v.email.$model"
-                    required
-                    autocomplete="off">
-                <div v-if="!$v.email.required && $v.email.$dirty" class="not-valid">{{$t('email-is-required')}}</div>
-                <div v-if="!$v.email.email && $v.email.$dirty" class="not-valid">{{$t('incorrect-email')}}</div>
-                <div v-if="!$v.email.maxLength && $v.email.$dirty" class="not-valid">{{$t('max-email-length-is-255')}}</div>
+                    :class="{ 'is-invalid': submitted && $v.email.$error }">
+                <div v-if="submitted && !$v.email.required" class="invalid-feedback">{{$t('email-is-required')}}</div>
+                <div v-if="!$v.email.email && $v.email.$dirty" class="not-valid invalid-feedback">{{$t('incorrect-email')}}</div>
+                <div v-if="!$v.email.maxLength && $v.email.$dirty" class="not-valid invalid-feedback">{{$t('max-email-length-is-255')}}</div>
             </div>
             <div class="form-group">
                 <label for="password-login">{{$t('password')}}</label>
                 <input
-                    id="password-login"
-                    type="password" class="form-control"
+                    type="password"
+                    v-model="password"
+                    id="password"
+                    name="password"
+                    class="form-control"
                     :placeholder="$t('password')"
-                    v-model="$v.password.$model"
-                    autocomplete="off">
-                <div v-if="!$v.password.required && $v.$dirty && !$v.email.$invalid" class="not-valid">
+                    :class="{ 'is-invalid': submitted && $v.password.$error }" />
+                <div v-if="submitted && $v.password.$error" class="invalid-feedback">
                     {{$t('password-is-required')}}
                 </div>
                 <div v-if="!$v.password.minLength && $v.$dirty && !$v.email.$invalid" class="not-valid">
@@ -79,6 +80,7 @@ export default {
             has_error: false,
             errors: null,
             locale: null,
+            submitted: false
         };
     },
 
@@ -101,7 +103,10 @@ export default {
 
     methods: {
         submit() {
+            this.submitted = true;
+
             this.has_error = false;
+            
             this.$v.$touch();
             if (this.$v.$invalid) {
                 return;

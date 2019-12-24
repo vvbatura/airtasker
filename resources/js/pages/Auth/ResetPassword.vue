@@ -1,36 +1,25 @@
 <template>
     <div class="login-form">
         <form v-if="formShow" class="form-horizontal" role="form" @submit.prevent="submit">
-            <h2 class="text-center mb-4">Change password</h2>
+            <h2 class="text-center mb-4">{{$t('change-password')}}</h2>
             <div class="form-group has-danger">
-                <label for="password">Password</label>
+                <label for="password">{{$t('password')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input
                         type="password"
-                        v-model.trim="$v.password.$model"
+                        v-model.trim="password"
                         class="form-control"
                         id="password"
-                        placeholder="Password">
-                </div>
-                <div v-if="!$v.password.required && $v.password.$dirty">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            Password is required
-                        </span>
+                        :placeholder="$t('password')"
+                        :class="{ 'is-invalid': submitted && $v.password.$error }" >
+                    <div v-if="submitted && $v.password.$error" class="invalid-feedback">
+                        <span v-if="!$v.password.required">{{$t('password-is-required')}}</span>
+                        <span v-if="!$v.password.minLength">{{$t('password-must-contain')}}</span>
                     </div>
                 </div>
-                <div v-if="!$v.password.minLength && $v.password_confirmation.$dirty || !$v.password.maxLength && $v.password_confirmation.$dirty">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            Password must contain at least 6 characters and less 20
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="field-label-responsive">
-                <label for="password_confirmation">Confirm Password</label>
             </div>
             <div class="form-group">
+                <label for="password_confirmation">{{$t('confirm-password')}}</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <input
                         type="password"
@@ -62,7 +51,7 @@
         </form>
         <div class="text-center" v-else>
             <h2 class="text-center mb-3">{{ message }}</h2>
-            <router-link class="btn-lg link_login" to="/login">Return to login</router-link>
+            <router-link class="btn-lg link_login" to="/login">{{$t('return-to-login')}}</router-link>
         </div>
     </div>
 </template>
@@ -84,9 +73,12 @@ export default {
             password: '',
             password_confirmation: '',
             formShow: true,
+            //currentRoute: window.location.hostname,
 
             errors: {},
-            has_error: false
+            has_error: false,
+
+            submitted: false
         };
     },
     validations: {
@@ -136,18 +128,22 @@ export default {
     },
     methods: {
         submit() {
-            this.has_error = false;
+            this.submitted = true;
+
             this.$v.$touch();
             if (this.$v.$invalid) {
                 return;
             }
+
+            this.has_error = false;
+
             axios.post('auth/reset-password', {
                 token: this.token,
                 password: this.password,
                 password_confirmation: this.password_confirmation
             })
             .then(response => {
-                //this.$router.push('login' )
+                this.router(window.location.href = '/login')
             })
             .catch(error => {
                 switch (error.response.status) {

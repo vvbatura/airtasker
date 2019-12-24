@@ -42,5 +42,11 @@
     "password-confirmation": "Passwort Bestätigung",
     "enter-code": "Gib deinen Code ein",
     "passwords-must-match": "Die Passwörter müssen übereinstimmen",
-    "confirm-password-is-required": "Passwort bestätigen ist erforderlich"
+    "confirm-password-is-required": "Passwort bestätigen ist erforderlich",
+    "password-must-contain": "Das Passwort muss mindestens 6 Zeichen enthalten",
+    "return-to-login": "Zurück zum Login",
+    "confirm-password": "Kennwort bestätigen",
+    "change-password": "Passwort ändern",
+    "last-name-is-required": "Nachname ist erforderlich",
+    "first-name-is-required": "Vorname ist erforderlich"
 }
