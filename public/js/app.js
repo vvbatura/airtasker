@@ -3061,6 +3061,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/autocomplete.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/autocomplete.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    placeHolderText: String,
+    onKeyUp: Function,
+    onSelected: Function,
+    resultItems: Array,
+    autoCompleteProgress: Boolean,
+    itemText: String,
+    itemId: String
+  },
+  data: function data() {
+    return {
+      keywordSearch: ''
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/parts/Footer.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/parts/Footer.vue?vue&type=script&lang=js& ***!
@@ -3818,6 +3857,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_social_google__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/social/google */ "./resources/js/components/social/google.vue");
 /* harmony import */ var _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/social/facebook */ "./resources/js/components/social/facebook.vue");
+/* harmony import */ var _components_autocomplete__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/autocomplete */ "./resources/js/components/autocomplete.vue");
 //
 //
 //
@@ -3939,13 +3979,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     LoginWithGoogle: _components_social_google__WEBPACK_IMPORTED_MODULE_1__["default"],
-    LoginWithFacebook: _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__["default"]
+    LoginWithFacebook: _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Autocomplete: _components_autocomplete__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -3970,7 +4021,12 @@ __webpack_require__.r(__webpack_exports__);
       has_error: false,
       suggestionAttribute: 'long_name',
       suggestions: [],
-      submitted: false
+      submitted: false,
+      placeHolderInputText: 'Enter country name',
+      autoCompleteResult: [],
+      autoCompleteProgress: false,
+      autoCompleteText: "name",
+      autoCompleteFieldId: "alpha3Code"
     };
   },
   validations: {
@@ -4054,20 +4110,72 @@ __webpack_require__.r(__webpack_exports__);
         redirect: 'login'
       });
     },
-    changed: function changed() {
+    // changed: function () {
+    //     axios.get('/location/get-geo?query=' + this.location.long_name)    
+    //         .then((response) => {
+    //             response.data.data.forEach((a) => {
+    //                 this.location.name = a.name;
+    //                 this.location.long_name = a.long_name;
+    //                 this.location.google_place_id = a.google_place_id;
+    //                 this.location.lat = a.lat.toString();
+    //                 this.location.lng = a.lng.toString();
+    //                 this.suggestions.push(a)
+    //             })
+    //         })
+    //},
+    // clickInput: function() {
+    //     this.selectedEvent = 'click input'
+    // },
+    // clickButton: function() {
+    //     this.selectedEvent = 'click button'
+    // },
+    // selected: function() {
+    //     this.selectedEvent = 'selection changed'
+    // },
+    // changed: function() {
+    //     var that = this
+    //     this.suggestions = []
+    //     axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
+    //     //axios.get('/location/get-geo?query=' + this.location.long_name) 
+    //      .then(function(response) {
+    //             response.data.results.forEach(function(a) {
+    //                 that.suggestions.push(a)
+    //             })
+    //         })
+    // },
+    onSelectedAutoCompleteEvent: function onSelectedAutoCompleteEvent(id, text) {
+      this.autoCompleteProgress = false;
+      this.autoCompleteResult = [];
+      alert("You have selected " + id + ": " + text);
+    },
+    onKeyUpAutoCompleteEvent: function onKeyUpAutoCompleteEvent(keywordEntered) {
       var _this = this;
 
-      axios.get('/location/get-geo?query=' + this.location.long_name).then(function (response) {
-        response.data.data.forEach(function (a) {
-          _this.location.name = a.name;
-          _this.location.long_name = a.long_name;
-          _this.location.google_place_id = a.google_place_id;
-          _this.location.lat = a.lat.toString();
-          _this.location.lng = a.lng.toString();
+      //reset
+      this.autoCompleteResult = [];
+      this.autoCompleteProgress = false;
 
-          _this.suggestions.push(a);
+      if (keywordEntered.length > 2) {
+        this.autoCompleteProgress = true; //axios.get("https://restcountries.eu/rest/v2/name/" + keywordEntered)
+
+        axios.get('/location/get-geo?query=' + this.location.long_name).then(function (response) {
+          //because the name can contains partial name, we only include the country that contains the keyword text
+          var newData = [];
+          response.data.forEach(function (item, index) {
+            if (item.name.toLowerCase().indexOf(keywordEntered.toLowerCase()) >= 0) {
+              newData.push(item);
+            }
+          });
+          _this.autoCompleteResult = newData;
+          _this.autoCompleteProgress = false;
+        })["catch"](function (e) {
+          _this.autoCompleteProgress = false;
+          _this.autoCompleteResult = [];
         });
-      });
+      } else {
+        this.autoCompleteProgress = false;
+        this.autoCompleteResult = [];
+      }
     }
   },
   filters: {
@@ -4158,7 +4266,6 @@ __webpack_require__.r(__webpack_exports__);
       password: '',
       password_confirmation: '',
       formShow: true,
-      //currentRoute: window.location.hostname,
       errors: {},
       has_error: false,
       submitted: false
@@ -79838,6 +79945,89 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/autocomplete.vue?vue&type=template&id=5d1a289a&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/autocomplete.vue?vue&type=template&id=5d1a289a& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "autocomplete" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.keywordSearch,
+          expression: "keywordSearch"
+        }
+      ],
+      staticClass: "form-textinput",
+      class: {
+        "loading-circle": _vm.keywordSearch.length > 2,
+        "hide-loading-circle":
+          _vm.resultItems.length > 0 ||
+          (_vm.resultItems.length == 0 && !_vm.autoCompleteProgress)
+      },
+      attrs: { type: "text", placeholder: _vm.placeHolderText },
+      domProps: { value: _vm.keywordSearch },
+      on: {
+        keyup: function($event) {
+          !_vm.autoCompleteProgress ? _vm.onKeyUp(_vm.keywordSearch) : ""
+        },
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.keywordSearch = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _vm.resultItems.length > 0
+      ? _c(
+          "ul",
+          { staticClass: "autocomplete-results" },
+          _vm._l(_vm.resultItems, function(item, i) {
+            return _c(
+              "li",
+              {
+                key: i,
+                staticClass: "autocomplete-result",
+                on: {
+                  click: function($event) {
+                    _vm.keywordSearch = ""
+                    _vm.onSelected(item[_vm.itemId], item[_vm.itemText])
+                  }
+                }
+              },
+              [
+                _vm._v(
+                  "\n            " + _vm._s(item[_vm.itemText]) + "\n        "
+                )
+              ]
+            )
+          }),
+          0
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/parts/Footer.vue?vue&type=template&id=d132b2d6&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/parts/Footer.vue?vue&type=template&id=d132b2d6& ***!
@@ -80149,7 +80339,9 @@ var render = function() {
         }
       },
       [
-        _c("h2", { staticClass: "text-center mb-4" }, [_vm._v("Check SMS")]),
+        _c("h2", { staticClass: "text-center mb-4" }, [
+          _vm._v(_vm._s(_vm.$t("check-sms")))
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c("p", [_vm._v(_vm._s(_vm.message))])
@@ -80190,13 +80382,15 @@ var render = function() {
           _vm._v(" "),
           _vm.submitted && !_vm.$v.code.required
             ? _c("div", { staticClass: "invalid-feedback" }, [
-                _vm._v("Code is required")
+                _vm._v(_vm._s(_vm.$t("code-is-required")))
               ])
             : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+          _c("label", { attrs: { for: "password" } }, [
+            _vm._v(_vm._s(_vm.$t("password")))
+          ]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -80229,12 +80423,12 @@ var render = function() {
           _vm.submitted && _vm.$v.password.$error
             ? _c("div", { staticClass: "invalid-feedback" }, [
                 !_vm.$v.password.required
-                  ? _c("span", [_vm._v("Password is required")])
+                  ? _c("span", [_vm._v(_vm._s(_vm.$t("password-is-required")))])
                   : _vm._e(),
                 _vm._v(" "),
                 !_vm.$v.password.minLength
                   ? _c("span", [
-                      _vm._v("Password must be at least 6 characters")
+                      _vm._v(_vm._s(_vm.$t("password-must-contain")))
                     ])
                   : _vm._e()
               ])
@@ -80558,7 +80752,7 @@ var render = function() {
               { staticClass: "d-block text-center" },
               [
                 _c("h3", { staticClass: "mb-0" }, [
-                  _vm._v("Your email was checked!")
+                  _vm._v(_vm._s(_vm.$t("your-email-was-checked")))
                 ]),
                 _vm._v(" "),
                 _c(
@@ -80956,25 +81150,15 @@ var render = function() {
               staticClass: "input-group input-group-city mb-2 mr-sm-2 mb-sm-0"
             },
             [
-              _c("vue-instant", {
+              _c("autocomplete", {
                 attrs: {
-                  suggestOnAllWords: true,
-                  "suggestion-attribute": _vm.suggestionAttribute,
-                  disabled: false,
-                  "show-autocomplete": true,
-                  autofocus: false,
-                  suggestions: _vm.suggestions,
-                  name: "customName",
-                  placeholder: _vm.$t("city"),
-                  type: "google"
-                },
-                on: { input: _vm.changed },
-                model: {
-                  value: _vm.location.long_name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.location, "long_name", $$v)
-                  },
-                  expression: "location.long_name"
+                  "place-holder-text": _vm.placeHolderInputText,
+                  "result-items": _vm.autoCompleteResult,
+                  "on-key-up": _vm.onKeyUpAutoCompleteEvent,
+                  "on-selected": _vm.onSelectedAutoCompleteEvent,
+                  "auto-complete-progress": _vm.autoCompleteProgress,
+                  "item-text": _vm.autoCompleteText,
+                  "item-id": _vm.autoCompleteFieldId
                 }
               })
             ],
@@ -81392,14 +81576,14 @@ var render = function() {
     [
       _vm.verifiedAccount
         ? _c("h2", { staticClass: "verified_h mb-4" }, [
-            _vm._v("Account successfully verified")
+            _vm._v(_vm._s(_vm.$t("account-successfully-verified")))
           ])
         : _c("h2", { staticClass: "mb-3" }, [_vm._v(_vm._s(_vm.message))]),
       _vm._v(" "),
       _c(
         "router-link",
         { staticClass: "link_login btn-lg", attrs: { to: "/login" } },
-        [_vm._v("Return to Login")]
+        [_vm._v(_vm._s(_vm.$t("return-to-login")))]
       )
     ],
     1
@@ -99953,6 +100137,75 @@ var errorLayout = 'ErrorLayout';
 
 /***/ }),
 
+/***/ "./resources/js/components/autocomplete.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/autocomplete.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _autocomplete_vue_vue_type_template_id_5d1a289a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./autocomplete.vue?vue&type=template&id=5d1a289a& */ "./resources/js/components/autocomplete.vue?vue&type=template&id=5d1a289a&");
+/* harmony import */ var _autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./autocomplete.vue?vue&type=script&lang=js& */ "./resources/js/components/autocomplete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _autocomplete_vue_vue_type_template_id_5d1a289a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _autocomplete_vue_vue_type_template_id_5d1a289a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/autocomplete.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/autocomplete.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/autocomplete.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./autocomplete.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/autocomplete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/autocomplete.vue?vue&type=template&id=5d1a289a&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/autocomplete.vue?vue&type=template&id=5d1a289a& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_template_id_5d1a289a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./autocomplete.vue?vue&type=template&id=5d1a289a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/autocomplete.vue?vue&type=template&id=5d1a289a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_template_id_5d1a289a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_autocomplete_vue_vue_type_template_id_5d1a289a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/parts/Footer.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/parts/Footer.vue ***!
@@ -100333,10 +100586,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, default */
+/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\",\"your-email-was-checked\":\"Your email was checked!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"Check SMS\",\"code-is-required\":\"Code is required\"}");
 
 /***/ }),
 

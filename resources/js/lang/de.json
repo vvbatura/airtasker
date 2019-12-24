@@ -48,5 +48,9 @@
     "confirm-password": "Kennwort bestätigen",
     "change-password": "Passwort ändern",
     "last-name-is-required": "Nachname ist erforderlich",
-    "first-name-is-required": "Vorname ist erforderlich"
+    "first-name-is-required": "Vorname ist erforderlich",
+    "your-email-was-checked": "Ihre E-Mail wurde geprüft!",
+    "account-successfully-verified": "Account successfully verified",
+    "check-sms": "SMS überprüfen",
+    "code-is-required": "Code ist erforderlich"
 }

@@ -43,7 +43,7 @@
             <div class="form-group">
                 <label for="email">{{$t('city')}}</label>
                 <div class="input-group input-group-city mb-2 mr-sm-2 mb-sm-0">
-                    <vue-instant
+                    <!-- <vue-instant
                         :suggestOnAllWords="true"
                         :suggestion-attribute="suggestionAttribute"
                         v-model="location.long_name" :disabled="false"
@@ -54,7 +54,16 @@
                         name="customName"
                         :placeholder="$t('city')"
                         type="google">
-                    </vue-instant>
+                    </vue-instant> -->
+                    <autocomplete 
+                        :place-holder-text="placeHolderInputText"
+                        :result-items="autoCompleteResult"
+                        :on-key-up="onKeyUpAutoCompleteEvent"
+                        :on-selected="onSelectedAutoCompleteEvent"
+                        :auto-complete-progress="autoCompleteProgress"
+                        :item-text="autoCompleteText"
+                        :item-id="autoCompleteFieldId">
+                    </autocomplete>
                 </div>
             </div>
             <div class="form-group">
@@ -129,11 +138,13 @@ import {
 } from 'vuelidate/lib/validators';
 import LoginWithGoogle from "../../components/social/google";
 import LoginWithFacebook from "../../components/social/facebook";
+import Autocomplete from "../../components/autocomplete";
 
 export default {
     components: {
         LoginWithGoogle,
-        LoginWithFacebook
+        LoginWithFacebook,
+        Autocomplete
     },
     data() {
         return {
@@ -163,7 +174,13 @@ export default {
             suggestionAttribute: 'long_name',
             suggestions: [],
 
-            submitted: false
+            submitted: false,
+
+            placeHolderInputText: 'Enter country name',
+            autoCompleteResult: [],
+            autoCompleteProgress: false,
+            autoCompleteText: "name",
+            autoCompleteFieldId: "alpha3Code"
         };
     },
     validations: {
@@ -245,19 +262,76 @@ export default {
                 redirect: 'login'
             });
         }, 
-        changed: function () {
-            axios.get('/location/get-geo?query=' + this.location.long_name)    
-                .then((response) => {
-                    response.data.data.forEach((a) => {
-                        this.location.name = a.name;
-                        this.location.long_name = a.long_name;
-                        this.location.google_place_id = a.google_place_id;
-                        this.location.lat = a.lat.toString();
-                        this.location.lng = a.lng.toString();
-                        this.suggestions.push(a)
-                    })
-                })
-        }     
+        // changed: function () {
+        //     axios.get('/location/get-geo?query=' + this.location.long_name)    
+        //         .then((response) => {
+        //             response.data.data.forEach((a) => {
+        //                 this.location.name = a.name;
+        //                 this.location.long_name = a.long_name;
+        //                 this.location.google_place_id = a.google_place_id;
+        //                 this.location.lat = a.lat.toString();
+        //                 this.location.lng = a.lng.toString();
+        //                 this.suggestions.push(a)
+        //             })
+        //         })
+        //},
+        // clickInput: function() {
+        //     this.selectedEvent = 'click input'
+        // },
+        // clickButton: function() {
+        //     this.selectedEvent = 'click button'
+        // },
+        // selected: function() {
+        //     this.selectedEvent = 'selection changed'
+        // },
+        // changed: function() {
+        //     var that = this
+        //     this.suggestions = []
+        //     axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
+        //     //axios.get('/location/get-geo?query=' + this.location.long_name) 
+        //      .then(function(response) {
+        //             response.data.results.forEach(function(a) {
+        //                 that.suggestions.push(a)
+        //             })
+        //         })
+        // },
+
+		onSelectedAutoCompleteEvent(id, text){
+			this.autoCompleteProgress = false;
+			this.autoCompleteResult = [];
+			alert("You have selected " + id + ": " + text);
+		},
+
+		onKeyUpAutoCompleteEvent(keywordEntered){
+			//reset
+			this.autoCompleteResult = [];
+			this.autoCompleteProgress = false;
+			if(keywordEntered.length > 2){
+				this.autoCompleteProgress = true;
+                //axios.get("https://restcountries.eu/rest/v2/name/" + keywordEntered)
+                axios.get('/location/get-geo?query=' + this.location.long_name) 
+				.then(response => {
+					//because the name can contains partial name, we only include the country that contains the keyword text
+					var newData = [];
+					response.data.forEach(function(item, index){
+						if(item.name.toLowerCase().indexOf(keywordEntered.toLowerCase()) >= 0){
+							newData.push(item);
+						}
+					});
+					this.autoCompleteResult = newData;
+					this.autoCompleteProgress = false;
+				})
+				.catch(e => {
+					this.autoCompleteProgress = false;
+					this.autoCompleteResult = [];
+				})
+			}else{
+				this.autoCompleteProgress = false;
+				this.autoCompleteResult = [];
+			}
+		},
+
+
     },
     filters: {
         toString: function (value) {

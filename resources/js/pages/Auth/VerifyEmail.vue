@@ -1,8 +1,8 @@
 <template>
     <div class="account_box text-center">
-        <h2  v-if="verifiedAccount" class="verified_h mb-4">Account successfully verified</h2>
+        <h2  v-if="verifiedAccount" class="verified_h mb-4">{{$t('account-successfully-verified')}}</h2>
         <h2 class="mb-3" v-else>{{ message }}</h2>
-        <router-link class="link_login btn-lg" to="/login">Return to Login</router-link>
+        <router-link class="link_login btn-lg" to="/login">{{$t('return-to-login')}}</router-link>
     </div>
 </template>
 

@@ -73,7 +73,6 @@ export default {
             password: '',
             password_confirmation: '',
             formShow: true,
-            //currentRoute: window.location.hostname,
 
             errors: {},
             has_error: false,
