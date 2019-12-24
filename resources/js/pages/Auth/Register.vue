@@ -43,11 +43,35 @@
             <div class="form-group">
                 <label for="email">{{$t('city')}}</label>
                 <div class="input-group input-group-city mb-2 mr-sm-2 mb-sm-0">
-                    <vue-instant
+                    <!-- <vue-instant
                         :suggestOnAllWords="true"
                         :suggestion-attribute="suggestionAttribute"
                         v-model="location.long_name" :disabled="false"
                         @input="changed"
+                        :show-autocomplete="true"
+                        :autofocus="false"
+                        :suggestions="suggestions"
+                        name="customName"
+                        :placeholder="$t('city')"
+                        type="google">
+                    </vue-instant> -->
+
+                    
+                    <vue-instant
+                        :suggestOnAllWords="true"
+                        :suggestion-attribute="suggestionAttribute"
+                        v-model="location.long_name"
+                        :disabled="false" 
+                        @input="changed"
+                        @click-input="clickInput"
+                        @click-button="clickButton"
+                        @selected="selected" 
+                        @enter="enter"
+                        @key-up="keyUp"
+                        @key-down="keyDown"
+                        @key-right="keyRight"
+                        @clear="clear"
+                        @escape="escape"
                         :show-autocomplete="true"
                         :autofocus="false"
                         :suggestions="suggestions"
@@ -159,7 +183,7 @@ export default {
             location: {
                 name: '',
                 long_name: '',
-                google_place_id: '',
+                place_id: '',
                 lat: '',
                 lng: ''
             },
@@ -174,6 +198,11 @@ export default {
             suggestions: [],
 
             submitted: false,
+
+            //value: '',
+            suggestionAttribute: 'long_name',
+            suggestions: [],
+            selectedEvent: ""
         };
     },
     validations: {
@@ -226,7 +255,7 @@ export default {
                     location: {
                         name: this.location.name,
                         long_name: this.location.long_name,
-                        google_place_id: this.location.google_place_id,
+                        place_id: this.location.place_id,
                         lat: this.location.lat,
                         lng: this.location.lng
                     },
@@ -255,13 +284,41 @@ export default {
                 redirect: 'login'
             });
         }, 
+
+        // clickInput: function() {
+        //     this.selectedEvent = 'click input'
+        // },
+        // clickButton: function() {
+        //     this.selectedEvent = 'click button'
+        // },
+        // selected: function() {
+        //     this.selectedEvent = 'selection changed'
+        // },
+        // enter: function() {
+        //     this.selectedEvent = 'enter'
+        // },
+        // keyUp: function() {
+        //     this.selectedEvent = 'keyup pressed'
+        // },
+        // keyDown: function() {
+        //     this.selectedEvent = 'keyDown pressed'
+        // },
+        // keyRight: function() {
+        //     this.selectedEvent = 'keyRight pressed'
+        // },
+        // clear: function() {
+        //     this.selectedEvent = 'clear input'
+        // },
+        // escape: function() {
+        //     this.selectedEvent = 'escape'
+        // },
         changed: function () {
             axios.get('/location/get-geo?query=' + this.location.long_name)    
                 .then((response) => {
                     response.data.data.forEach((a) => {
                         this.location.name = a.name;
                         this.location.long_name = a.long_name;
-                        this.location.google_place_id = a.google_place_id;
+                        this.location.place_id = a.place_id;
                         this.location.lat = a.lat.toString();
                         this.location.lng = a.lng.toString();
                         this.suggestions.push(a)
@@ -271,7 +328,7 @@ export default {
         // changed: function() {
         //     var that = this
         //     this.suggestions = []
-        //     //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
+        //     axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
         //     axios.get('/location/get-geo?query=' + this.location.long_name) 
         //      .then(function(response) {
         //             response.data.results.forEach(function(a) {

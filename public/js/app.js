@@ -3818,6 +3818,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_social_google__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/social/google */ "./resources/js/components/social/google.vue");
 /* harmony import */ var _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/social/facebook */ "./resources/js/components/social/facebook.vue");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3958,7 +3984,9 @@ __webpack_require__.r(__webpack_exports__);
     LoginWithFacebook: _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
-    return {
+    var _ref;
+
+    return _ref = {
       error_dialog: false,
       alert_dialog: false,
       role: null,
@@ -3969,7 +3997,7 @@ __webpack_require__.r(__webpack_exports__);
       location: {
         name: '',
         long_name: '',
-        google_place_id: '',
+        place_id: '',
         lat: '',
         lng: ''
       },
@@ -3981,7 +4009,7 @@ __webpack_require__.r(__webpack_exports__);
       suggestionAttribute: 'long_name',
       suggestions: [],
       submitted: false
-    };
+    }, _defineProperty(_ref, "suggestionAttribute", 'long_name'), _defineProperty(_ref, "suggestions", []), _defineProperty(_ref, "selectedEvent", ""), _ref;
   },
   validations: {
     first_name: {
@@ -4033,7 +4061,7 @@ __webpack_require__.r(__webpack_exports__);
           location: {
             name: this.location.name,
             long_name: this.location.long_name,
-            google_place_id: this.location.google_place_id,
+            place_id: this.location.place_id,
             lat: this.location.lat,
             lng: this.location.lng
           },
@@ -4064,6 +4092,33 @@ __webpack_require__.r(__webpack_exports__);
         redirect: 'login'
       });
     },
+    // clickInput: function() {
+    //     this.selectedEvent = 'click input'
+    // },
+    // clickButton: function() {
+    //     this.selectedEvent = 'click button'
+    // },
+    // selected: function() {
+    //     this.selectedEvent = 'selection changed'
+    // },
+    // enter: function() {
+    //     this.selectedEvent = 'enter'
+    // },
+    // keyUp: function() {
+    //     this.selectedEvent = 'keyup pressed'
+    // },
+    // keyDown: function() {
+    //     this.selectedEvent = 'keyDown pressed'
+    // },
+    // keyRight: function() {
+    //     this.selectedEvent = 'keyRight pressed'
+    // },
+    // clear: function() {
+    //     this.selectedEvent = 'clear input'
+    // },
+    // escape: function() {
+    //     this.selectedEvent = 'escape'
+    // },
     changed: function changed() {
       var _this = this;
 
@@ -4071,7 +4126,7 @@ __webpack_require__.r(__webpack_exports__);
         response.data.data.forEach(function (a) {
           _this.location.name = a.name;
           _this.location.long_name = a.long_name;
-          _this.location.google_place_id = a.google_place_id;
+          _this.location.place_id = a.place_id;
           _this.location.lat = a.lat.toString();
           _this.location.lng = a.lng.toString();
 
@@ -4081,7 +4136,7 @@ __webpack_require__.r(__webpack_exports__);
     } // changed: function() {
     //     var that = this
     //     this.suggestions = []
-    //     //axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
+    //     axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
     //     axios.get('/location/get-geo?query=' + this.location.long_name) 
     //      .then(function(response) {
     //             response.data.results.forEach(function(a) {
@@ -81096,7 +81151,18 @@ var render = function() {
                   placeholder: _vm.$t("city"),
                   type: "google"
                 },
-                on: { input: _vm.changed },
+                on: {
+                  input: _vm.changed,
+                  "click-input": _vm.clickInput,
+                  "click-button": _vm.clickButton,
+                  selected: _vm.selected,
+                  enter: _vm.enter,
+                  "key-up": _vm.keyUp,
+                  "key-down": _vm.keyDown,
+                  "key-right": _vm.keyRight,
+                  clear: _vm.clear,
+                  escape: _vm.escape
+                },
                 model: {
                   value: _vm.location.long_name,
                   callback: function($$v) {
