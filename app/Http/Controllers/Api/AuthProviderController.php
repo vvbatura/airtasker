@@ -70,7 +70,7 @@ class AuthProviderController extends BaseController
             $user = User::create([
                 'first_name' => $socialUser->getName(),
                 'email' => $socialUser->getEmail(),
-                'verified_at' => Carbon::now()->timestamp,
+                'verified_at' => Carbon::now(),
             ]);
 
             $user->assignRole(Constants::ROLE_CLIENT);
