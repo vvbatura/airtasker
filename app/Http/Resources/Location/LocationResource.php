@@ -18,8 +18,8 @@ class LocationResource extends JsonResource
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
-            'short_name' => $this->getShortName(),
-            'google_place_id' => $this->getGooglePlaceId(),
+            'long_name' => $this->getLongName(),
+            'place_id' => $this->getPlaceId(),
             'lat' => $this->Lat(),
             'lng' => $this->Lng(),
         ];
