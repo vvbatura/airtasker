@@ -7,12 +7,10 @@ body {
     font-size: 16px;
     background-color: $body-bg;
     color: $main-color;
+    position: relative;
 }
 .logout {
     color: $dark;
-}
-.wrapper_box {
-    padding-top: 58px;
 }
 main {
     min-height: 100vh;

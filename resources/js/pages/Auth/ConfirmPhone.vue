@@ -1,7 +1,7 @@
 <template>
     <div class="login-form">
         <form @submit.prevent="handleSubmit" autocomplete="off">
-            <h2 class="text-center mb-4">Check SMS</h2>
+            <h2 class="text-center mb-4">{{$t('check-sms')}}</h2>
             <div class="form-group">
                 <p>{{message}}</p>
             </div>
@@ -15,10 +15,10 @@
                     class="form-control"
                     :placeholder="$t('enter-code')"
                     :class="{ 'is-invalid': submitted && $v.code.$error }" />
-                <div v-if="submitted && !$v.code.required" class="invalid-feedback">Code is required</div>
+                <div v-if="submitted && !$v.code.required" class="invalid-feedback">{{$t('code-is-required')}}</div>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">{{$t('password')}}</label>
                 <input
                     type="password"
                     v-model="password"
@@ -27,8 +27,8 @@
                     :placeholder="$t('password')"
                     :class="{ 'is-invalid': submitted && $v.password.$error }" />
                 <div v-if="submitted && $v.password.$error" class="invalid-feedback">
-                    <span v-if="!$v.password.required">Password is required</span>
-                    <span v-if="!$v.password.minLength">Password must be at least 6 characters</span>
+                    <span v-if="!$v.password.required">{{$t('password-is-required')}}</span>
+                    <span v-if="!$v.password.minLength">{{$t('password-must-contain')}}</span>
                 </div>
             </div>
             <div class="form-group">

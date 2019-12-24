@@ -4,7 +4,7 @@
         <div class="container align-items-center justify-content-between d-flex">
             <div id="logo">
                 <router-link class="logo" to="/">
-                    <img src="img/logo.svg" alt="" />
+                    <img src="img/white-logo.svg" alt="" />
                 </router-link>
             </div>
             <nav id="nav-menu-container">
@@ -34,7 +34,7 @@
 <style lang="scss">
 #header {
     height: 58px;
-    border-bottom: 1px solid #ccc;
+    //border-bottom: 1px solid #ccc;
     position: absolute;
     width: 100%;
     z-index: 100;
