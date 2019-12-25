@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="view-content">
+        <section class="view-content">
             <div class="container d-flex align-items-center">
                 <div class="view_zone">
                     <h1>The best person for the job isn't always who you think</h1>
@@ -10,8 +10,8 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="need-content">
+        </section>
+        <section class="need-content">
             <div class="container need-block">
                 <h2 class="mb-3">What do you need done?</h2>
                 <ul class="list_need">
@@ -97,16 +97,80 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="getting-content">
+        </section>
+        <section class="getting-content">
             <div class="container getting-block">
                 <h2 class="mb-3">See what others are getting done</h2>
             </div>
-        </div>
+        </section>
 
 
 
-        <div class="article-content">
+        <section class="movie-content">
+            <div class="container movie-block">
+                <h2 class="text-center mb-3">How does Airtasker work?</h2>
+                <h5>Check out the video below to see exactly how Airtasker
+                can help you get those to-dos done once and for all.</h5>
+                <div class="video-wrapper" id="video-wrapper">
+                    <div class="video_box main_page_video" v-on:click = "switchVideoModal">
+                        <div class="img_size" id="img-size">
+                            <img src="img/poster.jpg" alt=""/>
+                        </div>
+                        <span class="play_movie">
+                            <span class="white_play"></span>
+                            <span class="triangle_play"></span>
+                        </span>
+                    </div>
+                </div>
+                <div :class="{'video-modal': true, 'visible': this.modal}">
+                    <div class="close" @click="switchVideoModal">
+                        <svg class="" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M13.17 12l6.41-6.42a.82.82 0 0 0-1.16-1.16L12 10.83 5.58 4.42a.82.82 0 0 0-1.16 1.16L10.83 12l-6.41 6.42a.8.8 0 0 0 0 1.16.8.8 0 0 0 1.16 0L12 13.17l6.42 6.41a.8.8 0 0 0 1.16 0 .8.8 0 0 0 0-1.16z"></path>
+                        </svg>
+                    </div>
+                    <div id="player-video"></div>
+                </div>
+                <ul class="vd_list">
+                    <li>
+                        <div class="img_size">
+                            <img src="img/vd-1.png" alt=""/>
+                        </div>
+                        <div class="desc_do">
+                            <h4>Post your Task</h4>
+                            <p>Tell us what you need. It's FREE to post</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img_size">
+                            <img src="img/vd-2.png" alt=""/>
+                        </div>
+                        <div class="desc_do">
+                            <h4>Review offers</h4>
+                            <p>Get offers from trusted Taskers and view profiles.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img_size">
+                            <img src="img/vd-3.png" alt=""/>
+                        </div>
+                        <div class="desc_do">
+                            <h4>Get it done</h4>
+                            <p>Choose the right person for your task and get it done.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="h_btn">
+                    <h4>
+                        Ready to get that to-do list done?<br>
+                        Start by posting a task today!
+                    </h4>
+                    <a href="/" class="land_link modal_btn">
+                        Get started now
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="article-content">
             <div class="container article-block">
                 <h2 class="mb-5 text-center">Articles, stories and more</h2>
                 <ul class="list_blog">
@@ -155,8 +219,8 @@
                 </ul>
                 <a href="/" class="visit_blog">Visit our blog</a>
             </div>
-        </div>
-        <div class="category-content">
+        </section>
+        <section class="category-content">
             <div class="container category-block">
                 <h3 class="mb-4 text-center">Some of our top categories</h3>
                 <div class="city_zone">
@@ -620,8 +684,8 @@
                     <a href="/">See all categories</a>
                 </div>
             </div>
-        </div>
-        <div class="earn-content">
+        </section>
+        <section class="earn-content">
             <div class="container earn-block">
                 <div class="look_task">
                     <div class="h_tasker">
@@ -633,8 +697,8 @@
                     <a href="/" class="btn_taskers">Become a Tasker</a>
                 </div>
             </div>
-        </div>
-        <div class="airtasker-country-content">
+        </section>
+        <section class="airtasker-country-content">
             <div class="container airtasker-country-block">
                 <ul class="country_list">
                     <li>
@@ -664,14 +728,36 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </section>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "Home",
+export default {
+    data() {
+        return {
+            modal: false,
+        }
+    },
+    name: "Home",
+    methods: {
+        switchVideoModal: function (isPlay) {
+            document.querySelector('body').classList.add('hide-scroll')
+            let playerVideo = new Playerjs({id:"player-video", file:"https://s3-ap-southeast-2.amazonaws.com/assets-airtasker-com/uploads/home/how-it-works.mp4"});
+        if(!isPlay) {
+                playerVideo.api('stop')
+                this.modal = false
+                return false
+            }
+            document.querySelector('#player-video').style.height = window.innerHeight + 'px'
+            this.modal = !this.modal
+            if(!this.modal) {
+                document.querySelector('body').classList.remove('hide-scroll')
+                playerVideo.api('stop')
+            }
+        }
     }
+}
 </script>
 
 <style lang="scss">
@@ -776,6 +862,106 @@ h2 {
         transform: scale(1.4);
     }
 }
+
+//============================= MOVIE BLOCK
+.movie-block {
+    padding: 80px 0;
+    max-width: 920px;
+    h4 {
+        color: #292b32;
+    }
+    h5 {
+        max-width: 600px;
+        color: #292b32;
+        font-size: 18px;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 1.3;
+        margin-bottom: 30px;
+    }
+}
+.h_btn {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 64px 0 0 0;
+    border-top: 1px solid #bbc2dc;
+}
+.vd_list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 65px;
+    li {
+        display: flex;
+        width: 30%;
+        .img_size {
+            width: 100px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+.video_box {
+    height: 520px;
+    border-radius: 5px;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
+}
+.video-wrapper {
+    margin-bottom: 40px;
+}
+.video-modal {
+	position: fixed;
+    top: 0;
+    left: 0;
+	z-index: 2;
+	width: 100%;
+	height: 101vh;
+	visibility: hidden;
+	opacity: 0;
+	background-color: #191919;
+	transition: all 0.5s;
+	.close {
+		color: white;
+        position: absolute;
+        background: #ffffff;
+		top: 15px;
+		right: 10px;
+		z-index: 2;
+        display: flex;
+        padding: 5px;
+        border-radius: 50%;
+        transition: all 0.5s linear;
+        opacity: 1;
+		span {
+			width: 3px;
+			height: 30px;
+			background: white;
+			&:first-child {
+                transform: matrix(0.71,0.71,-0.71,0.71,5,5);
+            }
+			&:last-child {
+                transform: matrix(0.71,-0.71,0.71,0.71,3,5);
+            }
+        }
+    }
+	#player {
+        height: 100vh;
+    }
+}
+.video-modal.visible {
+    visibility: visible;
+	opacity: 1;
+}
+.hide-scroll {
+    overflow: hidden;
+}
+
+
+
 
 
 //============================= ARTICLE + CATEGORY BLOCK

@@ -18,5 +18,6 @@
         <index></index>
     </div>
     <script src="{{ mix('/js/app.js') }}"></script>
+    <script src="https://cdn.plrjs.com/player/dz34kdb2325ak/305sz0pg3df8.js"></script>
 </body>
 </html>
