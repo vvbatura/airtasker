@@ -3078,6 +3078,168 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer"
 });
@@ -33768,7 +33930,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#footer {\n  position: absolute;\n  z-index: 99;\n  bottom: 0;\n  width: 100%;\n  background: #292b32;\n}", ""]);
+exports.push([module.i, "#footer {\n  position: relative;\n  z-index: 99;\n  bottom: 0;\n  width: 100%;\n  background: #292b32;\n  height: auto;\n}\n.footer_lists {\n  padding: 64px 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.footer_app {\n  display: -webkit-box;\n  display: flex;\n  padding: 0 0 32px 0;\n}\n.ftr_list li:first-of-type {\n  color: #b0bfc3;\n  margin-bottom: 10px;\n}\n.ftr_list li a {\n  font-size: 14px;\n  color: #545a77;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.ftr_list li a:hover {\n  text-decoration: none;\n  color: #b0bfc3;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.app_list {\n  display: -webkit-box;\n  display: flex;\n  margin-right: 30px;\n}\n.app_list li {\n  margin-right: 10px;\n}\n.app_list li:last-of-type {\n  margin-right: 0;\n}\n.app_list li a {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.app_list li a:hover {\n  opacity: 0.7;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.social_list {\n  display: -webkit-box;\n  display: flex;\n}\n.social_list li {\n  margin-right: 10px;\n}\n.social_list li:last-of-type {\n  margin-right: 0;\n}\n.social_list li a {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.social_list li a:hover {\n  opacity: 0.7;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.down_footer {\n  background: #333535;\n  color: #545a77;\n  padding: 16px 0 9px;\n}\n.airtasker-logo-small {\n  fill: #545a77;\n}\n.copyright {\n  color: #545a77;\n  font-size: 12px;\n}\n.copyright svg {\n  margin-right: 10px;\n}", ""]);
 
 // exports
 
@@ -33844,7 +34006,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".wrapper_box {\n  padding-bottom: 11.5rem;\n}", ""]);
+exports.push([module.i, ".wrapper_box {\n  padding-bottom: 472px;\n}", ""]);
 
 // exports
 
@@ -33996,7 +34158,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#content-wrap {\n    padding-bottom: 11.5rem;    /* Footer height */\n}\n#footer {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    height: 11.5rem;            /* Footer height */\n}\n", ""]);
+exports.push([module.i, "\n#content-wrap {\n    padding-bottom: 472px;    /* Footer height */\n}\n#footer {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    height: 472px;\n}\n", ""]);
 
 // exports
 
@@ -80796,18 +80958,249 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("footer", { staticClass: "footer-area", attrs: { id: "footer" } }, [
+    _c("div", { staticClass: "container" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "footer_app" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("ul", { staticClass: "social_list" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "facebook-circle",
+                  attrs: { width: "26", height: "26", viewBox: "0 0 25 24" }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12.5 0C19.404 0 25 5.372 25 12c0 6.627-5.596 12-12.5 12C5.597 24 0 18.627 0 12 0 5.372 5.597 0 12.5 0zm5.338 6H7.162a.662.662 0 0 0-.662.662v10.676c0 .365.296.662.662.662h5.748v-4.647h-1.564v-1.811h1.564v-1.336c0-1.55.946-2.394 2.329-2.394.662 0 1.231.05 1.397.072v1.62h-.959c-.752 0-.897.357-.897.882v1.156h1.793l-.233 1.811h-1.56V18h3.058a.662.662 0 0 0 .662-.662V6.662A.662.662 0 0 0 17.838 6z",
+                      fill: "#B2BFC3",
+                      "fill-rule": "evenodd"
+                    }
+                  })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "twitter-circle",
+                  attrs: { width: "26", height: "26", viewBox: "0 0 25 24" }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12.5 0C19.404 0 25 5.372 25 12c0 6.627-5.596 12-12.5 12C5.597 24 0 18.627 0 12 0 5.372 5.597 0 12.5 0zm-2.302 17.875c5.283 0 8.173-4.378 8.173-8.167 0-.124 0-.247-.005-.37A5.85 5.85 0 0 0 19.8 7.85c-.515.23-1.07.38-1.653.454a2.888 2.888 0 0 0 1.266-1.59c-.554.33-1.17.565-1.826.694a2.875 2.875 0 0 0-4.896 2.62 8.16 8.16 0 0 1-5.922-3 2.878 2.878 0 0 0 .89 3.835 2.907 2.907 0 0 1-1.299-.36v.04c0 1.388.992 2.552 2.303 2.815a2.868 2.868 0 0 1-1.294.051 2.872 2.872 0 0 0 2.683 1.993A5.765 5.765 0 0 1 5.8 16.593a8.176 8.176 0 0 0 4.398 1.282z",
+                      fill: "#B2BFC3",
+                      "fill-rule": "evenodd"
+                    }
+                  })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "youtube-circle",
+                  attrs: { width: "26", height: "26", viewBox: "0 0 25 24" }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12.5 0C19.404 0 25 5.372 25 12c0 6.627-5.596 12-12.5 12C5.597 24 0 18.627 0 12 0 5.372 5.597 0 12.5 0zm6.65 8.59a1.746 1.746 0 0 0-1.233-1.233c-1.087-.291-5.447-.291-5.447-.291s-4.359 0-5.446.29a1.75 1.75 0 0 0-1.233 1.233C5.5 9.677 5.5 11.945 5.5 11.945s0 2.268.291 3.355c.16.6.633 1.072 1.233 1.233 1.087.291 5.446.291 5.446.291s4.36 0 5.447-.291c.6-.16 1.072-.633 1.233-1.233.29-1.087.29-3.355.29-3.355s0-2.268-.29-3.356zm-4.452 3.355l-3.622 2.091V9.854l3.622 2.09v.001z",
+                      fill: "#B2BFC3",
+                      "fill-rule": "evenodd"
+                    }
+                  })
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "down_footer" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "copyright text-center" }, [
+          _c(
+            "svg",
+            {
+              staticClass: "airtasker-logo-small",
+              attrs: { width: "19", height: "19", viewBox: "0 0 32 32" }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M32 18.88a7.78 7.78 0 0 0-1.51-4.14 5.83 5.83 0 0 0-4.94-2.52H8.26a6.94 6.94 0 0 0 1.92 4.3 7.16 7.16 0 0 0 4.54 1.85h1.55v1.55c0 4 3.18 4.52 6.28 4.52h.25v3h-.25c-6.71 0-8.81-3.1-9.25-6.18A9.91 9.91 0 0 1 8 18.69c-1.94-1.9-2.93-4.59-2.93-8V9.18h20.48a8.83 8.83 0 0 1 6.05 2.26A16.15 16.15 0 0 0 0 16a16.15 16.15 0 0 0 32 2.91z"
+                }
+              })
+            ]
+          ),
+          _vm._v(
+            "\n                Airtasker Pty. Ltd 2011-2019©, All rights reserved\n            "
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "footer",
-      { staticClass: "footer-area", attrs: { id: "footer" } },
-      [_c("div", { staticClass: "container" }, [_c("h2", [_vm._v("Footer")])])]
-    )
+    return _c("div", { staticClass: "footer_lists" }, [
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Discover")]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("How it works")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Airtasker for business")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Earn money")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("New users FAQ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Find work")])])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Company")]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("About us")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Careers")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Community guidelines")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Terms & conditions")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Blog")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Contact us")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Privacy policy")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Existing Members")]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Post a task")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Browse tasks")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Login")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Support centre")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Merchandise")])])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Popular Categories")]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Handyman Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Clearing Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Delivery Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Removalists")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Gardening Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Automotive")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Assembly Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("All Services")])])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Partners")]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("7Plus")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("New Idea")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("The West Australian")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Marie Claire")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("PerthNow")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [
+            _vm._v("Better Homes and Gardens")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Girlfriend")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Seven West Media")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "app_list" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "/" } }, [
+          _c("img", { attrs: { src: "img/google-play.svg", alt: "" } })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "/" } }, [
+          _c("img", { attrs: { src: "img/apple-store.svg", alt: "" } })
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true

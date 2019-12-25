@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss">
 .wrapper_box {
-    padding-bottom: 11.5rem;
+    padding-bottom: 472px;
 }
 </style>
 
