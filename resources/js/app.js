@@ -16,6 +16,11 @@ import VueInputMask from 'vue-inputmask-ng'
 import VueInstant from 'vue-instant'
 import 'vue-instant/dist/vue-instant.css'
 // import VueSocialauth from 'vue-social-auth'
+import Suggestions from 'v-suggestions'
+import 'v-suggestions/dist/v-suggestions.css' // you can import the stylesheets also (optional)
+
+
+Vue.component('suggestions', Suggestions)
 
 // Set Vue globally
 window.Vue = Vue;
