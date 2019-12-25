@@ -912,6 +912,14 @@ h2 {
 }
 .video-wrapper {
     margin-bottom: 40px;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        .play_movie {
+            transform: translate(-50%, -50%) scale(1.2);
+            transition: .3s linear;
+        }
+    }
 }
 .video-modal {
 	position: fixed;
@@ -959,8 +967,26 @@ h2 {
 .hide-scroll {
     overflow: hidden;
 }
-
-
+.play_movie {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 76px;
+	height: 76px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #038FB4;
+    border-radius: 50%;
+    transition: .3s linear;
+}
+.triangle_play {
+	border: 14px solid transparent;
+	border-left: 20px solid #ffffff;
+	position: absolute;
+	transform: translateX(10px);
+}
 
 
 
