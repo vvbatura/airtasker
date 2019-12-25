@@ -4479,6 +4479,573 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home"
 });
@@ -33372,7 +33939,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".view-content {\n  background: url(\"/img/home-1.jpeg\") no-repeat center top;\n  background-size: cover;\n  min-height: 900px;\n  color: #ffffff;\n  font-family: \"Montserrat\", sans-serif;\n  position: relative;\n}\n.view-content:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.47);\n  top: 0;\n  left: 0;\n  z-index: 0;\n}\n.view-content .container {\n  height: 100vh;\n  position: relative;\n  z-index: 10;\n}\n.view-content h1 {\n  font-size: 50px;\n  font-weight: bold;\n  margin-bottom: 15px;\n}\n.view-content h4 {\n  font-size: 32px;\n  margin-bottom: 40px;\n}\n.view_zone {\n  max-width: 880px;\n}\n.land_link {\n  background: #e0446d;\n  border-radius: 160px;\n  padding: 16px 24px;\n  color: #ffffff;\n  font-size: 20px;\n}\n.land_link:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\nh2 {\n  font-size: 32px;\n  color: #292b32;\n}\n.need-block {\n  padding: 80px 15px;\n}\n.list_need {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.list_need li {\n  margin: 0 5px;\n  width: 100px;\n}\n.link_need {\n  color: #292b32;\n  width: 100px;\n  text-align: center;\n  font-size: 14px;\n  letter-spacing: 0.25px;\n}\n.link_need:hover {\n  text-decoration: none;\n}\n.link_need:hover .icon_need {\n  background: #e0446d;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.link_need:hover p {\n  color: #292b32;\n}\n.link_need p {\n  line-height: 1.2;\n}\n.icon_need {\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n  background: #545a77;\n  margin-bottom: 8px;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.icon_need svg {\n  fill: #ffffff;\n  -webkit-transform: scale(1.4);\n          transform: scale(1.4);\n}", ""]);
+exports.push([module.i, ".view-content {\n  background: url(\"/img/home-1.jpeg\") no-repeat center top;\n  background-size: cover;\n  min-height: 900px;\n  color: #ffffff;\n  font-family: \"Montserrat\", sans-serif;\n  position: relative;\n}\n.view-content:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.47);\n  top: 0;\n  left: 0;\n  z-index: 0;\n}\n.view-content .container {\n  height: 100vh;\n  position: relative;\n  z-index: 10;\n}\n.view-content h1 {\n  font-size: 50px;\n  font-weight: bold;\n  margin-bottom: 15px;\n}\n.view-content h4 {\n  font-size: 32px;\n  margin-bottom: 40px;\n}\n.view_zone {\n  max-width: 880px;\n}\n.land_link {\n  background: #e0446d;\n  border-radius: 160px;\n  padding: 16px 24px;\n  color: #ffffff;\n  font-size: 20px;\n}\n.land_link:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\nh2 {\n  font-size: 32px;\n  color: #292b32;\n  font-weight: bold;\n}\n.need-block {\n  padding: 80px 15px;\n}\n.list_need {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.list_need li {\n  margin: 0 5px;\n  width: 100px;\n}\n.link_need {\n  color: #292b32;\n  width: 100px;\n  text-align: center;\n  font-size: 14px;\n  letter-spacing: 0.25px;\n}\n.link_need:hover {\n  text-decoration: none;\n}\n.link_need:hover .icon_need {\n  background: #e0446d;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.link_need:hover p {\n  color: #292b32;\n}\n.link_need p {\n  line-height: 1.2;\n}\n.icon_need {\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n  background: #545a77;\n  margin-bottom: 8px;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.icon_need svg {\n  fill: #ffffff;\n  -webkit-transform: scale(1.4);\n          transform: scale(1.4);\n}\n.category-block {\n  padding: 40px 15px 100px 15px;\n}\n.category-block h3 {\n  font-size: 24px;\n  color: #292b32;\n}\n.article-block {\n  padding: 80px 15px;\n}\n.list_blog {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-bottom: 20px;\n}\n.list_blog li {\n  width: 300px;\n  margin: 0 20px;\n}\n.list_blog li .blogpost_info {\n  padding: 0 15px;\n}\n.list_blog h4 {\n  color: #292b32;\n  font-size: 22px;\n  font-weight: bold;\n}\n.img_blog {\n  overflow: hidden;\n  display: block;\n  width: 300px;\n  height: 150px;\n  margin-bottom: 10px;\n  border-radius: 5px 5px 0 0;\n}\n.img_blog:hover img {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.img_blog img {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n  width: 100%;\n}\n.blog_desc {\n  font-size: 16px;\n  color: #545a77;\n  margin-bottom: 5px;\n}\n.visit_blog {\n  color: #008fb4;\n  font-size: 18px;\n  line-height: 60px;\n  width: 165px;\n  border-radius: 60px;\n  border: 2px solid #e7ebfb;\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n}\n.visit_blog:hover {\n  text-decoration: none;\n}\n.city_zone {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 20px;\n}\n.box_category {\n  width: 19%;\n}\n.box_category h4 {\n  text-transform: uppercase;\n  font-size: 14px;\n  letter-spacing: 1px;\n  font-weight: bold;\n  margin-bottom: 5px;\n  color: #292b32;\n}\n.list_offer li {\n  text-transform: capitalize;\n}\n.list_offer li a {\n  color: #545a77;\n}\n.all_category a {\n  color: #292b32;\n  font-weight: bold;\n}\n.earn-content {\n  background: -webkit-gradient(linear, right top, left top, color-stop(1%, #11c9e1), to(#0798bf));\n  background: linear-gradient(-90deg, #11c9e1 1%, #0798bf);\n}\n.earn-content h2 {\n  color: #ffffff;\n  max-width: 400px;\n  font-size: 26px;\n  letter-spacing: 0.4px;\n  margin-bottom: 0;\n  padding: 35px 0;\n}\n.earn-block {\n  max-width: 940px;\n}\n.h_tasker {\n  position: relative;\n  max-width: 700px;\n  padding-right: 300px;\n}\n.taskers_img {\n  width: 270px;\n  position: absolute;\n  right: 15px;\n  bottom: 0;\n}\n.taskers_img img {\n  width: 100%;\n}\n.btn_taskers {\n  background: #7db343;\n  color: #ffffff;\n  width: 210px;\n  line-height: 60px;\n  display: block;\n  text-align: center;\n  border-radius: 60px;\n}\n.btn_taskers:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.look_task {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.country_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  padding: 30px 0;\n}\n.country_list li {\n  margin: 0 20px;\n}\n.country_list li svg {\n  margin-right: 10px;\n}\n.country_list li a {\n  color: #292b32;\n}\n.country_list li a:hover {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -82061,6 +82628,102 @@ var render = function() {
           ])
         ])
       ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _c("div", { staticClass: "airtasker-country-content" }, [
+      _c("div", { staticClass: "container airtasker-country-block" }, [
+        _c("ul", { staticClass: "country_list" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  attrs: { width: "23", height: "23", viewBox: "0 0 512 512" }
+                },
+                [
+                  _c("circle", {
+                    attrs: { cx: "256", cy: "256", fill: "#fff", r: "256" }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M170.7 497.4V14.6C71.2 49.7 0 144.5 0 256s71.2 206.3 170.7 241.4z",
+                      fill: "#009a49"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M341.3 14.6v482.8c99.3-35.1 170.5-129.7 170.7-240.9v-.9c-.2-111.3-71.4-205.9-170.7-241z",
+                      fill: "#ff7900"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(
+                "\n                        Airtasker Ireland\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  attrs: { width: "23", height: "23", viewBox: "0 0 512 512" }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M170.7 497.4V355.9L54.5 414c30.1 38.3 70.3 67.2 116.2 83.4zM341.4 14.6v141.5L457.5 98c-30.1-38.2-70.3-67.2-116.1-83.4zm0 482.8c45.8-16.2 86.1-45.2 116.1-83.4l-116.1-58.1zM54.5 98l116.1 58.1V14.6C124.8 30.8 84.6 59.8 54.5 98z",
+                      fill: "#006"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("g", { attrs: { fill: "#c00" } }, [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M27 141.5c-4.7 9.5-8.9 19.2-12.4 29.2h70.7zm458 229c4.7-9.5 8.9-19.2 12.4-29.2h-70.7zm-458 0c5.1 10.2 10.9 20.1 17.3 29.5l117.3-58.7H85.3zm458-229c-5.1-10.2-10.9-20.1-17.3-29.5l-117.3 58.7h76.3z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M506.9 204.8H307.2V5.1c-33.8-6.8-68.6-6.8-102.4 0v199.6H5.1c-6.8 33.8-6.8 68.6 0 102.4h199.6v199.7c33.8 6.8 68.6 6.8 102.4 0V307.2h199.8c6.8-33.8 6.8-68.6 0-102.4z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M170.7 307.2H5.1c1 5.1 2.2 10.2 3.6 15.2 1.7 6.4 3.7 12.7 5.9 18.9 3.5 10 7.7 19.7 12.4 29.2l58.3-29.2h76.3L44.3 400c3.3 4.8 6.7 9.4 10.2 14l116.1-58.1v141.5c11.1 3.9 22.6 7.1 34.1 9.5V307.2H184zm302.2 0H307.3v199.7c11.6-2.4 23-5.5 34.1-9.5V356l116.1 58c10.6-13.5 19.8-28.1 27.5-43.5l-58.3-29.2h70.7c2.2-6.2 4.2-12.5 5.9-18.9 1.3-5 2.5-10.1 3.6-15.2zM341.4 204.8H507c-1.1-5.1-2.2-10.2-3.6-15.2-1.7-6.4-3.7-12.7-5.9-18.9-3.5-10-7.7-19.7-12.4-29.2l-58.3 29.2h-76.3L467.7 112c-3.2-4.8-6.7-9.4-10.2-14l-116.1 58.1V14.6c-11.1-3.9-22.6-7.1-34.1-9.5v199.7zm-170.7-70.1v21.4L54.5 98c-10.6 13.5-19.8 28.1-27.5 43.5l58.3 29.2H14.6c-2.2 6.2-4.2 12.5-5.9 18.9-1.3 5-2.5 10.1-3.6 15.2h165.5v-6.1 6.1h34.1V5.1c-11.6 2.4-23 5.5-34.1 9.5v120.1z",
+                      fill: "#fff"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(
+                "\n                        Airtasker United Kingdom\n                    "
+              )
+            ])
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -82085,6 +82748,882 @@ var staticRenderFns = [
             { staticClass: "land_link modal_btn", attrs: { href: "/" } },
             [_vm._v("\n                    Get started now\n                ")]
           )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "getting-content" }, [
+      _c("div", { staticClass: "container getting-block" }, [
+        _c("h2", { staticClass: "mb-3" }, [
+          _vm._v("See what others are getting done")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "article-content" }, [
+      _c("div", { staticClass: "container article-block" }, [
+        _c("h2", { staticClass: "mb-5 text-center" }, [
+          _vm._v("Articles, stories and more")
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list_blog" }, [
+          _c("li", [
+            _c(
+              "a",
+              { staticClass: "img_blog img_size", attrs: { href: "/" } },
+              [_c("img", { attrs: { src: "img/blog-1.jpg", alt: "" } })]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "blogpost_info" }, [
+              _c("h4", [
+                _vm._v(
+                  "Interior design styles - Your complete guide to every style"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "blog_desc" }, [
+                _vm._v(
+                  "Not sure where to start with interior design?\n                        You've come to the right spot to find out all you need to know about\n                        all the different styles"
+                )
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "/" } }, [
+                _vm._v(
+                  "\n                            Read more\n                        "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              { staticClass: "img_blog img_size", attrs: { href: "/" } },
+              [_c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "blogpost_info" }, [
+              _c("h4", [
+                _vm._v(
+                  "35+ Fabulous farmhouse kitchen decor ideas - modern\n                        farmhouse kitchen"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "blog_desc" }, [
+                _vm._v(
+                  "Get ready to entertain guests with a\n                        gorgeous farmhouse kitchen."
+                )
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "/" } }, [
+                _vm._v(
+                  "\n                            Read more\n                        "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              { staticClass: "img_blog img_size", attrs: { href: "/" } },
+              [_c("img", { attrs: { src: "img/blog-3.jpg", alt: "" } })]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "blogpost_info" }, [
+              _c("h4", [
+                _vm._v(
+                  "40+ Grey kitchen ideas - cabinets, splashbacks and grey kitchen tiles"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "blog_desc" }, [
+                _vm._v(
+                  "Not sure where to start with interior design?\n                        You've come to the right spot to find out all you need to know about\n                        all the different styles"
+                )
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "/" } }, [
+                _vm._v(
+                  "\n                            Read more\n                        "
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "visit_blog", attrs: { href: "/" } }, [
+          _vm._v("Visit our blog")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "category-content" }, [
+      _c("div", { staticClass: "container category-block" }, [
+        _c("h3", { staticClass: "mb-4 text-center" }, [
+          _vm._v("Some of our top categories")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "city_zone" }, [
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Sydney")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Handyman in Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Cleaning in Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Removalists Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Carpet cleaning in Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pool Fencing Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Plumbing In Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Painting In Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pest Control Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Personal Training Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pet Grooming Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Dog Walking In Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Washing Machine Repair Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Garden Maintenance Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Mowing Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Photography In Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Door Installation Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Removals Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Furniture Assembly Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Care Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Kaboodle Kitchen Installation Sydney\n                            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Melbourne")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Handyman in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Cleaning in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Removalists Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Carpet cleaning in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pool Fencing Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Plumbing In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Painting In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pest Control Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Personal Training Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pet Grooming Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Dog Walking In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Washing Machine Repair Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Garden Maintenance Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Mowing Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Photography In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Door Installation Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Removals Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Furniture Assembly Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Care Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Kaboodle Kitchen Installation Melbourne\n                            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Brisbane")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Handyman in Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Cleaning in Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Removalists Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Carpet cleaning in Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pool Fencing Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Plumbing In Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Painting In Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pest Control Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Personal Training Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pet Grooming Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Dog Walking In Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Washing Machine Repair Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Garden Maintenance Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Mowing Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Photography In Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Door Installation Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Removals Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Furniture Assembly Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Care Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Kaboodle Kitchen Installation Brisbane\n                            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Price guides")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Handyman in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Cleaning in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Removalists Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Carpet cleaning in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pool Fencing Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Plumbing In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Painting In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pest Control Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Personal Training Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pet Grooming Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Dog Walking In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Washing Machine Repair Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Garden Maintenance Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Mowing Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Photography In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Door Installation Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Removals Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Furniture Assembly Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Care Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Kaboodle Kitchen Installation Melbourne\n                            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Guides")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                How to start a vegetable garden\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                How to grow a herb garden on a balcony\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Which are the best vegetables to grow in winter\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                               Planter boxes - where to buy them and how much\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Simple steps to wash your dog\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                How often should you wash your dog\n                            "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "all_category text-center" }, [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("See all categories")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "earn-content" }, [
+      _c("div", { staticClass: "container earn-block" }, [
+        _c("div", { staticClass: "look_task" }, [
+          _c("div", { staticClass: "h_tasker" }, [
+            _c("h2", [
+              _vm._v(
+                "Looking to earn some extra money or choose when and how you work?"
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "taskers_img img_size" }, [
+              _c("img", { attrs: { src: "img/taskers.png", alt: "" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "btn_taskers", attrs: { href: "/" } }, [
+            _vm._v("Become a Tasker")
+          ])
         ])
       ])
     ])

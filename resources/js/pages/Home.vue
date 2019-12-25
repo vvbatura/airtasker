@@ -98,6 +98,573 @@
                 </ul>
             </div>
         </div>
+        <div class="getting-content">
+            <div class="container getting-block">
+                <h2 class="mb-3">See what others are getting done</h2>
+            </div>
+        </div>
+
+
+
+        <div class="article-content">
+            <div class="container article-block">
+                <h2 class="mb-5 text-center">Articles, stories and more</h2>
+                <ul class="list_blog">
+                    <li>
+                        <a href="/" class="img_blog img_size">
+                            <img src="img/blog-1.jpg" alt="">
+                        </a>
+                        <div class="blogpost_info">
+                            <h4>Interior design styles - Your complete guide to every style</h4>
+                            <p class="blog_desc">Not sure where to start with interior design?
+                            You've come to the right spot to find out all you need to know about
+                            all the different styles</p>
+                            <a href="/" class="">
+                                Read more
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/" class="img_blog img_size">
+                            <img src="img/blog-2.jpg" alt="">
+                        </a>
+                        <div class="blogpost_info">
+                            <h4>35+ Fabulous farmhouse kitchen decor ideas - modern
+                            farmhouse kitchen</h4>
+                            <p class="blog_desc">Get ready to entertain guests with a
+                            gorgeous farmhouse kitchen.</p>
+                            <a href="/" class="">
+                                Read more
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/" class="img_blog img_size">
+                            <img src="img/blog-3.jpg" alt="">
+                        </a>
+                        <div class="blogpost_info">
+                            <h4>40+ Grey kitchen ideas - cabinets, splashbacks and grey kitchen tiles</h4>
+                            <p class="blog_desc">Not sure where to start with interior design?
+                            You've come to the right spot to find out all you need to know about
+                            all the different styles</p>
+                            <a href="/" class="">
+                                Read more
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <a href="/" class="visit_blog">Visit our blog</a>
+            </div>
+        </div>
+        <div class="category-content">
+            <div class="container category-block">
+                <h3 class="mb-4 text-center">Some of our top categories</h3>
+                <div class="city_zone">
+                    <div class="box_category">
+                        <h4>Sydney</h4>
+                        <ul class="list_offer">
+                            <li>
+                                <a href="/">
+                                    Handyman in Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    House Cleaning in Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Removalists Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Carpet cleaning in Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pool Fencing Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Plumbing In Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Painting In Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pest Control Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Personal Training Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pet Grooming Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Dog Walking In Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Washing Machine Repair Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Garden Maintenance Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Lawn Mowing Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Photography In Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Door Installation Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    House Removals Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Furniture Assembly Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Lawn Care Sydney
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Kaboodle Kitchen Installation Sydney
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box_category">
+                        <h4>Melbourne</h4>
+                        <ul class="list_offer">
+                            <li>
+                                <a href="/">
+                                    Handyman in Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    House Cleaning in Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Removalists Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Carpet cleaning in Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pool Fencing Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Plumbing In Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Painting In Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pest Control Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Personal Training Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pet Grooming Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Dog Walking In Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Washing Machine Repair Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Garden Maintenance Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Lawn Mowing Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Photography In Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Door Installation Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    House Removals Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Furniture Assembly Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Lawn Care Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Kaboodle Kitchen Installation Melbourne
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box_category">
+                        <h4>Brisbane</h4>
+                        <ul class="list_offer">
+                            <li>
+                                <a href="/">
+                                    Handyman in Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    House Cleaning in Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Removalists Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Carpet cleaning in Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pool Fencing Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Plumbing In Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Painting In Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pest Control Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Personal Training Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pet Grooming Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Dog Walking In Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Washing Machine Repair Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Garden Maintenance Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Lawn Mowing Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Photography In Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Door Installation Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    House Removals Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Furniture Assembly Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Lawn Care Brisbane
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Kaboodle Kitchen Installation Brisbane
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box_category">
+                        <h4>Price guides</h4>
+                        <ul class="list_offer">
+                            <li>
+                                <a href="/">
+                                    Handyman in Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    House Cleaning in Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Removalists Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Carpet cleaning in Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pool Fencing Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Plumbing In Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Painting In Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pest Control Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Personal Training Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Pet Grooming Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Dog Walking In Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Washing Machine Repair Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Garden Maintenance Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Lawn Mowing Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Photography In Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Door Installation Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    House Removals Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Furniture Assembly Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Lawn Care Melbourne
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Kaboodle Kitchen Installation Melbourne
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box_category">
+                        <h4>Guides</h4>
+                        <ul class="list_offer">
+                            <li>
+                                <a href="/">
+                                    How to start a vegetable garden
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    How to grow a herb garden on a balcony
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Which are the best vegetables to grow in winter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                   Planter boxes - where to buy them and how much
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    Simple steps to wash your dog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    How often should you wash your dog
+                                </a>
+                            </li>
+                        </ul>
+                    </div>                    
+                </div>
+                <div class="all_category text-center">
+                    <a href="/">See all categories</a>
+                </div>
+            </div>
+        </div>
+        <div class="earn-content">
+            <div class="container earn-block">
+                <div class="look_task">
+                    <div class="h_tasker">
+                        <h2>Looking to earn some extra money or choose when and how you work?</h2>
+                        <div class="taskers_img img_size">
+                            <img src="img/taskers.png" alt=""/>
+                        </div>
+                    </div>
+                    <a href="/" class="btn_taskers">Become a Tasker</a>
+                </div>
+            </div>
+        </div>
+        <div class="airtasker-country-content">
+            <div class="container airtasker-country-block">
+                <ul class="country_list">
+                    <li>
+                        <a href="/">
+                            <svg width="23" height="23" viewBox="0 0 512 512">
+                                <circle cx="256" cy="256" fill="#fff" r="256"></circle>
+                                <path d="M170.7 497.4V14.6C71.2 49.7 0 144.5 0 256s71.2 206.3 170.7 241.4z" fill="#009a49"></path>
+                                <path d="M341.3 14.6v482.8c99.3-35.1 170.5-129.7 170.7-240.9v-.9c-.2-111.3-71.4-205.9-170.7-241z" fill="#ff7900"></path>
+                            </svg>
+                            Airtasker Ireland
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/">
+                            <svg width="23" height="23" viewBox="0 0 512 512">
+                                <path d="M170.7 497.4V355.9L54.5 414c30.1 38.3 70.3 67.2 116.2 83.4zM341.4 14.6v141.5L457.5 98c-30.1-38.2-70.3-67.2-116.1-83.4zm0 482.8c45.8-16.2 86.1-45.2 116.1-83.4l-116.1-58.1zM54.5 98l116.1 58.1V14.6C124.8 30.8 84.6 59.8 54.5 98z" fill="#006"></path>
+                                <g fill="#c00">
+                                    <path d="M27 141.5c-4.7 9.5-8.9 19.2-12.4 29.2h70.7zm458 229c4.7-9.5 8.9-19.2 12.4-29.2h-70.7zm-458 0c5.1 10.2 10.9 20.1 17.3 29.5l117.3-58.7H85.3zm458-229c-5.1-10.2-10.9-20.1-17.3-29.5l-117.3 58.7h76.3z">
+                                    </path>
+                                    <path d="M506.9 204.8H307.2V5.1c-33.8-6.8-68.6-6.8-102.4 0v199.6H5.1c-6.8 33.8-6.8 68.6 0 102.4h199.6v199.7c33.8 6.8 68.6 6.8 102.4 0V307.2h199.8c6.8-33.8 6.8-68.6 0-102.4z">                                       
+                                    </path>
+                                </g>
+                                <path d="M170.7 307.2H5.1c1 5.1 2.2 10.2 3.6 15.2 1.7 6.4 3.7 12.7 5.9 18.9 3.5 10 7.7 19.7 12.4 29.2l58.3-29.2h76.3L44.3 400c3.3 4.8 6.7 9.4 10.2 14l116.1-58.1v141.5c11.1 3.9 22.6 7.1 34.1 9.5V307.2H184zm302.2 0H307.3v199.7c11.6-2.4 23-5.5 34.1-9.5V356l116.1 58c10.6-13.5 19.8-28.1 27.5-43.5l-58.3-29.2h70.7c2.2-6.2 4.2-12.5 5.9-18.9 1.3-5 2.5-10.1 3.6-15.2zM341.4 204.8H507c-1.1-5.1-2.2-10.2-3.6-15.2-1.7-6.4-3.7-12.7-5.9-18.9-3.5-10-7.7-19.7-12.4-29.2l-58.3 29.2h-76.3L467.7 112c-3.2-4.8-6.7-9.4-10.2-14l-116.1 58.1V14.6c-11.1-3.9-22.6-7.1-34.1-9.5v199.7zm-170.7-70.1v21.4L54.5 98c-10.6 13.5-19.8 28.1-27.5 43.5l58.3 29.2H14.6c-2.2 6.2-4.2 12.5-5.9 18.9-1.3 5-2.5 10.1-3.6 15.2h165.5v-6.1 6.1h34.1V5.1c-11.6 2.4-23 5.5-34.1 9.5v120.1z" fill="#fff"></path>
+                            </svg>
+                            Airtasker United Kingdom
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -155,9 +722,13 @@
         color: #ffffff;
     }
 }
+
+
+//============================= NEED BLOCK
 h2 {
     font-size: 32px;
     color: #292b32;
+    font-weight: bold;
 }
 .need-block {
     padding: 80px 15px; 
@@ -203,6 +774,175 @@ h2 {
     svg {
         fill: #ffffff;
         transform: scale(1.4);
+    }
+}
+
+
+//============================= ARTICLE + CATEGORY BLOCK
+.category-block {
+    padding: 40px 15px 100px 15px;
+    h3 {
+        font-size: 24px;
+        color: #292b32;
+    }
+}
+.article-block {
+    padding: 80px 15px;
+}
+.list_blog {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    li {
+        width: 300px;
+        margin: 0 20px;
+        .blogpost_info {
+            padding: 0 15px;
+        }
+    }
+    h4 {
+        color: rgb(41, 43, 50);
+        font-size: 22px;
+        font-weight: bold;
+    }
+}
+.img_blog {
+    overflow: hidden;
+    display: block;
+    width: 300px;
+    height: 150px;
+    margin-bottom: 10px;
+    border-radius: 5px 5px 0 0;
+    &:hover {
+        img {
+            transform: scale(1.1);
+            transition: .3s linear;
+        }
+    }
+    img {
+        transition: .3s linear;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+.blog_desc {
+    font-size: 16px;
+    color: rgb(84, 90, 119);
+    margin-bottom: 5px;
+}
+.visit_blog {
+    color: rgb(0, 143, 180);
+    font-size: 18px;
+    line-height: 60px;
+    width: 165px;
+    border-radius: 60px;
+    border: 2px solid rgb(231, 235, 251);
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.city_zone {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.box_category {
+    width: 19%;
+    h4 {
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #292b32;
+    }
+}
+.list_offer {
+    li {
+        text-transform: capitalize;
+        a {
+            color: rgb(84, 90, 119);
+        }
+    }
+}
+.all_category {
+    a {
+        color: rgb(41, 43, 50);
+        font-weight: bold;
+    }
+}
+
+
+//================================== EARN CONTENT
+.earn-content {
+    background: linear-gradient(-90deg,#11c9e1 1%,#0798bf);
+    h2 {
+        color: #ffffff;
+        max-width: 400px;
+        font-size: 26px;
+        letter-spacing: .4px;
+        margin-bottom: 0;
+        padding: 35px 0;
+    }
+}
+.earn-block {
+    max-width: 940px;
+}
+.h_tasker {
+    position: relative;
+    max-width: 700px;
+    padding-right: 300px;
+}
+.taskers_img {
+    width: 270px;
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    img {
+        width: 100%;
+    }
+}
+.btn_taskers {
+    background: #7db343;
+    color: #ffffff;
+    width: 210px;
+    line-height: 60px;
+    display: block;
+    text-align: center;
+    border-radius: 60px;
+    &:hover {
+        text-decoration: none;
+        color: #ffffff;
+    }
+}
+.look_task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+//===================================== AIRTASKER COUNTRY CONTENT
+.country_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+    li {
+        margin: 0 20px;
+        svg {
+            margin-right: 10px;
+        }
+        a {
+            color: rgb(41, 43, 50);
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
 }
 </style>
