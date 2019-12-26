@@ -1136,7 +1136,7 @@ export default {
 .view-content {
     background: url("/img/home-1.jpeg") no-repeat center top;
     background-size: cover; 
-    min-height: 900px;
+    height: 100vh;
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
     position: relative;

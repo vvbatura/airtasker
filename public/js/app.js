@@ -3311,8 +3311,99 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Header"
+  name: "Header",
+  methods: {
+    handleSCroll: function handleSCroll(event) {
+      var header = document.querySelector("header");
+
+      if (window.scrollY > 100 && !header.className.includes('fix_header')) {
+        header.classList.add('fix_header');
+      } else if (window.scrollY < 100) {
+        header.classList.remove('fix_header');
+      }
+    }
+  },
+  created: function created() {
+    window.addEventListener('scroll', this.handleSCroll);
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener('scroll', this.handleSCroll);
+  }
 });
 
 /***/ }),
@@ -34415,7 +34506,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#header {\n  height: 58px;\n  position: absolute;\n  width: 100%;\n  z-index: 100;\n}\n#header .container {\n  height: 100%;\n}\n.become_tacker {\n  padding: 6px 16px;\n  border: 1px solid #ffffff;\n  border-radius: 34px;\n}\n.become_tacker:hover {\n  text-decoration: none;\n}\n.red_btn {\n  background: #e0446d;\n  padding: 6px 16px;\n  border-radius: 34px;\n  color: #ffffff;\n  border: 1px solid #e0446d;\n}\n.red_btn:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.logo_header {\n  margin-right: 40px;\n}\n.head_menu {\n  display: -webkit-box;\n  display: flex;\n}\n.head_menu li {\n  margin-right: 20px;\n}\n.head_menu li a {\n  color: #ffffff;\n}\n.head_menu li:last-of-type {\n  margin-right: 0;\n}", ""]);
+exports.push([module.i, "#header {\n  height: 58px;\n  position: fixed;\n  width: 100%;\n  z-index: 100;\n}\n#header .container {\n  height: 100%;\n}\n#AirtaskerLogo path {\n  fill: #ffffff;\n}\n.fix_header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.fix_header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.fix_header .head_menu li + li a {\n  color: #545a77;\n}\n.fix_header .nav_menu li a {\n  color: #545a77;\n}\n.fix_header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.become_tacker {\n  padding: 6px 16px;\n  border: 1px solid #ffffff;\n  border-radius: 34px;\n  display: inline-block;\n}\n.become_tacker:hover {\n  text-decoration: none;\n}\n.red_btn {\n  background: #e0446d;\n  padding: 6px 16px;\n  border-radius: 34px;\n  color: #ffffff;\n  border: 1px solid #e0446d;\n  display: inline-block;\n}\n.red_btn:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.logo_header {\n  margin-right: 40px;\n}\n.nav_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.nav_menu li {\n  margin-right: 20px;\n}\n.nav_menu li:last-of-type {\n  margin-right: 0;\n}\n.nav_menu li a {\n  color: #ffffff;\n}\n.head_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.head_menu li {\n  margin-right: 20px;\n}\n.head_menu li a {\n  color: #ffffff;\n}\n.head_menu li:last-of-type {\n  margin-right: 0;\n}\n.modal_menu {\n  padding: 30px;\n  overflow: hidden;\n}\n.menu_box {\n  display: none;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative;\n}\n.menu_box:hover {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.menu_box:hover .line_menu span {\n  background: #008fb4;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.close_btn {\n  cursor: pointer;\n}\n.hide_menu {\n  display: block;\n  height: calc(100vh - 65px);\n  width: 100vw;\n  background: #ffffff;\n}\n.hide_menu .head_menu {\n  display: block;\n  margin-bottom: 40px;\n}\n.hide_menu .head_menu li {\n  margin: 0 0 20px 0;\n}\n.hide_menu .head_menu li:first-of-type a {\n  color: #ffffff;\n}\n.hide_menu .head_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .head_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu {\n  display: block;\n}\n.hide_menu .nav_menu li {\n  margin-bottom: 20px;\n}\n.hide_menu .nav_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .nav_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu .become_tacker {\n  border: none;\n  padding: 0;\n}\n.hide_menu .logo_header {\n  margin-bottom: 30px;\n}\n.line_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  width: 30px;\n  height: 25px;\n}\n.line_menu span {\n  display: block;\n  background: #80878A;\n  height: 3px;\n  width: 100%;\n  -webkit-transform-origin: 0% 0%;\n          transform-origin: 0% 0%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.line_menu span:last-of-type {\n  margin-bottom: 0;\n}\n@media (max-width: 992px) {\n.visible_header .head_menu {\n    display: none;\n}\n#nav-menu-container .nav_menu {\n    display: none;\n}\n.menu_box {\n    display: block;\n}\nheader {\n    background: #ffffff;\n    border-bottom: 1px solid #ccc;\n    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n#AirtaskerLogo path {\n    fill: #008fb4;\n}\n}", ""]);
 
 // exports
 
@@ -34567,7 +34658,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".view-content {\n  background: url(\"/img/home-1.jpeg\") no-repeat center top;\n  background-size: cover;\n  min-height: 900px;\n  color: #ffffff;\n  font-family: \"Montserrat\", sans-serif;\n  position: relative;\n}\n.view-content:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.47);\n  top: 0;\n  left: 0;\n  z-index: 0;\n}\n.view-content .container {\n  height: 100vh;\n  position: relative;\n  z-index: 10;\n}\n.view-content h1 {\n  font-size: 50px;\n  font-weight: bold;\n  margin-bottom: 15px;\n}\n.view-content h4 {\n  font-size: 32px;\n  margin-bottom: 40px;\n}\n.view_zone {\n  max-width: 880px;\n}\n.land_link {\n  background: #e0446d;\n  border-radius: 160px;\n  padding: 16px 24px;\n  color: #ffffff;\n  font-size: 20px;\n}\n.land_link:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\nh2 {\n  font-size: 32px;\n  color: #292b32;\n  font-weight: bold;\n}\n.need-block {\n  padding: 80px 15px;\n}\n.list_need {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.list_need li {\n  margin: 0 5px;\n  width: 100px;\n}\n.link_need {\n  color: #292b32;\n  width: 100px;\n  text-align: center;\n  font-size: 14px;\n  letter-spacing: 0.25px;\n}\n.link_need:hover {\n  text-decoration: none;\n}\n.link_need:hover .icon_need {\n  background: #e0446d;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.link_need:hover p {\n  color: #292b32;\n}\n.link_need p {\n  line-height: 1.2;\n}\n.icon_need {\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n  background: #545a77;\n  margin-bottom: 8px;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.icon_need svg {\n  fill: #ffffff;\n  -webkit-transform: scale(1.4);\n          transform: scale(1.4);\n}\n.tab_nav_list,\n.getting-block h2,\n.tab_part_first {\n  max-width: 920px;\n  margin: 0 auto;\n}\n.tab_btn {\n  display: block;\n}\n.tab_btn a {\n  display: inline-block;\n}\n.tab_box {\n  margin-bottom: 40px;\n}\n.tab_nav_list {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 40px;\n}\n.tab_nav_list li {\n  margin-right: 20px;\n}\n.tab_nav_list li:last-of-type {\n  margin-right: 0;\n}\n.tab_nav_list li a {\n  color: #292b32;\n  font-size: 22px;\n  letter-spacing: 0.25px;\n  padding-bottom: 15px;\n  position: relative;\n}\n.tab_nav_list li a:after {\n  content: \"\";\n  position: absolute;\n  display: block;\n  background: #008fb4;\n  height: 4px;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  border-radius: 4px;\n  -webkit-transform: translateY(-4px);\n          transform: translateY(-4px);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 0;\n}\n.tab_nav_list li a:hover {\n  text-decoration: none;\n}\n.tab_nav_list li .active_mode {\n  color: #008fb4;\n}\n.tab_nav_list li .active_mode:after {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 1;\n}\n.tab_nav_list li:hover a:after {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 1;\n}\n.tab_part_first {\n  margin-bottom: 40px;\n}\n.slider_row {\n  white-space: nowrap;\n  -webkit-transition: all 0.2s ease;\n  transition: all 0.2s ease;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-perspective: 1000;\n          perspective: 1000;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  overflow: hidden;\n  padding: 5px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.slider_row_box_1 {\n  margin-bottom: 20px;\n  -webkit-animation: slide 150s linear infinite;\n          animation: slide 150s linear infinite;\n}\n.slider_row_box_1:hover {\n  -webkit-animation-play-state: paused;\n          animation-play-state: paused;\n}\n.slider_row_box_2 {\n  -webkit-animation: slide_2 150s linear infinite;\n          animation: slide_2 150s linear infinite;\n  align-self: flex-end;\n}\n.slider_row_box_2:hover {\n  -webkit-animation-play-state: paused;\n          animation-play-state: paused;\n}\n.slider_row_box {\n  white-space: nowrap;\n}\n.slider_row_box li {\n  display: inline-block;\n  position: relative;\n  width: 300px;\n  height: 150px;\n  margin: 0 20px 0 0;\n  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px;\n  border-radius: 4px;\n  padding: 10px 20px;\n}\n@-webkit-keyframes slide {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(-1920px, 0, 0);\n            transform: translate3d(-1920px, 0, 0);\n}\n}\n@keyframes slide {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(-1920px, 0, 0);\n            transform: translate3d(-1920px, 0, 0);\n}\n}\n@-webkit-keyframes slide_2 {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(1920px, 0, 0);\n            transform: translate3d(1920px, 0, 0);\n}\n}\n@keyframes slide_2 {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(1920px, 0, 0);\n            transform: translate3d(1920px, 0, 0);\n}\n}\n.category_name {\n  color: #292b32;\n  text-transform: uppercase;\n  margin-bottom: 15px;\n  font-size: 12px;\n  letter-spacing: 1px;\n}\n.about_user {\n  display: -webkit-box;\n  display: flex;\n}\n.about_user .img_size {\n  width: 32px;\n  height: 32px;\n  overflow: hidden;\n  border-radius: 50%;\n  display: block;\n  margin-right: 15px;\n}\n.about_user .img_size img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.about_user .task_name {\n  width: 160px;\n  white-space: normal;\n  line-height: 1.2;\n}\n.wrap_task {\n  position: relative;\n  height: 100%;\n  display: block;\n  color: #292b32;\n}\n.wrap_task:hover {\n  text-decoration: none;\n}\n.rate_user {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.rate_user i {\n  color: #e9a52c;\n  margin-right: 5px;\n}\n.movie-block {\n  padding: 80px 0;\n  max-width: 920px;\n}\n.movie-block h4 {\n  color: #292b32;\n}\n.movie-block h5 {\n  max-width: 600px;\n  color: #292b32;\n  font-size: 18px;\n  margin: 0 auto;\n  text-align: center;\n  line-height: 1.3;\n  margin-bottom: 30px;\n}\n.h_btn {\n  display: -webkit-box;\n  display: flex;\n  justify-content: space-around;\n  margin: 0 auto;\n  padding: 64px 0 0 0;\n  border-top: 1px solid #bbc2dc;\n}\n.vd_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 65px;\n}\n.vd_list li {\n  display: -webkit-box;\n  display: flex;\n  width: 30%;\n}\n.vd_list li .img_size {\n  width: 100px;\n}\n.vd_list li .img_size img {\n  width: 100%;\n}\n.video_box {\n  height: 520px;\n  border-radius: 5px;\n  overflow: hidden;\n}\n.video_box img {\n  width: 100%;\n}\n.video-wrapper {\n  margin-bottom: 40px;\n  position: relative;\n  cursor: pointer;\n}\n.video-wrapper:hover .play_movie {\n  -webkit-transform: translate(-50%, -50%) scale(1.2);\n          transform: translate(-50%, -50%) scale(1.2);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.video-modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 101vh;\n  visibility: hidden;\n  opacity: 0;\n  background-color: #191919;\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n.video-modal .close {\n  color: white;\n  position: absolute;\n  background: #ffffff;\n  top: 15px;\n  right: 10px;\n  z-index: 2;\n  display: -webkit-box;\n  display: flex;\n  padding: 5px;\n  border-radius: 50%;\n  -webkit-transition: all 0.5s linear;\n  transition: all 0.5s linear;\n  opacity: 1;\n}\n.video-modal .close span {\n  width: 3px;\n  height: 30px;\n  background: white;\n}\n.video-modal .close span:first-child {\n  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n          transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n}\n.video-modal .close span:last-child {\n  -webkit-transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n          transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n}\n.video-modal #player {\n  height: 100vh;\n}\n.video-modal.visible {\n  visibility: visible;\n  opacity: 1;\n}\n.hide-scroll {\n  overflow: hidden;\n}\n.play_movie {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  width: 76px;\n  height: 76px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  background: #038FB4;\n  border-radius: 50%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.triangle_play {\n  border: 14px solid transparent;\n  border-left: 20px solid #ffffff;\n  position: absolute;\n  -webkit-transform: translateX(10px);\n          transform: translateX(10px);\n}\n.category-block {\n  padding: 40px 15px 100px 15px;\n}\n.category-block h3 {\n  font-size: 24px;\n  color: #292b32;\n}\n.article-block {\n  padding: 80px 15px;\n}\n.list_blog {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-bottom: 20px;\n}\n.list_blog li {\n  width: 300px;\n  margin: 0 20px;\n}\n.list_blog li .blogpost_info {\n  padding: 0 15px;\n}\n.list_blog h4 {\n  color: #292b32;\n  font-size: 22px;\n  font-weight: bold;\n}\n.img_blog {\n  overflow: hidden;\n  display: block;\n  width: 300px;\n  height: 150px;\n  margin-bottom: 10px;\n  border-radius: 5px 5px 0 0;\n}\n.img_blog:hover img {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.img_blog img {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n  width: 100%;\n}\n.blog_desc {\n  font-size: 16px;\n  color: #545a77;\n  margin-bottom: 5px;\n}\n.visit_blog {\n  color: #008fb4;\n  font-size: 18px;\n  line-height: 60px;\n  width: 165px;\n  border-radius: 60px;\n  border: 2px solid #e7ebfb;\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n}\n.visit_blog:hover {\n  text-decoration: none;\n}\n.city_zone {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 20px;\n}\n.box_category {\n  width: 19%;\n}\n.box_category h4 {\n  text-transform: uppercase;\n  font-size: 14px;\n  letter-spacing: 1px;\n  font-weight: bold;\n  margin-bottom: 5px;\n  color: #292b32;\n}\n.list_offer li {\n  text-transform: capitalize;\n}\n.list_offer li a {\n  color: #545a77;\n}\n.all_category a {\n  color: #292b32;\n  font-weight: bold;\n}\n.earn-content {\n  background: -webkit-gradient(linear, right top, left top, color-stop(1%, #11c9e1), to(#0798bf));\n  background: linear-gradient(-90deg, #11c9e1 1%, #0798bf);\n}\n.earn-content h2 {\n  color: #ffffff;\n  max-width: 400px;\n  font-size: 26px;\n  letter-spacing: 0.4px;\n  margin-bottom: 0;\n  padding: 35px 0;\n}\n.earn-block {\n  max-width: 940px;\n}\n.h_tasker {\n  position: relative;\n  max-width: 700px;\n  padding-right: 300px;\n}\n.taskers_img {\n  width: 270px;\n  position: absolute;\n  right: 15px;\n  bottom: 0;\n}\n.taskers_img img {\n  width: 100%;\n}\n.btn_taskers {\n  background: #7db343;\n  color: #ffffff;\n  width: 210px;\n  line-height: 60px;\n  display: block;\n  text-align: center;\n  border-radius: 60px;\n}\n.btn_taskers:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.look_task {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.country_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  padding: 30px 0;\n}\n.country_list li {\n  margin: 0 20px;\n}\n.country_list li svg {\n  margin-right: 10px;\n}\n.country_list li a {\n  color: #292b32;\n}\n.country_list li a:hover {\n  text-decoration: none;\n}\n@media (max-width: 992px) {\n.container {\n    max-width: 1170px;\n}\n.list_need {\n    flex-wrap: wrap;\n}\n.list_need li {\n    width: 22%;\n    margin: 0 0 25px 0;\n}\n.link_need {\n    text-align: center;\n}\n.icon_need {\n    margin: 0 auto 5px auto;\n}\n.getting-block h2,\n.tab_part_first {\n    padding-right: 15px;\n    padding-left: 15px;\n}\n.tab_nav_list {\n    overflow-x: auto;\n    white-space: nowrap;\n    flex-wrap: nowrap;\n    position: relative;\n    padding-bottom: 25px;\n    margin-bottom: 0;\n}\n.tab_nav_list li a {\n    padding-bottom: 10px;\n    font-size: 20px;\n}\n.tab_nav {\n    padding: 0 15px;\n    position: relative;\n    height: 40px;\n    overflow: hidden;\n    margin-bottom: 40px;\n}\n.tab_nav:after {\n    content: \"\";\n    display: inline-block;\n    position: absolute;\n    height: 32px;\n    top: 2px;\n    right: 15px;\n    box-shadow: 0 0 2px 2px #bbc2dc;\n}\n.movie-block {\n    padding: 80px 15px;\n}\n.video_box {\n    height: 400px;\n}\n.video_box .img_size {\n    height: 100%;\n}\n.video_box .img_size img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.vd_list li .img_size {\n    margin-right: 5px;\n}\n.list_blog {\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n}\n.list_blog li {\n    width: 32%;\n    margin: 0;\n}\n.img_blog {\n    width: auto;\n}\n.img_blog img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n}\n@media (max-width: 768px) {\n.view-content h1 {\n    font-size: 40px;\n}\n.taskers_img {\n    display: none;\n}\n.h_tasker {\n    max-width: 420px;\n    padding-right: 20px;\n}\n.video_box {\n    height: 300px;\n}\n.vd_list {\n    flex-wrap: wrap;\n    margin-bottom: 40px;\n}\n.vd_list li {\n    width: 100%;\n    margin-bottom: 30px;\n}\n.vd_list li:last-of-type {\n    margin-bottom: 0;\n}\n.vd_list li .img_size {\n    margin-right: 15px;\n}\n.desc_do {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-pack: center;\n            justify-content: center;\n}\n.h_btn {\n    display: block;\n    text-align: center;\n    padding: 40px 0 0 0;\n}\n.h_btn .land_link {\n    display: inline-block;\n}\n.h_btn h4 {\n    margin-bottom: 20px;\n}\n.article-block {\n    padding: 50px 15px;\n}\n.movie-block {\n    padding: 80px 15px 50px 15px;\n}\n.list_blog li .blogpost_info {\n    padding: 0 15px 0 0;\n}\n.city_zone {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n}\n.box_category {\n    width: 30%;\n    margin-bottom: 30px;\n}\n#footer {\n    height: auto;\n    position: relative;\n}\n.wrapper_box {\n    padding-bottom: 0;\n}\n.footer_lists {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n    padding: 64px 0 39px 0;\n}\n.footer_lists .ftr_list {\n    width: 32%;\n    margin-bottom: 25px;\n}\n}\n@media (max-width: 700px) {\n.list_blog {\n    display: block;\n    max-width: 400px;\n    margin: 0 auto 20px auto;\n}\n.list_blog li {\n    width: 100%;\n    margin-bottom: 40px;\n}\n.list_blog li:last-of-type {\n    margin-bottom: 0;\n}\n.box_category {\n    width: 48%;\n    padding-left: 5px;\n}\n}\n@media (max-width: 480px) {\n.view-content h1 {\n    font-size: 32px;\n}\n.view-content h4 {\n    font-size: 26px;\n}\n.list_need {\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n}\n.list_need li {\n    width: 32%;\n}\n.link_need {\n    width: 64px;\n}\n.icon_need {\n    width: 64px;\n    height: 64px;\n}\n.h_tasker {\n    padding-right: 0;\n}\n.look_task {\n    display: block;\n}\n.earn-content h2 {\n    padding: 0;\n    margin-bottom: 30px;\n}\n.earn-block {\n    padding: 40px 15px;\n}\n.country_list {\n    display: block;\n}\n.country_list li {\n    margin: 0 0 20px 0;\n}\n.country_list li:last-of-type {\n    margin-bottom: 0;\n}\n.footer_lists {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n    padding: 64px 0 39px 0;\n}\n.footer_lists .ftr_list {\n    width: 48%;\n    margin-bottom: 25px;\n}\n.footer_app {\n    display: block;\n}\n.app_list {\n    margin-bottom: 20px;\n}\n.h_btn h4 {\n    font-size: 20px;\n}\n.land_link {\n    line-height: 50px;\n    padding: 0 24px;\n    display: inline-block;\n}\n.visit_blog,\n.btn_taskers {\n    line-height: 50px;\n}\n}", ""]);
+exports.push([module.i, ".view-content {\n  background: url(\"/img/home-1.jpeg\") no-repeat center top;\n  background-size: cover;\n  height: 100vh;\n  color: #ffffff;\n  font-family: \"Montserrat\", sans-serif;\n  position: relative;\n}\n.view-content:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.47);\n  top: 0;\n  left: 0;\n  z-index: 0;\n}\n.view-content .container {\n  height: 100vh;\n  position: relative;\n  z-index: 10;\n}\n.view-content h1 {\n  font-size: 50px;\n  font-weight: bold;\n  margin-bottom: 15px;\n}\n.view-content h4 {\n  font-size: 32px;\n  margin-bottom: 40px;\n}\n.view_zone {\n  max-width: 880px;\n}\n.land_link {\n  background: #e0446d;\n  border-radius: 160px;\n  padding: 16px 24px;\n  color: #ffffff;\n  font-size: 20px;\n}\n.land_link:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\nh2 {\n  font-size: 32px;\n  color: #292b32;\n  font-weight: bold;\n}\n.need-block {\n  padding: 80px 15px;\n}\n.list_need {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.list_need li {\n  margin: 0 5px;\n  width: 100px;\n}\n.link_need {\n  color: #292b32;\n  width: 100px;\n  text-align: center;\n  font-size: 14px;\n  letter-spacing: 0.25px;\n}\n.link_need:hover {\n  text-decoration: none;\n}\n.link_need:hover .icon_need {\n  background: #e0446d;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.link_need:hover p {\n  color: #292b32;\n}\n.link_need p {\n  line-height: 1.2;\n}\n.icon_need {\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n  background: #545a77;\n  margin-bottom: 8px;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.icon_need svg {\n  fill: #ffffff;\n  -webkit-transform: scale(1.4);\n          transform: scale(1.4);\n}\n.tab_nav_list,\n.getting-block h2,\n.tab_part_first {\n  max-width: 920px;\n  margin: 0 auto;\n}\n.tab_btn {\n  display: block;\n}\n.tab_btn a {\n  display: inline-block;\n}\n.tab_box {\n  margin-bottom: 40px;\n}\n.tab_nav_list {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 40px;\n}\n.tab_nav_list li {\n  margin-right: 20px;\n}\n.tab_nav_list li:last-of-type {\n  margin-right: 0;\n}\n.tab_nav_list li a {\n  color: #292b32;\n  font-size: 22px;\n  letter-spacing: 0.25px;\n  padding-bottom: 15px;\n  position: relative;\n}\n.tab_nav_list li a:after {\n  content: \"\";\n  position: absolute;\n  display: block;\n  background: #008fb4;\n  height: 4px;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  border-radius: 4px;\n  -webkit-transform: translateY(-4px);\n          transform: translateY(-4px);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 0;\n}\n.tab_nav_list li a:hover {\n  text-decoration: none;\n}\n.tab_nav_list li .active_mode {\n  color: #008fb4;\n}\n.tab_nav_list li .active_mode:after {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 1;\n}\n.tab_nav_list li:hover a:after {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 1;\n}\n.tab_part_first {\n  margin-bottom: 40px;\n}\n.slider_row {\n  white-space: nowrap;\n  -webkit-transition: all 0.2s ease;\n  transition: all 0.2s ease;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-perspective: 1000;\n          perspective: 1000;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  overflow: hidden;\n  padding: 5px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.slider_row_box_1 {\n  margin-bottom: 20px;\n  -webkit-animation: slide 150s linear infinite;\n          animation: slide 150s linear infinite;\n}\n.slider_row_box_1:hover {\n  -webkit-animation-play-state: paused;\n          animation-play-state: paused;\n}\n.slider_row_box_2 {\n  -webkit-animation: slide_2 150s linear infinite;\n          animation: slide_2 150s linear infinite;\n  align-self: flex-end;\n}\n.slider_row_box_2:hover {\n  -webkit-animation-play-state: paused;\n          animation-play-state: paused;\n}\n.slider_row_box {\n  white-space: nowrap;\n}\n.slider_row_box li {\n  display: inline-block;\n  position: relative;\n  width: 300px;\n  height: 150px;\n  margin: 0 20px 0 0;\n  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px;\n  border-radius: 4px;\n  padding: 10px 20px;\n}\n@-webkit-keyframes slide {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(-1920px, 0, 0);\n            transform: translate3d(-1920px, 0, 0);\n}\n}\n@keyframes slide {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(-1920px, 0, 0);\n            transform: translate3d(-1920px, 0, 0);\n}\n}\n@-webkit-keyframes slide_2 {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(1920px, 0, 0);\n            transform: translate3d(1920px, 0, 0);\n}\n}\n@keyframes slide_2 {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(1920px, 0, 0);\n            transform: translate3d(1920px, 0, 0);\n}\n}\n.category_name {\n  color: #292b32;\n  text-transform: uppercase;\n  margin-bottom: 15px;\n  font-size: 12px;\n  letter-spacing: 1px;\n}\n.about_user {\n  display: -webkit-box;\n  display: flex;\n}\n.about_user .img_size {\n  width: 32px;\n  height: 32px;\n  overflow: hidden;\n  border-radius: 50%;\n  display: block;\n  margin-right: 15px;\n}\n.about_user .img_size img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.about_user .task_name {\n  width: 160px;\n  white-space: normal;\n  line-height: 1.2;\n}\n.wrap_task {\n  position: relative;\n  height: 100%;\n  display: block;\n  color: #292b32;\n}\n.wrap_task:hover {\n  text-decoration: none;\n}\n.rate_user {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.rate_user i {\n  color: #e9a52c;\n  margin-right: 5px;\n}\n.movie-block {\n  padding: 80px 0;\n  max-width: 920px;\n}\n.movie-block h4 {\n  color: #292b32;\n}\n.movie-block h5 {\n  max-width: 600px;\n  color: #292b32;\n  font-size: 18px;\n  margin: 0 auto;\n  text-align: center;\n  line-height: 1.3;\n  margin-bottom: 30px;\n}\n.h_btn {\n  display: -webkit-box;\n  display: flex;\n  justify-content: space-around;\n  margin: 0 auto;\n  padding: 64px 0 0 0;\n  border-top: 1px solid #bbc2dc;\n}\n.vd_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 65px;\n}\n.vd_list li {\n  display: -webkit-box;\n  display: flex;\n  width: 30%;\n}\n.vd_list li .img_size {\n  width: 100px;\n}\n.vd_list li .img_size img {\n  width: 100%;\n}\n.video_box {\n  height: 520px;\n  border-radius: 5px;\n  overflow: hidden;\n}\n.video_box img {\n  width: 100%;\n}\n.video-wrapper {\n  margin-bottom: 40px;\n  position: relative;\n  cursor: pointer;\n}\n.video-wrapper:hover .play_movie {\n  -webkit-transform: translate(-50%, -50%) scale(1.2);\n          transform: translate(-50%, -50%) scale(1.2);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.video-modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 101vh;\n  visibility: hidden;\n  opacity: 0;\n  background-color: #191919;\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n.video-modal .close {\n  color: white;\n  position: absolute;\n  background: #ffffff;\n  top: 15px;\n  right: 10px;\n  z-index: 2;\n  display: -webkit-box;\n  display: flex;\n  padding: 5px;\n  border-radius: 50%;\n  -webkit-transition: all 0.5s linear;\n  transition: all 0.5s linear;\n  opacity: 1;\n}\n.video-modal .close span {\n  width: 3px;\n  height: 30px;\n  background: white;\n}\n.video-modal .close span:first-child {\n  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n          transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n}\n.video-modal .close span:last-child {\n  -webkit-transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n          transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n}\n.video-modal #player {\n  height: 100vh;\n}\n.video-modal.visible {\n  visibility: visible;\n  opacity: 1;\n}\n.hide-scroll {\n  overflow: hidden;\n}\n.play_movie {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  width: 76px;\n  height: 76px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  background: #038FB4;\n  border-radius: 50%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.triangle_play {\n  border: 14px solid transparent;\n  border-left: 20px solid #ffffff;\n  position: absolute;\n  -webkit-transform: translateX(10px);\n          transform: translateX(10px);\n}\n.category-block {\n  padding: 40px 15px 100px 15px;\n}\n.category-block h3 {\n  font-size: 24px;\n  color: #292b32;\n}\n.article-block {\n  padding: 80px 15px;\n}\n.list_blog {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-bottom: 20px;\n}\n.list_blog li {\n  width: 300px;\n  margin: 0 20px;\n}\n.list_blog li .blogpost_info {\n  padding: 0 15px;\n}\n.list_blog h4 {\n  color: #292b32;\n  font-size: 22px;\n  font-weight: bold;\n}\n.img_blog {\n  overflow: hidden;\n  display: block;\n  width: 300px;\n  height: 150px;\n  margin-bottom: 10px;\n  border-radius: 5px 5px 0 0;\n}\n.img_blog:hover img {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.img_blog img {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n  width: 100%;\n}\n.blog_desc {\n  font-size: 16px;\n  color: #545a77;\n  margin-bottom: 5px;\n}\n.visit_blog {\n  color: #008fb4;\n  font-size: 18px;\n  line-height: 60px;\n  width: 165px;\n  border-radius: 60px;\n  border: 2px solid #e7ebfb;\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n}\n.visit_blog:hover {\n  text-decoration: none;\n}\n.city_zone {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 20px;\n}\n.box_category {\n  width: 19%;\n}\n.box_category h4 {\n  text-transform: uppercase;\n  font-size: 14px;\n  letter-spacing: 1px;\n  font-weight: bold;\n  margin-bottom: 5px;\n  color: #292b32;\n}\n.list_offer li {\n  text-transform: capitalize;\n}\n.list_offer li a {\n  color: #545a77;\n}\n.all_category a {\n  color: #292b32;\n  font-weight: bold;\n}\n.earn-content {\n  background: -webkit-gradient(linear, right top, left top, color-stop(1%, #11c9e1), to(#0798bf));\n  background: linear-gradient(-90deg, #11c9e1 1%, #0798bf);\n}\n.earn-content h2 {\n  color: #ffffff;\n  max-width: 400px;\n  font-size: 26px;\n  letter-spacing: 0.4px;\n  margin-bottom: 0;\n  padding: 35px 0;\n}\n.earn-block {\n  max-width: 940px;\n}\n.h_tasker {\n  position: relative;\n  max-width: 700px;\n  padding-right: 300px;\n}\n.taskers_img {\n  width: 270px;\n  position: absolute;\n  right: 15px;\n  bottom: 0;\n}\n.taskers_img img {\n  width: 100%;\n}\n.btn_taskers {\n  background: #7db343;\n  color: #ffffff;\n  width: 210px;\n  line-height: 60px;\n  display: block;\n  text-align: center;\n  border-radius: 60px;\n}\n.btn_taskers:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.look_task {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.country_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  padding: 30px 0;\n}\n.country_list li {\n  margin: 0 20px;\n}\n.country_list li svg {\n  margin-right: 10px;\n}\n.country_list li a {\n  color: #292b32;\n}\n.country_list li a:hover {\n  text-decoration: none;\n}\n@media (max-width: 992px) {\n.container {\n    max-width: 1170px;\n}\n.list_need {\n    flex-wrap: wrap;\n}\n.list_need li {\n    width: 22%;\n    margin: 0 0 25px 0;\n}\n.link_need {\n    text-align: center;\n}\n.icon_need {\n    margin: 0 auto 5px auto;\n}\n.getting-block h2,\n.tab_part_first {\n    padding-right: 15px;\n    padding-left: 15px;\n}\n.tab_nav_list {\n    overflow-x: auto;\n    white-space: nowrap;\n    flex-wrap: nowrap;\n    position: relative;\n    padding-bottom: 25px;\n    margin-bottom: 0;\n}\n.tab_nav_list li a {\n    padding-bottom: 10px;\n    font-size: 20px;\n}\n.tab_nav {\n    padding: 0 15px;\n    position: relative;\n    height: 40px;\n    overflow: hidden;\n    margin-bottom: 40px;\n}\n.tab_nav:after {\n    content: \"\";\n    display: inline-block;\n    position: absolute;\n    height: 32px;\n    top: 2px;\n    right: 15px;\n    box-shadow: 0 0 2px 2px #bbc2dc;\n}\n.movie-block {\n    padding: 80px 15px;\n}\n.video_box {\n    height: 400px;\n}\n.video_box .img_size {\n    height: 100%;\n}\n.video_box .img_size img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.vd_list li .img_size {\n    margin-right: 5px;\n}\n.list_blog {\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n}\n.list_blog li {\n    width: 32%;\n    margin: 0;\n}\n.img_blog {\n    width: auto;\n}\n.img_blog img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n}\n@media (max-width: 768px) {\n.view-content h1 {\n    font-size: 40px;\n}\n.taskers_img {\n    display: none;\n}\n.h_tasker {\n    max-width: 420px;\n    padding-right: 20px;\n}\n.video_box {\n    height: 300px;\n}\n.vd_list {\n    flex-wrap: wrap;\n    margin-bottom: 40px;\n}\n.vd_list li {\n    width: 100%;\n    margin-bottom: 30px;\n}\n.vd_list li:last-of-type {\n    margin-bottom: 0;\n}\n.vd_list li .img_size {\n    margin-right: 15px;\n}\n.desc_do {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-pack: center;\n            justify-content: center;\n}\n.h_btn {\n    display: block;\n    text-align: center;\n    padding: 40px 0 0 0;\n}\n.h_btn .land_link {\n    display: inline-block;\n}\n.h_btn h4 {\n    margin-bottom: 20px;\n}\n.article-block {\n    padding: 50px 15px;\n}\n.movie-block {\n    padding: 80px 15px 50px 15px;\n}\n.list_blog li .blogpost_info {\n    padding: 0 15px 0 0;\n}\n.city_zone {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n}\n.box_category {\n    width: 30%;\n    margin-bottom: 30px;\n}\n#footer {\n    height: auto;\n    position: relative;\n}\n.wrapper_box {\n    padding-bottom: 0;\n}\n.footer_lists {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n    padding: 64px 0 39px 0;\n}\n.footer_lists .ftr_list {\n    width: 32%;\n    margin-bottom: 25px;\n}\n}\n@media (max-width: 700px) {\n.list_blog {\n    display: block;\n    max-width: 400px;\n    margin: 0 auto 20px auto;\n}\n.list_blog li {\n    width: 100%;\n    margin-bottom: 40px;\n}\n.list_blog li:last-of-type {\n    margin-bottom: 0;\n}\n.box_category {\n    width: 48%;\n    padding-left: 5px;\n}\n}\n@media (max-width: 480px) {\n.view-content h1 {\n    font-size: 32px;\n}\n.view-content h4 {\n    font-size: 26px;\n}\n.list_need {\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n}\n.list_need li {\n    width: 32%;\n}\n.link_need {\n    width: 64px;\n}\n.icon_need {\n    width: 64px;\n    height: 64px;\n}\n.h_tasker {\n    padding-right: 0;\n}\n.look_task {\n    display: block;\n}\n.earn-content h2 {\n    padding: 0;\n    margin-bottom: 30px;\n}\n.earn-block {\n    padding: 40px 15px;\n}\n.country_list {\n    display: block;\n}\n.country_list li {\n    margin: 0 0 20px 0;\n}\n.country_list li:last-of-type {\n    margin-bottom: 0;\n}\n.footer_lists {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n    padding: 64px 0 39px 0;\n}\n.footer_lists .ftr_list {\n    width: 48%;\n    margin-bottom: 25px;\n}\n.footer_app {\n    display: block;\n}\n.app_list {\n    margin-bottom: 20px;\n}\n.h_btn h4 {\n    font-size: 20px;\n}\n.land_link {\n    line-height: 50px;\n    padding: 0 24px;\n    display: inline-block;\n}\n.visit_blog,\n.btn_taskers {\n    line-height: 50px;\n}\n}", ""]);
 
 // exports
 
@@ -81701,61 +81792,254 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { attrs: { id: "header" } }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "container align-items-center justify-content-between d-flex"
-      },
-      [
-        _c("div", { staticClass: "d-flex align-items-center" }, [
+  return _c(
+    "header",
+    { attrs: { id: "header" } },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "container align-items-center justify-content-between d-flex"
+        },
+        [
           _c(
             "div",
-            { staticClass: "logo_header", attrs: { id: "logo" } },
+            { staticClass: "d-flex align-items-center visible_header" },
             [
-              _c("router-link", { staticClass: "logo", attrs: { to: "/" } }, [
-                _c("img", { attrs: { src: "img/white-logo.svg", alt: "" } })
-              ])
-            ],
-            1
+              _c(
+                "div",
+                { staticClass: "logo_header", attrs: { id: "logo" } },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "logo", attrs: { to: "/" } },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            id: "AirtaskerLogo",
+                            width: "111",
+                            height: "19",
+                            viewBox: "0 0 141 23",
+                            version: "1.1",
+                            xmlns: "http://www.w3.org/2000/svg",
+                            "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                            "data-ui-test": "undefined-svg"
+                          }
+                        },
+                        [
+                          _c("g", { attrs: { "fill-rule": "evenodd" } }, [
+                            _c("path", {
+                              attrs: {
+                                fill: "#008fb4",
+                                d:
+                                  "M140.663 11.607l-.026-4.488c-.873.036-3.502.388-4.67 1.791V7.422h-4.878v14.963h4.878v-6.949c.002-.039.007-.078.011-.117.708-3.334 3.873-3.685 4.685-3.712m-43.961.178c-.604-.576-1.235-.867-1.779-1.129a3.924 3.924 0 0 0-1.723-.393c-.464 0-.892.09-1.285.272-.393.182-.59.495-.59.937 0 .423.216.726.65.908.433.181 1.134.382 2.101.605.564.121 1.134.291 1.709.513a6.009 6.009 0 0 1 1.557.878 4.18 4.18 0 0 1 1.119 1.33c.282.525.424 1.149.424 1.875 0 .947-.192 1.75-.575 2.404a4.717 4.717 0 0 1-1.497 1.587 6.45 6.45 0 0 1-2.071.877 9.916 9.916 0 0 1-2.298.272c-1.23 0-2.435-.196-3.614-.59-1.18-.392-2.162-.972-2.948-1.738l2.425-3.046c.444.485 1.344 1.001 1.989 1.322a4.537 4.537 0 0 0 2.057.485c.403 0 .801-.097 1.194-.288.393-.192.59-.53.59-1.013 0-.464-.242-.806-.726-1.029-.483-.221-1.239-.452-2.268-.695a11.86 11.86 0 0 1-1.573-.483 5.015 5.015 0 0 1-1.406-.816 4.073 4.073 0 0 1-1.012-1.272c-.262-.503-.394-1.108-.394-1.814 0-.907.192-1.678.575-2.313a4.862 4.862 0 0 1 1.482-1.557 6.61 6.61 0 0 1 2.01-.893 8.749 8.749 0 0 1 2.193-.287c1.129 0 2.233.177 3.311.529 1.079.353 1.991.882 2.737 1.588l-2.364 2.974m28.725 1.176a2.92 2.92 0 0 0-.729-1.872c-.489-.558-1.222-.838-2.199-.838-.479 0-.916.075-1.316.224-.398.15-.747.355-1.046.614a3.038 3.038 0 0 0-.718.912 2.648 2.648 0 0 0-.288.96h6.296zm4.518 2.015v.599c0 .199-.009.388-.029.567h-10.795c.039.42.164.798.373 1.137.209.34.479.633.808.883.329.248.697.444 1.106.582.408.14.832.209 1.27.209.778 0 1.436-.143 1.975-.433a3.911 3.911 0 0 0 1.316-1.121l3.409 2.153a6.927 6.927 0 0 1-2.766 2.348c-1.148.548-2.478.822-3.993.822a9.538 9.538 0 0 1-3.169-.524 7.665 7.665 0 0 1-2.617-1.525 7.036 7.036 0 0 1-1.764-2.467c-.43-.977-.643-2.093-.643-3.35 0-1.215.208-2.317.628-3.304.418-.986.986-1.824 1.704-2.511a7.57 7.57 0 0 1 2.542-1.6c.976-.379 2.033-.569 3.169-.569 1.097 0 2.104.185 3.021.554a6.557 6.557 0 0 1 2.362 1.6c.658.697 1.171 1.545 1.541 2.541.368.997.552 2.133.552 3.409zM70.83 11.464v-4.5h-4.203V3.612c-.11-1.936-1.018-3.373-4.745-3.375v17.404c0 .761.099 1.45.27 2.068.171.619.451 1.152.84 1.598.389.448.906.79 1.55 1.028.646.237 1.62.356 2.568.356 1.463 0 2.481-.201 3.72-.616v-3.973s-1.167.319-2.438.319c-.666 0-1.124-.166-1.382-.5-.256-.334-.383-.833-.383-1.5v-4.957h4.203"
+                              }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                fill: "#008fb4",
+                                d:
+                                  "M110.194 14.4l5.533-7.008h-5.892l-4.878 6.158V3.708c-.084-1.983-.959-3.466-4.738-3.47v22.149h4.738v-7.152l5.606 7.152h5.928l-6.297-7.987m-25.209 7.972v-9.91c0-4.261-3.381-5.795-6.373-5.795-3.253 0-5.215 1.038-6.518 2.124l2.474 3.077c.823-.767 2.456-1.552 3.559-1.552 1.803 0 2.175 1.031 2.175 2.35v.254h-1.623c-4.159 0-6.662 1.809-6.662 5.021 0 3.509 3.084 4.431 6.837 4.431h6.131zm-4.683-3.115c-.508-.002-1.114.01-1.555 0-1.217-.026-1.961-.504-1.961-1.553 0-1.047.744-1.653 2.232-1.653h1.284v3.206zM44.596 2.953c0 1.542 1.274 2.749 2.716 2.749a2.741 2.741 0 0 0 2.75-2.749c0-1.508-1.242-2.715-2.75-2.715-1.442 0-2.716 1.207-2.716 2.715m.46 4.043h-.197v15.389h4.939V10.234c-.143-1.869-1.095-3.238-4.742-3.238m15.706 4.611l-.025-4.488c-.875.036-3.502.388-4.671 1.791V7.422h-4.878v14.963h4.878v-6.949c.002-.039.007-.078.011-.117.709-3.334 3.873-3.685 4.685-3.712m78.476 8.523h-.278v.516h.278c.161 0 .27-.114.27-.257 0-.145-.109-.259-.27-.259zm.27 1.441l-.338-.677h-.21v.677h-.304v-1.707h.621a.52.52 0 0 1 .531.525c0 .24-.143.397-.325.462l.367.72h-.342zm-.32-2.138c-.684 0-1.225.567-1.225 1.287 0 .721.541 1.287 1.225 1.287.683 0 1.22-.566 1.22-1.287 0-.72-.537-1.287-1.22-1.287zm0 2.867c-.845 0-1.529-.707-1.529-1.58 0-.873.684-1.58 1.529-1.58.844 0 1.528.707 1.528 1.58 0 .873-.684 1.58-1.528 1.58zM31.056 13.706l2.196-6.333 2.196 6.333h-4.392zM35.592.25h-4.444l-6.777 18.015h-2.705c-2.117 0-3.967-.463-5.21-1.302-1.275-.862-1.895-2.101-1.895-3.788v-2.08h-2.175c-.09 0-3.253-.009-5.493-2.218-1.128-1.112-1.84-2.624-2.128-4.515h15.259c2.773 0 3.795 1.353 4.433 2.569a8.098 8.098 0 0 1 .719 1.926l1.912-5.082S25.471.255 20.024.255H.508v2.054c0 4.011 1.178 7.205 3.5 9.494 2.175 2.143 4.852 2.948 6.622 3.248.884 4.507 5.02 7.323 11.036 7.323h6.256l1.431-4.063 7.802.008 1.429 4.055h5.343L35.592.25z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(0)
+            ]
           ),
           _vm._v(" "),
-          _vm._m(0)
-        ]),
-        _vm._v(" "),
-        _c("nav", { attrs: { id: "nav-menu-container" } }, [
-          _c("ul", { staticClass: "nav_menu" }, [
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/" } }, [
-                  _vm._v(
-                    "\n                        Sign up\n                    "
-                  )
+          _c("nav", { attrs: { id: "nav-menu-container" } }, [
+            _c("ul", { staticClass: "nav_menu" }, [
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "/" } }, [
+                    _vm._v(
+                      "\n                        Sign up\n                    "
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "/login" } }, [
+                    _vm._v(
+                      "\n                        Log in\n                    "
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "menu_box",
+              attrs: { href: "/" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.$modal.show("menu")
+                }
+              }
+            },
+            [_vm._m(2)]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "modal",
+        {
+          class: ["v--modal"],
+          attrs: {
+            name: "menu",
+            adaptive: true,
+            scrollable: true,
+            width: "100%",
+            height: "auto",
+            transition: "nice-modal-fade"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "container modal_menu d-flex justify-content-between"
+            },
+            [
+              _c("div", { staticClass: "hide_menu" }, [
+                _c(
+                  "div",
+                  { staticClass: "logo_header", attrs: { id: "logo_hide" } },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "logo", attrs: { to: "/" } },
+                      [_c("img", { attrs: { src: "img/logo.svg", alt: "" } })]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("ul", { staticClass: "head_menu" }, [
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "red_btn become_tacker",
+                        attrs: { href: "/" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Post a task\n                        "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "/" } }, [
+                      _vm._v(
+                        "\n                            Categories\n                        "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "/" } }, [
+                      _vm._v(
+                        "\n                            Browse tasks\n                        "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "/" } }, [
+                      _vm._v(
+                        "\n                            How it works\n                        "
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("nav", { attrs: { id: "nav-menu-container_2" } }, [
+                  _c("ul", { staticClass: "nav_menu" }, [
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/" } }, [
+                          _vm._v(
+                            "\n                                Sign up\n                            "
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/login" } }, [
+                          _vm._v(
+                            "\n                                Log in\n                            "
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c(
+                        "a",
+                        { staticClass: "become_tacker", attrs: { href: "/" } },
+                        [
+                          _vm._v(
+                            "\n                                Become a Tasker\n                            "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
                 ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/login" } }, [
-                  _vm._v(
-                    "\n                        Log in\n                    "
-                  )
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(1)
-          ])
-        ])
-      ]
-    )
-  ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "close_btn",
+                  on: {
+                    click: function($event) {
+                      return _vm.$modal.hide("menu")
+                    }
+                  }
+                },
+                [_vm._v("\n                Close\n            ")]
+              )
+            ]
+          )
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -81804,6 +82088,18 @@ var staticRenderFns = [
           "\n                        Become a Tasker\n                    "
         )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "line_menu" }, [
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span")
     ])
   }
 ]
