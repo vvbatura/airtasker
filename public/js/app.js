@@ -3078,6 +3078,168 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer"
 });
@@ -3120,8 +3282,127 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Header"
+  name: "Header",
+  methods: {
+    handleSCroll: function handleSCroll(event) {
+      var header = document.querySelector("header");
+
+      if (window.scrollY > 100 && !header.className.includes('fix_header')) {
+        header.classList.add('fix_header');
+      } else if (window.scrollY < 100) {
+        header.classList.remove('fix_header');
+      }
+    }
+  },
+  created: function created() {
+    window.addEventListener('scroll', this.handleSCroll);
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener('scroll', this.handleSCroll);
+  }
 });
 
 /***/ }),
@@ -3818,40 +4099,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_social_google__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/social/google */ "./resources/js/components/social/google.vue");
 /* harmony import */ var _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/social/facebook */ "./resources/js/components/social/facebook.vue");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3976,7 +4223,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
- //import Autocomplete from "../../components/autocomplete";
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3984,9 +4230,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     LoginWithFacebook: _components_social_facebook__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
-    var _ref;
-
-    return _ref = {
+    return {
       error_dialog: false,
       alert_dialog: false,
       role: null,
@@ -4009,7 +4253,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       suggestionAttribute: 'long_name',
       suggestions: [],
       submitted: false
-    }, _defineProperty(_ref, "suggestionAttribute", 'long_name'), _defineProperty(_ref, "suggestions", []), _defineProperty(_ref, "selectedEvent", ""), _ref;
+    };
   },
   validations: {
     first_name: {
@@ -4092,33 +4336,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         redirect: 'login'
       });
     },
-    // clickInput: function() {
-    //     this.selectedEvent = 'click input'
-    // },
-    // clickButton: function() {
-    //     this.selectedEvent = 'click button'
-    // },
-    // selected: function() {
-    //     this.selectedEvent = 'selection changed'
-    // },
-    // enter: function() {
-    //     this.selectedEvent = 'enter'
-    // },
-    // keyUp: function() {
-    //     this.selectedEvent = 'keyup pressed'
-    // },
-    // keyDown: function() {
-    //     this.selectedEvent = 'keyDown pressed'
-    // },
-    // keyRight: function() {
-    //     this.selectedEvent = 'keyRight pressed'
-    // },
-    // clear: function() {
-    //     this.selectedEvent = 'clear input'
-    // },
-    // escape: function() {
-    //     this.selectedEvent = 'escape'
-    // },
     changed: function changed() {
       var _this = this;
 
@@ -4425,8 +4642,1130 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Home"
+  data: function data() {
+    return {
+      modal: false,
+      activetab: 1,
+      users: []
+    };
+  },
+  name: "Home",
+  created: function created() {
+    var _this = this;
+
+    axios.get('http://jsonplaceholder.typicode.com/users').then(function (response) {
+      _this.users = response.data;
+    });
+  },
+  methods: {
+    switchVideoModal: function switchVideoModal(isPlay) {
+      document.querySelector('body').classList.add('hide-scroll');
+      var playerVideo = new Playerjs({
+        id: "player-video",
+        file: "https://s3-ap-southeast-2.amazonaws.com/assets-airtasker-com/uploads/home/how-it-works.mp4"
+      });
+
+      if (!isPlay) {
+        playerVideo.api('stop');
+        this.modal = false;
+        return false;
+      }
+
+      document.querySelector('#player-video').style.height = window.innerHeight + 'px';
+      this.modal = !this.modal;
+
+      if (!this.modal) {
+        document.querySelector('body').classList.remove('hide-scroll');
+        playerVideo.api('stop');
+      }
+    }
+  },
+  filters: {
+    slicePrice: function slicePrice(value) {
+      return "".concat(value.slice(0, 2));
+    }
+  }
 });
 
 /***/ }),
@@ -33147,7 +34486,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#footer {\n  position: absolute;\n  z-index: 99;\n  bottom: 0;\n  width: 100%;\n  background: #292b32;\n}", ""]);
+exports.push([module.i, "#footer {\n  position: relative;\n  z-index: 99;\n  bottom: 0;\n  width: 100%;\n  background: #292b32;\n  height: auto;\n}\n.footer_lists {\n  padding: 64px 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.footer_app {\n  display: -webkit-box;\n  display: flex;\n  padding: 0 0 32px 0;\n}\n.ftr_list li:first-of-type {\n  color: #b0bfc3;\n  margin-bottom: 10px;\n}\n.ftr_list li a {\n  font-size: 14px;\n  color: #545a77;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.ftr_list li a:hover {\n  text-decoration: none;\n  color: #b0bfc3;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.app_list {\n  display: -webkit-box;\n  display: flex;\n  margin-right: 30px;\n}\n.app_list li {\n  margin-right: 10px;\n}\n.app_list li:last-of-type {\n  margin-right: 0;\n}\n.app_list li a {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.app_list li a:hover {\n  opacity: 0.7;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.social_list {\n  display: -webkit-box;\n  display: flex;\n}\n.social_list li {\n  margin-right: 10px;\n}\n.social_list li:last-of-type {\n  margin-right: 0;\n}\n.social_list li a {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.social_list li a:hover {\n  opacity: 0.7;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.down_footer {\n  background: #333535;\n  color: #545a77;\n  padding: 16px 0 9px;\n}\n.airtasker-logo-small {\n  fill: #545a77;\n}\n.copyright {\n  color: #545a77;\n  font-size: 12px;\n}\n.copyright svg {\n  margin-right: 10px;\n}", ""]);
 
 // exports
 
@@ -33166,7 +34505,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#header {\n  height: 58px;\n  position: absolute;\n  width: 100%;\n  z-index: 100;\n}\n#header .container {\n  height: 100%;\n}", ""]);
+exports.push([module.i, "#header {\n  height: 58px;\n  position: fixed;\n  width: 100%;\n  z-index: 100;\n}\n#header .container {\n  height: 100%;\n}\n#AirtaskerLogo path {\n  fill: #ffffff;\n}\n.fix_header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.fix_header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.fix_header .head_menu li + li a {\n  color: #545a77;\n}\n.fix_header .nav_menu li a {\n  color: #545a77;\n}\n.fix_header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.become_tacker {\n  padding: 6px 16px;\n  border: 1px solid #ffffff;\n  border-radius: 34px;\n  display: inline-block;\n}\n.become_tacker:hover {\n  text-decoration: none;\n}\n.red_btn {\n  background: #e0446d;\n  padding: 6px 16px;\n  border-radius: 34px;\n  color: #ffffff;\n  border: 1px solid #e0446d;\n  display: inline-block;\n}\n.red_btn:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.logo_header {\n  margin-right: 40px;\n}\n.nav_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.nav_menu li {\n  margin-right: 20px;\n}\n.nav_menu li:last-of-type {\n  margin-right: 0;\n}\n.nav_menu li a {\n  color: #ffffff;\n}\n.head_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.head_menu li {\n  margin-right: 20px;\n}\n.head_menu li a {\n  color: #ffffff;\n}\n.head_menu li:last-of-type {\n  margin-right: 0;\n}\n.modal_menu {\n  padding: 30px;\n  overflow: hidden;\n}\n.menu_box {\n  display: none;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative;\n}\n.menu_box:hover {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.menu_box:hover .line_menu span {\n  background: #008fb4;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.close_btn {\n  cursor: pointer;\n}\n.hide_menu {\n  display: block;\n  height: calc(100vh - 65px);\n  width: 100vw;\n  background: #ffffff;\n}\n.hide_menu .head_menu {\n  display: block;\n  margin-bottom: 40px;\n}\n.hide_menu .head_menu li {\n  margin: 0 0 20px 0;\n}\n.hide_menu .head_menu li:first-of-type a {\n  color: #ffffff;\n}\n.hide_menu .head_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .head_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu {\n  display: block;\n}\n.hide_menu .nav_menu li {\n  margin-bottom: 20px;\n}\n.hide_menu .nav_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .nav_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu .become_tacker {\n  border: none;\n  padding: 0;\n}\n.hide_menu .logo_header {\n  margin-bottom: 30px;\n}\n.line_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  width: 30px;\n  height: 25px;\n}\n.line_menu span {\n  display: block;\n  background: #80878A;\n  height: 3px;\n  width: 100%;\n  -webkit-transform-origin: 0% 0%;\n          transform-origin: 0% 0%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.line_menu span:last-of-type {\n  margin-bottom: 0;\n}\n@media (max-width: 992px) {\n.visible_header .head_menu {\n    display: none;\n}\n#nav-menu-container .nav_menu {\n    display: none;\n}\n.menu_box {\n    display: block;\n}\nheader {\n    background: #ffffff;\n    border-bottom: 1px solid #ccc;\n    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n#AirtaskerLogo path {\n    fill: #008fb4;\n}\n}", ""]);
 
 // exports
 
@@ -33223,7 +34562,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".wrapper_box {\n  padding-bottom: 11.5rem;\n}", ""]);
+exports.push([module.i, ".wrapper_box {\n  padding-bottom: 472px;\n}", ""]);
 
 // exports
 
@@ -33318,7 +34657,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".view-content {\n  background: url(\"/img/home-1.jpeg\") no-repeat center top;\n  background-size: cover;\n  min-height: 900px;\n  color: #ffffff;\n  font-family: \"Montserrat\", sans-serif;\n  position: relative;\n}\n.view-content:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.47);\n  top: 0;\n  left: 0;\n  z-index: 0;\n}\n.view-content .container {\n  height: 100vh;\n  position: relative;\n  z-index: 10;\n}\n.view-content h1 {\n  font-size: 50px;\n  font-weight: bold;\n  margin-bottom: 15px;\n}\n.view-content h4 {\n  font-size: 32px;\n  margin-bottom: 40px;\n}\n.view_zone {\n  max-width: 880px;\n}\n.land_link {\n  background: #e0446d;\n  border-radius: 160px;\n  padding: 16px 24px;\n  color: #ffffff;\n  font-size: 20px;\n}\n.land_link:hover {\n  text-decoration: none;\n  color: #ffffff;\n}", ""]);
+exports.push([module.i, ".view-content {\n  background: url(\"/img/home-1.jpg\") no-repeat center top;\n  background-size: cover;\n  height: 100vh;\n  color: #ffffff;\n  font-family: \"Montserrat\", sans-serif;\n  position: relative;\n}\n.view-content:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.47);\n  top: 0;\n  left: 0;\n  z-index: 0;\n}\n.view-content .container {\n  height: 100vh;\n  position: relative;\n  z-index: 10;\n}\n.view-content h1 {\n  font-size: 50px;\n  font-weight: bold;\n  margin-bottom: 15px;\n}\n.view-content h4 {\n  font-size: 32px;\n  margin-bottom: 40px;\n}\n.view_zone {\n  max-width: 880px;\n}\n.land_link {\n  background: #e0446d;\n  border-radius: 160px;\n  padding: 16px 24px;\n  color: #ffffff;\n  font-size: 20px;\n}\n.land_link:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\nh2 {\n  font-size: 32px;\n  color: #292b32;\n  font-weight: bold;\n}\n.need-block {\n  padding: 80px 15px;\n}\n.list_need {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.list_need li {\n  margin: 0 5px;\n  width: 100px;\n}\n.link_need {\n  color: #292b32;\n  width: 100px;\n  text-align: center;\n  font-size: 14px;\n  letter-spacing: 0.25px;\n}\n.link_need:hover {\n  text-decoration: none;\n}\n.link_need:hover .icon_need {\n  background: #e0446d;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.link_need:hover p {\n  color: #292b32;\n}\n.link_need p {\n  line-height: 1.2;\n}\n.icon_need {\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n  background: #545a77;\n  margin-bottom: 8px;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.icon_need svg {\n  fill: #ffffff;\n  -webkit-transform: scale(1.4);\n          transform: scale(1.4);\n}\n.tab_nav_list,\n.getting-block h2,\n.tab_part_first {\n  max-width: 920px;\n  margin: 0 auto;\n}\n.tab_btn {\n  display: block;\n}\n.tab_btn a {\n  display: inline-block;\n}\n.tab_box {\n  margin-bottom: 40px;\n}\n.tab_nav_list {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 40px;\n}\n.tab_nav_list li {\n  margin-right: 20px;\n}\n.tab_nav_list li:last-of-type {\n  margin-right: 0;\n}\n.tab_nav_list li a {\n  color: #292b32;\n  font-size: 22px;\n  letter-spacing: 0.25px;\n  padding-bottom: 15px;\n  position: relative;\n}\n.tab_nav_list li a:after {\n  content: \"\";\n  position: absolute;\n  display: block;\n  background: #008fb4;\n  height: 4px;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  border-radius: 4px;\n  -webkit-transform: translateY(-4px);\n          transform: translateY(-4px);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 0;\n}\n.tab_nav_list li a:hover {\n  text-decoration: none;\n}\n.tab_nav_list li .active_mode {\n  color: #008fb4;\n}\n.tab_nav_list li .active_mode:after {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 1;\n}\n.tab_nav_list li:hover a:after {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 1;\n}\n.tab_part_first {\n  margin-bottom: 40px;\n}\n.slider_row {\n  white-space: nowrap;\n  -webkit-transition: all 0.2s ease;\n  transition: all 0.2s ease;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-perspective: 1000;\n          perspective: 1000;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  overflow: hidden;\n  padding: 5px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.slider_row_box_1 {\n  margin-bottom: 20px;\n  -webkit-animation: slide 150s linear infinite;\n          animation: slide 150s linear infinite;\n}\n.slider_row_box_1:hover {\n  -webkit-animation-play-state: paused;\n          animation-play-state: paused;\n}\n.slider_row_box_2 {\n  -webkit-animation: slide_2 150s linear infinite;\n          animation: slide_2 150s linear infinite;\n  align-self: flex-end;\n}\n.slider_row_box_2:hover {\n  -webkit-animation-play-state: paused;\n          animation-play-state: paused;\n}\n.slider_row_box {\n  white-space: nowrap;\n}\n.slider_row_box li {\n  display: inline-block;\n  position: relative;\n  width: 300px;\n  height: 150px;\n  margin: 0 20px 0 0;\n  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px;\n  border-radius: 4px;\n  padding: 10px 20px;\n}\n@-webkit-keyframes slide {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(-1920px, 0, 0);\n            transform: translate3d(-1920px, 0, 0);\n}\n}\n@keyframes slide {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(-1920px, 0, 0);\n            transform: translate3d(-1920px, 0, 0);\n}\n}\n@-webkit-keyframes slide_2 {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(1920px, 0, 0);\n            transform: translate3d(1920px, 0, 0);\n}\n}\n@keyframes slide_2 {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(1920px, 0, 0);\n            transform: translate3d(1920px, 0, 0);\n}\n}\n.category_name {\n  color: #292b32;\n  text-transform: uppercase;\n  margin-bottom: 15px;\n  font-size: 12px;\n  letter-spacing: 1px;\n}\n.about_user {\n  display: -webkit-box;\n  display: flex;\n}\n.about_user .img_size {\n  width: 32px;\n  height: 32px;\n  overflow: hidden;\n  border-radius: 50%;\n  display: block;\n  margin-right: 15px;\n}\n.about_user .img_size img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.about_user .task_name {\n  width: 160px;\n  white-space: normal;\n  line-height: 1.2;\n}\n.wrap_task {\n  position: relative;\n  height: 100%;\n  display: block;\n  color: #292b32;\n}\n.wrap_task:hover {\n  text-decoration: none;\n}\n.rate_user {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.rate_user i {\n  color: #e9a52c;\n  margin-right: 5px;\n}\n.movie-block {\n  padding: 80px 0;\n  max-width: 920px;\n}\n.movie-block h4 {\n  color: #292b32;\n}\n.movie-block h5 {\n  max-width: 600px;\n  color: #292b32;\n  font-size: 18px;\n  margin: 0 auto;\n  text-align: center;\n  line-height: 1.3;\n  margin-bottom: 30px;\n}\n.h_btn {\n  display: -webkit-box;\n  display: flex;\n  justify-content: space-around;\n  margin: 0 auto;\n  padding: 64px 0 0 0;\n  border-top: 1px solid #bbc2dc;\n}\n.vd_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 65px;\n}\n.vd_list li {\n  display: -webkit-box;\n  display: flex;\n  width: 30%;\n}\n.vd_list li .img_size {\n  width: 100px;\n}\n.vd_list li .img_size img {\n  width: 100%;\n}\n.video_box {\n  height: 520px;\n  border-radius: 5px;\n  overflow: hidden;\n}\n.video_box img {\n  width: 100%;\n}\n.video-wrapper {\n  margin-bottom: 40px;\n  position: relative;\n  cursor: pointer;\n}\n.video-wrapper:hover .play_movie {\n  -webkit-transform: translate(-50%, -50%) scale(1.2);\n          transform: translate(-50%, -50%) scale(1.2);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.video-modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  height: 101vh;\n  visibility: hidden;\n  opacity: 0;\n  background-color: #191919;\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n.video-modal .close {\n  color: white;\n  position: absolute;\n  background: #ffffff;\n  top: 15px;\n  right: 10px;\n  z-index: 2;\n  display: -webkit-box;\n  display: flex;\n  padding: 5px;\n  border-radius: 50%;\n  -webkit-transition: all 0.5s linear;\n  transition: all 0.5s linear;\n  opacity: 1;\n}\n.video-modal .close span {\n  width: 3px;\n  height: 30px;\n  background: white;\n}\n.video-modal .close span:first-child {\n  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n          transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n}\n.video-modal .close span:last-child {\n  -webkit-transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n          transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n}\n.video-modal #player {\n  height: 100vh;\n}\n.video-modal.visible {\n  visibility: visible;\n  opacity: 1;\n}\n.hide-scroll {\n  overflow: hidden;\n}\n.play_movie {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  width: 76px;\n  height: 76px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  background: #038FB4;\n  border-radius: 50%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.triangle_play {\n  border: 14px solid transparent;\n  border-left: 20px solid #ffffff;\n  position: absolute;\n  -webkit-transform: translateX(10px);\n          transform: translateX(10px);\n}\n.category-block {\n  padding: 40px 15px 100px 15px;\n}\n.category-block h3 {\n  font-size: 24px;\n  color: #292b32;\n}\n.article-block {\n  padding: 80px 15px;\n}\n.list_blog {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-bottom: 20px;\n}\n.list_blog li {\n  width: 300px;\n  margin: 0 20px;\n}\n.list_blog li .blogpost_info {\n  padding: 0 15px;\n}\n.list_blog h4 {\n  color: #292b32;\n  font-size: 22px;\n  font-weight: bold;\n}\n.img_blog {\n  overflow: hidden;\n  display: block;\n  width: 300px;\n  height: 150px;\n  margin-bottom: 10px;\n  border-radius: 5px 5px 0 0;\n}\n.img_blog:hover img {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.img_blog img {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n  width: 100%;\n}\n.blog_desc {\n  font-size: 16px;\n  color: #545a77;\n  margin-bottom: 5px;\n}\n.visit_blog {\n  color: #008fb4;\n  font-size: 18px;\n  line-height: 60px;\n  width: 165px;\n  border-radius: 60px;\n  border: 2px solid #e7ebfb;\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n}\n.visit_blog:hover {\n  text-decoration: none;\n}\n.city_zone {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 20px;\n}\n.box_category {\n  width: 19%;\n}\n.box_category h4 {\n  text-transform: uppercase;\n  font-size: 14px;\n  letter-spacing: 1px;\n  font-weight: bold;\n  margin-bottom: 5px;\n  color: #292b32;\n}\n.list_offer li {\n  text-transform: capitalize;\n}\n.list_offer li a {\n  color: #545a77;\n}\n.all_category a {\n  color: #292b32;\n  font-weight: bold;\n}\n.earn-content {\n  background: -webkit-gradient(linear, right top, left top, color-stop(1%, #11c9e1), to(#0798bf));\n  background: linear-gradient(-90deg, #11c9e1 1%, #0798bf);\n}\n.earn-content h2 {\n  color: #ffffff;\n  max-width: 400px;\n  font-size: 26px;\n  letter-spacing: 0.4px;\n  margin-bottom: 0;\n  padding: 35px 0;\n}\n.earn-block {\n  max-width: 940px;\n}\n.h_tasker {\n  position: relative;\n  max-width: 700px;\n  padding-right: 300px;\n}\n.taskers_img {\n  width: 270px;\n  position: absolute;\n  right: 15px;\n  bottom: 0;\n}\n.taskers_img img {\n  width: 100%;\n}\n.btn_taskers {\n  background: #7db343;\n  color: #ffffff;\n  width: 210px;\n  line-height: 60px;\n  display: block;\n  text-align: center;\n  border-radius: 60px;\n}\n.btn_taskers:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.look_task {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.country_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  padding: 30px 0;\n}\n.country_list li {\n  margin: 0 20px;\n}\n.country_list li svg {\n  margin-right: 10px;\n}\n.country_list li a {\n  color: #292b32;\n}\n.country_list li a:hover {\n  text-decoration: none;\n}\n@media (max-width: 992px) {\n.container {\n    max-width: 1170px;\n}\n.list_need {\n    flex-wrap: wrap;\n}\n.list_need li {\n    width: 22%;\n    margin: 0 0 25px 0;\n}\n.link_need {\n    text-align: center;\n}\n.icon_need {\n    margin: 0 auto 5px auto;\n}\n.getting-block h2,\n.tab_part_first {\n    padding-right: 15px;\n    padding-left: 15px;\n}\n.tab_nav_list {\n    overflow-x: auto;\n    white-space: nowrap;\n    flex-wrap: nowrap;\n    position: relative;\n    padding-bottom: 25px;\n    margin-bottom: 0;\n}\n.tab_nav_list li a {\n    padding-bottom: 10px;\n    font-size: 20px;\n}\n.tab_nav {\n    padding: 0 15px;\n    position: relative;\n    height: 40px;\n    overflow: hidden;\n    margin-bottom: 40px;\n}\n.tab_nav:after {\n    content: \"\";\n    display: inline-block;\n    position: absolute;\n    height: 32px;\n    top: 2px;\n    right: 15px;\n    box-shadow: 0 0 2px 2px #bbc2dc;\n}\n.movie-block {\n    padding: 80px 15px;\n}\n.video_box {\n    height: 400px;\n}\n.video_box .img_size {\n    height: 100%;\n}\n.video_box .img_size img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.vd_list li .img_size {\n    margin-right: 5px;\n}\n.list_blog {\n    -webkit-box-pack: justify;\n            justify-content: space-between;\n}\n.list_blog li {\n    width: 32%;\n    margin: 0;\n}\n.img_blog {\n    width: auto;\n}\n.img_blog img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n}\n@media (max-width: 768px) {\n.view-content h1 {\n    font-size: 40px;\n}\n.taskers_img {\n    display: none;\n}\n.h_tasker {\n    max-width: 420px;\n    padding-right: 20px;\n}\n.video_box {\n    height: 300px;\n}\n.vd_list {\n    flex-wrap: wrap;\n    margin-bottom: 40px;\n}\n.vd_list li {\n    width: 100%;\n    margin-bottom: 30px;\n}\n.vd_list li:last-of-type {\n    margin-bottom: 0;\n}\n.vd_list li .img_size {\n    margin-right: 15px;\n}\n.desc_do {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    -webkit-box-pack: center;\n            justify-content: center;\n}\n.h_btn {\n    display: block;\n    text-align: center;\n    padding: 40px 0 0 0;\n}\n.h_btn .land_link {\n    display: inline-block;\n}\n.h_btn h4 {\n    margin-bottom: 20px;\n}\n.article-block {\n    padding: 50px 15px;\n}\n.movie-block {\n    padding: 80px 15px 50px 15px;\n}\n.list_blog li .blogpost_info {\n    padding: 0 15px 0 0;\n}\n.city_zone {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n}\n.box_category {\n    width: 30%;\n    margin-bottom: 30px;\n}\n#footer {\n    height: auto;\n    position: relative;\n}\n.wrapper_box {\n    padding-bottom: 0;\n}\n.footer_lists {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n    padding: 64px 0 39px 0;\n}\n.footer_lists .ftr_list {\n    width: 32%;\n    margin-bottom: 25px;\n}\n}\n@media (max-width: 700px) {\n.list_blog {\n    display: block;\n    max-width: 400px;\n    margin: 0 auto 20px auto;\n}\n.list_blog li {\n    width: 100%;\n    margin-bottom: 40px;\n}\n.list_blog li:last-of-type {\n    margin-bottom: 0;\n}\n.box_category {\n    width: 48%;\n    padding-left: 5px;\n}\n}\n@media (max-width: 480px) {\n.view-content h1 {\n    font-size: 32px;\n}\n.view-content h4 {\n    font-size: 26px;\n}\n.list_need {\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n}\n.list_need li {\n    width: 32%;\n}\n.link_need {\n    width: 64px;\n}\n.icon_need {\n    width: 64px;\n    height: 64px;\n}\n.h_tasker {\n    padding-right: 0;\n}\n.look_task {\n    display: block;\n}\n.earn-content h2 {\n    padding: 0;\n    margin-bottom: 30px;\n}\n.earn-block {\n    padding: 40px 15px;\n}\n.country_list {\n    display: block;\n}\n.country_list li {\n    margin: 0 0 20px 0;\n}\n.country_list li:last-of-type {\n    margin-bottom: 0;\n}\n.footer_lists {\n    flex-wrap: wrap;\n    -webkit-box-pack: start;\n            justify-content: flex-start;\n    padding: 64px 0 39px 0;\n}\n.footer_lists .ftr_list {\n    width: 48%;\n    margin-bottom: 25px;\n}\n.footer_app {\n    display: block;\n}\n.app_list {\n    margin-bottom: 20px;\n}\n.h_btn h4 {\n    font-size: 20px;\n}\n.land_link {\n    line-height: 50px;\n    padding: 0 24px;\n    display: inline-block;\n}\n.visit_blog,\n.btn_taskers {\n    line-height: 50px;\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/v-suggestions/dist/v-suggestions.css":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/v-suggestions/dist/v-suggestions.css ***!
+  \*******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".v-suggestions {\n  position: relative;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n}\n\n.v-suggestions .suggestions {\n  position: absolute;\n  left: 0;\n  top: 36px;\n  width: 100%;\n  z-index: 100;\n  background: #ffffff;\n}\n\n.v-suggestions .items {\n  list-style: none;\n  border: 1px solid #EEE;\n  margin: 0;\n  padding: 0;\n  border-width: 0 1px 1px 1px;\n}\n\n.v-suggestions .item {\n  border-bottom: 1px solid #eee;\n  padding: .4rem;\n}\n\n.v-suggestions .items .item.is-active, .v-suggestions .items .item:hover {\n  background: #eee;\n  cursor: pointer;\n}\n\n.v-suggestions-input {\n  -webkit-appearance: none;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  border: 1px solid transparent;\n  border-radius: 3px;\n  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);\n          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  font-size: 1rem;\n  height: 2.25em;\n  -webkit-box-pack: start;\n  -ms-flex-pack: start;\n  justify-content: flex-start;\n  line-height: 1.5;\n  padding-bottom: calc(0.375em - 1px);\n  padding-left: calc(0.625em - 1px);\n  padding-right: calc(0.625em - 1px);\n  padding-top: calc(0.375em - 1px);\n  position: relative;\n  vertical-align: top;\n  background-color: white;\n  border-color: #dbdbdb;\n  color: #363636;\n  max-width: 100%;\n  width: 100%;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n  position: relative;\n}\n\n.v-suggestions-input:focus, .v-suggestions-input:active {\n  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);\n          box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);\n  outline: none;\n}\n", ""]);
 
 // exports
 
@@ -33356,7 +34714,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#content-wrap {\n    padding-bottom: 11.5rem;    /* Footer height */\n}\n#footer {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    height: 11.5rem;            /* Footer height */\n}\n", ""]);
+exports.push([module.i, "\n#content-wrap {\n    padding-bottom: 472px;    /* Footer height */\n}\n#footer {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    height: 472px;\n}\n", ""]);
 
 // exports
 
@@ -33446,6 +34804,87 @@ function toComment(sourceMap) {
 
 	return '/*# ' + data + ' */';
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/debounce/index.js":
+/*!****************************************!*\
+  !*** ./node_modules/debounce/index.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Returns a function, that, as long as it continues to be invoked, will not
+ * be triggered. The function will be called after it stops being called for
+ * N milliseconds. If `immediate` is passed, trigger the function on the
+ * leading edge, instead of the trailing. The function also has a property 'clear' 
+ * that is a function which will clear the timer to prevent previously scheduled executions. 
+ *
+ * @source underscore.js
+ * @see http://unscriptable.com/2009/03/20/debouncing-javascript-methods/
+ * @param {Function} function to wrap
+ * @param {Number} timeout in ms (`100`)
+ * @param {Boolean} whether to execute at the beginning (`false`)
+ * @api public
+ */
+function debounce(func, wait, immediate){
+  var timeout, args, context, timestamp, result;
+  if (null == wait) wait = 100;
+
+  function later() {
+    var last = Date.now() - timestamp;
+
+    if (last < wait && last >= 0) {
+      timeout = setTimeout(later, wait - last);
+    } else {
+      timeout = null;
+      if (!immediate) {
+        result = func.apply(context, args);
+        context = args = null;
+      }
+    }
+  };
+
+  var debounced = function(){
+    context = this;
+    args = arguments;
+    timestamp = Date.now();
+    var callNow = immediate && !timeout;
+    if (!timeout) timeout = setTimeout(later, wait);
+    if (callNow) {
+      result = func.apply(context, args);
+      context = args = null;
+    }
+
+    return result;
+  };
+
+  debounced.clear = function() {
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
+  };
+  
+  debounced.flush = function() {
+    if (timeout) {
+      result = func.apply(context, args);
+      context = args = null;
+      
+      clearTimeout(timeout);
+      timeout = null;
+    }
+  };
+
+  return debounced;
+};
+
+// Adds compatibility for ES modules
+debounce.debounce = debounce;
+
+module.exports = debounce;
 
 
 /***/ }),
@@ -73495,6 +74934,47 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/v-suggestions/dist/v-suggestions.css":
+/*!***********************************************************!*\
+  !*** ./node_modules/v-suggestions/dist/v-suggestions.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./v-suggestions.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/v-suggestions/dist/v-suggestions.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/v-suggestions/dist/v-suggestions.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/v-suggestions/dist/v-suggestions.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e(__webpack_require__(/*! debounce */ "./node_modules/debounce/index.js")):undefined}("undefined"!=typeof self?self:this,function(t){return function(t){function e(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,e),o.l=!0,o.exports}var n={};return e.m=t,e.c=n,e.d=function(t,n,r){e.o(t,n)||Object.defineProperty(t,n,{configurable:!1,enumerable:!0,get:r})},e.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(n,"a",n),n},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="",e(e.s=10)}([function(t,e){var n=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=n)},function(t,e){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,e,n){t.exports=!n(3)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,e){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,e,n){"use strict";var r=n(12),o=n.n(r),i=n(40),u=n.n(i),s=n(41);n.n(s);e.a={inheritAttributes:!0,props:{options:{type:Object,default:{}},onInputChange:{type:Function,required:!0},onItemSelected:{type:Function},value:{type:String,required:!0}},data:function(){var t={debounce:0,placeholder:"",inputClass:"input"};return{extendedOptions:o()({},t,this.options),query:this.value,lastSetQuery:null,items:[],activeItemIndex:-1,showItems:!1}},beforeMount:function(){0!==this.extendedOptions.debounce&&(this.onQueryChanged=u()(this.onQueryChanged,this.extendedOptions.debounce))},watch:{query:function(t,e){if(t===this.lastSetQuery)return void(this.lastSetQuery=null);this.onQueryChanged(t),this.$emit("input",t)},value:function(t,e){this.setInputQuery(t)}},methods:{onItemSelectedDefault:function(t){"string"==typeof t&&(this.$emit("input",t),this.setInputQuery(t),this.showItems=!1)},hideItems:function(){var t=this;setTimeout(function(){t.showItems=!1},300)},showResults:function(){this.showItems=!0},setInputQuery:function(t){this.lastSetQuery=t,this.query=t},onKeyDown:function(t){switch(t.keyCode){case 40:this.highlightItem("down"),t.preventDefault();break;case 38:this.highlightItem("up"),t.preventDefault();break;case 13:this.selectItem(),t.preventDefault();break;case 27:this.showItems=!1,t.preventDefault();break;default:return!0}},selectItem:function(t){var e=null;if(void 0===t){if(-1===this.activeItemIndex)return;e=this.items[this.activeItemIndex]}else e=this.items[t];e&&(this.onItemSelected?this.onItemSelected(e):this.onItemSelectedDefault(e),this.hideItems())},highlightItem:function(t){var e=this;if(0!==this.items.length){var n=this.items.findIndex(function(t,n){return n===e.activeItemIndex});-1===n?n="down"===t?0:this.items.length-1:(this.activeIndexItem=0,"down"===t?++n===this.items.length&&(n=0):--n<0&&(n=this.items.length-1)),this.activeItemIndex=n}},setItems:function(t){this.items=t,this.activeItemIndex=-1,this.showItems=!0},onQueryChanged:function(t){var e=this,n=this.onInputChange(t);this.items=[],void 0!==n&&"boolean"!=typeof n&&null!==n&&(n instanceof Array?this.setItems(n):"function"==typeof n.then&&n.then(function(t){e.setItems(t)}))}}}},function(t,e){var n=t.exports={version:"2.5.3"};"number"==typeof __e&&(__e=n)},function(t,e,n){var r=n(7),o=n(8);t.exports=function(t){return r(o(t))}},function(t,e,n){var r=n(29);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,e){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,e){var n=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:n)(t)}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=n(4),o=n(42),i=n(11),u=i(r.a,o.a,!1,null,null,null);u.options.__file="src/Suggestions.vue",e.default=u.exports},function(t,e){t.exports=function(t,e,n,r,o,i){var u,s=t=t||{},c=typeof t.default;"object"!==c&&"function"!==c||(u=t,s=t.default);var f="function"==typeof s?s.options:s;e&&(f.render=e.render,f.staticRenderFns=e.staticRenderFns,f._compiled=!0),n&&(f.functional=!0),o&&(f._scopeId=o);var a;if(i?(a=function(t){t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,t||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),r&&r.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(i)},f._ssrRegister=a):r&&(a=r),a){var l=f.functional,p=l?f.render:f.beforeCreate;l?(f._injectStyles=a,f.render=function(t,e){return a.call(e),p(t,e)}):f.beforeCreate=p?[].concat(p,a):[a]}return{esModule:u,exports:s,options:f}}},function(t,e,n){t.exports={default:n(13),__esModule:!0}},function(t,e,n){n(14),t.exports=n(5).Object.assign},function(t,e,n){var r=n(15);r(r.S+r.F,"Object",{assign:n(25)})},function(t,e,n){var r=n(0),o=n(5),i=n(16),u=n(18),s=function(t,e,n){var c,f,a,l=t&s.F,p=t&s.G,h=t&s.S,d=t&s.P,v=t&s.B,m=t&s.W,y=p?o:o[e]||(o[e]={}),x=y.prototype,g=p?r:h?r[e]:(r[e]||{}).prototype;p&&(n=e);for(c in n)(f=!l&&g&&void 0!==g[c])&&c in y||(a=f?g[c]:n[c],y[c]=p&&"function"!=typeof g[c]?n[c]:v&&f?i(a,r):m&&g[c]==a?function(t){var e=function(e,n,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(e);case 2:return new t(e,n)}return new t(e,n,r)}return t.apply(this,arguments)};return e.prototype=t.prototype,e}(a):d&&"function"==typeof a?i(Function.call,a):a,d&&((y.virtual||(y.virtual={}))[c]=a,t&s.R&&x&&!x[c]&&u(x,c,a)))};s.F=1,s.G=2,s.S=4,s.P=8,s.B=16,s.W=32,s.U=64,s.R=128,t.exports=s},function(t,e,n){var r=n(17);t.exports=function(t,e,n){if(r(t),void 0===e)return t;switch(n){case 1:return function(n){return t.call(e,n)};case 2:return function(n,r){return t.call(e,n,r)};case 3:return function(n,r,o){return t.call(e,n,r,o)}}return function(){return t.apply(e,arguments)}}},function(t,e){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,e,n){var r=n(19),o=n(24);t.exports=n(2)?function(t,e,n){return r.f(t,e,o(1,n))}:function(t,e,n){return t[e]=n,t}},function(t,e,n){var r=n(20),o=n(21),i=n(23),u=Object.defineProperty;e.f=n(2)?Object.defineProperty:function(t,e,n){if(r(t),e=i(e,!0),r(n),o)try{return u(t,e,n)}catch(t){}if("get"in n||"set"in n)throw TypeError("Accessors not supported!");return"value"in n&&(t[e]=n.value),t}},function(t,e,n){var r=n(1);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,e,n){t.exports=!n(2)&&!n(3)(function(){return 7!=Object.defineProperty(n(22)("div"),"a",{get:function(){return 7}}).a})},function(t,e,n){var r=n(1),o=n(0).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,e,n){var r=n(1);t.exports=function(t,e){if(!r(t))return t;var n,o;if(e&&"function"==typeof(n=t.toString)&&!r(o=n.call(t)))return o;if("function"==typeof(n=t.valueOf)&&!r(o=n.call(t)))return o;if(!e&&"function"==typeof(n=t.toString)&&!r(o=n.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,e){t.exports=function(t,e){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:e}}},function(t,e,n){"use strict";var r=n(26),o=n(37),i=n(38),u=n(39),s=n(7),c=Object.assign;t.exports=!c||n(3)(function(){var t={},e={},n=Symbol(),r="abcdefghijklmnopqrst";return t[n]=7,r.split("").forEach(function(t){e[t]=t}),7!=c({},t)[n]||Object.keys(c({},e)).join("")!=r})?function(t,e){for(var n=u(t),c=arguments.length,f=1,a=o.f,l=i.f;c>f;)for(var p,h=s(arguments[f++]),d=a?r(h).concat(a(h)):r(h),v=d.length,m=0;v>m;)l.call(h,p=d[m++])&&(n[p]=h[p]);return n}:c},function(t,e,n){var r=n(27),o=n(36);t.exports=Object.keys||function(t){return r(t,o)}},function(t,e,n){var r=n(28),o=n(6),i=n(30)(!1),u=n(33)("IE_PROTO");t.exports=function(t,e){var n,s=o(t),c=0,f=[];for(n in s)n!=u&&r(s,n)&&f.push(n);for(;e.length>c;)r(s,n=e[c++])&&(~i(f,n)||f.push(n));return f}},function(t,e){var n={}.hasOwnProperty;t.exports=function(t,e){return n.call(t,e)}},function(t,e){var n={}.toString;t.exports=function(t){return n.call(t).slice(8,-1)}},function(t,e,n){var r=n(6),o=n(31),i=n(32);t.exports=function(t){return function(e,n,u){var s,c=r(e),f=o(c.length),a=i(u,f);if(t&&n!=n){for(;f>a;)if((s=c[a++])!=s)return!0}else for(;f>a;a++)if((t||a in c)&&c[a]===n)return t||a||0;return!t&&-1}}},function(t,e,n){var r=n(9),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,e,n){var r=n(9),o=Math.max,i=Math.min;t.exports=function(t,e){return t=r(t),t<0?o(t+e,0):i(t,e)}},function(t,e,n){var r=n(34)("keys"),o=n(35);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,e,n){var r=n(0),o=r["__core-js_shared__"]||(r["__core-js_shared__"]={});t.exports=function(t){return o[t]||(o[t]={})}},function(t,e){var n=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++n+r).toString(36))}},function(t,e){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,e){e.f=Object.getOwnPropertySymbols},function(t,e){e.f={}.propertyIsEnumerable},function(t,e,n){var r=n(8);t.exports=function(t){return Object(r(t))}},function(e,n){e.exports=t},function(t,e){},function(t,e,n){"use strict";var r=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"v-suggestions"},[n("input",t._b({directives:[{name:"model",rawName:"v-model",value:t.query,expression:"query"}],class:t.extendedOptions.inputClass,attrs:{type:"text",autocomplete:Math.random(),placeholder:t.extendedOptions.placeholder},domProps:{value:t.query},on:{keydown:t.onKeyDown,blur:t.hideItems,focus:function(e){t.showItems=!0},input:function(e){e.target.composing||(t.query=e.target.value)}}},"input",t.$attrs,!1)),t._v(" "),n("div",{staticClass:"suggestions"},[n("ul",{directives:[{name:"show",rawName:"v-show",value:t.items.length>0&&!0===t.showItems,expression:"items.length > 0 && showItems === true"}],staticClass:"items"},t._l(t.items,function(e,r){return n("li",{key:r,staticClass:"item",class:{"is-active":r===t.activeItemIndex},on:{click:function(e){e.preventDefault(),t.selectItem(r)}}},[t._t("item",[t._v("\n          "+t._s(e)+"\n        ")],{item:e})],2)}))])])},o=[];r._withStripped=!0;var i={render:r,staticRenderFns:o};e.a=i}])});
+
+/***/ }),
+
 /***/ "./node_modules/vue-axios/dist/vue-axios.min.js":
 /*!******************************************************!*\
   !*** ./node_modules/vue-axios/dist/vue-axios.min.js ***!
@@ -79986,6 +81466,17 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/vue-js-modal/dist/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/vue-js-modal/dist/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t():undefined}(window,function(){return function(n){var o={};function i(e){if(o[e])return o[e].exports;var t=o[e]={i:e,l:!1,exports:{}};return n[e].call(t.exports,t,t.exports,i),t.l=!0,t.exports}return i.m=n,i.c=o,i.d=function(e,t,n){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(i.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)i.d(n,o,function(e){return t[e]}.bind(null,o));return n},i.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="/dist/",i(i.s=11)}([function(e,t,n){var o=n(6);"string"==typeof o&&(o=[[e.i,o,""]]),o.locals&&(e.exports=o.locals);(0,n(4).default)("27d83796",o,!1,{})},function(e,t,n){var o=n(8);"string"==typeof o&&(o=[[e.i,o,""]]),o.locals&&(e.exports=o.locals);(0,n(4).default)("0e783494",o,!1,{})},function(e,t,n){var o=n(10);"string"==typeof o&&(o=[[e.i,o,""]]),o.locals&&(e.exports=o.locals);(0,n(4).default)("17757f60",o,!1,{})},function(e,t){e.exports=function(n){var a=[];return a.toString=function(){return this.map(function(e){var t=function(e,t){var n=e[1]||"",o=e[3];if(!o)return n;if(t&&"function"==typeof btoa){var i=(a=o,"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(a))))+" */"),r=o.sources.map(function(e){return"/*# sourceURL="+o.sourceRoot+e+" */"});return[n].concat(r).concat([i]).join("\n")}var a;return[n].join("\n")}(e,n);return e[2]?"@media "+e[2]+"{"+t+"}":t}).join("")},a.i=function(e,t){"string"==typeof e&&(e=[[null,e,""]]);for(var n={},o=0;o<this.length;o++){var i=this[o][0];"number"==typeof i&&(n[i]=!0)}for(o=0;o<e.length;o++){var r=e[o];"number"==typeof r[0]&&n[r[0]]||(t&&!r[2]?r[2]=t:t&&(r[2]="("+r[2]+") and ("+t+")"),a.push(r))}},a}},function(e,t,n){"use strict";function l(e,t){for(var n=[],o={},i=0;i<t.length;i++){var r=t[i],a=r[0],s={id:e+":"+i,css:r[1],media:r[2],sourceMap:r[3]};o[a]?o[a].parts.push(s):n.push(o[a]={id:a,parts:[s]})}return n}n.r(t),n.d(t,"default",function(){return p});var o="undefined"!=typeof document;if("undefined"!=typeof DEBUG&&DEBUG&&!o)throw new Error("vue-style-loader cannot be used in a non-browser environment. Use { target: 'node' } in your Webpack config to indicate a server-rendering environment.");var d={},i=o&&(document.head||document.getElementsByTagName("head")[0]),r=null,a=0,u=!1,s=function(){},c=null,h="data-vue-ssr-id",f="undefined"!=typeof navigator&&/msie [6-9]\b/.test(navigator.userAgent.toLowerCase());function p(a,e,t,n){u=t,c=n||{};var s=l(a,e);return v(s),function(e){for(var t=[],n=0;n<s.length;n++){var o=s[n];(i=d[o.id]).refs--,t.push(i)}e?v(s=l(a,e)):s=[];for(n=0;n<t.length;n++){var i;if(0===(i=t[n]).refs){for(var r=0;r<i.parts.length;r++)i.parts[r]();delete d[i.id]}}}}function v(e){for(var t=0;t<e.length;t++){var n=e[t],o=d[n.id];if(o){o.refs++;for(var i=0;i<o.parts.length;i++)o.parts[i](n.parts[i]);for(;i<n.parts.length;i++)o.parts.push(g(n.parts[i]));o.parts.length>n.parts.length&&(o.parts.length=n.parts.length)}else{var r=[];for(i=0;i<n.parts.length;i++)r.push(g(n.parts[i]));d[n.id]={id:n.id,refs:1,parts:r}}}}function m(){var e=document.createElement("style");return e.type="text/css",i.appendChild(e),e}function g(t){var n,o,e=document.querySelector("style["+h+'~="'+t.id+'"]');if(e){if(u)return s;e.parentNode.removeChild(e)}if(f){var i=a++;e=r||(r=m()),n=w.bind(null,e,i,!1),o=w.bind(null,e,i,!0)}else e=m(),n=function(e,t){var n=t.css,o=t.media,i=t.sourceMap;o&&e.setAttribute("media",o);c.ssrId&&e.setAttribute(h,t.id);i&&(n+="\n/*# sourceURL="+i.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(i))))+" */");if(e.styleSheet)e.styleSheet.cssText=n;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(n))}}.bind(null,e),o=function(){e.parentNode.removeChild(e)};return n(t),function(e){if(e){if(e.css===t.css&&e.media===t.media&&e.sourceMap===t.sourceMap)return;n(t=e)}else o()}}var b,y=(b=[],function(e,t){return b[e]=t,b.filter(Boolean).join("\n")});function w(e,t,n,o){var i=n?"":o.css;if(e.styleSheet)e.styleSheet.cssText=y(t,i);else{var r=document.createTextNode(i),a=e.childNodes;a[t]&&e.removeChild(a[t]),a.length?e.insertBefore(r,a[t]):e.appendChild(r)}}},function(e,t,n){"use strict";var o=n(0);n.n(o).a},function(e,t,n){(e.exports=n(3)(!1)).push([e.i,"\n.vue-modal-resizer {\r\n  display: block;\r\n  overflow: hidden;\r\n  position: absolute;\r\n  width: 12px;\r\n  height: 12px;\r\n  right: 0;\r\n  bottom: 0;\r\n  z-index: 9999999;\r\n  background: transparent;\r\n  cursor: se-resize;\n}\n.vue-modal-resizer::after {\r\n  display: block;\r\n  position: absolute;\r\n  content: '';\r\n  background: transparent;\r\n  left: 0;\r\n  top: 0;\r\n  width: 0;\r\n  height: 0;\r\n  border-bottom: 10px solid #ddd;\r\n  border-left: 10px solid transparent;\n}\n.vue-modal-resizer.clicked::after {\r\n  border-bottom: 10px solid #369be9;\n}\r\n",""])},function(e,t,n){"use strict";var o=n(1);n.n(o).a},function(e,t,n){(e.exports=n(3)(!1)).push([e.i,"\n.v--modal-block-scroll {\r\n  overflow: hidden;\r\n  width: 100vw;\n}\n.v--modal-overlay {\r\n  position: fixed;\r\n  box-sizing: border-box;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100vh;\r\n  background: rgba(0, 0, 0, 0.2);\r\n  z-index: 999;\r\n  opacity: 1;\n}\n.v--modal-overlay.scrollable {\r\n  height: 100%;\r\n  min-height: 100vh;\r\n  overflow-y: auto;\r\n  -webkit-overflow-scrolling: touch;\n}\n.v--modal-overlay .v--modal-background-click {\r\n  width: 100%;\r\n  min-height: 100%;\r\n  height: auto;\n}\n.v--modal-overlay .v--modal-box {\r\n  position: relative;\r\n  overflow: hidden;\r\n  box-sizing: border-box;\n}\n.v--modal-overlay.scrollable .v--modal-box {\r\n  margin-bottom: 2px;\n}\n.v--modal {\r\n  background-color: white;\r\n  text-align: left;\r\n  border-radius: 3px;\r\n  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);\r\n  padding: 0;\n}\n.v--modal.v--modal-fullscreen {\r\n  width: 100vw;\r\n  height: 100vh;\r\n  margin: 0;\r\n  left: 0;\r\n  top: 0;\n}\n.v--modal-top-right {\r\n  display: block;\r\n  position: absolute;\r\n  right: 0;\r\n  top: 0;\n}\n.overlay-fade-enter-active,\r\n.overlay-fade-leave-active {\r\n  transition: all 0.2s;\n}\n.overlay-fade-enter,\r\n.overlay-fade-leave-active {\r\n  opacity: 0;\n}\n.nice-modal-fade-enter-active,\r\n.nice-modal-fade-leave-active {\r\n  transition: all 0.4s;\n}\n.nice-modal-fade-enter,\r\n.nice-modal-fade-leave-active {\r\n  opacity: 0;\r\n  transform: translateY(-20px);\n}\r\n",""])},function(e,t,n){"use strict";var o=n(2);n.n(o).a},function(e,t,n){(e.exports=n(3)(!1)).push([e.i,"\n.vue-dialog div {\r\n  box-sizing: border-box;\n}\n.vue-dialog .dialog-flex {\r\n  width: 100%;\r\n  height: 100%;\n}\n.vue-dialog .dialog-content {\r\n  flex: 1 0 auto;\r\n  width: 100%;\r\n  padding: 15px;\r\n  font-size: 14px;\n}\n.vue-dialog .dialog-c-title {\r\n  font-weight: 600;\r\n  padding-bottom: 15px;\n}\n.vue-dialog .dialog-c-text {\n}\n.vue-dialog .vue-dialog-buttons {\r\n  display: flex;\r\n  flex: 0 1 auto;\r\n  width: 100%;\r\n  border-top: 1px solid #eee;\n}\n.vue-dialog .vue-dialog-buttons-none {\r\n  width: 100%;\r\n  padding-bottom: 15px;\n}\n.vue-dialog-button {\r\n  font-size: 12px !important;\r\n  background: transparent;\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 0;\r\n  cursor: pointer;\r\n  box-sizing: border-box;\r\n  line-height: 40px;\r\n  height: 40px;\r\n  color: inherit;\r\n  font: inherit;\r\n  outline: none;\n}\n.vue-dialog-button:hover {\r\n  background: rgba(0, 0, 0, 0.01);\n}\n.vue-dialog-button:active {\r\n  background: rgba(0, 0, 0, 0.025);\n}\n.vue-dialog-button:not(:first-of-type) {\r\n  border-left: 1px solid #eee;\n}\r\n",""])},function(e,t,n){"use strict";n.r(t);var o=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("transition",{attrs:{name:t.overlayTransition}},[t.visibility.overlay?n("div",{ref:"overlay",class:t.overlayClass,attrs:{"aria-expanded":t.visibility.overlay.toString(),"data-modal":t.name}},[n("div",{staticClass:"v--modal-background-click",on:{mousedown:function(e){return e.target!==e.currentTarget?null:t.handleBackgroundClick(e)},touchstart:function(e){return e.target!==e.currentTarget?null:t.handleBackgroundClick(e)}}},[n("div",{staticClass:"v--modal-top-right"},[t._t("top-right")],2),t._v(" "),n("transition",{attrs:{name:t.transition},on:{"before-enter":t.beforeTransitionEnter,"after-enter":t.afterTransitionEnter,"after-leave":t.afterTransitionLeave}},[t.visibility.modal?n("div",{ref:"modal",class:t.modalClass,style:t.modalStyle},[t._t("default"),t._v(" "),t.resizable&&!t.isAutoHeight?n("resizer",{attrs:{"min-width":t.minWidth,"min-height":t.minHeight},on:{resize:t.handleModalResize}}):t._e()],2):t._e()])],1)]):t._e()])},i=function(){var e=this.$createElement;return(this._self._c||e)("div",{class:this.className})};i._withStripped=o._withStripped=!0;var s=function(){var e=0<arguments.length&&void 0!==arguments[0]?arguments[0]:0;return function(){return(e++).toString()}}(),u=function(e,t,n){return n<e?e:t<n?t:n},r=function(){var e=0<arguments.length&&void 0!==arguments[0]?arguments[0]:{};return function(i){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{},t=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(t=t.concat(Object.getOwnPropertySymbols(r).filter(function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable}))),t.forEach(function(e){var t,n,o;t=i,o=r[n=e],n in t?Object.defineProperty(t,n,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[n]=o})}return i}({id:s(),timestamp:Date.now(),canceled:!1},e)},a={name:"VueJsModalResizer",props:{minHeight:{type:Number,default:0},minWidth:{type:Number,default:0}},data:function(){return{clicked:!1,size:{}}},mounted:function(){this.$el.addEventListener("mousedown",this.start,!1)},computed:{className:function(){return{"vue-modal-resizer":!0,clicked:this.clicked}}},methods:{start:function(e){this.clicked=!0,window.addEventListener("mousemove",this.mousemove,!1),window.addEventListener("mouseup",this.stop,!1),e.stopPropagation(),e.preventDefault()},stop:function(){this.clicked=!1,window.removeEventListener("mousemove",this.mousemove,!1),window.removeEventListener("mouseup",this.stop,!1),this.$emit("resize-stop",{element:this.$el.parentElement,size:this.size})},mousemove:function(e){this.resize(e)},resize:function(e){var t=this.$el.parentElement;if(t){var n=e.clientX-t.offsetLeft,o=e.clientY-t.offsetTop;n=u(this.minWidth,window.innerWidth,n),o=u(this.minHeight,window.innerHeight,o),this.size={width:n,height:o},t.style.width=n+"px",t.style.height=o+"px",this.$emit("resize",{element:t,size:this.size})}}}};n(5);function l(e,t,n,o,i,r,a,s){var l,d="function"==typeof e?e.options:e;if(t&&(d.render=t,d.staticRenderFns=n,d._compiled=!0),o&&(d.functional=!0),r&&(d._scopeId="data-v-"+r),a?(l=function(e){(e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),i&&i.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(a)},d._ssrRegister=l):i&&(l=s?function(){i.call(this,this.$root.$options.shadowRoot)}:i),l)if(d.functional){d._injectStyles=l;var u=d.render;d.render=function(e,t){return l.call(t),u(e,t)}}else{var c=d.beforeCreate;d.beforeCreate=c?[].concat(c,l):[l]}return{exports:e,options:d}}var d=l(a,i,[],!1,null,null,null);d.options.__file="src/Resizer.vue";var c=d.exports;function h(e){return(h="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}var f="[-+]?[0-9]*.?[0-9]+",p=[{name:"px",regexp:new RegExp("^".concat(f,"px$"))},{name:"%",regexp:new RegExp("^".concat(f,"%$"))},{name:"px",regexp:new RegExp("^".concat(f,"$"))}],v=function(e){switch(h(e)){case"number":return{type:"px",value:e};case"string":return function(e){if("auto"===e)return{type:e,value:0};for(var t=0;t<p.length;t++){var n=p[t];if(n.regexp.test(e))return{type:n.name,value:parseFloat(e)}}return{type:"",value:e}}(e);default:return{type:"",value:e}}},m=function(e){if("string"!=typeof e)return 0<=e;var t=v(e);return("%"===t.type||"px"===t.type)&&0<t.value};var g={name:"VueJsModal",props:{name:{required:!0,type:String},delay:{type:Number,default:0},resizable:{type:Boolean,default:!1},adaptive:{type:Boolean,default:!1},draggable:{type:[Boolean,String],default:!1},scrollable:{type:Boolean,default:!1},reset:{type:Boolean,default:!1},overlayTransition:{type:String,default:"overlay-fade"},transition:{type:String},clickToClose:{type:Boolean,default:!0},classes:{type:[String,Array],default:"v--modal"},minWidth:{type:Number,default:0,validator:function(e){return 0<=e}},minHeight:{type:Number,default:0,validator:function(e){return 0<=e}},maxWidth:{type:Number,default:1/0},maxHeight:{type:Number,default:1/0},width:{type:[Number,String],default:600,validator:m},height:{type:[Number,String],default:300,validator:function(e){return"auto"===e||m(e)}},pivotX:{type:Number,default:.5,validator:function(e){return 0<=e&&e<=1}},pivotY:{type:Number,default:.5,validator:function(e){return 0<=e&&e<=1}}},components:{Resizer:c},data:function(){return{visible:!1,visibility:{modal:!1,overlay:!1},shift:{left:0,top:0},modal:{width:0,widthType:"px",height:0,heightType:"px",renderedHeight:0},window:{width:0,height:0},mutationObserver:null}},created:function(){this.setInitialSize()},beforeMount:function(){var t=this;if(z.event.$on("toggle",this.handleToggleEvent),window.addEventListener("resize",this.handleWindowResize),this.handleWindowResize(),this.scrollable&&!this.isAutoHeight&&console.warn('Modal "'.concat(this.name,'" has scrollable flag set to true ')+'but height is not "auto" ('.concat(this.height,")")),this.isAutoHeight){var e=function(){if("undefined"!=typeof window)for(var e=["","WebKit","Moz","O","Ms"],t=0;t<e.length;t++){var n=e[t]+"MutationObserver";if(n in window)return window[n]}return!1}();e&&(this.mutationObserver=new e(function(e){t.updateRenderedHeight()}))}this.clickToClose&&window.addEventListener("keyup",this.handleEscapeKeyUp)},beforeDestroy:function(){z.event.$off("toggle",this.handleToggleEvent),window.removeEventListener("resize",this.handleWindowResize),this.clickToClose&&window.removeEventListener("keyup",this.handleEscapeKeyUp),this.scrollable&&document.body.classList.remove("v--modal-block-scroll")},computed:{isAutoHeight:function(){return"auto"===this.modal.heightType},position:function(){var e=this.window,t=this.shift,n=this.pivotX,o=this.pivotY,i=this.trueModalWidth,r=this.trueModalHeight,a=e.width-i,s=e.height-r,l=t.left+n*a,d=t.top+o*s;return{left:parseInt(u(0,a,l)),top:parseInt(u(0,s,d))}},trueModalWidth:function(){var e=this.window,t=this.modal,n=this.adaptive,o=this.minWidth,i=this.maxWidth,r="%"===t.widthType?e.width/100*t.width:t.width,a=Math.min(e.width,i);return n?u(o,a,r):r},trueModalHeight:function(){var e=this.window,t=this.modal,n=this.isAutoHeight,o=this.adaptive,i=this.maxHeight,r="%"===t.heightType?e.height/100*t.height:t.height;if(n)return this.modal.renderedHeight;var a=Math.min(e.height,i);return o?u(this.minHeight,a,r):r},overlayClass:function(){return{"v--modal-overlay":!0,scrollable:this.scrollable&&this.isAutoHeight}},modalClass:function(){return["v--modal-box",this.classes]},modalStyle:function(){return{top:this.position.top+"px",left:this.position.left+"px",width:this.trueModalWidth+"px",height:this.isAutoHeight?"auto":this.trueModalHeight+"px"}}},watch:{visible:function(e){var t=this;e?(this.visibility.overlay=!0,setTimeout(function(){t.visibility.modal=!0,t.$nextTick(function(){t.addDraggableListeners(),t.callAfterEvent(!0)})},this.delay)):(this.visibility.modal=!1,setTimeout(function(){t.visibility.overlay=!1,t.$nextTick(function(){t.removeDraggableListeners(),t.callAfterEvent(!1)})},this.delay))}},methods:{handleToggleEvent:function(e,t,n){if(this.name===e){var o=void 0===t?!this.visible:t;this.toggle(o,n)}},setInitialSize:function(){var e=this.modal,t=v(this.width),n=v(this.height);e.width=t.value,e.widthType=t.type,e.height=n.value,e.heightType=n.type},handleEscapeKeyUp:function(e){27===e.which&&this.visible&&this.$modal.hide(this.name)},handleWindowResize:function(){this.window.width=window.innerWidth,this.window.height=window.innerHeight,this.ensureShiftInWindowBounds()},createModalEvent:function(){var e=0<arguments.length&&void 0!==arguments[0]?arguments[0]:{};return r(function(i){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{},t=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(t=t.concat(Object.getOwnPropertySymbols(r).filter(function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable}))),t.forEach(function(e){var t,n,o;t=i,o=r[n=e],n in t?Object.defineProperty(t,n,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[n]=o})}return i}({name:this.name,ref:this.$refs.modal},e))},handleModalResize:function(e){this.modal.widthType="px",this.modal.width=e.size.width,this.modal.heightType="px",this.modal.height=e.size.height;var t=this.modal.size;this.$emit("resize",this.createModalEvent({size:t}))},toggle:function(e,t){var n=this.reset,o=this.scrollable,i=this.visible;if(i!==e){var r=i?"before-close":"before-open";"before-open"===r?("undefined"!=typeof document&&document.activeElement&&"BODY"!==document.activeElement.tagName&&document.activeElement.blur&&document.activeElement.blur(),n&&(this.setInitialSize(),this.shift.left=0,this.shift.top=0),o&&document.body.classList.add("v--modal-block-scroll")):o&&document.body.classList.remove("v--modal-block-scroll");var a=!1,s=this.createModalEvent({stop:function(){a=!0},state:e,params:t});this.$emit(r,s),a||(this.visible=e)}},getDraggableElement:function(){var e="string"!=typeof this.draggable?".v--modal-box":this.draggable;return e?this.$refs.overlay.querySelector(e):null},handleBackgroundClick:function(){this.clickToClose&&this.toggle(!1)},callAfterEvent:function(e){e?this.connectObserver():this.disconnectObserver();var t=e?"opened":"closed",n=this.createModalEvent({state:e});this.$emit(t,n)},addDraggableListeners:function(){var r=this;if(this.draggable){var e=this.getDraggableElement();if(e){var a=0,s=0,l=0,d=0,u=function(e){return e.touches&&0<e.touches.length?e.touches[0]:e},t=function(e){var t=e.target;if(!t||"INPUT"!==t.nodeName){var n=u(e),o=n.clientX,i=n.clientY;document.addEventListener("mousemove",c),document.addEventListener("touchmove",c),document.addEventListener("mouseup",h),document.addEventListener("touchend",h),a=o,s=i,l=r.shift.left,d=r.shift.top}},c=function(e){var t=u(e),n=t.clientX,o=t.clientY;r.shift.left=l+n-a,r.shift.top=d+o-s,e.preventDefault()},h=function e(t){r.ensureShiftInWindowBounds(),document.removeEventListener("mousemove",c),document.removeEventListener("touchmove",c),document.removeEventListener("mouseup",e),document.removeEventListener("touchend",e),t.preventDefault()};e.addEventListener("mousedown",t),e.addEventListener("touchstart",t)}}},removeDraggableListeners:function(){},updateRenderedHeight:function(){this.$refs.modal&&(this.modal.renderedHeight=this.$refs.modal.getBoundingClientRect().height)},connectObserver:function(){this.mutationObserver&&this.mutationObserver.observe(this.$refs.overlay,{childList:!0,attributes:!0,subtree:!0})},disconnectObserver:function(){this.mutationObserver&&this.mutationObserver.disconnect()},beforeTransitionEnter:function(){this.connectObserver()},afterTransitionEnter:function(){},afterTransitionLeave:function(){},ensureShiftInWindowBounds:function(){var e=this.window,t=this.shift,n=this.pivotX,o=this.pivotY,i=this.trueModalWidth,r=this.trueModalHeight,a=e.width-i,s=e.height-r,l=t.left+n*a,d=t.top+o*s;this.shift.left-=l-u(0,a,l),this.shift.top-=d-u(0,s,d)}}},b=(n(7),l(g,o,[],!1,null,null,null));b.options.__file="src/Modal.vue";var y=b.exports,w=function(){var n=this,e=n.$createElement,o=n._self._c||e;return o("modal",{attrs:{name:"dialog",height:"auto",classes:["v--modal","vue-dialog",this.params.class],width:n.width,"pivot-y":.3,adaptive:!0,clickToClose:n.clickToClose,transition:n.transition},on:{"before-open":n.beforeOpened,"before-close":n.beforeClosed,opened:function(e){n.$emit("opened",e)},closed:function(e){n.$emit("closed",e)}}},[o("div",{staticClass:"dialog-content"},[n.params.title?o("div",{staticClass:"dialog-c-title",domProps:{innerHTML:n._s(n.params.title||"")}}):n._e(),n._v(" "),n.params.component?o(n.params.component,n._b({tag:"component"},"component",n.params.props,!1)):o("div",{staticClass:"dialog-c-text",domProps:{innerHTML:n._s(n.params.text||"")}})],1),n._v(" "),n.buttons?o("div",{staticClass:"vue-dialog-buttons"},n._l(n.buttons,function(e,t){return o("button",{key:t,class:e.class||"vue-dialog-button",style:n.buttonStyle,attrs:{type:"button"},domProps:{innerHTML:n._s(e.title)},on:{click:function(e){e.stopPropagation(),n.click(t,e)}}},[n._v("\n      "+n._s(e.title)+"\n    ")])})):o("div",{staticClass:"vue-dialog-buttons-none"})])};w._withStripped=!0;var x={name:"VueJsDialog",props:{width:{type:[Number,String],default:400},clickToClose:{type:Boolean,default:!0},transition:{type:String,default:"fade"}},data:function(){return{params:{},defaultButtons:[{title:"CLOSE"}]}},computed:{buttons:function(){return this.params.buttons||this.defaultButtons},buttonStyle:function(){return{flex:"1 1 ".concat(100/this.buttons.length,"%")}}},methods:{beforeOpened:function(e){window.addEventListener("keyup",this.onKeyUp),this.params=e.params||{},this.$emit("before-opened",e)},beforeClosed:function(e){window.removeEventListener("keyup",this.onKeyUp),this.params={},this.$emit("before-closed",e)},click:function(e,t){var n=2<arguments.length&&void 0!==arguments[2]?arguments[2]:"click",o=this.buttons[e];o&&"function"==typeof o.handler?o.handler(e,t,{source:n}):this.$modal.hide("dialog")},onKeyUp:function(e){if(13===e.which&&0<this.buttons.length){var t=1===this.buttons.length?0:this.buttons.findIndex(function(e){return e.default});-1!==t&&this.click(t,e,"keypress")}}}},_=(n(9),l(x,w,[],!1,null,null,null));_.options.__file="src/Dialog.vue";var E=_.exports,S=function(){var n=this,e=n.$createElement,o=n._self._c||e;return o("div",{attrs:{id:"modals-container"}},n._l(n.modals,function(t){return o("modal",n._g(n._b({key:t.id,on:{closed:function(e){n.remove(t.id)}}},"modal",t.modalAttrs,!1),t.modalListeners),[o(t.component,n._g(n._b({tag:"component",on:{close:function(e){n.$modal.hide(t.modalAttrs.name)}}},"component",t.componentAttrs,!1),n.$listeners))],1)}))};S._withStripped=!0;var O=l({data:function(){return{modals:[]}},created:function(){this.$root._dynamicContainer=this},methods:{add:function(e){var t=this,n=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{},o=2<arguments.length&&void 0!==arguments[2]?arguments[2]:{},i=3<arguments.length&&void 0!==arguments[3]?arguments[3]:{},r=s(),a=o.name||"_dynamic_modal_"+r;this.modals.push({id:r,modalAttrs:function(i){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{},t=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(t=t.concat(Object.getOwnPropertySymbols(r).filter(function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable}))),t.forEach(function(e){var t,n,o;t=i,o=r[n=e],n in t?Object.defineProperty(t,n,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[n]=o})}return i}({},o,{name:a}),modalListeners:i,component:e,componentAttrs:n}),this.$nextTick(function(){t.$modal.show(a)})},remove:function(t){var e=this.modals.findIndex(function(e){return e.id===t});-1!==e&&this.modals.splice(e,1)}}},S,[],!1,null,null,null);O.options.__file="src/ModalsContainer.vue";var k=O.exports;function C(e){return(C="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}n.d(t,"getModalsContainer",function(){return T});var T=function(e,t,n){if(!n._dynamicContainer&&t.injectModalsContainer){var o=(i=document.createElement("div"),document.body.appendChild(i),i);new e({parent:n,render:function(e){return e(k)}}).$mount(o)}var i;return n._dynamicContainer},$={install:function(a){var s=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{};if(!this.installed){this.installed=!0,this.event=new a,this.rootInstance=null;var e=s.componentName||"Modal",l=s.dynamicDefaults||{},i=function(e,t,n,o){var i=n&&n.root?n.root:$.rootInstance,r=T(a,s,i);r?r.add(e,function(i){for(var e=1;e<arguments.length;e++){var r=null!=arguments[e]?arguments[e]:{},t=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(t=t.concat(Object.getOwnPropertySymbols(r).filter(function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable}))),t.forEach(function(e){var t,n,o;t=i,o=r[n=e],n in t?Object.defineProperty(t,n,{value:o,enumerable:!0,configurable:!0,writable:!0}):t[n]=o})}return i}({},l,t),n,o):console.warn("[vue-js-modal] In order to render dynamic modals, a <modals-container> component must be present on the page.")};a.prototype.$modal={show:function(e){for(var t=arguments.length,n=new Array(1<t?t-1:0),o=1;o<t;o++)n[o-1]=arguments[o];switch(C(e)){case"string":return function(e,t){$.event.$emit("toggle",e,!0,t)}.apply(void 0,[e].concat(n));case"object":return s.dynamic?i.apply(void 0,[e].concat(n)):console.warn("[vue-js-modal] $modal() received object as a first argument, but dynamic modals are switched off. https://github.com/euvl/vue-js-modal/#dynamic-modals")}},hide:function(e,t){$.event.$emit("toggle",e,!1,t)},toggle:function(e,t){$.event.$emit("toggle",e,void 0,t)}},a.component(e,y),s.dialog&&a.component("VDialog",E),s.dynamic&&(a.component("ModalsContainer",k),a.mixin({beforeMount:function(){null===$.rootInstance&&($.rootInstance=this.$root)}}))}}},z=t.default=$}])});
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Index.vue?vue&type=template&id=147fb424&":
 /*!*********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Index.vue?vue&type=template&id=147fb424& ***!
@@ -80034,18 +81525,249 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("footer", { staticClass: "footer-area", attrs: { id: "footer" } }, [
+    _c("div", { staticClass: "container" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "footer_app" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("ul", { staticClass: "social_list" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "facebook-circle",
+                  attrs: { width: "26", height: "26", viewBox: "0 0 25 24" }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12.5 0C19.404 0 25 5.372 25 12c0 6.627-5.596 12-12.5 12C5.597 24 0 18.627 0 12 0 5.372 5.597 0 12.5 0zm5.338 6H7.162a.662.662 0 0 0-.662.662v10.676c0 .365.296.662.662.662h5.748v-4.647h-1.564v-1.811h1.564v-1.336c0-1.55.946-2.394 2.329-2.394.662 0 1.231.05 1.397.072v1.62h-.959c-.752 0-.897.357-.897.882v1.156h1.793l-.233 1.811h-1.56V18h3.058a.662.662 0 0 0 .662-.662V6.662A.662.662 0 0 0 17.838 6z",
+                      fill: "#B2BFC3",
+                      "fill-rule": "evenodd"
+                    }
+                  })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "twitter-circle",
+                  attrs: { width: "26", height: "26", viewBox: "0 0 25 24" }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12.5 0C19.404 0 25 5.372 25 12c0 6.627-5.596 12-12.5 12C5.597 24 0 18.627 0 12 0 5.372 5.597 0 12.5 0zm-2.302 17.875c5.283 0 8.173-4.378 8.173-8.167 0-.124 0-.247-.005-.37A5.85 5.85 0 0 0 19.8 7.85c-.515.23-1.07.38-1.653.454a2.888 2.888 0 0 0 1.266-1.59c-.554.33-1.17.565-1.826.694a2.875 2.875 0 0 0-4.896 2.62 8.16 8.16 0 0 1-5.922-3 2.878 2.878 0 0 0 .89 3.835 2.907 2.907 0 0 1-1.299-.36v.04c0 1.388.992 2.552 2.303 2.815a2.868 2.868 0 0 1-1.294.051 2.872 2.872 0 0 0 2.683 1.993A5.765 5.765 0 0 1 5.8 16.593a8.176 8.176 0 0 0 4.398 1.282z",
+                      fill: "#B2BFC3",
+                      "fill-rule": "evenodd"
+                    }
+                  })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "youtube-circle",
+                  attrs: { width: "26", height: "26", viewBox: "0 0 25 24" }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M12.5 0C19.404 0 25 5.372 25 12c0 6.627-5.596 12-12.5 12C5.597 24 0 18.627 0 12 0 5.372 5.597 0 12.5 0zm6.65 8.59a1.746 1.746 0 0 0-1.233-1.233c-1.087-.291-5.447-.291-5.447-.291s-4.359 0-5.446.29a1.75 1.75 0 0 0-1.233 1.233C5.5 9.677 5.5 11.945 5.5 11.945s0 2.268.291 3.355c.16.6.633 1.072 1.233 1.233 1.087.291 5.446.291 5.446.291s4.36 0 5.447-.291c.6-.16 1.072-.633 1.233-1.233.29-1.087.29-3.355.29-3.355s0-2.268-.29-3.356zm-4.452 3.355l-3.622 2.091V9.854l3.622 2.09v.001z",
+                      fill: "#B2BFC3",
+                      "fill-rule": "evenodd"
+                    }
+                  })
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "down_footer" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "copyright text-center" }, [
+          _c(
+            "svg",
+            {
+              staticClass: "airtasker-logo-small",
+              attrs: { width: "19", height: "19", viewBox: "0 0 32 32" }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M32 18.88a7.78 7.78 0 0 0-1.51-4.14 5.83 5.83 0 0 0-4.94-2.52H8.26a6.94 6.94 0 0 0 1.92 4.3 7.16 7.16 0 0 0 4.54 1.85h1.55v1.55c0 4 3.18 4.52 6.28 4.52h.25v3h-.25c-6.71 0-8.81-3.1-9.25-6.18A9.91 9.91 0 0 1 8 18.69c-1.94-1.9-2.93-4.59-2.93-8V9.18h20.48a8.83 8.83 0 0 1 6.05 2.26A16.15 16.15 0 0 0 0 16a16.15 16.15 0 0 0 32 2.91z"
+                }
+              })
+            ]
+          ),
+          _vm._v(
+            "\n                Airtasker Pty. Ltd 2011-2019©, All rights reserved\n            "
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "footer",
-      { staticClass: "footer-area", attrs: { id: "footer" } },
-      [_c("div", { staticClass: "container" }, [_c("h2", [_vm._v("Footer")])])]
-    )
+    return _c("div", { staticClass: "footer_lists" }, [
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Discover")]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("How it works")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Airtasker for business")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Earn money")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("New users FAQ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Find work")])])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Company")]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("About us")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Careers")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Community guidelines")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Terms & conditions")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Blog")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Contact us")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Privacy policy")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Existing Members")]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Post a task")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Browse tasks")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Login")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Support centre")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Merchandise")])])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Popular Categories")]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Handyman Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Clearing Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Delivery Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Removalists")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Gardening Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Automotive")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Assembly Services")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("All Services")])])
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "ftr_list" }, [
+        _c("li", [_vm._v("Partners")]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("7Plus")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("New Idea")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("The West Australian")])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Marie Claire")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("PerthNow")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [
+            _vm._v("Better Homes and Gardens")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Girlfriend")])]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("Seven West Media")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "app_list" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "/" } }, [
+          _c("img", { attrs: { src: "img/google-play.svg", alt: "" } })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "/" } }, [
+          _c("img", { attrs: { src: "img/apple-store.svg", alt: "" } })
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -80069,55 +81791,317 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { attrs: { id: "header" } }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "container align-items-center justify-content-between d-flex"
-      },
-      [
-        _c(
-          "div",
-          { attrs: { id: "logo" } },
-          [
-            _c("router-link", { staticClass: "logo", attrs: { to: "/" } }, [
-              _c("img", { attrs: { src: "img/white-logo.svg", alt: "" } })
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("nav", { attrs: { id: "nav-menu-container" } }, [
-          _c("ul", { staticClass: "nav_menu" }, [
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/" } }, [
-                  _vm._v("\n                        Home\n                    ")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: "/login" } }, [
-                  _vm._v(
-                    "\n                        Log in\n                    "
+  return _c(
+    "header",
+    { attrs: { id: "header" } },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "container align-items-center justify-content-between d-flex"
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "d-flex align-items-center visible_header" },
+            [
+              _c(
+                "div",
+                { staticClass: "logo_header", attrs: { id: "logo" } },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "logo", attrs: { to: "/" } },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            id: "AirtaskerLogo",
+                            width: "111",
+                            height: "19",
+                            viewBox: "0 0 141 23",
+                            version: "1.1",
+                            xmlns: "http://www.w3.org/2000/svg",
+                            "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                            "data-ui-test": "undefined-svg"
+                          }
+                        },
+                        [
+                          _c("g", { attrs: { "fill-rule": "evenodd" } }, [
+                            _c("path", {
+                              attrs: {
+                                fill: "#008fb4",
+                                d:
+                                  "M140.663 11.607l-.026-4.488c-.873.036-3.502.388-4.67 1.791V7.422h-4.878v14.963h4.878v-6.949c.002-.039.007-.078.011-.117.708-3.334 3.873-3.685 4.685-3.712m-43.961.178c-.604-.576-1.235-.867-1.779-1.129a3.924 3.924 0 0 0-1.723-.393c-.464 0-.892.09-1.285.272-.393.182-.59.495-.59.937 0 .423.216.726.65.908.433.181 1.134.382 2.101.605.564.121 1.134.291 1.709.513a6.009 6.009 0 0 1 1.557.878 4.18 4.18 0 0 1 1.119 1.33c.282.525.424 1.149.424 1.875 0 .947-.192 1.75-.575 2.404a4.717 4.717 0 0 1-1.497 1.587 6.45 6.45 0 0 1-2.071.877 9.916 9.916 0 0 1-2.298.272c-1.23 0-2.435-.196-3.614-.59-1.18-.392-2.162-.972-2.948-1.738l2.425-3.046c.444.485 1.344 1.001 1.989 1.322a4.537 4.537 0 0 0 2.057.485c.403 0 .801-.097 1.194-.288.393-.192.59-.53.59-1.013 0-.464-.242-.806-.726-1.029-.483-.221-1.239-.452-2.268-.695a11.86 11.86 0 0 1-1.573-.483 5.015 5.015 0 0 1-1.406-.816 4.073 4.073 0 0 1-1.012-1.272c-.262-.503-.394-1.108-.394-1.814 0-.907.192-1.678.575-2.313a4.862 4.862 0 0 1 1.482-1.557 6.61 6.61 0 0 1 2.01-.893 8.749 8.749 0 0 1 2.193-.287c1.129 0 2.233.177 3.311.529 1.079.353 1.991.882 2.737 1.588l-2.364 2.974m28.725 1.176a2.92 2.92 0 0 0-.729-1.872c-.489-.558-1.222-.838-2.199-.838-.479 0-.916.075-1.316.224-.398.15-.747.355-1.046.614a3.038 3.038 0 0 0-.718.912 2.648 2.648 0 0 0-.288.96h6.296zm4.518 2.015v.599c0 .199-.009.388-.029.567h-10.795c.039.42.164.798.373 1.137.209.34.479.633.808.883.329.248.697.444 1.106.582.408.14.832.209 1.27.209.778 0 1.436-.143 1.975-.433a3.911 3.911 0 0 0 1.316-1.121l3.409 2.153a6.927 6.927 0 0 1-2.766 2.348c-1.148.548-2.478.822-3.993.822a9.538 9.538 0 0 1-3.169-.524 7.665 7.665 0 0 1-2.617-1.525 7.036 7.036 0 0 1-1.764-2.467c-.43-.977-.643-2.093-.643-3.35 0-1.215.208-2.317.628-3.304.418-.986.986-1.824 1.704-2.511a7.57 7.57 0 0 1 2.542-1.6c.976-.379 2.033-.569 3.169-.569 1.097 0 2.104.185 3.021.554a6.557 6.557 0 0 1 2.362 1.6c.658.697 1.171 1.545 1.541 2.541.368.997.552 2.133.552 3.409zM70.83 11.464v-4.5h-4.203V3.612c-.11-1.936-1.018-3.373-4.745-3.375v17.404c0 .761.099 1.45.27 2.068.171.619.451 1.152.84 1.598.389.448.906.79 1.55 1.028.646.237 1.62.356 2.568.356 1.463 0 2.481-.201 3.72-.616v-3.973s-1.167.319-2.438.319c-.666 0-1.124-.166-1.382-.5-.256-.334-.383-.833-.383-1.5v-4.957h4.203"
+                              }
+                            }),
+                            _c("path", {
+                              attrs: {
+                                fill: "#008fb4",
+                                d:
+                                  "M110.194 14.4l5.533-7.008h-5.892l-4.878 6.158V3.708c-.084-1.983-.959-3.466-4.738-3.47v22.149h4.738v-7.152l5.606 7.152h5.928l-6.297-7.987m-25.209 7.972v-9.91c0-4.261-3.381-5.795-6.373-5.795-3.253 0-5.215 1.038-6.518 2.124l2.474 3.077c.823-.767 2.456-1.552 3.559-1.552 1.803 0 2.175 1.031 2.175 2.35v.254h-1.623c-4.159 0-6.662 1.809-6.662 5.021 0 3.509 3.084 4.431 6.837 4.431h6.131zm-4.683-3.115c-.508-.002-1.114.01-1.555 0-1.217-.026-1.961-.504-1.961-1.553 0-1.047.744-1.653 2.232-1.653h1.284v3.206zM44.596 2.953c0 1.542 1.274 2.749 2.716 2.749a2.741 2.741 0 0 0 2.75-2.749c0-1.508-1.242-2.715-2.75-2.715-1.442 0-2.716 1.207-2.716 2.715m.46 4.043h-.197v15.389h4.939V10.234c-.143-1.869-1.095-3.238-4.742-3.238m15.706 4.611l-.025-4.488c-.875.036-3.502.388-4.671 1.791V7.422h-4.878v14.963h4.878v-6.949c.002-.039.007-.078.011-.117.709-3.334 3.873-3.685 4.685-3.712m78.476 8.523h-.278v.516h.278c.161 0 .27-.114.27-.257 0-.145-.109-.259-.27-.259zm.27 1.441l-.338-.677h-.21v.677h-.304v-1.707h.621a.52.52 0 0 1 .531.525c0 .24-.143.397-.325.462l.367.72h-.342zm-.32-2.138c-.684 0-1.225.567-1.225 1.287 0 .721.541 1.287 1.225 1.287.683 0 1.22-.566 1.22-1.287 0-.72-.537-1.287-1.22-1.287zm0 2.867c-.845 0-1.529-.707-1.529-1.58 0-.873.684-1.58 1.529-1.58.844 0 1.528.707 1.528 1.58 0 .873-.684 1.58-1.528 1.58zM31.056 13.706l2.196-6.333 2.196 6.333h-4.392zM35.592.25h-4.444l-6.777 18.015h-2.705c-2.117 0-3.967-.463-5.21-1.302-1.275-.862-1.895-2.101-1.895-3.788v-2.08h-2.175c-.09 0-3.253-.009-5.493-2.218-1.128-1.112-1.84-2.624-2.128-4.515h15.259c2.773 0 3.795 1.353 4.433 2.569a8.098 8.098 0 0 1 .719 1.926l1.912-5.082S25.471.255 20.024.255H.508v2.054c0 4.011 1.178 7.205 3.5 9.494 2.175 2.143 4.852 2.948 6.622 3.248.884 4.507 5.02 7.323 11.036 7.323h6.256l1.431-4.063 7.802.008 1.429 4.055h5.343L35.592.25z"
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
                   )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(0)
+            ]
+          ),
+          _vm._v(" "),
+          _c("nav", { attrs: { id: "nav-menu-container" } }, [
+            _c("ul", { staticClass: "nav_menu" }, [
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "/" } }, [
+                    _vm._v(
+                      "\n                        Sign up\n                    "
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c("router-link", { attrs: { to: "/login" } }, [
+                    _vm._v(
+                      "\n                        Log in\n                    "
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "menu_box",
+              attrs: { href: "/" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.$modal.show("menu")
+                }
+              }
+            },
+            [_vm._m(2)]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "modal",
+        {
+          class: ["v--modal"],
+          attrs: {
+            name: "menu",
+            adaptive: true,
+            scrollable: true,
+            width: "100%",
+            height: "auto",
+            transition: "nice-modal-fade"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "container modal_menu d-flex justify-content-between"
+            },
+            [
+              _c("div", { staticClass: "hide_menu" }, [
+                _c(
+                  "div",
+                  { staticClass: "logo_header", attrs: { id: "logo_hide" } },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "logo", attrs: { to: "/" } },
+                      [_c("img", { attrs: { src: "img/logo.svg", alt: "" } })]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("ul", { staticClass: "head_menu" }, [
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "red_btn become_tacker",
+                        attrs: { href: "/" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Post a task\n                        "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "/" } }, [
+                      _vm._v(
+                        "\n                            Categories\n                        "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "/" } }, [
+                      _vm._v(
+                        "\n                            Browse tasks\n                        "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "/" } }, [
+                      _vm._v(
+                        "\n                            How it works\n                        "
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("nav", { attrs: { id: "nav-menu-container_2" } }, [
+                  _c("ul", { staticClass: "nav_menu" }, [
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/" } }, [
+                          _vm._v(
+                            "\n                                Sign up\n                            "
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/login" } }, [
+                          _vm._v(
+                            "\n                                Log in\n                            "
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c(
+                        "a",
+                        { staticClass: "become_tacker", attrs: { href: "/" } },
+                        [
+                          _vm._v(
+                            "\n                                Become a Tasker\n                            "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
                 ])
-              ],
-              1
-            )
-          ])
-        ])
-      ]
-    )
-  ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "close_btn",
+                  on: {
+                    click: function($event) {
+                      return _vm.$modal.hide("menu")
+                    }
+                  }
+                },
+                [_vm._v("\n                Close\n            ")]
+              )
+            ]
+          )
+        ]
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "head_menu" }, [
+      _c("li", [
+        _c(
+          "a",
+          { staticClass: "red_btn become_tacker", attrs: { href: "/" } },
+          [
+            _vm._v(
+              "\n                        Post a task\n                    "
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "/" } }, [
+          _vm._v("\n                        Categories\n                    ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "/" } }, [
+          _vm._v("\n                        Browse tasks\n                    ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "/" } }, [
+          _vm._v("\n                        How it works\n                    ")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { staticClass: "become_tacker", attrs: { href: "/" } }, [
+        _vm._v(
+          "\n                        Become a Tasker\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "line_menu" }, [
+      _c("span"),
+      _vm._v(" "),
+      _c("span"),
+      _vm._v(" "),
+      _c("span")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -81151,18 +83135,7 @@ var render = function() {
                   placeholder: _vm.$t("city"),
                   type: "google"
                 },
-                on: {
-                  input: _vm.changed,
-                  "click-input": _vm.clickInput,
-                  "click-button": _vm.clickButton,
-                  selected: _vm.selected,
-                  enter: _vm.enter,
-                  "key-up": _vm.keyUp,
-                  "key-down": _vm.keyDown,
-                  "key-right": _vm.keyRight,
-                  clear: _vm.clear,
-                  escape: _vm.escape
-                },
+                on: { input: _vm.changed },
                 model: {
                   value: _vm.location.long_name,
                   callback: function($$v) {
@@ -81621,14 +83594,1098 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "need-content" }, [
+      _c("div", { staticClass: "container need-block" }, [
+        _c("h2", { staticClass: "mb-3" }, [_vm._v("What do you need done?")]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list_need" }, [
+          _c("li", [
+            _c("a", { staticClass: "link_need", attrs: { href: "/" } }, [
+              _c("i", { staticClass: "icon_need" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: { width: "24", height: "24", viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M15.18 10.9l-.38-.47a.76.76 0 0 0-.58-.28h-1.46v-2h.71a3.63 3.63 0 0 0 3.8-3.44 3.64 3.64 0 0 0-3.79-3.45H6.55A.76.76 0 0 0 5.8 2v1.66a1.87 1.87 0 0 0 1.93 1.79A1.37 1.37 0 0 1 9.2 6.67v.73a.75.75 0 0 0 .75.75h1.31v2H9.78a.76.76 0 0 0-.58.28l-.38.47a14.28 14.28 0 0 0-3.12 8.89 3 3 0 0 0 3 3h6.66a3 3 0 0 0 3-3 14.28 14.28 0 0 0-3.18-8.89zM7.73 4c-.25 0-.43-.15-.43-.29v-.96h6.18a2.15 2.15 0 0 1 2.29 2 2.14 2.14 0 0 1-2.3 1.94H10.7A2.86 2.86 0 0 0 7.73 4zm7.6 17.3H8.67a1.47 1.47 0 0 1-1.47-1.51 12.74 12.74 0 0 1 2.8-7.95l.15-.19h1.12v4a1.13 1.13 0 0 1-.33.79l-.75.75a.75.75 0 0 0 0 1.06.75.75 0 0 0 1.06 0l.75-.75a2.61 2.61 0 0 0 .77-1.85v-4h1.1l.15.19a12.74 12.74 0 0 1 2.79 8 1.47 1.47 0 0 1-1.48 1.41z"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Home Cleaning")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "link_need", attrs: { href: "/" } }, [
+              _c("i", { staticClass: "icon_need" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: { width: "24", height: "24", viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M20 5.25h-3L16.06 3a2.73 2.73 0 0 0-2.55-1.71h-3A2.73 2.73 0 0 0 7.94 3L7 5.25H4A2.75 2.75 0 0 0 1.25 8v11A2.75 2.75 0 0 0 4 21.75h16A2.75 2.75 0 0 0 22.75 19V8A2.75 2.75 0 0 0 20 5.25zM9.33 3.53a1.25 1.25 0 0 1 1.16-.78h3a1.28 1.28 0 0 1 1.17.78l.7 1.72H8.62zM4 6.75h16A1.25 1.25 0 0 1 21.25 8v5.11h-3.14a2.24 2.24 0 0 0-4.22 0h-3.78a2.24 2.24 0 0 0-4.22 0H2.75V8A1.25 1.25 0 0 1 4 6.75zm12.75 7.12v2a.75.75 0 1 1-1.5 0v-2a.75.75 0 1 1 1.5 0zm-8 0v2a.75.75 0 1 1-1.5 0v-2a.75.75 0 1 1 1.5 0zM20 20.25H4A1.25 1.25 0 0 1 2.75 19v-4.39h3v1.26a2.25 2.25 0 1 0 4.5 0v-1.26h3.5v1.26a2.25 2.25 0 0 0 4.5 0v-1.26h3V19A1.25 1.25 0 0 1 20 20.25z"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Business & Admin")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "link_need", attrs: { href: "/" } }, [
+              _c("i", { staticClass: "icon_need" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: { width: "24", height: "24", viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M18 9.6h-1.25V8.35A2.75 2.75 0 0 0 14 5.6H4a2.75 2.75 0 0 0-2.75 2.75v8.51a.75.75 0 0 0 .75.75h1.56a2.72 2.72 0 0 0-.31 1.25 2.75 2.75 0 0 0 5.5 0 2.61 2.61 0 0 0-.32-1.25h8.13a2.72 2.72 0 0 0-.31 1.25 2.75 2.75 0 0 0 5.5 0 2.61 2.61 0 0 0-.32-1.25H22a.76.76 0 0 0 .75-.75v-2.51A4.75 4.75 0 0 0 18 9.6zm0 1.5a3.26 3.26 0 0 1 3.25 3.25v1.76h-4.5v-5zm-14-4h10a1.25 1.25 0 0 1 1.25 1.25v4.76H2.75V8.35A1.25 1.25 0 0 1 4 7.1zm-1.25 7.51h12.5v1.5H2.75zm4.5 4.25A1.25 1.25 0 1 1 6 17.61a1.25 1.25 0 0 1 1.25 1.25zm13 0A1.25 1.25 0 1 1 19 17.61a1.25 1.25 0 0 1 1.25 1.25z"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Delivery & removals")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "link_need", attrs: { href: "/" } }, [
+              _c("i", { staticClass: "icon_need" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: { width: "24", height: "24", viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M22.74 9.16a5.08 5.08 0 0 0-5.07-5.08h-7.42a5.08 5.08 0 0 0-5 4.33h-3.2a.75.75 0 1 0 0 1.5h3.19a5.08 5.08 0 0 0 5 4.33h3.57v4.4a3.23 3.23 0 0 0 6.45 0V13.5a5 5 0 0 0 2.48-4.34zm-4 9.48a1.73 1.73 0 0 1-3.45 0v-4.4h2.35a5 5 0 0 0 1.1-.13zm-1.1-5.9h-7.39a3.58 3.58 0 0 1 0-7.16h7.42a3.58 3.58 0 0 1 0 7.16z"
+                      }
+                    }),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M18.28 8.41h-2.47a.75.75 0 1 0 0 1.5h2.47a.75.75 0 0 0 0-1.5z"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Furniture Assembly")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "link_need", attrs: { href: "/" } }, [
+              _c("i", { staticClass: "icon_need" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: { width: "24", height: "24", viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M19.78 8.36h-.36a2.75 2.75 0 0 0-2.75-2.75H4a2.75 2.75 0 0 0-2.75 2.73v1.55A2.75 2.75 0 0 0 4 12.64h12.67a2.75 2.75 0 0 0 2.75-2.75h.36a1.47 1.47 0 0 1 1.47 1.47v1.59a1.47 1.47 0 0 1-1.47 1.47h-7.22a3 3 0 0 0-3 3V22a.75.75 0 0 0 1.5 0v-4.64a1.47 1.47 0 0 1 1.48-1.47h7.22a3 3 0 0 0 3-3v-1.56a3 3 0 0 0-2.98-2.97zm-1.86 1.53a1.25 1.25 0 0 1-1.25 1.25H4a1.25 1.25 0 0 1-1.25-1.25V8.34A1.25 1.25 0 0 1 4 7.09h12.67a1.25 1.25 0 0 1 1.25 1.25z"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Handyman")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "link_need", attrs: { href: "/" } }, [
+              _c("i", { staticClass: "icon_need" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: { width: "24", height: "24", viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M23.14 19.37L17 14.48a.76.76 0 0 0-.83-.07.77.77 0 0 0-.38.74l.89 7.93a.72.72 0 0 0 .59.65h.15a.74.74 0 0 0 .65-.37l1.11-1.93 1.11 1.93a.75.75 0 0 0 .65.37.69.69 0 0 0 .37-.1.75.75 0 0 0 .28-1l-1.13-1.93h2.22a.74.74 0 0 0 .46-1.33zM14 4.41h-3.83a.75.75 0 0 0 0 1.5H14a.75.75 0 0 0 0-1.5zm-.23 13.49h-3.41a.75.75 0 0 0 0 1.5h3.41a.75.75 0 1 0 0-1.5zm-8.49-3.35A.74.74 0 0 0 6 13.8V10a.75.75 0 0 0-1.5 0v3.8a.75.75 0 0 0 .78.75zM18.27 10v3.41a.75.75 0 0 0 1.5 0V10a.75.75 0 0 0-1.5 0zM5.28 3.5a1.71 1.71 0 0 0-.55.09 1.67 1.67 0 0 0-1 2.13 1.65 1.65 0 0 0 1.56 1.1 1.77 1.77 0 0 0 .56-.09 1.66 1.66 0 0 0-.57-3.23zm13.57 3.32a1.71 1.71 0 0 0 .55-.09 1.68 1.68 0 1 0-.55.09zM5.28 17a1.49 1.49 0 0 0-.55.1 1.66 1.66 0 0 0 .55 3.23 1.78 1.78 0 0 0 .56-.1A1.66 1.66 0 0 0 5.28 17z"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Marketing & Design")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "link_need", attrs: { href: "/" } }, [
+              _c("i", { staticClass: "icon_need" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: { width: "24", height: "24", viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M22.2 3.43a.76.76 0 0 0-.68-.66c-.25 0-6.08-.48-7.35 4a8.48 8.48 0 0 0-.1 2.93 3.4 3.4 0 0 0-1.17.55l-.05-1.35a3.64 3.64 0 0 0-3.47-3.52h-.05C9.16 5.35 5.11 5 3 7.48c-1.18 1.36-1.51 3.24-1 5.6a.76.76 0 0 0 .6.58 9.59 9.59 0 0 0 1.77.17 5.28 5.28 0 0 0 5.44-4.52A21.08 21.08 0 0 0 10 7a2.15 2.15 0 0 1 1.32 1.9l.15 4.19.27 7.42a.74.74 0 0 0 .74.72.74.74 0 0 0 .72-.78l-.2-7.4a1.91 1.91 0 0 1 1.91-2 9.89 9.89 0 0 0 1.66.16 5.33 5.33 0 0 0 3.78-1.36c2.34-2.21 1.87-6.25 1.85-6.42zM8.34 9c-.58 2.55-2.21 3.61-5 3.24a4.42 4.42 0 0 1 .75-3.79c1.18-1.36 3.33-1.6 4.42-1.62A19.24 19.24 0 0 1 8.34 9zm11-.27a4.41 4.41 0 0 1-3.74.88 7.42 7.42 0 0 1 0-2.51c.72-2.52 3.78-2.85 5.13-2.88.04 1.11-.09 3.3-1.41 4.54z"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Home & Gardening")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { staticClass: "link_need", attrs: { href: "/" } }, [
+              _c("i", { staticClass: "icon_need" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: { width: "24", height: "24", viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M21.85 10.26A10 10 0 0 0 12 2a10.52 10.52 0 0 0-1.75.15A10 10 0 0 0 12 22a10.52 10.52 0 0 0 1.75-.15 10 10 0 0 0 8.1-11.59zm-1.8-1a27.9 27.9 0 0 0-4.29-.21 7 7 0 0 1 .58-1.26 8 8 0 0 0 1-2.45 8.49 8.49 0 0 1 2.71 3.94zm-9.53-5.63A8.41 8.41 0 0 1 12 3.5a8.54 8.54 0 0 1 3.9 1 5.38 5.38 0 0 1-.9 2.55 8 8 0 0 0-.86 2.11 27.42 27.42 0 0 0-5.14.92 7.93 7.93 0 0 0-1.62-1.73 5.81 5.81 0 0 1-1.68-2 8.46 8.46 0 0 1 4.82-2.72zm-5.8 4a8.05 8.05 0 0 0 1.71 1.88 7.21 7.21 0 0 1 1 1 26.37 26.37 0 0 0-3.95 1.69 8.51 8.51 0 0 1 1.24-4.57zm-1 6.2a25.51 25.51 0 0 1 4.5-1.95 4.57 4.57 0 0 1 .19 2.45 5.35 5.35 0 0 1-.82 2 5.7 5.7 0 0 0-.9 2.32 8.48 8.48 0 0 1-2.98-4.82zm9.77 6.54a8.48 8.48 0 0 1-5.36-.81 4.11 4.11 0 0 1 .75-2.48 6.77 6.77 0 0 0 1-2.48 6.05 6.05 0 0 0-.22-3.15 27.18 27.18 0 0 1 4.34-.77 6 6 0 0 0 .88 3.09 6.84 6.84 0 0 0 1.8 2 4.17 4.17 0 0 1 1.55 2 8.41 8.41 0 0 1-4.75 2.6zm5.77-3.95a5.81 5.81 0 0 0-1.64-1.84A5.45 5.45 0 0 1 16.16 13a4.66 4.66 0 0 1-.68-2.43 26.27 26.27 0 0 1 4.86.25h.07a8.49 8.49 0 0 1-1.16 5.6z"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Anything")])
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "getting-content" }, [
+      _c("div", { staticClass: "getting-block" }, [
+        _c("h2", { staticClass: "mb-sm-5 mb-3" }, [
+          _vm._v("See what others are getting done")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "tab_box" }, [
+          _c("div", { staticClass: "tab_nav" }, [
+            _c(
+              "ul",
+              { staticClass: "tab_nav_list", attrs: { id: "tab_nav" } },
+              [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "link_tab",
+                      class: [_vm.activetab === 1 ? "active_mode" : ""],
+                      attrs: { href: "tab1" },
+                      on: {
+                        click: [
+                          function($event) {
+                            _vm.activetab = 1
+                          },
+                          function($event) {
+                            $event.preventDefault()
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Moving home\n                            "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "link_tab",
+                      class: [_vm.activetab === 2 ? "active_mode" : ""],
+                      attrs: { href: "tab2" },
+                      on: {
+                        click: [
+                          function($event) {
+                            _vm.activetab = 2
+                          },
+                          function($event) {
+                            $event.preventDefault()
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Starting a business\n                            "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "link_tab",
+                      class: [_vm.activetab === 3 ? "active_mode" : ""],
+                      attrs: { href: "tab3" },
+                      on: {
+                        click: [
+                          function($event) {
+                            _vm.activetab = 3
+                          },
+                          function($event) {
+                            $event.preventDefault()
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Fixing stuff\n                            "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "link_tab",
+                      class: [_vm.activetab === 4 ? "active_mode" : ""],
+                      attrs: { href: "tab4" },
+                      on: {
+                        click: [
+                          function($event) {
+                            _vm.activetab = 4
+                          },
+                          function($event) {
+                            $event.preventDefault()
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Hosting a party\n                            "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "link_tab",
+                      class: [_vm.activetab === 5 ? "active_mode" : ""],
+                      attrs: { href: "tab5" },
+                      on: {
+                        click: [
+                          function($event) {
+                            _vm.activetab = 5
+                          },
+                          function($event) {
+                            $event.preventDefault()
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Something different\n                            "
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tabs" }, [
+            _c("div", [
+              _vm.activetab === 1
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab1" } },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(2, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(3, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(4, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(5, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.activetab === 2
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab2" } },
+                    [
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(7, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(8, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(9, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(10, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.activetab === 3
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab3" } },
+                    [
+                      _vm._m(11),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(12, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(13, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(14, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(15, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.activetab === 4
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab4" } },
+                    [
+                      _vm._m(16),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(17, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(18, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(19, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(20, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.activetab === 5
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab5" } },
+                    [
+                      _vm._m(21),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(22, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(23, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(24, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(25, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e()
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(26)
+      ])
+    ]),
+    _vm._v(" "),
+    _c("section", { staticClass: "movie-content" }, [
+      _c("div", { staticClass: "container movie-block" }, [
+        _c("h2", { staticClass: "text-center mb-3" }, [
+          _vm._v("How does Airtasker work?")
+        ]),
+        _vm._v(" "),
+        _c("h5", [
+          _vm._v(
+            "Check out the video below to see exactly how Airtasker\n            can help you get those to-dos done once and for all."
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "video-wrapper", attrs: { id: "video-wrapper" } },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "video_box main_page_video",
+                on: { click: _vm.switchVideoModal }
+              },
+              [_vm._m(27), _vm._v(" "), _vm._m(28)]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { class: { "video-modal": true, visible: this.modal } }, [
+          _c(
+            "div",
+            { staticClass: "close", on: { click: _vm.switchVideoModal } },
+            [
+              _c(
+                "svg",
+                { attrs: { width: "24", height: "24", viewBox: "0 0 24 24" } },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M13.17 12l6.41-6.42a.82.82 0 0 0-1.16-1.16L12 10.83 5.58 4.42a.82.82 0 0 0-1.16 1.16L10.83 12l-6.41 6.42a.8.8 0 0 0 0 1.16.8.8 0 0 0 1.16 0L12 13.17l6.42 6.41a.8.8 0 0 0 1.16 0 .8.8 0 0 0 0-1.16z"
+                    }
+                  })
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "player-video" } })
+        ]),
+        _vm._v(" "),
+        _vm._m(29),
+        _vm._v(" "),
+        _vm._m(30)
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(31),
+    _vm._v(" "),
+    _vm._m(32),
+    _vm._v(" "),
+    _vm._m(33),
+    _vm._v(" "),
+    _c("section", { staticClass: "airtasker-country-content" }, [
+      _c("div", { staticClass: "container airtasker-country-block" }, [
+        _c("ul", { staticClass: "country_list" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  attrs: { width: "23", height: "23", viewBox: "0 0 512 512" }
+                },
+                [
+                  _c("circle", {
+                    attrs: { cx: "256", cy: "256", fill: "#fff", r: "256" }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M170.7 497.4V14.6C71.2 49.7 0 144.5 0 256s71.2 206.3 170.7 241.4z",
+                      fill: "#009a49"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M341.3 14.6v482.8c99.3-35.1 170.5-129.7 170.7-240.9v-.9c-.2-111.3-71.4-205.9-170.7-241z",
+                      fill: "#ff7900"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(
+                "\n                        Airtasker Ireland\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/" } }, [
+              _c(
+                "svg",
+                {
+                  attrs: { width: "23", height: "23", viewBox: "0 0 512 512" }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M170.7 497.4V355.9L54.5 414c30.1 38.3 70.3 67.2 116.2 83.4zM341.4 14.6v141.5L457.5 98c-30.1-38.2-70.3-67.2-116.1-83.4zm0 482.8c45.8-16.2 86.1-45.2 116.1-83.4l-116.1-58.1zM54.5 98l116.1 58.1V14.6C124.8 30.8 84.6 59.8 54.5 98z",
+                      fill: "#006"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("g", { attrs: { fill: "#c00" } }, [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M27 141.5c-4.7 9.5-8.9 19.2-12.4 29.2h70.7zm458 229c4.7-9.5 8.9-19.2 12.4-29.2h-70.7zm-458 0c5.1 10.2 10.9 20.1 17.3 29.5l117.3-58.7H85.3zm458-229c-5.1-10.2-10.9-20.1-17.3-29.5l-117.3 58.7h76.3z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M506.9 204.8H307.2V5.1c-33.8-6.8-68.6-6.8-102.4 0v199.6H5.1c-6.8 33.8-6.8 68.6 0 102.4h199.6v199.7c33.8 6.8 68.6 6.8 102.4 0V307.2h199.8c6.8-33.8 6.8-68.6 0-102.4z"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M170.7 307.2H5.1c1 5.1 2.2 10.2 3.6 15.2 1.7 6.4 3.7 12.7 5.9 18.9 3.5 10 7.7 19.7 12.4 29.2l58.3-29.2h76.3L44.3 400c3.3 4.8 6.7 9.4 10.2 14l116.1-58.1v141.5c11.1 3.9 22.6 7.1 34.1 9.5V307.2H184zm302.2 0H307.3v199.7c11.6-2.4 23-5.5 34.1-9.5V356l116.1 58c10.6-13.5 19.8-28.1 27.5-43.5l-58.3-29.2h70.7c2.2-6.2 4.2-12.5 5.9-18.9 1.3-5 2.5-10.1 3.6-15.2zM341.4 204.8H507c-1.1-5.1-2.2-10.2-3.6-15.2-1.7-6.4-3.7-12.7-5.9-18.9-3.5-10-7.7-19.7-12.4-29.2l-58.3 29.2h-76.3L467.7 112c-3.2-4.8-6.7-9.4-10.2-14l-116.1 58.1V14.6c-11.1-3.9-22.6-7.1-34.1-9.5v199.7zm-170.7-70.1v21.4L54.5 98c-10.6 13.5-19.8 28.1-27.5 43.5l58.3 29.2H14.6c-2.2 6.2-4.2 12.5-5.9 18.9-1.3 5-2.5 10.1-3.6 15.2h165.5v-6.1 6.1h34.1V5.1c-11.6 2.4-23 5.5-34.1 9.5v120.1z",
+                      fill: "#fff"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(
+                "\n                        Airtasker United Kingdom\n                    "
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "view-content" }, [
+    return _c("section", { staticClass: "view-content" }, [
       _c("div", { staticClass: "container d-flex align-items-center" }, [
         _c("div", { staticClass: "view_zone" }, [
           _c("h1", [
@@ -81642,8 +84699,1214 @@ var staticRenderFns = [
           _c(
             "a",
             { staticClass: "land_link modal_btn", attrs: { href: "/" } },
-            [_vm._v("\n                Get started now\n            ")]
+            [_vm._v("\n                    Get started now\n                ")]
           )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Got a few boxes to shift, an apartment or entire house?\n                                    Get your home moved just the way you want, by whom you want,\n                                    when you want. Let Airtasker shoulder the load.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-3.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Taking a big leap and need some expert advice or assistance?\n                                    Airtasker can help you get some cracking marketing collateral,\n                                    admin muscle or a few extra hands to help ease the burden.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-1.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-3.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Do you have a hole in the wall that needs plugging?\n                                    Perhaps a TV that needs mounting? Or maybe you have that\n                                    perfect shade of green, but no time to paint? Get a Tasker to help.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-1.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Got something to celebrate and the guest list all ready,\n                                    but need everything else? Let Airtasker help you find the best bartenders,\n                                    party planners, photographers and entertainment in the land.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Want something done but feel like it’s too random?\n                                    Whether it’s getting rescued from a spider or help building\n                                    a bobsled - you can get nearly anything done through Airtasker.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-3.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-1.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_btn text-center" }, [
+      _c("a", { staticClass: "land_link modal_btn", attrs: { href: "/" } }, [
+        _vm._v("\n                    Get started now\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size", attrs: { id: "img-size" } }, [
+      _c("img", { attrs: { src: "img/poster.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "play_movie" }, [
+      _c("span", { staticClass: "white_play" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "triangle_play" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "vd_list" }, [
+      _c("li", [
+        _c("div", { staticClass: "img_size" }, [
+          _c("img", { attrs: { src: "img/vd-1.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "desc_do" }, [
+          _c("h4", [_vm._v("Post your Task")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Tell us what you need. It's FREE to post")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("div", { staticClass: "img_size" }, [
+          _c("img", { attrs: { src: "img/vd-2.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "desc_do" }, [
+          _c("h4", [_vm._v("Review offers")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Get offers from trusted Taskers and view profiles.")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("div", { staticClass: "img_size" }, [
+          _c("img", { attrs: { src: "img/vd-3.png", alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "desc_do" }, [
+          _c("h4", [_vm._v("Get it done")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Choose the right person for your task and get it done.")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "h_btn" }, [
+      _c("h4", [
+        _vm._v("\n                    Ready to get that to-do list done?"),
+        _c("br"),
+        _vm._v(
+          "\n                    Start by posting a task today!\n                "
+        )
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "land_link modal_btn", attrs: { href: "/" } }, [
+        _vm._v("\n                    Get started now\n                ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "article-content" }, [
+      _c("div", { staticClass: "container article-block" }, [
+        _c("h2", { staticClass: "mb-sm-5 mb-3 text-center" }, [
+          _vm._v("Articles, stories and more")
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list_blog" }, [
+          _c("li", [
+            _c(
+              "a",
+              { staticClass: "img_blog img_size", attrs: { href: "/" } },
+              [_c("img", { attrs: { src: "img/blog-1.jpg", alt: "" } })]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "blogpost_info" }, [
+              _c("h4", [
+                _vm._v(
+                  "Interior design styles - Your complete guide to every style"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "blog_desc" }, [
+                _vm._v(
+                  "Not sure where to start with interior design?\n                        You've come to the right spot to find out all you need to know about\n                        all the different styles"
+                )
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "/" } }, [
+                _vm._v(
+                  "\n                            Read more\n                        "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              { staticClass: "img_blog img_size", attrs: { href: "/" } },
+              [_c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "blogpost_info" }, [
+              _c("h4", [
+                _vm._v(
+                  "35+ Fabulous farmhouse kitchen decor ideas - modern\n                        farmhouse kitchen"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "blog_desc" }, [
+                _vm._v(
+                  "Get ready to entertain guests with a\n                        gorgeous farmhouse kitchen."
+                )
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "/" } }, [
+                _vm._v(
+                  "\n                            Read more\n                        "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              { staticClass: "img_blog img_size", attrs: { href: "/" } },
+              [_c("img", { attrs: { src: "img/blog-3.jpg", alt: "" } })]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "blogpost_info" }, [
+              _c("h4", [
+                _vm._v(
+                  "40+ Grey kitchen ideas - cabinets, splashbacks and grey kitchen tiles"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "blog_desc" }, [
+                _vm._v(
+                  "Not sure where to start with interior design?\n                        You've come to the right spot to find out all you need to know about\n                        all the different styles"
+                )
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "/" } }, [
+                _vm._v(
+                  "\n                            Read more\n                        "
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "visit_blog", attrs: { href: "/" } }, [
+          _vm._v("Visit our blog")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "category-content" }, [
+      _c("div", { staticClass: "container category-block" }, [
+        _c("h3", { staticClass: "mb-sm-4 mb-3 text-center" }, [
+          _vm._v("Some of our top categories")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "city_zone" }, [
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Sydney")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Handyman in Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Cleaning in Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Removalists Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Carpet cleaning in Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pool Fencing Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Plumbing In Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Painting In Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pest Control Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Personal Training Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pet Grooming Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Dog Walking In Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Washing Machine Repair Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Garden Maintenance Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Mowing Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Photography In Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Door Installation Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Removals Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Furniture Assembly Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Care Sydney\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Kaboodle Kitchen Installation Sydney\n                            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Melbourne")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Handyman in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Cleaning in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Removalists Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Carpet cleaning in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pool Fencing Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Plumbing In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Painting In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pest Control Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Personal Training Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pet Grooming Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Dog Walking In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Washing Machine Repair Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Garden Maintenance Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Mowing Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Photography In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Door Installation Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Removals Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Furniture Assembly Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Care Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Kaboodle Kitchen Installation Melbourne\n                            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Brisbane")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Handyman in Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Cleaning in Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Removalists Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Carpet cleaning in Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pool Fencing Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Plumbing In Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Painting In Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pest Control Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Personal Training Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pet Grooming Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Dog Walking In Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Washing Machine Repair Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Garden Maintenance Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Mowing Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Photography In Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Door Installation Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Removals Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Furniture Assembly Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Care Brisbane\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Kaboodle Kitchen Installation Brisbane\n                            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Price guides")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Handyman in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Cleaning in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Removalists Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Carpet cleaning in Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pool Fencing Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Plumbing In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Painting In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pest Control Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Personal Training Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Pet Grooming Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Dog Walking In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Washing Machine Repair Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Garden Maintenance Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Mowing Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Photography In Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Door Installation Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                House Removals Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Furniture Assembly Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Lawn Care Melbourne\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Kaboodle Kitchen Installation Melbourne\n                            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "box_category" }, [
+            _c("h4", [_vm._v("Guides")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list_offer" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                How to start a vegetable garden\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                How to grow a herb garden on a balcony\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Which are the best vegetables to grow in winter\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                               Planter boxes - where to buy them and how much\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                Simple steps to wash your dog\n                            "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "/" } }, [
+                  _vm._v(
+                    "\n                                How often should you wash your dog\n                            "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "all_category text-center" }, [
+          _c("a", { attrs: { href: "/" } }, [_vm._v("See all categories")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "earn-content" }, [
+      _c("div", { staticClass: "container earn-block" }, [
+        _c("div", { staticClass: "look_task" }, [
+          _c("div", { staticClass: "h_tasker" }, [
+            _c("h2", [
+              _vm._v(
+                "Looking to earn some extra money or choose when and how you work?"
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "taskers_img img_size" }, [
+              _c("img", { attrs: { src: "img/taskers.png", alt: "" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "btn_taskers", attrs: { href: "/" } }, [
+            _vm._v("Become a Tasker")
+          ])
         ])
       ])
     ])
@@ -99885,6 +104148,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_instant__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(vue_instant__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var vue_instant_dist_vue_instant_css__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vue-instant/dist/vue-instant.css */ "./node_modules/vue-instant/dist/vue-instant.css");
 /* harmony import */ var vue_instant_dist_vue_instant_css__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(vue_instant_dist_vue_instant_css__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var v_suggestions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! v-suggestions */ "./node_modules/v-suggestions/dist/v-suggestions.js");
+/* harmony import */ var v_suggestions__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(v_suggestions__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var v_suggestions_dist_v_suggestions_css__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! v-suggestions/dist/v-suggestions.css */ "./node_modules/v-suggestions/dist/v-suggestions.css");
+/* harmony import */ var v_suggestions_dist_v_suggestions_css__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(v_suggestions_dist_v_suggestions_css__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! vue-js-modal */ "./node_modules/vue-js-modal/dist/index.js");
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_19__);
 
 
 
@@ -99902,7 +104171,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // import VueSocialauth from 'vue-social-auth'
-// Set Vue globally
+
+
+ // you can import the stylesheets also (optional)
+
+
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_19___default.a);
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.component('suggestions', v_suggestions__WEBPACK_IMPORTED_MODULE_17___default.a); // Set Vue globally
 
 window.Vue = vue__WEBPACK_IMPORTED_MODULE_2___default.a;
 window.moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
