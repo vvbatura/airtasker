@@ -9,10 +9,13 @@ class LocationController extends BaseController
 {
     const URL_GOOGLE_LOCATIONS_AUTOCOMPLETE = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
     const URL_GOOGLE_LOCATIONS_DETAIL = 'https://maps.googleapis.com/maps/api/place/details/json';
-    const URL_MAPBOX_LOCATIONS_AUTOCOMPLETE = 'https://api.mapbox.com/v4/geocode/mapbox.places/';
+    //const URL_MAPBOX_LOCATIONS_AUTOCOMPLETE = 'https://api.mapbox.com/v4/geocode/mapbox.places/';
+    const URL_MAPBOX_LOCATIONS_AUTOCOMPLETE = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
+    const COUNTRY = 'DE';
 
     public function getFromGEO(LocationsSearchRequest $request)
     {
+        dd($this->getCityFromMapBox($request));
         return $this->getCityFromMapBox($request);
     }
 
@@ -63,9 +66,14 @@ class LocationController extends BaseController
     {
         try {
             $query = $request->get('query');
+            $locale = $request->get('locale', config('app.locale'));
             $client = new \GuzzleHttp\Client;
             $params = [
                 'access_token' => env('MAPBOX_ACCESS_TOKEN'),
+                'country' => $this::COUNTRY,
+                'types' => 'place',
+                'limit' => 5,
+                'language' => $locale,
             ];
             $url = $this::URL_MAPBOX_LOCATIONS_AUTOCOMPLETE . $query . '.json';
             $locationsGEO = json_decode(($client->get($url, ['query' => $params]))->getBody());
