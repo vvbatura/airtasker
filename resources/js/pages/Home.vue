@@ -1134,7 +1134,7 @@ export default {
 
 <style lang="scss">
 .view-content {
-    background: url("/img/home-1.jpeg") no-repeat center top;
+    background: url("/img/home-1.jpg") no-repeat center top;
     background-size: cover; 
     height: 100vh;
     color: #ffffff;
