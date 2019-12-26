@@ -100,60 +100,62 @@
         </section>
         <section class="getting-content">
             <div class="getting-block">
-                <h2 class="mb-5">See what others are getting done</h2>
+                <h2 class="mb-sm-5 mb-3">See what others are getting done</h2>
                 <div class="tab_box">
-                    <ul id="tab_nav" class="tab_nav_list">
-                        <li>
-                            <a 
-                                @click="activetab=1"
-                                :class="[ activetab === 1 ? 'active_mode' : '' ]" 
-                                @click.prevent
-                                href="tab1"
-                                class="link_tab">
-                                Moving home
-                            </a>
-                        </li>
-                        <li>
-                            <a 
-                                @click="activetab=2"
-                                :class="[ activetab === 2 ? 'active_mode' : '' ]" 
-                                @click.prevent
-                                href="tab2"
-                                class="link_tab">
-                                Starting a business
-                            </a>
-                        </li>
-                        <li>
-                            <a 
-                                @click="activetab=3"
-                                :class="[ activetab === 3 ? 'active_mode' : '' ]" 
-                                @click.prevent
-                                href="tab3"
-                                class="link_tab">
-                                Fixing stuff
-                            </a>
-                        </li>
-                        <li>
-                            <a 
-                                @click="activetab=4"
-                                :class="[ activetab === 4 ? 'active_mode' : '' ]" 
-                                @click.prevent
-                                href="tab4"
-                                class="link_tab">
-                                Hosting a party
-                            </a>
-                        </li>
-                        <li>
-                            <a 
-                                @click="activetab=5"
-                                :class="[ activetab === 5 ? 'active_mode' : '' ]" 
-                                @click.prevent
-                                href="tab5"
-                                class="link_tab">
-                                Something different
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="tab_nav">
+                        <ul id="tab_nav" class="tab_nav_list">
+                            <li>
+                                <a 
+                                    @click="activetab=1"
+                                    :class="[ activetab === 1 ? 'active_mode' : '' ]" 
+                                    @click.prevent
+                                    href="tab1"
+                                    class="link_tab">
+                                    Moving home
+                                </a>
+                            </li>
+                            <li>
+                                <a 
+                                    @click="activetab=2"
+                                    :class="[ activetab === 2 ? 'active_mode' : '' ]" 
+                                    @click.prevent
+                                    href="tab2"
+                                    class="link_tab">
+                                    Starting a business
+                                </a>
+                            </li>
+                            <li>
+                                <a 
+                                    @click="activetab=3"
+                                    :class="[ activetab === 3 ? 'active_mode' : '' ]" 
+                                    @click.prevent
+                                    href="tab3"
+                                    class="link_tab">
+                                    Fixing stuff
+                                </a>
+                            </li>
+                            <li>
+                                <a 
+                                    @click="activetab=4"
+                                    :class="[ activetab === 4 ? 'active_mode' : '' ]" 
+                                    @click.prevent
+                                    href="tab4"
+                                    class="link_tab">
+                                    Hosting a party
+                                </a>
+                            </li>
+                            <li>
+                                <a 
+                                    @click="activetab=5"
+                                    :class="[ activetab === 5 ? 'active_mode' : '' ]" 
+                                    @click.prevent
+                                    href="tab5"
+                                    class="link_tab">
+                                    Something different
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="tabs">
                         <div>
                             <div v-if="activetab === 1" id="tab1" class="tab_content">
@@ -530,7 +532,7 @@
         </section>
         <section class="article-content">
             <div class="container article-block">
-                <h2 class="mb-5 text-center">Articles, stories and more</h2>
+                <h2 class="mb-sm-5 mb-3 text-center">Articles, stories and more</h2>
                 <ul class="list_blog">
                     <li>
                         <a href="/" class="img_blog img_size">
@@ -580,7 +582,7 @@
         </section>
         <section class="category-content">
             <div class="container category-block">
-                <h3 class="mb-4 text-center">Some of our top categories</h3>
+                <h3 class="mb-sm-4 mb-3 text-center">Some of our top categories</h3>
                 <div class="city_zone">
                     <div class="box_category">
                         <h4>Sydney</h4>
@@ -1706,6 +1708,271 @@ h2 {
                 text-decoration: none;
             }
         }
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 1170px;
+    }
+    .list_need {
+        flex-wrap: wrap;
+        li {
+            width: 22%;
+            margin: 0 0 25px 0;
+        }
+    }
+    .link_need {
+        text-align: center;
+    }
+    .icon_need {
+        margin: 0 auto 5px auto;
+    }
+    .getting-block h2,
+    .tab_part_first {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .tab_nav_list {
+        overflow-x: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        position: relative;
+        padding-bottom: 25px;
+        margin-bottom: 0;
+        li  {
+            a {
+                padding-bottom: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+    .tab_nav {
+        padding: 0 15px;
+        position: relative;
+        height: 40px;
+        overflow: hidden;
+        margin-bottom: 40px;
+        &:after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            height: 32px;
+            top: 2px;
+            right: 15px;
+            -webkit-box-shadow: 0 0 2px 2px #bbc2dc;
+            box-shadow: 0 0 2px 2px #bbc2dc;
+        }
+    }
+    .movie-block {
+        padding: 80px 15px;
+    }
+    .video_box {
+        height: 400px;
+        .img_size {
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .vd_list {
+        li {
+            .img_size {
+                margin-right: 5px;
+            }
+        }
+    }
+    .list_blog {
+        justify-content: space-between;
+        li {
+            width: 32%;
+            margin: 0;
+        }
+    }
+    .img_blog {
+        width: auto;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+} 
+@media (max-width: 768px) {
+    .view-content {
+        h1 {
+            font-size: 40px;
+        }
+    }
+    .taskers_img {
+        display: none;
+    }
+    .h_tasker {
+        max-width: 420px;
+        padding-right: 20px;
+    }
+    .video_box {
+        height: 300px;
+    }
+    .vd_list {
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+        li {
+            width: 100%;
+            margin-bottom: 30px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            .img_size {
+                margin-right: 15px;
+            }
+        }
+    }
+    .desc_do {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .h_btn {
+        display: block;
+        text-align: center;
+        padding: 40px 0 0 0;
+        .land_link {
+            display: inline-block;
+        }
+        h4 {
+            margin-bottom: 20px;
+        }
+    }
+    .article-block {
+        padding: 50px 15px;
+    }
+    .movie-block {
+        padding: 80px 15px 50px 15px;
+    }
+    .list_blog li .blogpost_info {
+        padding: 0 15px 0 0;
+    }
+    .city_zone {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .box_category {
+        width: 30%;
+        margin-bottom: 30px;
+    }
+    #footer {
+        height: auto;
+        position: relative;
+    }
+    .wrapper_box {
+        padding-bottom: 0;
+    }
+    .footer_lists {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 64px 0 39px 0;
+        .ftr_list {
+            width: 32%;
+            margin-bottom: 25px;
+        }
+    }
+}
+@media (max-width: 700px) {
+    .list_blog {
+        display: block;
+        max-width: 400px;
+        margin: 0 auto 20px auto;
+        li {
+            width: 100%;
+            margin-bottom: 40px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .box_category {
+        width: 48%;
+        padding-left: 5px;
+    }
+}
+@media (max-width: 480px) {
+    .view-content {
+        h1 {
+            font-size: 32px;
+        }
+        h4 {
+            font-size: 26px;
+        }
+    }
+    .list_need {
+        justify-content: space-around;
+        li {
+            width: 30%;
+        }
+    }
+    .link_need {
+        width: 64px;
+    }
+    .icon_need {
+        width: 64px;
+        height: 64px;
+    }
+    .h_tasker {
+        padding-right: 0;
+    }
+    .look_task {
+        display: block;
+    }
+    .earn-content {
+        h2 {
+            padding: 0;
+            margin-bottom: 30px;
+        }
+    }
+    .earn-block {
+        padding: 40px 15px;
+    }
+    .country_list {
+        display: block;
+        li {
+            margin-bottom: 20px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .footer_lists {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 64px 0 39px 0;
+        .ftr_list {
+            width: 48%;
+            margin-bottom: 25px;
+        }
+    }
+    .footer_app {
+        display: block;
+    }
+    .app_list {
+        margin-bottom: 20px;
+    }
+    .h_btn {
+        h4 {
+            font-size: 20px;
+        }
+    }
+    .land_link {
+        line-height: 50px;
+        padding: 0 24px;
+        display: inline-block;
+    }
+    .visit_blog,
+    .btn_taskers {
+        line-height: 50px;
     }
 }
 </style>
