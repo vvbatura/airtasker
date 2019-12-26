@@ -5272,13 +5272,380 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      modal: false
+      modal: false,
+      activetab: 1,
+      users: []
     };
   },
   name: "Home",
+  created: function created() {
+    var _this = this;
+
+    axios.get('http://jsonplaceholder.typicode.com/users').then(function (response) {
+      _this.users = response.data;
+    });
+  },
   methods: {
     switchVideoModal: function switchVideoModal(isPlay) {
       document.querySelector('body').classList.add('hide-scroll');
@@ -5300,6 +5667,11 @@ __webpack_require__.r(__webpack_exports__);
         document.querySelector('body').classList.remove('hide-scroll');
         playerVideo.api('stop');
       }
+    }
+  },
+  filters: {
+    slicePrice: function slicePrice(value) {
+      return "".concat(value.slice(0, 2));
     }
   }
 });
@@ -34193,7 +34565,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".view-content {\n  background: url(\"/img/home-1.jpeg\") no-repeat center top;\n  background-size: cover;\n  min-height: 900px;\n  color: #ffffff;\n  font-family: \"Montserrat\", sans-serif;\n  position: relative;\n}\n.view-content:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.47);\n  top: 0;\n  left: 0;\n  z-index: 0;\n}\n.view-content .container {\n  height: 100vh;\n  position: relative;\n  z-index: 10;\n}\n.view-content h1 {\n  font-size: 50px;\n  font-weight: bold;\n  margin-bottom: 15px;\n}\n.view-content h4 {\n  font-size: 32px;\n  margin-bottom: 40px;\n}\n.view_zone {\n  max-width: 880px;\n}\n.land_link {\n  background: #e0446d;\n  border-radius: 160px;\n  padding: 16px 24px;\n  color: #ffffff;\n  font-size: 20px;\n}\n.land_link:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\nh2 {\n  font-size: 32px;\n  color: #292b32;\n  font-weight: bold;\n}\n.need-block {\n  padding: 80px 15px;\n}\n.list_need {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.list_need li {\n  margin: 0 5px;\n  width: 100px;\n}\n.link_need {\n  color: #292b32;\n  width: 100px;\n  text-align: center;\n  font-size: 14px;\n  letter-spacing: 0.25px;\n}\n.link_need:hover {\n  text-decoration: none;\n}\n.link_need:hover .icon_need {\n  background: #e0446d;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.link_need:hover p {\n  color: #292b32;\n}\n.link_need p {\n  line-height: 1.2;\n}\n.icon_need {\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n  background: #545a77;\n  margin-bottom: 8px;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.icon_need svg {\n  fill: #ffffff;\n  -webkit-transform: scale(1.4);\n          transform: scale(1.4);\n}\n.movie-block {\n  padding: 80px 0;\n  max-width: 920px;\n}\n.movie-block h4 {\n  color: #292b32;\n}\n.movie-block h5 {\n  max-width: 600px;\n  color: #292b32;\n  font-size: 18px;\n  margin: 0 auto;\n  text-align: center;\n  line-height: 1.3;\n  margin-bottom: 30px;\n}\n.h_btn {\n  display: -webkit-box;\n  display: flex;\n  justify-content: space-around;\n  margin: 0 auto;\n  padding: 64px 0 0 0;\n  border-top: 1px solid #bbc2dc;\n}\n.vd_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 65px;\n}\n.vd_list li {\n  display: -webkit-box;\n  display: flex;\n  width: 30%;\n}\n.vd_list li .img_size {\n  width: 100px;\n}\n.vd_list li .img_size img {\n  width: 100%;\n}\n.video_box {\n  height: 520px;\n  border-radius: 5px;\n  overflow: hidden;\n}\n.video_box img {\n  width: 100%;\n}\n.video-wrapper {\n  margin-bottom: 40px;\n  position: relative;\n  cursor: pointer;\n}\n.video-wrapper:hover .play_movie {\n  -webkit-transform: translate(-50%, -50%) scale(1.2);\n          transform: translate(-50%, -50%) scale(1.2);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.video-modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 101vh;\n  visibility: hidden;\n  opacity: 0;\n  background-color: #191919;\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n.video-modal .close {\n  color: white;\n  position: absolute;\n  background: #ffffff;\n  top: 15px;\n  right: 10px;\n  z-index: 2;\n  display: -webkit-box;\n  display: flex;\n  padding: 5px;\n  border-radius: 50%;\n  -webkit-transition: all 0.5s linear;\n  transition: all 0.5s linear;\n  opacity: 1;\n}\n.video-modal .close span {\n  width: 3px;\n  height: 30px;\n  background: white;\n}\n.video-modal .close span:first-child {\n  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n          transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n}\n.video-modal .close span:last-child {\n  -webkit-transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n          transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n}\n.video-modal #player {\n  height: 100vh;\n}\n.video-modal.visible {\n  visibility: visible;\n  opacity: 1;\n}\n.hide-scroll {\n  overflow: hidden;\n}\n.play_movie {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  width: 76px;\n  height: 76px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  background: #038FB4;\n  border-radius: 50%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.triangle_play {\n  border: 14px solid transparent;\n  border-left: 20px solid #ffffff;\n  position: absolute;\n  -webkit-transform: translateX(10px);\n          transform: translateX(10px);\n}\n.category-block {\n  padding: 40px 15px 100px 15px;\n}\n.category-block h3 {\n  font-size: 24px;\n  color: #292b32;\n}\n.article-block {\n  padding: 80px 15px;\n}\n.list_blog {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-bottom: 20px;\n}\n.list_blog li {\n  width: 300px;\n  margin: 0 20px;\n}\n.list_blog li .blogpost_info {\n  padding: 0 15px;\n}\n.list_blog h4 {\n  color: #292b32;\n  font-size: 22px;\n  font-weight: bold;\n}\n.img_blog {\n  overflow: hidden;\n  display: block;\n  width: 300px;\n  height: 150px;\n  margin-bottom: 10px;\n  border-radius: 5px 5px 0 0;\n}\n.img_blog:hover img {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.img_blog img {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n  width: 100%;\n}\n.blog_desc {\n  font-size: 16px;\n  color: #545a77;\n  margin-bottom: 5px;\n}\n.visit_blog {\n  color: #008fb4;\n  font-size: 18px;\n  line-height: 60px;\n  width: 165px;\n  border-radius: 60px;\n  border: 2px solid #e7ebfb;\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n}\n.visit_blog:hover {\n  text-decoration: none;\n}\n.city_zone {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 20px;\n}\n.box_category {\n  width: 19%;\n}\n.box_category h4 {\n  text-transform: uppercase;\n  font-size: 14px;\n  letter-spacing: 1px;\n  font-weight: bold;\n  margin-bottom: 5px;\n  color: #292b32;\n}\n.list_offer li {\n  text-transform: capitalize;\n}\n.list_offer li a {\n  color: #545a77;\n}\n.all_category a {\n  color: #292b32;\n  font-weight: bold;\n}\n.earn-content {\n  background: -webkit-gradient(linear, right top, left top, color-stop(1%, #11c9e1), to(#0798bf));\n  background: linear-gradient(-90deg, #11c9e1 1%, #0798bf);\n}\n.earn-content h2 {\n  color: #ffffff;\n  max-width: 400px;\n  font-size: 26px;\n  letter-spacing: 0.4px;\n  margin-bottom: 0;\n  padding: 35px 0;\n}\n.earn-block {\n  max-width: 940px;\n}\n.h_tasker {\n  position: relative;\n  max-width: 700px;\n  padding-right: 300px;\n}\n.taskers_img {\n  width: 270px;\n  position: absolute;\n  right: 15px;\n  bottom: 0;\n}\n.taskers_img img {\n  width: 100%;\n}\n.btn_taskers {\n  background: #7db343;\n  color: #ffffff;\n  width: 210px;\n  line-height: 60px;\n  display: block;\n  text-align: center;\n  border-radius: 60px;\n}\n.btn_taskers:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.look_task {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.country_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  padding: 30px 0;\n}\n.country_list li {\n  margin: 0 20px;\n}\n.country_list li svg {\n  margin-right: 10px;\n}\n.country_list li a {\n  color: #292b32;\n}\n.country_list li a:hover {\n  text-decoration: none;\n}", ""]);
+exports.push([module.i, ".view-content {\n  background: url(\"/img/home-1.jpeg\") no-repeat center top;\n  background-size: cover;\n  min-height: 900px;\n  color: #ffffff;\n  font-family: \"Montserrat\", sans-serif;\n  position: relative;\n}\n.view-content:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.47);\n  top: 0;\n  left: 0;\n  z-index: 0;\n}\n.view-content .container {\n  height: 100vh;\n  position: relative;\n  z-index: 10;\n}\n.view-content h1 {\n  font-size: 50px;\n  font-weight: bold;\n  margin-bottom: 15px;\n}\n.view-content h4 {\n  font-size: 32px;\n  margin-bottom: 40px;\n}\n.view_zone {\n  max-width: 880px;\n}\n.land_link {\n  background: #e0446d;\n  border-radius: 160px;\n  padding: 16px 24px;\n  color: #ffffff;\n  font-size: 20px;\n}\n.land_link:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\nh2 {\n  font-size: 32px;\n  color: #292b32;\n  font-weight: bold;\n}\n.need-block {\n  padding: 80px 15px;\n}\n.list_need {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.list_need li {\n  margin: 0 5px;\n  width: 100px;\n}\n.link_need {\n  color: #292b32;\n  width: 100px;\n  text-align: center;\n  font-size: 14px;\n  letter-spacing: 0.25px;\n}\n.link_need:hover {\n  text-decoration: none;\n}\n.link_need:hover .icon_need {\n  background: #e0446d;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.link_need:hover p {\n  color: #292b32;\n}\n.link_need p {\n  line-height: 1.2;\n}\n.icon_need {\n  width: 100px;\n  height: 100px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  border-radius: 50%;\n  background: #545a77;\n  margin-bottom: 8px;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.icon_need svg {\n  fill: #ffffff;\n  -webkit-transform: scale(1.4);\n          transform: scale(1.4);\n}\n.tab_nav_list,\n.getting-block h2,\n.tab_part_first {\n  max-width: 920px;\n  margin: 0 auto;\n}\n.tab_btn {\n  display: block;\n}\n.tab_btn a {\n  display: inline-block;\n}\n.tab_box {\n  margin-bottom: 40px;\n}\n.tab_nav_list {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 40px;\n}\n.tab_nav_list li {\n  margin-right: 20px;\n}\n.tab_nav_list li:last-of-type {\n  margin-right: 0;\n}\n.tab_nav_list li a {\n  color: #292b32;\n  font-size: 22px;\n  letter-spacing: 0.25px;\n  padding-bottom: 15px;\n  position: relative;\n}\n.tab_nav_list li a:after {\n  content: \"\";\n  position: absolute;\n  display: block;\n  background: #008fb4;\n  height: 4px;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  border-radius: 4px;\n  -webkit-transform: translateY(-4px);\n          transform: translateY(-4px);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 0;\n}\n.tab_nav_list li a:hover {\n  text-decoration: none;\n}\n.tab_nav_list li .active_mode {\n  color: #008fb4;\n}\n.tab_nav_list li .active_mode:after {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 1;\n}\n.tab_nav_list li:hover a:after {\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n  -webkit-transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  transition: all 0.15s cubic-bezier(0.615, 0.19, 0.305, 0.91);\n  opacity: 1;\n}\n.tab_part_first {\n  margin-bottom: 40px;\n}\n.slider_row {\n  white-space: nowrap;\n  -webkit-transition: all 0.2s ease;\n  transition: all 0.2s ease;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-perspective: 1000;\n          perspective: 1000;\n  -webkit-transform-style: preserve-3d;\n          transform-style: preserve-3d;\n  overflow: hidden;\n  padding: 5px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.slider_row_box_1 {\n  margin-bottom: 20px;\n  -webkit-animation: slide 150s linear infinite;\n          animation: slide 150s linear infinite;\n}\n.slider_row_box_1:hover {\n  -webkit-animation-play-state: paused;\n          animation-play-state: paused;\n}\n.slider_row_box_2 {\n  -webkit-animation: slide_2 150s linear infinite;\n          animation: slide_2 150s linear infinite;\n  align-self: flex-end;\n}\n.slider_row_box_2:hover {\n  -webkit-animation-play-state: paused;\n          animation-play-state: paused;\n}\n.slider_row_box {\n  white-space: nowrap;\n}\n.slider_row_box li {\n  display: inline-block;\n  position: relative;\n  width: 300px;\n  height: 150px;\n  margin: 0 20px 0 0;\n  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px;\n  border-radius: 4px;\n  padding: 10px 20px;\n}\n@-webkit-keyframes slide {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(-1920px, 0, 0);\n            transform: translate3d(-1920px, 0, 0);\n}\n}\n@keyframes slide {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(-1920px, 0, 0);\n            transform: translate3d(-1920px, 0, 0);\n}\n}\n@-webkit-keyframes slide_2 {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(1920px, 0, 0);\n            transform: translate3d(1920px, 0, 0);\n}\n}\n@keyframes slide_2 {\n0% {\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n}\n100% {\n    -webkit-transform: translate3d(1920px, 0, 0);\n            transform: translate3d(1920px, 0, 0);\n}\n}\n.category_name {\n  color: #292b32;\n  text-transform: uppercase;\n  margin-bottom: 15px;\n  font-size: 12px;\n  letter-spacing: 1px;\n}\n.about_user {\n  display: -webkit-box;\n  display: flex;\n}\n.about_user .img_size {\n  width: 32px;\n  height: 32px;\n  overflow: hidden;\n  border-radius: 50%;\n  display: block;\n  margin-right: 15px;\n}\n.about_user .img_size img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.about_user .task_name {\n  width: 160px;\n  white-space: normal;\n  line-height: 1.2;\n}\n.wrap_task {\n  position: relative;\n  height: 100%;\n  display: block;\n  color: #292b32;\n}\n.wrap_task:hover {\n  text-decoration: none;\n}\n.rate_user {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.rate_user i {\n  color: #e9a52c;\n  margin-right: 5px;\n}\n.movie-block {\n  padding: 80px 0;\n  max-width: 920px;\n}\n.movie-block h4 {\n  color: #292b32;\n}\n.movie-block h5 {\n  max-width: 600px;\n  color: #292b32;\n  font-size: 18px;\n  margin: 0 auto;\n  text-align: center;\n  line-height: 1.3;\n  margin-bottom: 30px;\n}\n.h_btn {\n  display: -webkit-box;\n  display: flex;\n  justify-content: space-around;\n  margin: 0 auto;\n  padding: 64px 0 0 0;\n  border-top: 1px solid #bbc2dc;\n}\n.vd_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 65px;\n}\n.vd_list li {\n  display: -webkit-box;\n  display: flex;\n  width: 30%;\n}\n.vd_list li .img_size {\n  width: 100px;\n}\n.vd_list li .img_size img {\n  width: 100%;\n}\n.video_box {\n  height: 520px;\n  border-radius: 5px;\n  overflow: hidden;\n}\n.video_box img {\n  width: 100%;\n}\n.video-wrapper {\n  margin-bottom: 40px;\n  position: relative;\n  cursor: pointer;\n}\n.video-wrapper:hover .play_movie {\n  -webkit-transform: translate(-50%, -50%) scale(1.2);\n          transform: translate(-50%, -50%) scale(1.2);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.video-modal {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 101vh;\n  visibility: hidden;\n  opacity: 0;\n  background-color: #191919;\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s;\n}\n.video-modal .close {\n  color: white;\n  position: absolute;\n  background: #ffffff;\n  top: 15px;\n  right: 10px;\n  z-index: 2;\n  display: -webkit-box;\n  display: flex;\n  padding: 5px;\n  border-radius: 50%;\n  -webkit-transition: all 0.5s linear;\n  transition: all 0.5s linear;\n  opacity: 1;\n}\n.video-modal .close span {\n  width: 3px;\n  height: 30px;\n  background: white;\n}\n.video-modal .close span:first-child {\n  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n          transform: matrix(0.71, 0.71, -0.71, 0.71, 5, 5);\n}\n.video-modal .close span:last-child {\n  -webkit-transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n          transform: matrix(0.71, -0.71, 0.71, 0.71, 3, 5);\n}\n.video-modal #player {\n  height: 100vh;\n}\n.video-modal.visible {\n  visibility: visible;\n  opacity: 1;\n}\n.hide-scroll {\n  overflow: hidden;\n}\n.play_movie {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  width: 76px;\n  height: 76px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  background: #038FB4;\n  border-radius: 50%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.triangle_play {\n  border: 14px solid transparent;\n  border-left: 20px solid #ffffff;\n  position: absolute;\n  -webkit-transform: translateX(10px);\n          transform: translateX(10px);\n}\n.category-block {\n  padding: 40px 15px 100px 15px;\n}\n.category-block h3 {\n  font-size: 24px;\n  color: #292b32;\n}\n.article-block {\n  padding: 80px 15px;\n}\n.list_blog {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-bottom: 20px;\n}\n.list_blog li {\n  width: 300px;\n  margin: 0 20px;\n}\n.list_blog li .blogpost_info {\n  padding: 0 15px;\n}\n.list_blog h4 {\n  color: #292b32;\n  font-size: 22px;\n  font-weight: bold;\n}\n.img_blog {\n  overflow: hidden;\n  display: block;\n  width: 300px;\n  height: 150px;\n  margin-bottom: 10px;\n  border-radius: 5px 5px 0 0;\n}\n.img_blog:hover img {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.img_blog img {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n  width: 100%;\n}\n.blog_desc {\n  font-size: 16px;\n  color: #545a77;\n  margin-bottom: 5px;\n}\n.visit_blog {\n  color: #008fb4;\n  font-size: 18px;\n  line-height: 60px;\n  width: 165px;\n  border-radius: 60px;\n  border: 2px solid #e7ebfb;\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n}\n.visit_blog:hover {\n  text-decoration: none;\n}\n.city_zone {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  margin-bottom: 20px;\n}\n.box_category {\n  width: 19%;\n}\n.box_category h4 {\n  text-transform: uppercase;\n  font-size: 14px;\n  letter-spacing: 1px;\n  font-weight: bold;\n  margin-bottom: 5px;\n  color: #292b32;\n}\n.list_offer li {\n  text-transform: capitalize;\n}\n.list_offer li a {\n  color: #545a77;\n}\n.all_category a {\n  color: #292b32;\n  font-weight: bold;\n}\n.earn-content {\n  background: -webkit-gradient(linear, right top, left top, color-stop(1%, #11c9e1), to(#0798bf));\n  background: linear-gradient(-90deg, #11c9e1 1%, #0798bf);\n}\n.earn-content h2 {\n  color: #ffffff;\n  max-width: 400px;\n  font-size: 26px;\n  letter-spacing: 0.4px;\n  margin-bottom: 0;\n  padding: 35px 0;\n}\n.earn-block {\n  max-width: 940px;\n}\n.h_tasker {\n  position: relative;\n  max-width: 700px;\n  padding-right: 300px;\n}\n.taskers_img {\n  width: 270px;\n  position: absolute;\n  right: 15px;\n  bottom: 0;\n}\n.taskers_img img {\n  width: 100%;\n}\n.btn_taskers {\n  background: #7db343;\n  color: #ffffff;\n  width: 210px;\n  line-height: 60px;\n  display: block;\n  text-align: center;\n  border-radius: 60px;\n}\n.btn_taskers:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.look_task {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.country_list {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  padding: 30px 0;\n}\n.country_list li {\n  margin: 0 20px;\n}\n.country_list li svg {\n  margin-right: 10px;\n}\n.country_list li a {\n  color: #292b32;\n}\n.country_list li a:hover {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -83126,7 +83498,733 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c("section", { staticClass: "getting-content" }, [
+      _c("div", { staticClass: "getting-block" }, [
+        _c("h2", { staticClass: "mb-5" }, [
+          _vm._v("See what others are getting done")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "tab_box" }, [
+          _c("ul", { staticClass: "tab_nav_list", attrs: { id: "tab_nav" } }, [
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "link_tab",
+                  class: [_vm.activetab === 1 ? "active_mode" : ""],
+                  attrs: { href: "tab1" },
+                  on: {
+                    click: [
+                      function($event) {
+                        _vm.activetab = 1
+                      },
+                      function($event) {
+                        $event.preventDefault()
+                      }
+                    ]
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                            Moving home\n                        "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "link_tab",
+                  class: [_vm.activetab === 2 ? "active_mode" : ""],
+                  attrs: { href: "tab2" },
+                  on: {
+                    click: [
+                      function($event) {
+                        _vm.activetab = 2
+                      },
+                      function($event) {
+                        $event.preventDefault()
+                      }
+                    ]
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                            Starting a business\n                        "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "link_tab",
+                  class: [_vm.activetab === 3 ? "active_mode" : ""],
+                  attrs: { href: "tab3" },
+                  on: {
+                    click: [
+                      function($event) {
+                        _vm.activetab = 3
+                      },
+                      function($event) {
+                        $event.preventDefault()
+                      }
+                    ]
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                            Fixing stuff\n                        "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "link_tab",
+                  class: [_vm.activetab === 4 ? "active_mode" : ""],
+                  attrs: { href: "tab4" },
+                  on: {
+                    click: [
+                      function($event) {
+                        _vm.activetab = 4
+                      },
+                      function($event) {
+                        $event.preventDefault()
+                      }
+                    ]
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                            Hosting a party\n                        "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "link_tab",
+                  class: [_vm.activetab === 5 ? "active_mode" : ""],
+                  attrs: { href: "tab5" },
+                  on: {
+                    click: [
+                      function($event) {
+                        _vm.activetab = 5
+                      },
+                      function($event) {
+                        $event.preventDefault()
+                      }
+                    ]
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                            Something different\n                        "
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tabs" }, [
+            _c("div", [
+              _vm.activetab === 1
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab1" } },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(2, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(3, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(4, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(5, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.activetab === 2
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab2" } },
+                    [
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(7, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(8, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(9, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(10, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.activetab === 3
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab3" } },
+                    [
+                      _vm._m(11),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(12, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(13, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(14, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(15, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.activetab === 4
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab4" } },
+                    [
+                      _vm._m(16),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(17, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(18, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(19, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(20, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.activetab === 5
+                ? _c(
+                    "div",
+                    { staticClass: "tab_content", attrs: { id: "tab5" } },
+                    [
+                      _vm._m(21),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "slider_row" }, [
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_1" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(22, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(23, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "ul",
+                          { staticClass: "slider_row_box slider_row_box_2" },
+                          _vm._l(_vm.users, function(user, index) {
+                            return _c("li", { key: index }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "wrap_task",
+                                  attrs: { href: "/" }
+                                },
+                                [
+                                  _c("div", { staticClass: "category_name" }, [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(user.username) +
+                                        "\n                                            "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "about_user" }, [
+                                    _vm._m(24, true),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "task_name" }, [
+                                      _vm._v(
+                                        "\n                                                    " +
+                                          _vm._s(user.company.catchPhrase) +
+                                          "\n                                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "price_task" }, [
+                                      _vm._v(
+                                        "\n                                                    $" +
+                                          _vm._s(
+                                            _vm._f("slicePrice")(
+                                              user.address.zipcode
+                                            )
+                                          ) +
+                                          "\n                                                "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(25, true)
+                                ]
+                              )
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e()
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(26)
+      ])
+    ]),
     _vm._v(" "),
     _c("section", { staticClass: "movie-content" }, [
       _c("div", { staticClass: "container movie-block" }, [
@@ -83150,7 +84248,7 @@ var render = function() {
                 staticClass: "video_box main_page_video",
                 on: { click: _vm.switchVideoModal }
               },
-              [_vm._m(2), _vm._v(" "), _vm._m(3)]
+              [_vm._m(27), _vm._v(" "), _vm._m(28)]
             )
           ]
         ),
@@ -83178,17 +84276,17 @@ var render = function() {
           _c("div", { attrs: { id: "player-video" } })
         ]),
         _vm._v(" "),
-        _vm._m(4),
+        _vm._m(29),
         _vm._v(" "),
-        _vm._m(5)
+        _vm._m(30)
       ])
     ]),
     _vm._v(" "),
-    _vm._m(6),
+    _vm._m(31),
     _vm._v(" "),
-    _vm._m(7),
+    _vm._m(32),
     _vm._v(" "),
-    _vm._m(8),
+    _vm._m(33),
     _vm._v(" "),
     _c("section", { staticClass: "airtasker-country-content" }, [
       _c("div", { staticClass: "container airtasker-country-block" }, [
@@ -83308,11 +84406,259 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "getting-content" }, [
-      _c("div", { staticClass: "container getting-block" }, [
-        _c("h2", { staticClass: "mb-3" }, [
-          _vm._v("See what others are getting done")
-        ])
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Got a few boxes to shift, an apartment or entire house?\n                                    Get your home moved just the way you want, by whom you want,\n                                    when you want. Let Airtasker shoulder the load.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-3.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Taking a big leap and need some expert advice or assistance?\n                                    Airtasker can help you get some cracking marketing collateral,\n                                    admin muscle or a few extra hands to help ease the burden.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-1.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-3.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Do you have a hole in the wall that needs plugging?\n                                    Perhaps a TV that needs mounting? Or maybe you have that\n                                    perfect shade of green, but no time to paint? Get a Tasker to help.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-1.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Got something to celebrate and the guest list all ready,\n                                    but need everything else? Let Airtasker help you find the best bartenders,\n                                    party planners, photographers and entertainment in the land.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-2.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_part_first" }, [
+      _c("div", { staticClass: "notice_dev tc" }, [
+        _vm._v(
+          "\n                                    Want something done but feel like it’s too random?\n                                    Whether it’s getting rescued from a spider or help building\n                                    a bobsled - you can get nearly anything done through Airtasker.\n                                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-3.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img_size" }, [
+      _c("img", { attrs: { src: "img/blog-1.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "rate_user" }, [
+      _c("i", { staticClass: "ri-star-fill" }),
+      _vm._v(
+        "\n                                                5 stars\n                                            "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab_btn text-center" }, [
+      _c("a", { staticClass: "land_link modal_btn", attrs: { href: "/" } }, [
+        _vm._v("\n                    Get started now\n                ")
       ])
     ])
   },

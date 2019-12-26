@@ -99,8 +99,366 @@
             </div>
         </section>
         <section class="getting-content">
-            <div class="container getting-block">
-                <h2 class="mb-3">See what others are getting done</h2>
+            <div class="getting-block">
+                <h2 class="mb-5">See what others are getting done</h2>
+                <div class="tab_box">
+                    <ul id="tab_nav" class="tab_nav_list">
+                        <li>
+                            <a 
+                                @click="activetab=1"
+                                :class="[ activetab === 1 ? 'active_mode' : '' ]" 
+                                @click.prevent
+                                href="tab1"
+                                class="link_tab">
+                                Moving home
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                @click="activetab=2"
+                                :class="[ activetab === 2 ? 'active_mode' : '' ]" 
+                                @click.prevent
+                                href="tab2"
+                                class="link_tab">
+                                Starting a business
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                @click="activetab=3"
+                                :class="[ activetab === 3 ? 'active_mode' : '' ]" 
+                                @click.prevent
+                                href="tab3"
+                                class="link_tab">
+                                Fixing stuff
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                @click="activetab=4"
+                                :class="[ activetab === 4 ? 'active_mode' : '' ]" 
+                                @click.prevent
+                                href="tab4"
+                                class="link_tab">
+                                Hosting a party
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                @click="activetab=5"
+                                :class="[ activetab === 5 ? 'active_mode' : '' ]" 
+                                @click.prevent
+                                href="tab5"
+                                class="link_tab">
+                                Something different
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tabs">
+                        <div>
+                            <div v-if="activetab === 1" id="tab1" class="tab_content">
+                                <div class="tab_part_first">
+                                    <div class="notice_dev tc">
+                                        Got a few boxes to shift, an apartment or entire house?
+                                        Get your home moved just the way you want, by whom you want,
+                                        when you want. Let Airtasker shoulder the load.
+                                    </div>
+                                </div>
+                                <div class="slider_row">
+                                    <ul class="slider_row_box slider_row_box_1">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-2.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="slider_row_box slider_row_box_2">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-3.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div v-if="activetab === 2" id="tab2" class="tab_content">
+                                <div class="tab_part_first">
+                                    <div class="notice_dev tc">
+                                        Taking a big leap and need some expert advice or assistance?
+                                        Airtasker can help you get some cracking marketing collateral,
+                                        admin muscle or a few extra hands to help ease the burden.
+                                    </div>
+                                </div>
+                                <div class="slider_row">
+                                    <ul class="slider_row_box slider_row_box_1">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-1.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="slider_row_box slider_row_box_2">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-3.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div v-if="activetab === 3" id="tab3" class="tab_content">
+                                <div class="tab_part_first">
+                                    <div class="notice_dev tc">
+                                        Do you have a hole in the wall that needs plugging?
+                                        Perhaps a TV that needs mounting? Or maybe you have that
+                                        perfect shade of green, but no time to paint? Get a Tasker to help.
+                                    </div>
+                                </div>
+                                <div class="slider_row">
+                                    <ul class="slider_row_box slider_row_box_1">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-2.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="slider_row_box slider_row_box_2">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-1.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div v-if="activetab === 4" id="tab4" class="tab_content">
+                                <div class="tab_part_first">
+                                    <div class="notice_dev tc">
+                                        Got something to celebrate and the guest list all ready,
+                                        but need everything else? Let Airtasker help you find the best bartenders,
+                                        party planners, photographers and entertainment in the land.
+                                    </div>
+                                </div>
+                                <div class="slider_row">
+                                    <ul class="slider_row_box slider_row_box_1">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-2.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="slider_row_box slider_row_box_2">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-2.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div v-if="activetab === 5" id="tab5" class="tab_content">
+                                <div class="tab_part_first">
+                                    <div class="notice_dev tc">
+                                        Want something done but feel like it’s too random?
+                                        Whether it’s getting rescued from a spider or help building
+                                        a bobsled - you can get nearly anything done through Airtasker.
+                                    </div>
+                                </div>
+                                <div class="slider_row">
+                                    <ul class="slider_row_box slider_row_box_1">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-3.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="slider_row_box slider_row_box_2">
+                                        <li v-for="(user, index) in users" :key="index">
+                                            <a href="/" class="wrap_task">
+                                                <div class="category_name">
+                                                    {{ user.username }}
+                                                </div>
+                                                <div class="about_user">
+                                                    <div class="img_size">
+                                                        <img src="img/blog-1.jpg" alt=""/>
+                                                    </div>
+                                                    <div class="task_name">
+                                                        {{ user.company.catchPhrase }}
+                                                    </div>
+                                                    <div class="price_task">
+                                                        ${{ user.address.zipcode | slicePrice }}
+                                                    </div>
+                                                </div>
+                                                <div class="rate_user">
+                                                    <i class="ri-star-fill"></i>
+                                                    5 stars
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab_btn text-center">
+                    <a href="/" class="land_link modal_btn">
+                        Get started now
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -737,9 +1095,16 @@ export default {
     data() {
         return {
             modal: false,
+            activetab: 1,
+            users: []
         }
     },
     name: "Home",
+    created() {
+        axios.get('http://jsonplaceholder.typicode.com/users').then((response) => {
+            this.users = response.data
+        })
+    },
     methods: {
         switchVideoModal: function (isPlay) {
             document.querySelector('body').classList.add('hide-scroll')
@@ -755,6 +1120,11 @@ export default {
                 document.querySelector('body').classList.remove('hide-scroll')
                 playerVideo.api('stop')
             }
+        },
+    },
+    filters: {
+        slicePrice(value) {
+            return `${value.slice(0, 2)}`
         }
     }
 }
@@ -862,6 +1232,187 @@ h2 {
         transform: scale(1.4);
     }
 }
+
+
+//============================= TAB BLOCK
+.tab_nav_list,
+.getting-block h2,
+.tab_part_first {
+    max-width: 920px;
+    margin: 0 auto;
+}
+.tab_btn {
+    display: block;
+    a {
+        display: inline-block;
+    }
+}
+.tab_box {
+    margin-bottom: 40px;
+}
+.tab_nav_list {
+    display: flex;
+    margin-bottom: 40px;
+    li {
+        margin-right: 20px;
+        &:last-of-type {
+            margin-right: 0;
+        }
+        a {
+            color: #292b32;
+            font-size: 22px;
+            letter-spacing: 0.25px;
+            padding-bottom: 15px;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                display: block;
+                background: #008fb4;
+                height: 4px;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                border-radius: 4px;
+                transform: translateY(-4px);
+                transition: all .15s cubic-bezier(.615,.19,.305,.91);
+                opacity: 0;
+            }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .active_mode {
+            color: #008fb4;
+            &:after {
+                transform: translateY(0);
+                transition: all .15s cubic-bezier(.615,.19,.305,.91);
+                opacity: 1;
+            }
+        }
+        &:hover {
+            a {
+                &:after {
+                    transform: translateY(0);
+                    transition: all .15s cubic-bezier(.615,.19,.305,.91);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.tab_part_first {
+    margin-bottom: 40px;
+}
+.slider_row {
+    white-space: nowrap;
+    transition: all .2s ease;
+    backface-visibility: hidden;
+    perspective: 1000;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.slider_row_box_1 {
+    margin-bottom: 20px;
+    animation: slide 150s linear infinite;
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+.slider_row_box_2 {
+    animation: slide_2 150s linear infinite;
+    align-self: flex-end;
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+.slider_row_box {
+    white-space: nowrap;
+    li {
+        display: inline-block;
+        position: relative;
+        width: 300px;
+        height: 150px;
+        margin: 0 20px 0 0;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px;
+        border-radius: 4px;
+        padding: 10px 20px;
+    }
+}
+@keyframes slide {
+    0% {
+        transform: translateZ(0);
+    }
+    100% {
+        transform: translate3d(-1920px,0,0);
+    }
+}
+@keyframes slide_2 {
+    0% {
+        transform: translateZ(0);
+    }
+    100% {
+        transform: translate3d(1920px,0,0);
+    }
+}
+.category_name {
+    color: rgb(41, 43, 50);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.about_user {
+    display: flex;
+    .img_size {
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+        border-radius: 50%;
+        display: block;
+        margin-right: 15px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .task_name {
+        width: 160px;
+        white-space: normal;
+        line-height: 1.2;
+    }
+}
+.wrap_task {
+    position: relative;
+    height: 100%;
+    display: block;
+    color: rgb(41, 43, 50);
+    &:hover {
+        text-decoration: none;
+    }
+}
+.rate_user {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    i {
+        color: rgb(233, 165, 44);
+        margin-right: 5px;
+    }
+}
+
+
+
+
+
+
+
 
 //============================= MOVIE BLOCK
 .movie-block {
