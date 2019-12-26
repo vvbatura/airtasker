@@ -1909,9 +1909,9 @@ h2 {
         }
     }
     .list_need {
-        justify-content: space-around;
+        justify-content: flex-start;
         li {
-            width: 30%;
+            width: 32%;
         }
     }
     .link_need {
@@ -1939,7 +1939,7 @@ h2 {
     .country_list {
         display: block;
         li {
-            margin-bottom: 20px;
+            margin: 0 0 20px 0;
             &:last-of-type {
                 margin-bottom: 0;
             }
