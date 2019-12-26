@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Location;
 
+use App\ConfigProject\Constants;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -28,7 +29,7 @@ class LocationsSearchRequest extends FormRequest
     {
         return [
             'query' => ['required', 'string'],
-            'locale' => ['nullable', 'string', Rule::in([config('app.locale'), config('app.locale_other')])],
+            'locale' => ['nullable', 'string', Rule::in(Constants::LANGUAGES)],
         ];
     }
 
