@@ -29,14 +29,14 @@ export default {
 
 <style>
 #content-wrap {
-    padding-bottom: 11.5rem;    /* Footer height */
+    padding-bottom: 472px;    /* Footer height */
 }
 
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 11.5rem;            /* Footer height */
+    height: 472px;         
 }
 </style>
 

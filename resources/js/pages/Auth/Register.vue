@@ -43,35 +43,12 @@
             <div class="form-group">
                 <label for="email">{{$t('city')}}</label>
                 <div class="input-group input-group-city mb-2 mr-sm-2 mb-sm-0">
-                    <!-- <vue-instant
-                        :suggestOnAllWords="true"
-                        :suggestion-attribute="suggestionAttribute"
-                        v-model="location.long_name" :disabled="false"
-                        @input="changed"
-                        :show-autocomplete="true"
-                        :autofocus="false"
-                        :suggestions="suggestions"
-                        name="customName"
-                        :placeholder="$t('city')"
-                        type="google">
-                    </vue-instant> -->
-
-                    
                     <vue-instant
                         :suggestOnAllWords="true"
                         :suggestion-attribute="suggestionAttribute"
                         v-model="location.long_name"
                         :disabled="false" 
                         @input="changed"
-                        @click-input="clickInput"
-                        @click-button="clickButton"
-                        @selected="selected" 
-                        @enter="enter"
-                        @key-up="keyUp"
-                        @key-down="keyDown"
-                        @key-right="keyRight"
-                        @clear="clear"
-                        @escape="escape"
                         :show-autocomplete="true"
                         :autofocus="false"
                         :suggestions="suggestions"
@@ -79,15 +56,6 @@
                         :placeholder="$t('city')"
                         type="google">
                     </vue-instant>
-                    <!-- <autocomplete 
-                        :place-holder-text="placeHolderInputText"
-                        :result-items="autoCompleteResult"
-                        :on-key-up="onKeyUpAutoCompleteEvent"
-                        :on-selected="onSelectedAutoCompleteEvent"
-                        :auto-complete-progress="autoCompleteProgress"
-                        :item-text="autoCompleteText"
-                        :item-id="autoCompleteFieldId">
-                    </autocomplete> -->
                 </div>
             </div>
             <div class="form-group">
@@ -162,7 +130,6 @@ import {
 } from 'vuelidate/lib/validators';
 import LoginWithGoogle from "../../components/social/google";
 import LoginWithFacebook from "../../components/social/facebook";
-//import Autocomplete from "../../components/autocomplete";
 
 export default {
     components: {
@@ -173,9 +140,7 @@ export default {
         return {
             error_dialog: false,
             alert_dialog: false,
-
             role: null,
-
             first_name: '',
             last_name: '',
             email: '',
@@ -189,20 +154,12 @@ export default {
             },
             password: '',
             password_confirmation: '',
-
             errors: {},
             user_exists: false,
             has_error: false,
-
             suggestionAttribute: 'long_name',
             suggestions: [],
-
             submitted: false,
-
-            //value: '',
-            suggestionAttribute: 'long_name',
-            suggestions: [],
-            selectedEvent: ""
         };
     },
     validations: {
@@ -238,7 +195,6 @@ export default {
     methods: {
         submit() {
             this.submitted = true;
-
             // stop here if form is invalid
             this.$v.$touch();
             if (this.$v.$invalid) {
@@ -246,7 +202,6 @@ export default {
             }
             //this.show_spiner = true;
             this.has_error = false;
-
             this.$auth.register({
                 data: {
                     first_name: this.first_name,
@@ -284,34 +239,6 @@ export default {
                 redirect: 'login'
             });
         }, 
-
-        // clickInput: function() {
-        //     this.selectedEvent = 'click input'
-        // },
-        // clickButton: function() {
-        //     this.selectedEvent = 'click button'
-        // },
-        // selected: function() {
-        //     this.selectedEvent = 'selection changed'
-        // },
-        // enter: function() {
-        //     this.selectedEvent = 'enter'
-        // },
-        // keyUp: function() {
-        //     this.selectedEvent = 'keyup pressed'
-        // },
-        // keyDown: function() {
-        //     this.selectedEvent = 'keyDown pressed'
-        // },
-        // keyRight: function() {
-        //     this.selectedEvent = 'keyRight pressed'
-        // },
-        // clear: function() {
-        //     this.selectedEvent = 'clear input'
-        // },
-        // escape: function() {
-        //     this.selectedEvent = 'escape'
-        // },
         changed: function () {
             axios.get('/location/get-geo?query=' + this.location.long_name)    
                 .then((response) => {
@@ -344,5 +271,5 @@ export default {
         }
     }
 };
-
 </script>
+
