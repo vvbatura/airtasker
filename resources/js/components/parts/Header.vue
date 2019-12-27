@@ -129,20 +129,33 @@
                         <ul class="nav_menu">
                             <li v-if="!$auth.check()">
                                 <router-link to="/register">
-                                    Sign up
+                                    {{$t('sign_up')}}
                                 </router-link>
                             </li>
                             <li v-if="!$auth.check()">
                                 <router-link to="/login">
-                                    Log in
+                                    {{$t('login')}}
                                 </router-link>
                             </li>
                             <li v-if="$auth.check()">
                                 <a href="#" @click.prevent="$auth.logout()">{{$t('logout')}}</a>
                             </li>
                             <li>
+                                <div class="arrow_select">
+                                    <select class="header_lang" v-model="locale" @change="changeLocale">
+                                        <option :value="languages.en" selected>
+                                            EN
+                                        </option>
+                                        <option :value="languages.de">
+                                            DE
+                                        </option>
+                                    </select>
+                                    <i class="ri-arrow-down-s-fill"></i>
+                                </div>
+                            </li>
+                            <li>
                                 <a href="/" class="become_tacker">
-                                    Become a Tasker
+                                    {{$t('become-tasker')}}
                                 </a>
                             </li>
                         </ul>
@@ -355,6 +368,9 @@ export default {
     }
     .logo_header {
         margin-bottom: 30px;
+    }
+    .arrow_select {
+        display: inline-block;
     }
 }
 .line_menu {
