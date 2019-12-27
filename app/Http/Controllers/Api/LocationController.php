@@ -16,7 +16,6 @@ class LocationController extends BaseController
 
     public function getFromGEO(LocationsSearchRequest $request)
     {
-        dd($this->getCityFromMapBox($request));
         return $this->getCityFromMapBox($request);
     }
 
