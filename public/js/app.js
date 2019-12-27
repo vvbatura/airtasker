@@ -4350,6 +4350,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/location/get-geo?query=' + this.location.long_name).then(function (response) {
+        console.log(response);
         response.data.data.forEach(function (a) {
           _this.location.name = a.name;
           _this.location.long_name = a.long_name;

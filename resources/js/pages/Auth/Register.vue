@@ -242,6 +242,7 @@ export default {
         changed: function () {
             axios.get('/location/get-geo?query=' + this.location.long_name)    
                 .then((response) => {
+                    console.log(response)
                     response.data.data.forEach((a) => {
                         this.location.name = a.name;
                         this.location.long_name = a.long_name;
