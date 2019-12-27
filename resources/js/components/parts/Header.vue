@@ -401,7 +401,7 @@ export default {
         color: #ffffff;
     }
     .header_lang {
-        padding-right: 18px;
+        padding: 0 18px 0 0;
         background: transparent;
         border: none;
         outline: none;
