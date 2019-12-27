@@ -56,18 +56,10 @@
                         <div class="arrow_select">
                             <select class="header_lang" v-model="locale" @change="changeLocale">
                                 <option :value="languages.en" selected>
-                                    <!-- <img
-                                        class="flag"
-                                        src="https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg"
-                                        alt="United Kindom Flag"> -->
                                     EN
                                 </option>
                                 <option :value="languages.de">
-                                    <!-- <img
-                                        class="flag"
-                                        src="https://lipis.github.io/flag-icon-css/flags/4x3/ger.svg"
-                                        alt="Germany Flag"> -->
-                                    De
+                                    DE
                                 </option>
                             </select>
                             <i class="ri-arrow-down-s-fill"></i>
