@@ -3390,10 +3390,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   methods: {
@@ -81855,58 +81851,50 @@ var render = function() {
           _vm._v(" "),
           _c("nav", { attrs: { id: "nav-menu-container" } }, [
             _c("ul", { staticClass: "nav_menu" }, [
-              _c(
-                "li",
-                [
-                  _c("router-link", { attrs: { to: "/register" } }, [
-                    _vm._v(
-                      "\n                        Sign up\n                    "
-                    )
-                  ])
-                ],
-                1
-              ),
+              !_vm.$auth.check()
+                ? _c(
+                    "li",
+                    [
+                      _c("router-link", { attrs: { to: "/register" } }, [
+                        _vm._v(
+                          "\n                        Sign up\n                    "
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "li",
-                [
-                  !_vm.$auth.check()
-                    ? _c("router-link", { attrs: { to: "/login" } }, [
+              !_vm.$auth.check()
+                ? _c(
+                    "li",
+                    [
+                      _c("router-link", { attrs: { to: "/login" } }, [
                         _vm._v(
                           "\n                        Log in\n                    "
                         )
                       ])
-                    : _vm._e()
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.$auth.check()
-                ? _c(
-                    "li",
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: { to: "/login" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.$auth.logout()
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.$t("logout")) +
-                              "\n                    "
-                          )
-                        ]
-                      )
                     ],
                     1
                   )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.$auth.check()
+                ? _c("li", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.$auth.logout()
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.$t("logout")))]
+                    )
+                  ])
                 : _vm._e(),
               _vm._v(" "),
               _vm._m(1)
@@ -82007,58 +81995,50 @@ var render = function() {
                 _vm._v(" "),
                 _c("nav", { attrs: { id: "nav-menu-container_2" } }, [
                   _c("ul", { staticClass: "nav_menu" }, [
-                    _c(
-                      "li",
-                      [
-                        _c("router-link", { attrs: { to: "/register" } }, [
-                          _vm._v(
-                            "\n                                Sign up\n                            "
-                          )
-                        ])
-                      ],
-                      1
-                    ),
+                    !_vm.$auth.check()
+                      ? _c(
+                          "li",
+                          [
+                            _c("router-link", { attrs: { to: "/register" } }, [
+                              _vm._v(
+                                "\n                                Sign up\n                            "
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      : _vm._e(),
                     _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        !_vm.$auth.check()
-                          ? _c("router-link", { attrs: { to: "/login" } }, [
+                    !_vm.$auth.check()
+                      ? _c(
+                          "li",
+                          [
+                            _c("router-link", { attrs: { to: "/login" } }, [
                               _vm._v(
                                 "\n                                Log in\n                            "
                               )
                             ])
-                          : _vm._e()
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _vm.$auth.check()
-                      ? _c(
-                          "li",
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                attrs: { to: "/login" },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.$auth.logout()
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                " +
-                                    _vm._s(_vm.$t("logout")) +
-                                    "\n                            "
-                                )
-                              ]
-                            )
                           ],
                           1
                         )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.$auth.check()
+                      ? _c("li", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.$auth.logout()
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(_vm.$t("logout")))]
+                          )
+                        ])
                       : _vm._e(),
                     _vm._v(" "),
                     _c("li", [
@@ -83651,7 +83631,23 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "view-content" }, [
+      _c("div", { staticClass: "container d-flex align-items-center" }, [
+        _c("div", { staticClass: "view_zone" }, [
+          _c("h1", [_vm._v(_vm._s(_vm.$t("best-person-for-the-job")))]),
+          _vm._v(" "),
+          _c("h4", [
+            _vm._v("Find the people with the skills you need on Airtasker")
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "land_link modal_btn", attrs: { href: "/" } },
+            [_vm._v("\n                    Get started now\n                ")]
+          )
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("section", { staticClass: "need-content" }, [
       _c("div", { staticClass: "container need-block" }, [
@@ -84003,7 +83999,7 @@ var render = function() {
                     "div",
                     { staticClass: "tab_content", attrs: { id: "tab1" } },
                     [
-                      _vm._m(1),
+                      _vm._m(0),
                       _vm._v(" "),
                       _c("div", { staticClass: "slider_row" }, [
                         _c(
@@ -84027,7 +84023,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(2, true),
+                                    _vm._m(1, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84050,7 +84046,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(3, true)
+                                  _vm._m(2, true)
                                 ]
                               )
                             ])
@@ -84079,7 +84075,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(4, true),
+                                    _vm._m(3, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84102,7 +84098,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(5, true)
+                                  _vm._m(4, true)
                                 ]
                               )
                             ])
@@ -84119,7 +84115,7 @@ var render = function() {
                     "div",
                     { staticClass: "tab_content", attrs: { id: "tab2" } },
                     [
-                      _vm._m(6),
+                      _vm._m(5),
                       _vm._v(" "),
                       _c("div", { staticClass: "slider_row" }, [
                         _c(
@@ -84143,7 +84139,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(7, true),
+                                    _vm._m(6, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84166,7 +84162,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(8, true)
+                                  _vm._m(7, true)
                                 ]
                               )
                             ])
@@ -84195,7 +84191,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(9, true),
+                                    _vm._m(8, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84218,7 +84214,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(10, true)
+                                  _vm._m(9, true)
                                 ]
                               )
                             ])
@@ -84235,7 +84231,7 @@ var render = function() {
                     "div",
                     { staticClass: "tab_content", attrs: { id: "tab3" } },
                     [
-                      _vm._m(11),
+                      _vm._m(10),
                       _vm._v(" "),
                       _c("div", { staticClass: "slider_row" }, [
                         _c(
@@ -84259,7 +84255,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(12, true),
+                                    _vm._m(11, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84282,7 +84278,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(13, true)
+                                  _vm._m(12, true)
                                 ]
                               )
                             ])
@@ -84311,7 +84307,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(14, true),
+                                    _vm._m(13, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84334,7 +84330,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(15, true)
+                                  _vm._m(14, true)
                                 ]
                               )
                             ])
@@ -84351,7 +84347,7 @@ var render = function() {
                     "div",
                     { staticClass: "tab_content", attrs: { id: "tab4" } },
                     [
-                      _vm._m(16),
+                      _vm._m(15),
                       _vm._v(" "),
                       _c("div", { staticClass: "slider_row" }, [
                         _c(
@@ -84375,7 +84371,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(17, true),
+                                    _vm._m(16, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84398,7 +84394,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(18, true)
+                                  _vm._m(17, true)
                                 ]
                               )
                             ])
@@ -84427,7 +84423,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(19, true),
+                                    _vm._m(18, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84450,7 +84446,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(20, true)
+                                  _vm._m(19, true)
                                 ]
                               )
                             ])
@@ -84467,7 +84463,7 @@ var render = function() {
                     "div",
                     { staticClass: "tab_content", attrs: { id: "tab5" } },
                     [
-                      _vm._m(21),
+                      _vm._m(20),
                       _vm._v(" "),
                       _c("div", { staticClass: "slider_row" }, [
                         _c(
@@ -84491,7 +84487,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(22, true),
+                                    _vm._m(21, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84514,7 +84510,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(23, true)
+                                  _vm._m(22, true)
                                 ]
                               )
                             ])
@@ -84543,7 +84539,7 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "about_user" }, [
-                                    _vm._m(24, true),
+                                    _vm._m(23, true),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "task_name" }, [
                                       _vm._v(
@@ -84566,7 +84562,7 @@ var render = function() {
                                     ])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(25, true)
+                                  _vm._m(24, true)
                                 ]
                               )
                             ])
@@ -84581,7 +84577,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(26)
+        _vm._m(25)
       ])
     ]),
     _vm._v(" "),
@@ -84607,7 +84603,7 @@ var render = function() {
                 staticClass: "video_box main_page_video",
                 on: { click: _vm.switchVideoModal }
               },
-              [_vm._m(27), _vm._v(" "), _vm._m(28)]
+              [_vm._m(26), _vm._v(" "), _vm._m(27)]
             )
           ]
         ),
@@ -84635,17 +84631,17 @@ var render = function() {
           _c("div", { attrs: { id: "player-video" } })
         ]),
         _vm._v(" "),
-        _vm._m(29),
+        _vm._m(28),
         _vm._v(" "),
-        _vm._m(30)
+        _vm._m(29)
       ])
     ]),
+    _vm._v(" "),
+    _vm._m(30),
     _vm._v(" "),
     _vm._m(31),
     _vm._v(" "),
     _vm._m(32),
-    _vm._v(" "),
-    _vm._m(33),
     _vm._v(" "),
     _c("section", { staticClass: "airtasker-country-content" }, [
       _c("div", { staticClass: "container airtasker-country-block" }, [
@@ -84737,30 +84733,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "view-content" }, [
-      _c("div", { staticClass: "container d-flex align-items-center" }, [
-        _c("div", { staticClass: "view_zone" }, [
-          _c("h1", [
-            _vm._v("The best person for the job isn't always who you think")
-          ]),
-          _vm._v(" "),
-          _c("h4", [
-            _vm._v("Find the people with the skills you need on Airtasker")
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "land_link modal_btn", attrs: { href: "/" } },
-            [_vm._v("\n                    Get started now\n                ")]
-          )
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -104876,10 +104848,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, logout, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, default */
+/*! exports provided: lang, sign_up, login, logout, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, best-person-for-the-job, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"logout\":\"Log out\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\",\"your-email-was-checked\":\"Your email was checked!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"Check SMS\",\"code-is-required\":\"Code is required\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"logout\":\"Log out\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\",\"your-email-was-checked\":\"Your email was checked!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"Check SMS\",\"code-is-required\":\"Code is required\",\"best-person-for-the-job\":\"The best person for the job isn't always who you think\"}");
 
 /***/ }),
 

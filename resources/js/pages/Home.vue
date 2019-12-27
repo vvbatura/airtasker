@@ -3,7 +3,7 @@
         <section class="view-content">
             <div class="container d-flex align-items-center">
                 <div class="view_zone">
-                    <h1>The best person for the job isn't always who you think</h1>
+                    <h1>{{$t('best-person-for-the-job')}}</h1>
                     <h4>Find the people with the skills you need on Airtasker</h4>
                     <a href="/" class="land_link modal_btn">
                         Get started now

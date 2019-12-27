@@ -37,20 +37,18 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav_menu">
-                    <li>
+                    <li v-if="!$auth.check()">
                         <router-link to="/register">
                             Sign up
                         </router-link>
                     </li>
-                    <li>
-                        <router-link to="/login" v-if="!$auth.check()">
+                    <li v-if="!$auth.check()">
+                        <router-link to="/login">
                             Log in
                         </router-link>
                     </li>
                     <li v-if="$auth.check()">
-                        <router-link to="/login" @click.prevent="$auth.logout()">
-                            {{$t('logout')}}
-                        </router-link>
+                        <a href="#" @click.prevent="$auth.logout()">{{$t('logout')}}</a>
                     </li>
                     <li>
                         <a href="/" class="become_tacker">
@@ -106,20 +104,18 @@
                     </ul>
                     <nav id="nav-menu-container_2">
                         <ul class="nav_menu">
-                            <li>
+                            <li v-if="!$auth.check()">
                                 <router-link to="/register">
                                     Sign up
                                 </router-link>
                             </li>
-                            <li>
-                                <router-link to="/login" v-if="!$auth.check()">
+                            <li v-if="!$auth.check()">
+                                <router-link to="/login">
                                     Log in
                                 </router-link>
                             </li>
                             <li v-if="$auth.check()">
-                                <router-link to="/login" @click.prevent="$auth.logout()">
-                                    {{$t('logout')}}
-                                </router-link>
+                                <a href="#" @click.prevent="$auth.logout()">{{$t('logout')}}</a>
                             </li>
                             <li>
                                 <a href="/" class="become_tacker">
