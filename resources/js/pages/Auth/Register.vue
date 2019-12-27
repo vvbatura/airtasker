@@ -138,6 +138,7 @@ export default {
     },
     data() {
         return {
+            locale: null,
             error_dialog: false,
             alert_dialog: false,
             role: null,
@@ -192,6 +193,10 @@ export default {
             sameAsPassword: sameAs('password'),
         }
     },
+    beforeMount() {
+        this.locale = this.$store.getters.locale;
+        this.$i18n.locale = this.locale;
+    },
     methods: {
         submit() {
             this.submitted = true;
@@ -240,7 +245,7 @@ export default {
             });
         }, 
         changed: function () {
-            axios.get('/location/get-geo?query=' + this.location.long_name + '&locale=' + 'en')    
+            axios.get('/location/get-geo?query=' + this.location.long_name + '&locale=' + this.locale)    
                 .then((response) => {
                     console.log(response)
                     response.data.data.forEach((a) => {

@@ -4298,6 +4298,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      locale: null,
       error_dialog: false,
       alert_dialog: false,
       role: null,
@@ -4351,6 +4352,10 @@ __webpack_require__.r(__webpack_exports__);
     password_confirmation: {
       sameAsPassword: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["sameAs"])('password')
     }
+  },
+  beforeMount: function beforeMount() {
+    this.locale = this.$store.getters.locale;
+    this.$i18n.locale = this.locale;
   },
   methods: {
     submit: function submit() {
@@ -4406,7 +4411,7 @@ __webpack_require__.r(__webpack_exports__);
     changed: function changed() {
       var _this = this;
 
-      axios.get('/location/get-geo?query=' + this.location.long_name + '&locale=' + 'en').then(function (response) {
+      axios.get('/location/get-geo?query=' + this.location.long_name + '&locale=' + this.locale).then(function (response) {
         console.log(response);
         response.data.data.forEach(function (a) {
           _this.location.name = a.name;
