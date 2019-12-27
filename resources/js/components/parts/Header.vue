@@ -38,7 +38,7 @@
             <nav id="nav-menu-container">
                 <ul class="nav_menu">
                     <li>
-                        <router-link to="/">
+                        <router-link to="/register">
                             Sign up
                         </router-link>
                     </li>
@@ -107,7 +107,7 @@
                     <nav id="nav-menu-container_2">
                         <ul class="nav_menu">
                             <li>
-                                <router-link to="/">
+                                <router-link to="/register">
                                     Sign up
                                 </router-link>
                             </li>

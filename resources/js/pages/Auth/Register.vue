@@ -240,7 +240,7 @@ export default {
             });
         }, 
         changed: function () {
-            axios.get('/location/get-geo?query=' + this.location.long_name)    
+            axios.get('/location/get-geo?query=' + this.location.long_name + '&locale=' + 'en')    
                 .then((response) => {
                     console.log(response)
                     response.data.data.forEach((a) => {
