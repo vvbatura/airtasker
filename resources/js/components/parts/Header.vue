@@ -43,8 +43,13 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/login">
+                        <router-link to="/login" v-if="!$auth.check()">
                             Log in
+                        </router-link>
+                    </li>
+                    <li v-if="$auth.check()">
+                        <router-link to="/login" @click.prevent="$auth.logout()">
+                            {{$t('logout')}}
                         </router-link>
                     </li>
                     <li>
@@ -107,8 +112,13 @@
                                 </router-link>
                             </li>
                             <li>
-                                <router-link to="/login">
+                                <router-link to="/login" v-if="!$auth.check()">
                                     Log in
+                                </router-link>
+                            </li>
+                            <li v-if="$auth.check()">
+                                <router-link to="/login" @click.prevent="$auth.logout()">
+                                    {{$t('logout')}}
                                 </router-link>
                             </li>
                             <li>
