@@ -51,6 +51,27 @@
                         <a href="#" @click.prevent="$auth.logout()">{{$t('logout')}}</a>
                     </li>
                     <li>
+                        <div class="arrow_select">
+                            <select class="header_lang" v-model="locale" @change="changeLocale">
+                                <option :value="languages.en" selected>
+                                    <!-- <img
+                                        class="flag"
+                                        src="https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg"
+                                        alt="United Kindom Flag"> -->
+                                    EN
+                                </option>
+                                <option :value="languages.uk">
+                                    <!-- <img
+                                        class="flag"
+                                        src="https://lipis.github.io/flag-icon-css/flags/4x3/ger.svg"
+                                        alt="Germany Flag"> -->
+                                    De
+                                </option>
+                            </select>
+                            <i class="ri-arrow-down-s-fill"></i>
+                        </div>
+                    </li>
+                    <li>
                         <a href="/" class="become_tacker">
                             Become a Tasker
                         </a>
@@ -134,25 +155,34 @@
 </template>
 
 <script>
-    export default {
-        name: "Header",
-        methods:{
-            handleSCroll (event) {
-                let header = document.querySelector("header");
-                if (window.scrollY > 100 && !header.className.includes('fix_header')) {
-                header.classList.add('fix_header'); 
-                } else if (window.scrollY < 100) {
-                header.classList.remove('fix_header');
-                }
+export default {
+    name: "Header",
+        data() {
+        return {
+            locale: 'en',
+            languages: {en: this.$i18n.locale, de: this.$i18n.fallbackLocale}
+        }
+    },
+    methods:{
+        handleSCroll (event) {
+            let header = document.querySelector("header");
+            if (window.scrollY > 100 && !header.className.includes('fix_header')) {
+            header.classList.add('fix_header'); 
+            } else if (window.scrollY < 100) {
+            header.classList.remove('fix_header');
             }
         },
-        created () {
-            window.addEventListener('scroll', this.handleSCroll);
-        },
-        destroyed () {
-            window.removeEventListener('scroll', this.handleSCroll);
-        } 
-    }
+        changeLocale() {
+            this.$i18n.locale = this.locale;
+        }
+    },
+    created () {
+        window.addEventListener('scroll', this.handleSCroll);
+    },
+    destroyed () {
+        window.removeEventListener('scroll', this.handleSCroll);
+    } 
+}
 </script>
 
 <style lang="scss">
@@ -195,6 +225,14 @@
         }
         .become_tacker {
             border: 1px solid #545a77; 
+        }
+    }
+    .arrow_select {
+        i {
+            color: #545a77;
+        }
+        .header_lang {
+            color: #545a77;
         }
     }
 }
@@ -328,6 +366,26 @@
         &:last-of-type {
             margin-bottom: 0;
         }
+    }
+}
+.arrow_select {
+    position: relative;
+    i {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        line-height: 1;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #ffffff;
+    }
+    .header_lang {
+        padding-right: 18px;
+        background: transparent;
+        border: none;
+        outline: none;
+        -webkit-appearance: none;
+        color: #ffffff;
     }
 }
 @media (max-width: 992px) {

@@ -3390,8 +3390,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
+  data: function data() {
+    return {
+      locale: 'en',
+      languages: {
+        en: this.$i18n.locale,
+        de: this.$i18n.fallbackLocale
+      }
+    };
+  },
   methods: {
     handleSCroll: function handleSCroll(event) {
       var header = document.querySelector("header");
@@ -3401,6 +3431,9 @@ __webpack_require__.r(__webpack_exports__);
       } else if (window.scrollY < 100) {
         header.classList.remove('fix_header');
       }
+    },
+    changeLocale: function changeLocale() {
+      this.$i18n.locale = this.locale;
     }
   },
   created: function created() {
@@ -3539,8 +3572,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3568,6 +3599,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_parts_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/parts/Header */ "./resources/js/components/parts/Header.vue");
 //
 //
 //
@@ -3576,7 +3608,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Header: _components_parts_Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {};
   }
@@ -34497,7 +34536,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#header {\n  height: 58px;\n  position: fixed;\n  width: 100%;\n  z-index: 100;\n}\n#header .container {\n  height: 100%;\n}\n#AirtaskerLogo path {\n  fill: #ffffff;\n}\n.fix_header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.fix_header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.fix_header .head_menu li + li a {\n  color: #545a77;\n}\n.fix_header .nav_menu li a {\n  color: #545a77;\n}\n.fix_header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.become_tacker {\n  padding: 6px 16px;\n  border: 1px solid #ffffff;\n  border-radius: 34px;\n  display: inline-block;\n}\n.become_tacker:hover {\n  text-decoration: none;\n}\n.red_btn {\n  background: #e0446d;\n  padding: 6px 16px;\n  border-radius: 34px;\n  color: #ffffff;\n  border: 1px solid #e0446d;\n  display: inline-block;\n}\n.red_btn:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.logo_header {\n  margin-right: 40px;\n}\n.nav_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.nav_menu li {\n  margin-right: 20px;\n}\n.nav_menu li:last-of-type {\n  margin-right: 0;\n}\n.nav_menu li a {\n  color: #ffffff;\n}\n.head_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.head_menu li {\n  margin-right: 20px;\n}\n.head_menu li a {\n  color: #ffffff;\n}\n.head_menu li:last-of-type {\n  margin-right: 0;\n}\n.modal_menu {\n  padding: 30px;\n  overflow: hidden;\n}\n.menu_box {\n  display: none;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative;\n}\n.menu_box:hover {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.menu_box:hover .line_menu span {\n  background: #008fb4;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.close_btn {\n  cursor: pointer;\n}\n.hide_menu {\n  display: block;\n  height: calc(100vh - 65px);\n  width: 100vw;\n  background: #ffffff;\n}\n.hide_menu .head_menu {\n  display: block;\n  margin-bottom: 40px;\n}\n.hide_menu .head_menu li {\n  margin: 0 0 20px 0;\n}\n.hide_menu .head_menu li:first-of-type a {\n  color: #ffffff;\n}\n.hide_menu .head_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .head_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu {\n  display: block;\n}\n.hide_menu .nav_menu li {\n  margin-bottom: 20px;\n}\n.hide_menu .nav_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .nav_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu .become_tacker {\n  border: none;\n  padding: 0;\n}\n.hide_menu .logo_header {\n  margin-bottom: 30px;\n}\n.line_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  width: 30px;\n  height: 25px;\n}\n.line_menu span {\n  display: block;\n  background: #80878A;\n  height: 3px;\n  width: 100%;\n  -webkit-transform-origin: 0% 0%;\n          transform-origin: 0% 0%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.line_menu span:last-of-type {\n  margin-bottom: 0;\n}\n@media (max-width: 992px) {\n.visible_header .head_menu {\n    display: none;\n}\n#nav-menu-container .nav_menu {\n    display: none;\n}\n.menu_box {\n    display: block;\n}\nheader {\n    background: #ffffff;\n    border-bottom: 1px solid #ccc;\n    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n#AirtaskerLogo path {\n    fill: #008fb4;\n}\n}", ""]);
+exports.push([module.i, "#header {\n  height: 58px;\n  position: fixed;\n  width: 100%;\n  z-index: 100;\n}\n#header .container {\n  height: 100%;\n}\n#AirtaskerLogo path {\n  fill: #ffffff;\n}\n.fix_header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.fix_header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.fix_header .head_menu li + li a {\n  color: #545a77;\n}\n.fix_header .nav_menu li a {\n  color: #545a77;\n}\n.fix_header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.fix_header .arrow_select i {\n  color: #545a77;\n}\n.fix_header .arrow_select .header_lang {\n  color: #545a77;\n}\n.become_tacker {\n  padding: 6px 16px;\n  border: 1px solid #ffffff;\n  border-radius: 34px;\n  display: inline-block;\n}\n.become_tacker:hover {\n  text-decoration: none;\n}\n.red_btn {\n  background: #e0446d;\n  padding: 6px 16px;\n  border-radius: 34px;\n  color: #ffffff;\n  border: 1px solid #e0446d;\n  display: inline-block;\n}\n.red_btn:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.logo_header {\n  margin-right: 40px;\n}\n.nav_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.nav_menu li {\n  margin-right: 20px;\n}\n.nav_menu li:last-of-type {\n  margin-right: 0;\n}\n.nav_menu li a {\n  color: #ffffff;\n}\n.head_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.head_menu li {\n  margin-right: 20px;\n}\n.head_menu li a {\n  color: #ffffff;\n}\n.head_menu li:last-of-type {\n  margin-right: 0;\n}\n.modal_menu {\n  padding: 30px;\n  overflow: hidden;\n}\n.menu_box {\n  display: none;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative;\n}\n.menu_box:hover {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.menu_box:hover .line_menu span {\n  background: #008fb4;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.close_btn {\n  cursor: pointer;\n}\n.hide_menu {\n  display: block;\n  height: calc(100vh - 65px);\n  width: 100vw;\n  background: #ffffff;\n}\n.hide_menu .head_menu {\n  display: block;\n  margin-bottom: 40px;\n}\n.hide_menu .head_menu li {\n  margin: 0 0 20px 0;\n}\n.hide_menu .head_menu li:first-of-type a {\n  color: #ffffff;\n}\n.hide_menu .head_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .head_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu {\n  display: block;\n}\n.hide_menu .nav_menu li {\n  margin-bottom: 20px;\n}\n.hide_menu .nav_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .nav_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu .become_tacker {\n  border: none;\n  padding: 0;\n}\n.hide_menu .logo_header {\n  margin-bottom: 30px;\n}\n.line_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  width: 30px;\n  height: 25px;\n}\n.line_menu span {\n  display: block;\n  background: #80878A;\n  height: 3px;\n  width: 100%;\n  -webkit-transform-origin: 0% 0%;\n          transform-origin: 0% 0%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.line_menu span:last-of-type {\n  margin-bottom: 0;\n}\n.arrow_select {\n  position: relative;\n}\n.arrow_select i {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  line-height: 1;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  pointer-events: none;\n  color: #ffffff;\n}\n.arrow_select .header_lang {\n  padding-right: 18px;\n  background: transparent;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n  color: #ffffff;\n}\n@media (max-width: 992px) {\n.visible_header .head_menu {\n    display: none;\n}\n#nav-menu-container .nav_menu {\n    display: none;\n}\n.menu_box {\n    display: block;\n}\nheader {\n    background: #ffffff;\n    border-bottom: 1px solid #ccc;\n    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n#AirtaskerLogo path {\n    fill: #008fb4;\n}\n}", ""]);
 
 // exports
 
@@ -34573,7 +34612,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#content-auth {\n  min-height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}", ""]);
+exports.push([module.i, "#content-auth {\n  min-height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.auth_header header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative !important;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.auth_header header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.auth_header header .head_menu li + li a {\n  color: #545a77;\n}\n.auth_header header .nav_menu li a {\n  color: #545a77;\n}\n.auth_header header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.auth_header header .arrow_select i {\n  color: #545a77;\n}\n.auth_header header .arrow_select .header_lang {\n  color: #545a77;\n}", ""]);
 
 // exports
 
@@ -81897,6 +81936,65 @@ var render = function() {
                   ])
                 : _vm._e(),
               _vm._v(" "),
+              _c("li", [
+                _c("div", { staticClass: "arrow_select" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.locale,
+                          expression: "locale"
+                        }
+                      ],
+                      staticClass: "header_lang",
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.locale = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          _vm.changeLocale
+                        ]
+                      }
+                    },
+                    [
+                      _c(
+                        "option",
+                        {
+                          attrs: { selected: "" },
+                          domProps: { value: _vm.languages.en }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                EN\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { domProps: { value: _vm.languages.uk } }, [
+                        _vm._v(
+                          "\n                                De\n                            "
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("i", { staticClass: "ri-arrow-down-s-fill" })
+                ])
+              ]),
+              _vm._v(" "),
               _vm._m(1)
             ])
           ]),
@@ -82263,14 +82361,23 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [
-    _c(
-      "div",
-      { staticClass: "content ", attrs: { id: "content-auth" } },
-      [_c("router-view")],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "auth_header" },
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c("main", [
+        _c(
+          "div",
+          { staticClass: "content ", attrs: { id: "content-auth" } },
+          [_c("router-view")],
+          1
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -104830,17 +104937,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-i18n */ "./node_modules/vue-i18n/dist/vue-i18n.esm.js");
 /* harmony import */ var _lang_en__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lang/en */ "./resources/js/lang/en.json");
 var _lang_en__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./lang/en */ "./resources/js/lang/en.json", 1);
+/* harmony import */ var _lang_de__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lang/de */ "./resources/js/lang/de.json");
+var _lang_de__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./lang/de */ "./resources/js/lang/de.json", 1);
+
 
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
   locale: 'en',
+  fallbackLocale: 'de',
   messages: {
-    en: _lang_en__WEBPACK_IMPORTED_MODULE_2__
+    en: _lang_en__WEBPACK_IMPORTED_MODULE_2__,
+    de: _lang_de__WEBPACK_IMPORTED_MODULE_3__
   }
 });
 /* harmony default export */ __webpack_exports__["default"] = (i18n);
+
+/***/ }),
+
+/***/ "./resources/js/lang/de.json":
+/*!***********************************!*\
+  !*** ./resources/js/lang/de.json ***!
+  \***********************************/
+/*! exports provided: lang, sign_up, login, logout, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, best-person-for-the-job, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"lang\":\"Deutch\",\"sign_up\":\"Anmelden\",\"login\":\"Einloggen\",\"logout\":\"Ausloggen\",\"remember_me\":\"Behalte mich in Erinnerung\",\"forgot-password\":\"Passwort vergessen ?\",\"country\":\"Land\",\"rubric\":\"Rubrik\",\"name\":\"Name\",\"password\":\"Passwort\",\"phone\":\"Telefon\",\"word-403\":\"Sie haben auf diesem Server keine Zugriffsberechtigung!\",\"page-not-found\":\"Seite nicht gefunden!\",\"email\":\"Email\",\"already-have\":\"Hast du schon ein Konto ?\",\"dont-have\":\"Sie haben noch keinen Account?\",\"join-airtasker\":\"Beitreten airtasker\",\"join-us\":\"Begleiten Sie uns\",\"surname\":\"Nachname\",\"or-sign-up-with\":\"oder melde dich an mit\",\"or-login-with\":\"oder einloggen mit\",\"max-password-length-is-255\":\"Die maximale Kennwortlänge beträgt 255\",\"max-email-length-is-255\":\"Die maximale email länge beträgt 255\",\"password-is-required\":\"Passwort wird benötigt\",\"min-password-length-is-6\":\"Die Mindestlänge des Passworts beträgt 6\",\"email-is-required\":\"Email ist erforderlich\",\"name-is-required\":\"Name ist erforderlich\",\"incorrect-email\":\"Falsche email\",\"login-details-are-incorrect\":\"Anmeldedaten sind falsch\",\"city\":\"Stadt\",\"send\":\"Senden\",\"cancel\":\"Stornieren\",\"email-not-found\":\"Email wurde nicht gefunden\",\"phone-not-found\":\"Handy nicht gefunden\",\"max-phone-length-is-255\":\"Die maximale Telefonlänge beträgt 255\",\"phone-is-required\":\"Telefon ist erforderlich\",\"enter-your-phone\":\"Geben Sie Ihr Telefon ein\",\"enter-your-email\":\"Geben sie ihre email adresse ein\",\"from-email\":\"aus der Email\",\"from-phone\":\"vom Telefon\",\"enter-your-email-phone\":\"Geben Sie unten Ihre email oder Ihr Telefon ein und wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts\",\"password-confirmation\":\"Passwort Bestätigung\",\"enter-code\":\"Gib deinen Code ein\",\"passwords-must-match\":\"Die Passwörter müssen übereinstimmen\",\"confirm-password-is-required\":\"Passwort bestätigen ist erforderlich\",\"password-must-contain\":\"Das Passwort muss mindestens 6 Zeichen enthalten\",\"return-to-login\":\"Zurück zum Login\",\"confirm-password\":\"Kennwort bestätigen\",\"change-password\":\"Passwort ändern\",\"last-name-is-required\":\"Nachname ist erforderlich\",\"first-name-is-required\":\"Vorname ist erforderlich\",\"your-email-was-checked\":\"Ihre E-Mail wurde geprüft!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"SMS überprüfen\",\"code-is-required\":\"Code ist erforderlich\",\"best-person-for-the-job\":\"Die beste Person für den Job ist nicht immer die, die Sie denken\"}");
 
 /***/ }),
 
