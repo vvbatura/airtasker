@@ -56,7 +56,11 @@ class AuthController extends BaseController
             $user->assignRole(Constants::ROLE_CLIENT);
             $user->_location()->create($request->only('location')['location']);
 
-            $user->notify((new VerificationUser($user, $user->getAttribute('verify_token')))->locale($locale));
+            try {
+                $user->notify((new VerificationUser($user, $user->getAttribute('verify_token')))->locale($locale));
+            } catch (\Exception $e) {
+                Log::error('Exception notify register user: ', ['exception' => $e]);
+            }
 
             DB::commit();
             return $this->sendResponse('Successfully register.', new UserResource($user));
@@ -86,7 +90,11 @@ class AuthController extends BaseController
             ]);
             $user->_profile()->create();
 
-            $user->notify((new VerificationUserSuccess($user))->locale($locale));
+            try {
+                $user->notify((new VerificationUserSuccess($user))->locale($locale));
+            } catch (\Exception $e) {
+                Log::error('Exception notify verify user: ', ['exception' => $e]);
+            }
 
             DB::commit();
             return $this->sendResponse('Email was successful verified.');
@@ -119,7 +127,12 @@ class AuthController extends BaseController
             }
 
             $user = User::where($field, $$field)->first();
-            $user->notify((new ForgotPasswordUser($user, $resetToken, $field))->locale($locale));
+
+            try {
+                $user->notify((new ForgotPasswordUser($user, $resetToken, $field))->locale($locale));
+            } catch (\Exception $e) {
+                Log::error('Exception notify forgot password user: ', ['exception' => $e]);
+            }
 
             return $this->sendResponse('Link to reset password was send.');
 
@@ -169,7 +182,11 @@ class AuthController extends BaseController
             $user->password = $request->get('password');
             $user->save();
 
-            $user->notify((new ResetPasswordSuccess($user))->locale($locale));
+            try {
+                $user->notify((new ResetPasswordSuccess($user))->locale($locale));
+            } catch (\Exception $e) {
+                Log::error('Exception notify reset password user: ', ['exception' => $e]);
+            }
 
             return $this->sendResponse('Password successfully changed.');
 
