@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\ConfigProject\Constants;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ForgotPasswordPhoneRequest extends FormRequest
 {
@@ -25,6 +27,7 @@ class ForgotPasswordPhoneRequest extends FormRequest
     {
         return [
             'phone' => 'required|string|exists:users,phone',
+            'locale' => ['nullable', 'string', Rule::in(Constants::LANGUAGES)],
         ];
     }
 

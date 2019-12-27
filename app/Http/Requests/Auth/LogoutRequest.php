@@ -6,7 +6,7 @@ use App\ConfigProject\Constants;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class VerifyRequest extends FormRequest
+class LogoutRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,6 @@ class VerifyRequest extends FormRequest
     public function rules()
     {
         return [
-            'token' => 'required|string',
             'locale' => ['nullable', 'string', Rule::in(Constants::LANGUAGES)],
         ];
     }

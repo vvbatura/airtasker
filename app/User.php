@@ -91,6 +91,10 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     public static function makeHash() {
         return md5(uniqid());
     }
+    public function routeNotificationForNexmo($notification)
+    {
+        return $this->phone;
+    }
 
     //-relations
     public function _socials()

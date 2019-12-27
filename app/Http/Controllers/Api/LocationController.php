@@ -23,10 +23,11 @@ class LocationController extends BaseController
     {
         try {
             $query = $request->get('query');
+            $locale = $request->get('locale', Constants::LANGUAGE_EN);
             $client = new \GuzzleHttp\Client;
             $params = [
                 'input'     => $query,
-                'language'  => 'en',
+                'language'  => $locale,
                 'types'     => '(cities)',
                 'sensor'    => false,
                 'key'       => env('GOOGLE_MAPS_API_KEY'),

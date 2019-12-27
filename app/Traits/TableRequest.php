@@ -7,7 +7,8 @@ use Illuminate\Validation\Rule;
 
 trait TableRequest
 {
-    public function merge($rules) {
+    public function merge($rules)
+    {
 
         return array_merge([
             'order_field' => 'nullable|string',
