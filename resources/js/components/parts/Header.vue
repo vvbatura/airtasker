@@ -54,14 +54,14 @@
                     </li>
                     <li>
                         <div class="arrow_select">
-                            <select class="header_lang" v-model="locale" @change="changeLocale">
+                            <b-form-select class="header_lang" v-model="locale" @change="changeLocale">
                                 <option :value="languages.en" selected>
                                     EN
                                 </option>
                                 <option :value="languages.de">
                                     DE
                                 </option>
-                            </select>
+                            </b-form-select>
                             <i class="ri-arrow-down-s-fill"></i>
                         </div>
                     </li>
@@ -162,10 +162,16 @@
 </template>
 
 <script>
+import { BFormSelect  } from 'bootstrap-vue'
+
 export default {
     name: "Header",
+    components: {
+        'b-form-select': BFormSelect
+    },
     data() {
         return {
+            selected: null,
             locale: null,
             languages: { en: 'en', de: 'de'}
         }
@@ -401,6 +407,9 @@ export default {
         outline: none;
         -webkit-appearance: none;
         color: #ffffff;
+        &:focus {
+            box-shadow: 0 0 0 0rem rgba(52, 144, 220, 0.25);
+        }
     }
 }
 @media (min-width: 992px) {
