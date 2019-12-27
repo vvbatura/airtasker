@@ -1093,20 +1093,17 @@
 </template>
 
 <script>
+import fetchData from './users.json'
+
 export default {
     data() {
         return {
             modal: false,
             activetab: 1,
-            users: []
+            users: fetchData
         }
     },
     name: "Home",
-    created() {
-        axios.get('http://jsonplaceholder.typicode.com/users').then((response) => {
-            this.users = response.data
-        })
-    },
     methods: {
         switchVideoModal: function (isPlay) {
             document.querySelector('body').classList.add('hide-scroll')

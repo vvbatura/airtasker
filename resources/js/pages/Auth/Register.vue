@@ -47,10 +47,10 @@
                         :suggestOnAllWords="true"
                         :suggestion-attribute="suggestionAttribute"
                         v-model="location.long_name"
-                        :disabled="false" 
+                        :disabled="false"
                         @input="changed"
                         :show-autocomplete="true"
-                        :autofocus="false"
+                        :autofocus="true"
                         :suggestions="suggestions"
                         name="customName"
                         :placeholder="$t('city')"
@@ -251,18 +251,7 @@ export default {
                         this.suggestions.push(a)
                     })
                 })
-        },
-        // changed: function() {
-        //     var that = this
-        //     this.suggestions = []
-        //     axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
-        //     axios.get('/location/get-geo?query=' + this.location.long_name) 
-        //      .then(function(response) {
-        //             response.data.results.forEach(function(a) {
-        //                 that.suggestions.push(a)
-        //             })
-        //         })
-        // },
+        }
     },
     filters: {
         toString: function (value) {
