@@ -26,6 +26,7 @@ export default {
         [types.SET_LOCALE] (state, payload) {
             window.localStorage.setItem(LOCALE, payload.locale);
             i18n.locale = payload.locale;
+            state.locale = payload.locale;
             state.lang = payload.locale;
         }
     }

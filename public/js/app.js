@@ -3417,10 +3417,10 @@ __webpack_require__.r(__webpack_exports__);
   name: "Header",
   data: function data() {
     return {
-      locale: 'en',
+      locale: null,
       languages: {
-        en: this.$i18n.locale,
-        de: this.$i18n.fallbackLocale
+        en: 'en',
+        de: 'de'
       }
     };
   },
@@ -3435,8 +3435,15 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     changeLocale: function changeLocale() {
+      this.$store.dispatch('setLocale', {
+        locale: this.locale
+      });
       this.$i18n.locale = this.locale;
     }
+  },
+  beforeMount: function beforeMount() {
+    this.locale = this.$store.getters.locale;
+    this.$i18n.locale = this.locale;
   },
   created: function created() {
     window.addEventListener('scroll', this.handleSCroll);
@@ -81989,7 +81996,7 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _c("option", { domProps: { value: _vm.languages.uk } }, [
+                      _c("option", { domProps: { value: _vm.languages.de } }, [
                         _vm._v(
                           "\n                                De\n                            "
                         )
@@ -106415,6 +106422,7 @@ var initLang = function () {
   mutations: _defineProperty({}, _mutation_types__WEBPACK_IMPORTED_MODULE_1__["SET_LOCALE"], function (state, payload) {
     window.localStorage.setItem(LOCALE, payload.locale);
     _i18n__WEBPACK_IMPORTED_MODULE_0__["default"].locale = payload.locale;
+    state.locale = payload.locale;
     state.lang = payload.locale;
   })
 });

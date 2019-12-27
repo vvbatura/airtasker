@@ -62,7 +62,7 @@
                                         alt="United Kindom Flag"> -->
                                     EN
                                 </option>
-                                <option :value="languages.uk">
+                                <option :value="languages.de">
                                     <!-- <img
                                         class="flag"
                                         src="https://lipis.github.io/flag-icon-css/flags/4x3/ger.svg"
@@ -159,10 +159,10 @@
 <script>
 export default {
     name: "Header",
-        data() {
+    data() {
         return {
-            locale: 'en',
-            languages: {en: this.$i18n.locale, de: this.$i18n.fallbackLocale}
+            locale: null,
+            languages: { en: 'en', de: 'de'}
         }
     },
     methods:{
@@ -175,15 +175,20 @@ export default {
             }
         },
         changeLocale() {
+            this.$store.dispatch('setLocale', {locale: this.locale});
             this.$i18n.locale = this.locale;
         }
+    },
+    beforeMount() {
+        this.locale = this.$store.getters.locale;
+        this.$i18n.locale = this.locale;
     },
     created () {
         window.addEventListener('scroll', this.handleSCroll);
     },
     destroyed () {
         window.removeEventListener('scroll', this.handleSCroll);
-    } 
+    }
 }
 </script>
 
