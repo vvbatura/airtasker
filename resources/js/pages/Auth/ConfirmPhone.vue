@@ -1,5 +1,5 @@
 <template>
-    <div class="login-form">
+    <div class="login-form log_own">
         <form @submit.prevent="handleSubmit" autocomplete="off">
             <h2 class="text-center mb-4">{{$t('check-sms')}}</h2>
             <div class="form-group">

@@ -15,11 +15,13 @@
                 <ul class="head_menu">
                     <li>
                        <a href="/" class="red_btn become_tacker">
-                            Post a task
+                            <!-- {{$t('post-task')}} -->
+                            Post a Task
                         </a> 
                     </li>
                     <li>
                         <a href="/">
+                            <!-- {{$t('categories')}} -->
                             Categories
                         </a>
                     </li>
@@ -39,12 +41,12 @@
                 <ul class="nav_menu">
                     <li v-if="!$auth.check()">
                         <router-link to="/register">
-                            Sign up
+                            {{$t('sign_up')}}
                         </router-link>
                     </li>
                     <li v-if="!$auth.check()">
                         <router-link to="/login">
-                            Log in
+                            {{$t('login')}}
                         </router-link>
                     </li>
                     <li v-if="$auth.check()">
@@ -73,7 +75,7 @@
                     </li>
                     <li>
                         <a href="/" class="become_tacker">
-                            Become a Tasker
+                            {{$t('become-tasker')}}
                         </a>
                     </li>
                 </ul>
@@ -386,6 +388,26 @@ export default {
         outline: none;
         -webkit-appearance: none;
         color: #ffffff;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 1170px;
+    }
+}
+@media (max-width: 1200px) {
+    .logo_header {
+        margin-right: 20px;
+    }
+    .head_menu {
+        li {
+            margin-right: 15px;
+        }
+    }
+    .nav_menu {
+        li {
+            margin-right: 15px;
+        }
     }
 }
 @media (max-width: 992px) {

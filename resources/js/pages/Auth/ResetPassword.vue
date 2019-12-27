@@ -1,5 +1,5 @@
 <template>
-    <div class="login-form">
+    <div class="login-form log_own">
         <form v-if="formShow" class="form-horizontal" role="form" @submit.prevent="submit">
             <h2 class="text-center mb-4">{{$t('change-password')}}</h2>
             <div class="form-group has-danger">

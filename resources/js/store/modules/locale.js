@@ -10,7 +10,7 @@ const initLang = (() => {
 
 export default {
     state: {
-        locale: initLang
+        locale: initLang,
     },
     getters: {
         locale (state) {

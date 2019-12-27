@@ -1,5 +1,5 @@
 <template>
-    <div class="login-form">
+    <div class="login-form log_own">
         <form v-on:submit.prevent="submit" autocomplete="off">
             <h2 class="text-center mb-4">{{$t('login')}}</h2>
             <div class="form-group">
@@ -156,6 +156,9 @@ export default {
     padding: 20px 20px 30px 20px;
     border-radius: 5px;
     background: #ffffff;
+}
+.log_own {
+    transform: translateY(-58px);
 }
 @media (max-width: 560px) {
     .login-form {

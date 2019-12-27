@@ -66,7 +66,14 @@ export default {
             .header_lang {
                 color: #545a77;
             }
-        }   
+        }
+        .hide_menu {
+            .nav_menu {
+                .become_tacker {
+                    border: none;
+                }
+            }
+        }
     }
 }
 </style>

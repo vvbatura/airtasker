@@ -1,5 +1,5 @@
 <template>
-    <div class="login-form">
+    <div class="login-form log_own">
         <form class="reset-form" @submit.prevent="submit">
             <h2 class="text-center mb-4">{{$t('forgot-password')}}</h2>
             <p class="notice_reset">{{$t('enter-your-email-phone')}}</p>

@@ -3411,6 +3411,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
@@ -34536,7 +34538,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#header {\n  height: 58px;\n  position: fixed;\n  width: 100%;\n  z-index: 100;\n}\n#header .container {\n  height: 100%;\n}\n#AirtaskerLogo path {\n  fill: #ffffff;\n}\n.fix_header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.fix_header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.fix_header .head_menu li + li a {\n  color: #545a77;\n}\n.fix_header .nav_menu li a {\n  color: #545a77;\n}\n.fix_header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.fix_header .arrow_select i {\n  color: #545a77;\n}\n.fix_header .arrow_select .header_lang {\n  color: #545a77;\n}\n.become_tacker {\n  padding: 6px 16px;\n  border: 1px solid #ffffff;\n  border-radius: 34px;\n  display: inline-block;\n}\n.become_tacker:hover {\n  text-decoration: none;\n}\n.red_btn {\n  background: #e0446d;\n  padding: 6px 16px;\n  border-radius: 34px;\n  color: #ffffff;\n  border: 1px solid #e0446d;\n  display: inline-block;\n}\n.red_btn:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.logo_header {\n  margin-right: 40px;\n}\n.nav_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.nav_menu li {\n  margin-right: 20px;\n}\n.nav_menu li:last-of-type {\n  margin-right: 0;\n}\n.nav_menu li a {\n  color: #ffffff;\n}\n.head_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.head_menu li {\n  margin-right: 20px;\n}\n.head_menu li a {\n  color: #ffffff;\n}\n.head_menu li:last-of-type {\n  margin-right: 0;\n}\n.modal_menu {\n  padding: 30px;\n  overflow: hidden;\n}\n.menu_box {\n  display: none;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative;\n}\n.menu_box:hover {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.menu_box:hover .line_menu span {\n  background: #008fb4;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.close_btn {\n  cursor: pointer;\n}\n.hide_menu {\n  display: block;\n  height: calc(100vh - 65px);\n  width: 100vw;\n  background: #ffffff;\n}\n.hide_menu .head_menu {\n  display: block;\n  margin-bottom: 40px;\n}\n.hide_menu .head_menu li {\n  margin: 0 0 20px 0;\n}\n.hide_menu .head_menu li:first-of-type a {\n  color: #ffffff;\n}\n.hide_menu .head_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .head_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu {\n  display: block;\n}\n.hide_menu .nav_menu li {\n  margin-bottom: 20px;\n}\n.hide_menu .nav_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .nav_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu .become_tacker {\n  border: none;\n  padding: 0;\n}\n.hide_menu .logo_header {\n  margin-bottom: 30px;\n}\n.line_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  width: 30px;\n  height: 25px;\n}\n.line_menu span {\n  display: block;\n  background: #80878A;\n  height: 3px;\n  width: 100%;\n  -webkit-transform-origin: 0% 0%;\n          transform-origin: 0% 0%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.line_menu span:last-of-type {\n  margin-bottom: 0;\n}\n.arrow_select {\n  position: relative;\n}\n.arrow_select i {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  line-height: 1;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  pointer-events: none;\n  color: #ffffff;\n}\n.arrow_select .header_lang {\n  padding-right: 18px;\n  background: transparent;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n  color: #ffffff;\n}\n@media (max-width: 992px) {\n.visible_header .head_menu {\n    display: none;\n}\n#nav-menu-container .nav_menu {\n    display: none;\n}\n.menu_box {\n    display: block;\n}\nheader {\n    background: #ffffff;\n    border-bottom: 1px solid #ccc;\n    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n#AirtaskerLogo path {\n    fill: #008fb4;\n}\n}", ""]);
+exports.push([module.i, "#header {\n  height: 58px;\n  position: fixed;\n  width: 100%;\n  z-index: 100;\n}\n#header .container {\n  height: 100%;\n}\n#AirtaskerLogo path {\n  fill: #ffffff;\n}\n.fix_header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.fix_header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.fix_header .head_menu li + li a {\n  color: #545a77;\n}\n.fix_header .nav_menu li a {\n  color: #545a77;\n}\n.fix_header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.fix_header .arrow_select i {\n  color: #545a77;\n}\n.fix_header .arrow_select .header_lang {\n  color: #545a77;\n}\n.become_tacker {\n  padding: 6px 16px;\n  border: 1px solid #ffffff;\n  border-radius: 34px;\n  display: inline-block;\n}\n.become_tacker:hover {\n  text-decoration: none;\n}\n.red_btn {\n  background: #e0446d;\n  padding: 6px 16px;\n  border-radius: 34px;\n  color: #ffffff;\n  border: 1px solid #e0446d;\n  display: inline-block;\n}\n.red_btn:hover {\n  text-decoration: none;\n  color: #ffffff;\n}\n.logo_header {\n  margin-right: 40px;\n}\n.nav_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.nav_menu li {\n  margin-right: 20px;\n}\n.nav_menu li:last-of-type {\n  margin-right: 0;\n}\n.nav_menu li a {\n  color: #ffffff;\n}\n.head_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.head_menu li {\n  margin-right: 20px;\n}\n.head_menu li a {\n  color: #ffffff;\n}\n.head_menu li:last-of-type {\n  margin-right: 0;\n}\n.modal_menu {\n  padding: 30px;\n  overflow: hidden;\n}\n.menu_box {\n  display: none;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative;\n}\n.menu_box:hover {\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.menu_box:hover .line_menu span {\n  background: #008fb4;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.close_btn {\n  cursor: pointer;\n}\n.hide_menu {\n  display: block;\n  height: calc(100vh - 65px);\n  width: 100vw;\n  background: #ffffff;\n}\n.hide_menu .head_menu {\n  display: block;\n  margin-bottom: 40px;\n}\n.hide_menu .head_menu li {\n  margin: 0 0 20px 0;\n}\n.hide_menu .head_menu li:first-of-type a {\n  color: #ffffff;\n}\n.hide_menu .head_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .head_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu {\n  display: block;\n}\n.hide_menu .nav_menu li {\n  margin-bottom: 20px;\n}\n.hide_menu .nav_menu li:last-of-type {\n  margin: 0;\n}\n.hide_menu .nav_menu li a {\n  color: #545a77;\n}\n.hide_menu .nav_menu .become_tacker {\n  border: none;\n  padding: 0;\n}\n.hide_menu .logo_header {\n  margin-bottom: 30px;\n}\n.line_menu {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n  width: 30px;\n  height: 25px;\n}\n.line_menu span {\n  display: block;\n  background: #80878A;\n  height: 3px;\n  width: 100%;\n  -webkit-transform-origin: 0% 0%;\n          transform-origin: 0% 0%;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n}\n.line_menu span:last-of-type {\n  margin-bottom: 0;\n}\n.arrow_select {\n  position: relative;\n}\n.arrow_select i {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  line-height: 1;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  pointer-events: none;\n  color: #ffffff;\n}\n.arrow_select .header_lang {\n  padding-right: 18px;\n  background: transparent;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n  color: #ffffff;\n}\n@media (min-width: 992px) {\n.container {\n    max-width: 1170px;\n}\n}\n@media (max-width: 1200px) {\n.logo_header {\n    margin-right: 20px;\n}\n.head_menu li {\n    margin-right: 15px;\n}\n.nav_menu li {\n    margin-right: 15px;\n}\n}\n@media (max-width: 992px) {\n.visible_header .head_menu {\n    display: none;\n}\n#nav-menu-container .nav_menu {\n    display: none;\n}\n.menu_box {\n    display: block;\n}\nheader {\n    background: #ffffff;\n    border-bottom: 1px solid #ccc;\n    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n#AirtaskerLogo path {\n    fill: #008fb4;\n}\n}", ""]);
 
 // exports
 
@@ -34612,7 +34614,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#content-auth {\n  min-height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.auth_header header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative !important;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.auth_header header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.auth_header header .head_menu li + li a {\n  color: #545a77;\n}\n.auth_header header .nav_menu li a {\n  color: #545a77;\n}\n.auth_header header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.auth_header header .arrow_select i {\n  color: #545a77;\n}\n.auth_header header .arrow_select .header_lang {\n  color: #545a77;\n}", ""]);
+exports.push([module.i, "#content-auth {\n  min-height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.auth_header header {\n  background: #ffffff;\n  -webkit-transition: 0.3s linear;\n  transition: 0.3s linear;\n  position: relative !important;\n  border-bottom: 1px solid #ccc;\n  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);\n}\n.auth_header header #AirtaskerLogo path {\n  fill: #008fb4;\n}\n.auth_header header .head_menu li + li a {\n  color: #545a77;\n}\n.auth_header header .nav_menu li a {\n  color: #545a77;\n}\n.auth_header header .nav_menu .become_tacker {\n  border: 1px solid #545a77;\n}\n.auth_header header .arrow_select i {\n  color: #545a77;\n}\n.auth_header header .arrow_select .header_lang {\n  color: #545a77;\n}\n.auth_header header .hide_menu .nav_menu .become_tacker {\n  border: none;\n}", ""]);
 
 // exports
 
@@ -34650,7 +34652,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".login-form {\n  width: 400px;\n  margin: 0 auto;\n  padding: 20px 20px 30px 20px;\n  border-radius: 5px;\n  background: #ffffff;\n}\n@media (max-width: 560px) {\n.login-form {\n    max-width: 100%;\n    width: 100vw;\n    min-height: 100vh;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n}\n.forget_btn {\n  text-align: right;\n  margin-bottom: 20px;\n}\n.forget_btn a {\n  font-size: 20px;\n}\n.btn-lg {\n  background: #7db343;\n  color: #ffffff;\n  height: 45px;\n  border-radius: 45px;\n  margin-bottom: 15px;\n}\n.btn-lg:hover {\n  color: #ffffff;\n}\n.login_with {\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #545a77;\n  position: relative;\n}\n.login_with span {\n  background: #ffffff;\n  position: relative;\n  z-index: 10;\n  padding: 0 15px;\n}\n.login_with:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  background: #bbc2dc;\n  height: 1px;\n  width: 100%;\n  top: 55%;\n  left: 0;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}", ""]);
+exports.push([module.i, ".login-form {\n  width: 400px;\n  margin: 0 auto;\n  padding: 20px 20px 30px 20px;\n  border-radius: 5px;\n  background: #ffffff;\n}\n.log_own {\n  -webkit-transform: translateY(-58px);\n          transform: translateY(-58px);\n}\n@media (max-width: 560px) {\n.login-form {\n    max-width: 100%;\n    width: 100vw;\n    min-height: 100vh;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n}\n.forget_btn {\n  text-align: right;\n  margin-bottom: 20px;\n}\n.forget_btn a {\n  font-size: 20px;\n}\n.btn-lg {\n  background: #7db343;\n  color: #ffffff;\n  height: 45px;\n  border-radius: 45px;\n  margin-bottom: 15px;\n}\n.btn-lg:hover {\n  color: #ffffff;\n}\n.login_with {\n  margin-bottom: 15px;\n  font-size: 16px;\n  color: #545a77;\n  position: relative;\n}\n.login_with span {\n  background: #ffffff;\n  position: relative;\n  z-index: 10;\n  padding: 0 15px;\n}\n.login_with:after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  background: #bbc2dc;\n  height: 1px;\n  width: 100%;\n  top: 55%;\n  left: 0;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}", ""]);
 
 // exports
 
@@ -81896,7 +81898,9 @@ var render = function() {
                     [
                       _c("router-link", { attrs: { to: "/register" } }, [
                         _vm._v(
-                          "\n                        Sign up\n                    "
+                          "\n                        " +
+                            _vm._s(_vm.$t("sign_up")) +
+                            "\n                    "
                         )
                       ])
                     ],
@@ -81910,7 +81914,9 @@ var render = function() {
                     [
                       _c("router-link", { attrs: { to: "/login" } }, [
                         _vm._v(
-                          "\n                        Log in\n                    "
+                          "\n                        " +
+                            _vm._s(_vm.$t("login")) +
+                            "\n                    "
                         )
                       ])
                     ],
@@ -81995,7 +82001,19 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(1)
+              _c("li", [
+                _c(
+                  "a",
+                  { staticClass: "become_tacker", attrs: { href: "/" } },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.$t("become-tasker")) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -82011,7 +82029,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._m(2)]
+            [_vm._m(1)]
           )
         ]
       ),
@@ -82186,7 +82204,7 @@ var staticRenderFns = [
           { staticClass: "red_btn become_tacker", attrs: { href: "/" } },
           [
             _vm._v(
-              "\n                        Post a task\n                    "
+              "\n                        Post a Task\n                    "
             )
           ]
         )
@@ -82208,18 +82226,6 @@ var staticRenderFns = [
         _c("a", { attrs: { href: "/" } }, [
           _vm._v("\n                        How it works\n                    ")
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "become_tacker", attrs: { href: "/" } }, [
-        _vm._v(
-          "\n                        Become a Tasker\n                    "
-        )
       ])
     ])
   },
@@ -82442,7 +82448,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "login-form" }, [
+  return _c("div", { staticClass: "login-form log_own" }, [
     _c(
       "form",
       {
@@ -82646,7 +82652,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "login-form" }, [
+  return _c("div", { staticClass: "login-form log_own" }, [
     _c(
       "form",
       {
@@ -82908,7 +82914,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "login-form" }, [
+  return _c("div", { staticClass: "login-form log_own" }, [
     _c(
       "form",
       {
@@ -83482,7 +83488,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "login-form" }, [
+  return _c("div", { staticClass: "login-form log_own" }, [
     _vm.formShow
       ? _c(
           "form",
@@ -83698,7 +83704,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "account_box text-center" },
+    { staticClass: "account_box text-center log_own" },
     [
       _vm.verifiedAccount
         ? _c("h2", { staticClass: "verified_h mb-4" }, [
@@ -104960,10 +104966,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/de.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, logout, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, best-person-for-the-job, default */
+/*! exports provided: lang, sign_up, login, logout, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, best-person-for-the-job, become-tasker, categories, post-task, browse-tasks, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"Deutch\",\"sign_up\":\"Anmelden\",\"login\":\"Einloggen\",\"logout\":\"Ausloggen\",\"remember_me\":\"Behalte mich in Erinnerung\",\"forgot-password\":\"Passwort vergessen ?\",\"country\":\"Land\",\"rubric\":\"Rubrik\",\"name\":\"Name\",\"password\":\"Passwort\",\"phone\":\"Telefon\",\"word-403\":\"Sie haben auf diesem Server keine Zugriffsberechtigung!\",\"page-not-found\":\"Seite nicht gefunden!\",\"email\":\"Email\",\"already-have\":\"Hast du schon ein Konto ?\",\"dont-have\":\"Sie haben noch keinen Account?\",\"join-airtasker\":\"Beitreten airtasker\",\"join-us\":\"Begleiten Sie uns\",\"surname\":\"Nachname\",\"or-sign-up-with\":\"oder melde dich an mit\",\"or-login-with\":\"oder einloggen mit\",\"max-password-length-is-255\":\"Die maximale Kennwortlänge beträgt 255\",\"max-email-length-is-255\":\"Die maximale email länge beträgt 255\",\"password-is-required\":\"Passwort wird benötigt\",\"min-password-length-is-6\":\"Die Mindestlänge des Passworts beträgt 6\",\"email-is-required\":\"Email ist erforderlich\",\"name-is-required\":\"Name ist erforderlich\",\"incorrect-email\":\"Falsche email\",\"login-details-are-incorrect\":\"Anmeldedaten sind falsch\",\"city\":\"Stadt\",\"send\":\"Senden\",\"cancel\":\"Stornieren\",\"email-not-found\":\"Email wurde nicht gefunden\",\"phone-not-found\":\"Handy nicht gefunden\",\"max-phone-length-is-255\":\"Die maximale Telefonlänge beträgt 255\",\"phone-is-required\":\"Telefon ist erforderlich\",\"enter-your-phone\":\"Geben Sie Ihr Telefon ein\",\"enter-your-email\":\"Geben sie ihre email adresse ein\",\"from-email\":\"aus der Email\",\"from-phone\":\"vom Telefon\",\"enter-your-email-phone\":\"Geben Sie unten Ihre email oder Ihr Telefon ein und wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts\",\"password-confirmation\":\"Passwort Bestätigung\",\"enter-code\":\"Gib deinen Code ein\",\"passwords-must-match\":\"Die Passwörter müssen übereinstimmen\",\"confirm-password-is-required\":\"Passwort bestätigen ist erforderlich\",\"password-must-contain\":\"Das Passwort muss mindestens 6 Zeichen enthalten\",\"return-to-login\":\"Zurück zum Login\",\"confirm-password\":\"Kennwort bestätigen\",\"change-password\":\"Passwort ändern\",\"last-name-is-required\":\"Nachname ist erforderlich\",\"first-name-is-required\":\"Vorname ist erforderlich\",\"your-email-was-checked\":\"Ihre E-Mail wurde geprüft!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"SMS überprüfen\",\"code-is-required\":\"Code ist erforderlich\",\"best-person-for-the-job\":\"Die beste Person für den Job ist nicht immer die, die Sie denken\"}");
+module.exports = JSON.parse("{\"lang\":\"Deutch\",\"sign_up\":\"Anmelden\",\"login\":\"Einloggen\",\"logout\":\"Ausloggen\",\"remember_me\":\"Behalte mich in Erinnerung\",\"forgot-password\":\"Passwort vergessen ?\",\"country\":\"Land\",\"rubric\":\"Rubrik\",\"name\":\"Name\",\"password\":\"Passwort\",\"phone\":\"Telefon\",\"word-403\":\"Sie haben auf diesem Server keine Zugriffsberechtigung!\",\"page-not-found\":\"Seite nicht gefunden!\",\"email\":\"Email\",\"already-have\":\"Hast du schon ein Konto ?\",\"dont-have\":\"Sie haben noch keinen Account?\",\"join-airtasker\":\"Beitreten airtasker\",\"join-us\":\"Begleiten Sie uns\",\"surname\":\"Nachname\",\"or-sign-up-with\":\"oder melde dich an mit\",\"or-login-with\":\"oder einloggen mit\",\"max-password-length-is-255\":\"Die maximale Kennwortlänge beträgt 255\",\"max-email-length-is-255\":\"Die maximale email länge beträgt 255\",\"password-is-required\":\"Passwort wird benötigt\",\"min-password-length-is-6\":\"Die Mindestlänge des Passworts beträgt 6\",\"email-is-required\":\"Email ist erforderlich\",\"name-is-required\":\"Name ist erforderlich\",\"incorrect-email\":\"Falsche email\",\"login-details-are-incorrect\":\"Anmeldedaten sind falsch\",\"city\":\"Stadt\",\"send\":\"Senden\",\"cancel\":\"Stornieren\",\"email-not-found\":\"Email wurde nicht gefunden\",\"phone-not-found\":\"Handy nicht gefunden\",\"max-phone-length-is-255\":\"Die maximale Telefonlänge beträgt 255\",\"phone-is-required\":\"Telefon ist erforderlich\",\"enter-your-phone\":\"Geben Sie Ihr Telefon ein\",\"enter-your-email\":\"Geben sie ihre email adresse ein\",\"from-email\":\"aus der Email\",\"from-phone\":\"vom Telefon\",\"enter-your-email-phone\":\"Geben Sie unten Ihre email oder Ihr Telefon ein und wir senden Ihnen Anweisungen zum Zurücksetzen Ihres Passworts\",\"password-confirmation\":\"Passwort Bestätigung\",\"enter-code\":\"Gib deinen Code ein\",\"passwords-must-match\":\"Die Passwörter müssen übereinstimmen\",\"confirm-password-is-required\":\"Passwort bestätigen ist erforderlich\",\"password-must-contain\":\"Das Passwort muss mindestens 6 Zeichen enthalten\",\"return-to-login\":\"Zurück zum Login\",\"confirm-password\":\"Kennwort bestätigen\",\"change-password\":\"Passwort ändern\",\"last-name-is-required\":\"Nachname ist erforderlich\",\"first-name-is-required\":\"Vorname ist erforderlich\",\"your-email-was-checked\":\"Ihre E-Mail wurde geprüft!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"SMS überprüfen\",\"code-is-required\":\"Code ist erforderlich\",\"best-person-for-the-job\":\"Die beste Person für den Job ist nicht immer die, die Sie denken\",\"become-tasker\":\"Werden Sie ein Tasker\",\"categories\":\"Kategorien\",\"post-task\":\"Aufgabe posten\",\"browse-tasks\":\"Aufgaben durchsuchen\"}");
 
 /***/ }),
 
@@ -104971,10 +104977,10 @@ module.exports = JSON.parse("{\"lang\":\"Deutch\",\"sign_up\":\"Anmelden\",\"log
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, logout, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, best-person-for-the-job, default */
+/*! exports provided: lang, sign_up, login, logout, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, best-person-for-the-job, become-tasker, categories, post-task, browse-tasks, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"logout\":\"Log out\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\",\"your-email-was-checked\":\"Your email was checked!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"Check SMS\",\"code-is-required\":\"Code is required\",\"best-person-for-the-job\":\"The best person for the job isn't always who you think\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"logout\":\"Log out\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\",\"your-email-was-checked\":\"Your email was checked!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"Check SMS\",\"code-is-required\":\"Code is required\",\"best-person-for-the-job\":\"The best person for the job isn't always who you think\",\"become-tasker\":\"Become a Tasker\",\"categories\":\"Categories\",\"post-task\":\"Post a task\",\"browse-tasks\":\"Browse tasks\"}");
 
 /***/ }),
 
