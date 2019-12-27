@@ -104280,7 +104280,7 @@ var config = {
   logoutData: {
     url: 'auth/logout',
     method: 'POST',
-    redirect: 'login',
+    redirect: '/',
     makeRequest: true
   },
   fetchData: {
