@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\ConfigProject\Constants;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class LoginRequest extends FormRequest
 {
@@ -25,7 +27,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'password' => 'required|string|min:6|max:156'
+            'password' => 'required|string|min:6|max:156',
+            'locale' => ['nullable', 'string', Rule::in(Constants::LANGUAGES)],
         ];
     }
 

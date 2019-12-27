@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "11c546d053aa2e02b569956345babc96",
+    "content-hash": "f46fbe545d93566947cc1d29ea2aed5f",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -874,6 +874,63 @@
             "time": "2019-12-05T13:49:53+00:00"
         },
         {
+            "name": "laravel/nexmo-notification-channel",
+            "version": "v2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/nexmo-notification-channel.git",
+                "reference": "da1ba24ecd9877e461fc3fdd68761328eaf035e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/nexmo-notification-channel/zipball/da1ba24ecd9877e461fc3fdd68761328eaf035e3",
+                "reference": "da1ba24ecd9877e461fc3fdd68761328eaf035e3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/notifications": "~5.8.0|^6.0|^7.0",
+                "nexmo/laravel": "^2.0",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Illuminate\\Notifications\\NexmoChannelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Notifications\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Nexmo Notification Channel for laravel.",
+            "keywords": [
+                "laravel",
+                "nexmo",
+                "notifications"
+            ],
+            "time": "2019-12-10T16:54:57+00:00"
+        },
+        {
             "name": "laravel/socialite",
             "version": "v4.3.1",
             "source": {
@@ -1691,6 +1748,72 @@
             ],
             "description": "PHP Client for using Nexmo's API.",
             "time": "2019-10-18T08:19:04+00:00"
+        },
+        {
+            "name": "nexmo/laravel",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nexmo/nexmo-laravel.git",
+                "reference": "d05faa716133b49975907848ed4c79f85033a1f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nexmo/nexmo-laravel/zipball/d05faa716133b49975907848ed4c79f85033a1f9",
+                "reference": "d05faa716133b49975907848ed4c79f85033a1f9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.2|^6.0",
+                "nexmo/client": "^2.0",
+                "php": "^5.6|^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0|^4.0",
+                "phpunit/phpunit": "^5.3|~6.0|~8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nexmo\\Laravel\\NexmoServiceProvider"
+                    ],
+                    "aliases": {
+                        "Nexmo": "Nexmo\\Laravel\\Facade\\Nexmo"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nexmo\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Lytle",
+                    "email": "tim@nexmo.com",
+                    "homepage": "http://twitter.com/tjlytle",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Michael Heap",
+                    "email": "michael.heap@nexmo.com",
+                    "homepage": "http://twitter.com/mheap",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Chris Tankersley",
+                    "email": "chris.tankersley@nexmo.com",
+                    "homepage": "http://twitter.com/dragonmantank",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Package for Nexmo's PHP Client",
+            "time": "2019-10-21T18:25:16+00:00"
         },
         {
             "name": "nikic/php-parser",

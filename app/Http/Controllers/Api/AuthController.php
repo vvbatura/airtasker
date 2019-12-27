@@ -7,43 +7,37 @@ use App\Http\Requests\Auth\CheckTokenEmail;
 use App\Http\Requests\Auth\ForgotPasswordEmailRequest;
 use App\Http\Requests\Auth\ForgotPasswordPhoneRequest;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\LogoutRequest;
 use App\Http\Requests\Auth\RegisterFormRequest;
 use App\Http\Requests\Auth\ResetPasswordFormRequest;
 use App\Http\Requests\Auth\VerifyRequest;
-use App\Mail\Auth\ForgetPasswordUserMail;
-use App\Mail\Auth\VerificationUserEmail;
+use App\Notifications\Auth\ForgotPasswordUser;
+use App\Notifications\Auth\LoginUserSuccess;
+use App\Notifications\Auth\LogoutUserSuccess;
+use App\Notifications\Auth\ResetPasswordSuccess;
+use App\Notifications\Auth\VerificationUser;
+use App\Notifications\Auth\VerificationUserSuccess;
+use App\Traits\NexmoTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Resources\User\UserResource;
 use App\User;
 
 class AuthController extends BaseController
 {
-    protected $client;
+    use NexmoTrait;
+
     public function __construct()
     {
         $this->middleware('auth:api')->only(['me', 'logout', 'refresh']);
-
-        $basic  = new \Nexmo\Client\Credentials\Basic(env('NEXMO_CLIENT_KEY'), env('NEXMO_CLIENT_SECRET'));
-        $this->client = new \Nexmo\Client($basic);
-    }
-
-    protected function sendSMS ($number, $message)
-    {
-        $message = $this->client->message()->send([
-            'to' => $number,
-            'from' => 'AirTasker',
-            'text' => $message
-        ]);
     }
 
     public function TestSms ()
     {
-        $message = $this->sendSMS('380983091243', 'Hello from WEB.');
+        $message = $this->sendSMS('380983091243', 'Hello from my WEB.');
         //$message = $this->sendSMS('4917632281828', 'Hello from WEB.');
 
         dd($message);
@@ -51,8 +45,9 @@ class AuthController extends BaseController
 
     public function register(RegisterFormRequest $request)
     {
-        $data =$request->except('location');
+        $data =$request->except(['location', 'locale']);
         $data['verify_token'] = User::makeHash();
+        $locale = $request->get('locale', Constants::LANGUAGE_EN);
 
         DB::beginTransaction();
 
@@ -61,13 +56,7 @@ class AuthController extends BaseController
             $user->assignRole(Constants::ROLE_CLIENT);
             $user->_location()->create($request->only('location')['location']);
 
-            Mail::to($user->email)->queue(new VerificationUserEmail($user, $user->getAttribute('verify_token')));
-
-            /*try {
-                $this->sendSMS($user->phone, $user->verify_token);
-            } catch (\Exception $e) {
-                Log::error('Exception send SMS: ', ['exception' => $e]);
-            }*/
+            $user->notify((new VerificationUser($user, $user->getAttribute('verify_token')))->locale($locale));
 
             DB::commit();
             return $this->sendResponse('Successfully register.', new UserResource($user));
@@ -82,6 +71,8 @@ class AuthController extends BaseController
     public function verify(VerifyRequest $request)
     {
         $token = $request->get('token');
+        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+
         if (!$user = User::where('verify_token', $token)->first()) {
             return $this->sendError('Verify token is not valid.', [], 400);
         }
@@ -94,6 +85,8 @@ class AuthController extends BaseController
                 'verified_at' => Carbon::now(),
             ]);
             $user->_profile()->create();
+
+            $user->notify((new VerificationUserSuccess($user))->locale($locale));
 
             DB::commit();
             return $this->sendResponse('Email was successful verified.');
@@ -108,6 +101,8 @@ class AuthController extends BaseController
     protected function forgotPassword(FormRequest $request, $field)
     {
         $$field = $request->get($field);
+        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+
         $resetTable = DB::table('password_resets');
         $resetToken = User::makeHash();
 
@@ -123,24 +118,14 @@ class AuthController extends BaseController
                 ]);
             }
 
-            if ($field == 'email') {
-                Mail::to($$field)->queue(new ForgetPasswordUserMail($resetToken, $$field));
+            $user = User::where($field, $$field)->first();
+            $user->notify((new ForgotPasswordUser($user, $resetToken, $field))->locale($locale));
 
-                return $this->sendResponse('Verified email was send.');
-            } else {
-                try {
-                    $message = $this->sendSMS($$field, $resetToken);
-
-                    return $this->sendResponse('Verified SMS was send.');
-
-                } catch (\Exception $e) {
-                    Log::error('Exception send SMS: ', ['exception' => $e]);
-                }
-            }
+            return $this->sendResponse('Link to reset password was send.');
 
         } catch (\Exception $e) {
-            Log::error('Exception send verified emails: ', ['exception' => $e]);
-            return $this->sendError('Cannot send verified email.', [], 409);
+            Log::error('Exception send link to reset password: ', ['exception' => $e]);
+            return $this->sendError('Cannot send link to reset password.', [], 409);
         }
     }
 
@@ -171,6 +156,7 @@ class AuthController extends BaseController
     {
         $token = $request->get('token');
         $resetTable = DB::table('password_resets');
+        $locale = $request->get('locale', Constants::LANGUAGE_EN);
 
         if (!$resetPassword = $resetTable->where('token', $token)->first()) {
             return $this->sendError('Token is not valid.', [], 400);
@@ -182,6 +168,8 @@ class AuthController extends BaseController
 
             $user->password = $request->get('password');
             $user->save();
+
+            $user->notify((new ResetPasswordSuccess($user))->locale($locale));
 
             return $this->sendResponse('Password successfully changed.');
 
@@ -200,6 +188,7 @@ class AuthController extends BaseController
     public function login(LoginRequest $request)
     {
         $credentials = $request->all(['email', 'password']);
+        $locale = $request->get('locale', Constants::LANGUAGE_EN);
 
         $user = $this->getUser($credentials);
 
@@ -214,6 +203,12 @@ class AuthController extends BaseController
         };
 
         if ($token = $this->guard()->attempt($credentials)) {
+            try {
+                $user->notify((new LoginUserSuccess($user))->locale($locale));
+            } catch (\Exception $e) {
+                Log::error('Exception notify login user: ', ['exception' => $e]);
+            }
+
             return $this->sendResponse('Successfully logged in.', [], ['Authorization' => $token]);
         }
 
@@ -237,9 +232,17 @@ class AuthController extends BaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function logout()
+    public function logout(LogoutRequest $request)
     {
-       $this->guard()->logout();
+        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $user = $this->guard()->user();
+        try {
+            $user->notify((new LogoutUserSuccess($user))->locale($locale));
+        } catch (\Exception $e) {
+            Log::error('Exception notify logout user: ', ['exception' => $e]);
+        }
+
+        $this->guard()->logout();
 
        return $this->sendResponse('Successfully logged out');
     }

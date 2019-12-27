@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\ConfigProject\Constants;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class RegisterFormRequest extends FormRequest
 {
@@ -24,6 +26,7 @@ class RegisterFormRequest extends FormRequest
             'location.place_id' => ['required', 'string', 'max:150'],
             'location.lat' => ['required', 'string', 'max:150'],
             'location.lng' => ['required', 'string', 'max:150'],
+            'locale' => ['nullable', 'string', Rule::in(Constants::LANGUAGES)],
         ];
     }
 }
