@@ -3384,6 +3384,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   methods: {
@@ -4339,7 +4349,8 @@ __webpack_require__.r(__webpack_exports__);
     changed: function changed() {
       var _this = this;
 
-      axios.get('/location/get-geo?query=' + this.location.long_name).then(function (response) {
+      axios.get('/location/get-geo?query=' + this.location.long_name + '&locale=' + 'en').then(function (response) {
+        console.log(response);
         response.data.data.forEach(function (a) {
           _this.location.name = a.name;
           _this.location.long_name = a.long_name;
@@ -4350,18 +4361,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.suggestions.push(a);
         });
       });
-    } // changed: function() {
-    //     var that = this
-    //     this.suggestions = []
-    //     axios.get('https://api.themoviedb.org/3/search/movie?api_key=342d3061b70d2747a1e159ae9a7e9a36&query=' + this.location.long_name)
-    //     axios.get('/location/get-geo?query=' + this.location.long_name) 
-    //      .then(function(response) {
-    //             response.data.results.forEach(function(a) {
-    //                 that.suggestions.push(a)
-    //             })
-    //         })
-    // },
-
+    }
   },
   filters: {
     toString: function toString(value) {
@@ -4628,6 +4628,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _users_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./users.json */ "./resources/js/pages/users.json");
+var _users_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./users.json */ "./resources/js/pages/users.json", 1);
 //
 //
 //
@@ -5722,22 +5724,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       modal: false,
       activetab: 1,
-      users: []
+      users: _users_json__WEBPACK_IMPORTED_MODULE_0__
     };
   },
   name: "Home",
-  created: function created() {
-    var _this = this;
-
-    axios.get('http://jsonplaceholder.typicode.com/users').then(function (response) {
-      _this.users = response.data;
-    });
-  },
   methods: {
     switchVideoModal: function switchVideoModal(isPlay) {
       document.querySelector('body').classList.add('hide-scroll');
@@ -81862,7 +81858,7 @@ var render = function() {
               _c(
                 "li",
                 [
-                  _c("router-link", { attrs: { to: "/" } }, [
+                  _c("router-link", { attrs: { to: "/register" } }, [
                     _vm._v(
                       "\n                        Sign up\n                    "
                     )
@@ -81874,14 +81870,44 @@ var render = function() {
               _c(
                 "li",
                 [
-                  _c("router-link", { attrs: { to: "/login" } }, [
-                    _vm._v(
-                      "\n                        Log in\n                    "
-                    )
-                  ])
+                  !_vm.$auth.check()
+                    ? _c("router-link", { attrs: { to: "/login" } }, [
+                        _vm._v(
+                          "\n                        Log in\n                    "
+                        )
+                      ])
+                    : _vm._e()
                 ],
                 1
               ),
+              _vm._v(" "),
+              _vm.$auth.check()
+                ? _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: { to: "/login" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.$auth.logout()
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.$t("logout")) +
+                              "\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _vm._m(1)
             ])
@@ -81984,7 +82010,7 @@ var render = function() {
                     _c(
                       "li",
                       [
-                        _c("router-link", { attrs: { to: "/" } }, [
+                        _c("router-link", { attrs: { to: "/register" } }, [
                           _vm._v(
                             "\n                                Sign up\n                            "
                           )
@@ -81996,14 +82022,44 @@ var render = function() {
                     _c(
                       "li",
                       [
-                        _c("router-link", { attrs: { to: "/login" } }, [
-                          _vm._v(
-                            "\n                                Log in\n                            "
-                          )
-                        ])
+                        !_vm.$auth.check()
+                          ? _c("router-link", { attrs: { to: "/login" } }, [
+                              _vm._v(
+                                "\n                                Log in\n                            "
+                              )
+                            ])
+                          : _vm._e()
                       ],
                       1
                     ),
+                    _vm._v(" "),
+                    _vm.$auth.check()
+                      ? _c(
+                          "li",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: { to: "/login" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.$auth.logout()
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(_vm.$t("logout")) +
+                                    "\n                            "
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("li", [
                       _c(
@@ -83129,7 +83185,7 @@ var render = function() {
                   "suggestion-attribute": _vm.suggestionAttribute,
                   disabled: false,
                   "show-autocomplete": true,
-                  autofocus: false,
+                  autofocus: true,
                   suggestions: _vm.suggestions,
                   name: "customName",
                   placeholder: _vm.$t("city"),
@@ -104820,10 +104876,10 @@ var i18n = new vue_i18n__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!***********************************!*\
   !*** ./resources/js/lang/en.json ***!
   \***********************************/
-/*! exports provided: lang, sign_up, login, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, default */
+/*! exports provided: lang, sign_up, login, logout, remember_me, forgot-password, country, rubric, name, password, phone, word-403, page-not-found, email, already-have, dont-have, join-airtasker, join-us, surname, or-sign-up-with, or-login-with, max-password-length-is-255, max-email-length-is-255, password-is-required, min-password-length-is-6, email-is-required, name-is-required, incorrect-email, login-details-are-incorrect, city, send, cancel, email-not-found, phone-not-found, max-phone-length-is-255, phone-is-required, enter-your-phone, enter-your-email, from-email, from-phone, enter-your-email-phone, password-confirmation, enter-code, passwords-must-match, confirm-password-is-required, password-must-contain, return-to-login, confirm-password, change-password, last-name-is-required, first-name-is-required, your-email-was-checked, account-successfully-verified, check-sms, code-is-required, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\",\"your-email-was-checked\":\"Your email was checked!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"Check SMS\",\"code-is-required\":\"Code is required\"}");
+module.exports = JSON.parse("{\"lang\":\"English\",\"sign_up\":\"Sign up\",\"login\":\"Log in\",\"logout\":\"Log out\",\"remember_me\":\"Remember me\",\"forgot-password\":\"Forgot password ?\",\"country\":\"Country\",\"rubric\":\"Rubric\",\"name\":\"Name\",\"password\":\"Password\",\"phone\":\"Phone\",\"word-403\":\"You don’t have permission to access on this server!\",\"page-not-found\":\"Page not found!\",\"email\":\"Email\",\"already-have\":\"Already have an account ?\",\"dont-have\":\"Don't have an account ?\",\"join-airtasker\":\"Join airtasker\",\"join-us\":\"Join us\",\"surname\":\"Surname\",\"or-sign-up-with\":\"or sign up with\",\"or-login-with\":\"or login with\",\"max-password-length-is-255\":\"Max password length is 255\",\"max-email-length-is-255\":\"Max email length is 255\",\"password-is-required\":\"Password is required\",\"min-password-length-is-6\":\"Min Password length is 6\",\"email-is-required\":\"Email is required\",\"name-is-required\":\"Name is required\",\"incorrect-email\":\"Incorrect email\",\"login-details-are-incorrect\":\"Login details are incorrect\",\"city\":\"City\",\"send\":\"Send\",\"cancel\":\"Cancel\",\"email-not-found\":\"Email not found\",\"phone-not-found\":\"Phone not found\",\"max-phone-length-is-255\":\"Max phone length is 255\",\"phone-is-required\":\"Phone is required\",\"enter-your-phone\":\"Enter your Phone\",\"enter-your-email\":\"Enter your Email\",\"from-email\":\"from Email\",\"from-phone\":\"from Phone\",\"enter-your-email-phone\":\"Enter your email or phone below and we will send you instructions on how to reset your password\",\"password-confirmation\":\"Password confirmation\",\"enter-code\":\"Enter your code\",\"passwords-must-match\":\"Passwords must match\",\"confirm-password-is-required\":\"Confirm Password is required\",\"password-must-contain\":\"Password must contain at least 6 characters\",\"return-to-login\":\"Return to Login\",\"confirm-password\":\"Confirm password\",\"change-password\":\"Change password\",\"last-name-is-required\":\"Last Name is required\",\"first-name-is-required\":\"First Name is required\",\"your-email-was-checked\":\"Your email was checked!\",\"account-successfully-verified\":\"Account successfully verified\",\"check-sms\":\"Check SMS\",\"code-is-required\":\"Code is required\"}");
 
 /***/ }),
 
@@ -105778,6 +105834,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_404_vue_vue_type_template_id_3c7084bd___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/pages/users.json":
+/*!***************************************!*\
+  !*** ./resources/js/pages/users.json ***!
+  \***************************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[{\"id\":1,\"name\":\"Leanne Graham\",\"username\":\"Bret\",\"email\":\"Sincere@april.biz\",\"address\":{\"street\":\"Kulas Light\",\"suite\":\"Apt. 556\",\"city\":\"Gwenborough\",\"zipcode\":\"92998-3874\",\"geo\":{\"lat\":\"-37.3159\",\"lng\":\"81.1496\"}},\"phone\":\"1-770-736-8031 x56442\",\"website\":\"hildegard.org\",\"company\":{\"name\":\"Romaguera-Crona\",\"catchPhrase\":\"Multi-layered client-server neural-net\",\"bs\":\"harness real-time e-markets\"}},{\"id\":2,\"name\":\"Ervin Howell\",\"username\":\"Antonette\",\"email\":\"Shanna@melissa.tv\",\"address\":{\"street\":\"Victor Plains\",\"suite\":\"Suite 879\",\"city\":\"Wisokyburgh\",\"zipcode\":\"90566-7771\",\"geo\":{\"lat\":\"-43.9509\",\"lng\":\"-34.4618\"}},\"phone\":\"010-692-6593 x09125\",\"website\":\"anastasia.net\",\"company\":{\"name\":\"Deckow-Crist\",\"catchPhrase\":\"Proactive didactic contingency\",\"bs\":\"synergize scalable supply-chains\"}},{\"id\":3,\"name\":\"Clementine Bauch\",\"username\":\"Samantha\",\"email\":\"Nathan@yesenia.net\",\"address\":{\"street\":\"Douglas Extension\",\"suite\":\"Suite 847\",\"city\":\"McKenziehaven\",\"zipcode\":\"59590-4157\",\"geo\":{\"lat\":\"-68.6102\",\"lng\":\"-47.0653\"}},\"phone\":\"1-463-123-4447\",\"website\":\"ramiro.info\",\"company\":{\"name\":\"Romaguera-Jacobson\",\"catchPhrase\":\"Face to face bifurcated interface\",\"bs\":\"e-enable strategic applications\"}},{\"id\":4,\"name\":\"Patricia Lebsack\",\"username\":\"Karianne\",\"email\":\"Julianne.OConner@kory.org\",\"address\":{\"street\":\"Hoeger Mall\",\"suite\":\"Apt. 692\",\"city\":\"South Elvis\",\"zipcode\":\"53919-4257\",\"geo\":{\"lat\":\"29.4572\",\"lng\":\"-164.2990\"}},\"phone\":\"493-170-9623 x156\",\"website\":\"kale.biz\",\"company\":{\"name\":\"Robel-Corkery\",\"catchPhrase\":\"Multi-tiered zero tolerance productivity\",\"bs\":\"transition cutting-edge web services\"}},{\"id\":5,\"name\":\"Chelsey Dietrich\",\"username\":\"Kamren\",\"email\":\"Lucio_Hettinger@annie.ca\",\"address\":{\"street\":\"Skiles Walks\",\"suite\":\"Suite 351\",\"city\":\"Roscoeview\",\"zipcode\":\"33263\",\"geo\":{\"lat\":\"-31.8129\",\"lng\":\"62.5342\"}},\"phone\":\"(254)954-1289\",\"website\":\"demarco.info\",\"company\":{\"name\":\"Keebler LLC\",\"catchPhrase\":\"User-centric fault-tolerant solution\",\"bs\":\"revolutionize end-to-end systems\"}},{\"id\":6,\"name\":\"Mrs. Dennis Schulist\",\"username\":\"Leopoldo_Corkery\",\"email\":\"Karley_Dach@jasper.info\",\"address\":{\"street\":\"Norberto Crossing\",\"suite\":\"Apt. 950\",\"city\":\"South Christy\",\"zipcode\":\"23505-1337\",\"geo\":{\"lat\":\"-71.4197\",\"lng\":\"71.7478\"}},\"phone\":\"1-477-935-8478 x6430\",\"website\":\"ola.org\",\"company\":{\"name\":\"Considine-Lockman\",\"catchPhrase\":\"Synchronised bottom-line interface\",\"bs\":\"e-enable innovative applications\"}},{\"id\":7,\"name\":\"Kurtis Weissnat\",\"username\":\"Elwyn.Skiles\",\"email\":\"Telly.Hoeger@billy.biz\",\"address\":{\"street\":\"Rex Trail\",\"suite\":\"Suite 280\",\"city\":\"Howemouth\",\"zipcode\":\"58804-1099\",\"geo\":{\"lat\":\"24.8918\",\"lng\":\"21.8984\"}},\"phone\":\"210.067.6132\",\"website\":\"elvis.io\",\"company\":{\"name\":\"Johns Group\",\"catchPhrase\":\"Configurable multimedia task-force\",\"bs\":\"generate enterprise e-tailers\"}},{\"id\":8,\"name\":\"Nicholas Runolfsdottir V\",\"username\":\"Maxime_Nienow\",\"email\":\"Sherwood@rosamond.me\",\"address\":{\"street\":\"Ellsworth Summit\",\"suite\":\"Suite 729\",\"city\":\"Aliyaview\",\"zipcode\":\"45169\",\"geo\":{\"lat\":\"-14.3990\",\"lng\":\"-120.7677\"}},\"phone\":\"586.493.6943 x140\",\"website\":\"jacynthe.com\",\"company\":{\"name\":\"Abernathy Group\",\"catchPhrase\":\"Implemented secondary concept\",\"bs\":\"e-enable extensible e-tailers\"}},{\"id\":9,\"name\":\"Glenna Reichert\",\"username\":\"Delphine\",\"email\":\"Chaim_McDermott@dana.io\",\"address\":{\"street\":\"Dayna Park\",\"suite\":\"Suite 449\",\"city\":\"Bartholomebury\",\"zipcode\":\"76495-3109\",\"geo\":{\"lat\":\"24.6463\",\"lng\":\"-168.8889\"}},\"phone\":\"(775)976-6794 x41206\",\"website\":\"conrad.com\",\"company\":{\"name\":\"Yost and Sons\",\"catchPhrase\":\"Switchable contextually-based project\",\"bs\":\"aggregate real-time technologies\"}},{\"id\":10,\"name\":\"Clementina DuBuque\",\"username\":\"Moriah.Stanton\",\"email\":\"Rey.Padberg@karina.biz\",\"address\":{\"street\":\"Kattie Turnpike\",\"suite\":\"Suite 198\",\"city\":\"Lebsackbury\",\"zipcode\":\"31428-2261\",\"geo\":{\"lat\":\"-38.2386\",\"lng\":\"57.2232\"}},\"phone\":\"024-648-3804\",\"website\":\"ambrose.net\",\"company\":{\"name\":\"Hoeger LLC\",\"catchPhrase\":\"Centralized empowering task-force\",\"bs\":\"target end-to-end models\"}}]");
 
 /***/ }),
 
