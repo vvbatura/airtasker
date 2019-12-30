@@ -116,7 +116,8 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     }
     public function _actions()
     {
-        return $this->belongsToMany(NotificationAction::class, 'notification_user', 'user_id', 'action_id');
+        return $this->belongsToMany(NotificationAction::class, 'notification_user', 'user_id', 'action_id')
+            ->withPivot('email', 'sms', 'push');
     }
     public function _tasks()
     {

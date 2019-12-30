@@ -17,9 +17,9 @@ class CreateNotificationUserTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('action_id');
-            $table->boolean('email');
-            $table->boolean('sms');
-            $table->boolean('push');
+            $table->boolean('email')->default(false);
+            $table->boolean('sms')->default(false);
+            $table->boolean('push')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
