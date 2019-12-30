@@ -18,6 +18,7 @@ export default {
     },
     created() {
         axios.post('/auth/verify', {
+            locale: this.locale,
             token: this.$route.params.token
         })
         .then(response => {
