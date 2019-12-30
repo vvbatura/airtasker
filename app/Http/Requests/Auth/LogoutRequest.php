@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
-use App\ConfigProject\Constants;
+use App\Constants\SystemConstants;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -26,7 +26,7 @@ class LogoutRequest extends FormRequest
     public function rules()
     {
         return [
-            'locale' => ['nullable', 'string', Rule::in(Constants::LANGUAGES)],
+            'locale' => ['nullable', 'string', Rule::in(SystemConstants::LANGUAGES)],
         ];
     }
 

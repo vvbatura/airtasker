@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\ConfigProject\Constants;
+use App\Constants\SystemConstants;
+use App\Constants\UserConstants;
 use App\Http\Requests\Auth\CheckTokenEmail;
 use App\Http\Requests\Auth\ForgotPasswordEmailRequest;
 use App\Http\Requests\Auth\ForgotPasswordPhoneRequest;
@@ -47,13 +48,13 @@ class AuthController extends BaseController
     {
         $data =$request->except(['location', 'locale']);
         $data['verify_token'] = User::makeHash();
-        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
 
         DB::beginTransaction();
 
         try {
             $user = User::create($data);
-            $user->assignRole(Constants::ROLE_CLIENT);
+            $user->assignRole(UserConstants::ROLE_CLIENT);
             $user->_location()->create($request->only('location')['location']);
 
             try {
@@ -75,7 +76,7 @@ class AuthController extends BaseController
     public function verify(VerifyRequest $request)
     {
         $token = $request->get('token');
-        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
 
         if (!$user = User::where('verify_token', $token)->first()) {
             return $this->sendError('Verify token is not valid.', [], 400);
@@ -109,7 +110,7 @@ class AuthController extends BaseController
     protected function forgotPassword(FormRequest $request, $field)
     {
         $$field = $request->get($field);
-        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
 
         $resetTable = DB::table('password_resets');
         $resetToken = User::makeHash();
@@ -169,7 +170,7 @@ class AuthController extends BaseController
     {
         $token = $request->get('token');
         $resetTable = DB::table('password_resets');
-        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
 
         if (!$resetPassword = $resetTable->where('token', $token)->first()) {
             return $this->sendError('Token is not valid.', [], 400);
@@ -205,7 +206,7 @@ class AuthController extends BaseController
     public function login(LoginRequest $request)
     {
         $credentials = $request->all(['email', 'password']);
-        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
 
         $user = $this->getUser($credentials);
 
@@ -251,7 +252,7 @@ class AuthController extends BaseController
      */
     public function logout(LogoutRequest $request)
     {
-        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
         $user = $this->guard()->user();
         try {
             $user->notify((new LogoutUserSuccess($user))->locale($locale));

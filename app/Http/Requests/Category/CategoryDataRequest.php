@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Category;
 
-use App\ConfigProject\Constants;
+use App\Constants\SystemConstants;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -26,10 +26,10 @@ class CategoryDataRequest extends FormRequest
      */
     public function rules()
     {
-        $fieldTitleL1 = 'title.' . Constants::LANGUAGE_EN;
-        $fieldTitleL2 = 'title.' . Constants::LANGUAGE_DE;
-        $fieldDescriptionL1 = 'description.' . Constants::LANGUAGE_EN;
-        $fieldDescriptionL2 = 'description.' . Constants::LANGUAGE_DE;
+        $fieldTitleL1 = 'title.' . SystemConstants::LANGUAGE_EN;
+        $fieldTitleL2 = 'title.' . SystemConstants::LANGUAGE_DE;
+        $fieldDescriptionL1 = 'description.' . SystemConstants::LANGUAGE_EN;
+        $fieldDescriptionL2 = 'description.' . SystemConstants::LANGUAGE_DE;
         return [
             'category' => ['numeric', 'exists:categories,id'],
             'title' => ['required', 'array'],

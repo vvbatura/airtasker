@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\ConfigProject\Constants;
+use App\Constants\SystemConstants;
 use App\Http\Requests\Location\LocationsSearchRequest;
 use Illuminate\Support\Facades\Log;
 
@@ -23,7 +23,7 @@ class LocationController extends BaseController
     {
         try {
             $query = $request->get('query');
-            $locale = $request->get('locale', Constants::LANGUAGE_EN);
+            $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
             $client = new \GuzzleHttp\Client;
             $params = [
                 'input'     => $query,
@@ -67,7 +67,7 @@ class LocationController extends BaseController
     {
         try {
             $query = $request->get('query');
-            $locale = $request->get('locale', Constants::LANGUAGE_EN);
+            $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
             $client = new \GuzzleHttp\Client;
             $params = [
                 'access_token' => env('MAPBOX_ACCESS_TOKEN'),

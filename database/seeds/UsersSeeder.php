@@ -1,6 +1,6 @@
 <?php
 
-use App\ConfigProject\Constants;
+use App\Constants\UserConstants;
 use App\Models\Profile;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -22,13 +22,13 @@ class UsersSeeder extends Seeder
         DB::statement('ALTER TABLE ' . self::TABLE . ' AUTO_INCREMENT = 1');
         DB::statement('ALTER TABLE ' . self::TABLE_PROFILE . ' AUTO_INCREMENT = 1');
 
-        $this->createUsers(Constants::ROLE_ADMIN, 1, [
+        $this->createUsers(UserConstants::ROLE_ADMIN, 1, [
             'first_name' => 'admin',
             'last_name' => 'admin',
             'email' => 'admin@airtasker.com',
         ]);
-        $this->createUsers(Constants::ROLE_MODERATOR,3);
-        $this->createUsers(Constants::ROLE_CLIENT,30);
+        $this->createUsers(UserConstants::ROLE_MODERATOR,3);
+        $this->createUsers(UserConstants::ROLE_CLIENT,30);
 
         $this->command->info('Created ' . self::TABLE . ' with profile.');
 

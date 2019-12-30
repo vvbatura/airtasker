@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use App\ConfigProject\Constants;
+use App\Constants\SystemConstants;
 use Illuminate\Validation\Rule;
 
 trait TableRequest
@@ -17,7 +17,7 @@ trait TableRequest
             'page' => 'nullable|numeric',
             'search_field' => 'nullable|string',
             'search_query' => 'nullable|string',
-            'locale' => ['nullable', 'array', Rule::in(Constants::LANGUAGES)],
+            'locale' => ['nullable', 'array', Rule::in(SystemConstants::LANGUAGES)],
         ], $rules);
     }
 

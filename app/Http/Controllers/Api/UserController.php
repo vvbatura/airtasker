@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\ConfigProject\Constants;
+use App\Constants\SystemConstants;
 use App\Http\Requests\User\UserDataRequest;
 use App\Http\Requests\User\UserImageDataRequest;
 use App\Http\Requests\User\UserPasswordDataRequest;
@@ -24,7 +24,7 @@ class UserController extends BaseController
     public function index (UsersRequest $request)
     {
         $itemIds = $request->get('ids', []);
-        $perPage = $request->get('per_page', Constants::PAGINATE_PER_PAGE);
+        $perPage = $request->get('per_page', SystemConstants::PAGINATE_PER_PAGE);
         if (count($itemIds)) {
             $perPage = $request->get('per_page', User::count());
         }

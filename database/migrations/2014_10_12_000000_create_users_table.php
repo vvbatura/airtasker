@@ -1,6 +1,6 @@
 <?php
 
-use App\ConfigProject\Constants;
+use App\Constants\UserConstants;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique()->nullable();
             $table->string('password')->nullable();;
             $table->json('type')->nullable();
-            $table->enum('status', Constants::STATUSES)->default(Constants::STATUS_ACTIVE);
+            $table->enum('status', UserConstants::STATUSES)->default(UserConstants::STATUS_ACTIVE);
             $table->string('verify_token')->nullable()->unique();
             $table->timestamp('verified_at')->nullable();
 
