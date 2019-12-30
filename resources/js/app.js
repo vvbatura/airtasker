@@ -19,10 +19,10 @@ import 'vue-instant/dist/vue-instant.css'
 import Suggestions from 'v-suggestions'
 import 'v-suggestions/dist/v-suggestions.css' // you can import the stylesheets also (optional)
 import VModal from 'vue-js-modal'
- 
-Vue.use(VModal)
 
-Vue.component('suggestions', Suggestions)
+Vue.use(VModal);
+
+Vue.component('suggestions', Suggestions);
 
 // Set Vue globally
 window.Vue = Vue;
@@ -33,12 +33,14 @@ Vue.use(Vuelidate);
 Vue.router = router;
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+const tmpURL = 'https://d:d@dooditask.com';
+axios.defaults.baseURL = tmpURL + '/api';
 axios.defaults.baseURL = '/api';
 
 Vue.use(VueAuth, auth);
- 
-Vue.use(VueInputMask)
-Vue.use(VueInstant)
+
+Vue.use(VueInputMask);
+Vue.use(VueInstant);
 
 
 // Load Index
