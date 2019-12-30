@@ -74,6 +74,7 @@ export default {
     },
     data: function () {
         return {
+            locale: null,
             error_dialog: false,
             dialog: false,
             email: '',
@@ -86,7 +87,10 @@ export default {
             message: ''
         };
     },
-
+    beforeMount() {
+        this.locale = this.$store.getters.locale;
+        this.$i18n.locale = this.locale;
+    },
     validations: {
         email: {
             required,

@@ -83,7 +83,6 @@ export default {
             submitted: false
         };
     },
-
     validations: {
         email: {
             required,
@@ -96,11 +95,9 @@ export default {
             maxLength: maxLength(255)
         }
     },
-
     beforeMount() {
         this.locale = this.$store.getters.locale
     },
-
     methods: {
         submit() {
             this.submitted = true;
@@ -115,12 +112,13 @@ export default {
 
             this.$auth.login({
                 data: {
+                    locale: this.locale,
                     email: this.email,
                     password: this.password,
                     remember_me: this.remember_me,
                 },
                 success: function() {
-                    this.$store.dispatch('setLocale', {locale: this.locale});
+                    //this.$store.dispatch('setLocale', {locale: this.locale});
                 },
                 error: function(error) {
                     switch (error.response.status) {

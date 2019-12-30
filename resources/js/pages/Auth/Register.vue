@@ -272,9 +272,6 @@ export default {
         selected: function() {
             this.selectedEvent = 'selection changed'
         },
-        // onChange(event) {
-        //     console.log(event.target.value);
-        // },
         selected: function(i) {
           console.log(i, 'selected')
         },
@@ -289,6 +286,7 @@ export default {
             this.has_error = false;
             this.$auth.register({
                 data: {
+                    locale: this.locale,
                     first_name: this.first_name,
                     last_name: this.last_name,
                     email: this.email,

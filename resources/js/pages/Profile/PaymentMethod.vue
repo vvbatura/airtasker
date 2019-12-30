@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Dashboard</h2>
+        <h2>Payment method</h2>
     </div>
 </template>
 

@@ -7,6 +7,9 @@ import HomePage from '../pages/Home';
 import VerifyEmail from "../pages/Auth/VerifyEmail";
 import ConfirmPhone from "../pages/Auth/ConfirmPhone";
 import Dashboard from "../pages/Profile/Dashboard";
+import PaymentsHistory from "../pages/Profile/PaymentsHistory";
+import PaymentMethod from "../pages/Profile/PaymentMethod";
+import Notifications from "../pages/Profile/Notifications";
 import store from "../store"
 
 //Errors
@@ -65,6 +68,24 @@ const routes = [
         path: '/dashboard/',
         name: 'Dashboard',
         component: Dashboard,
+        meta: {guest: true, layout: profileLayout}
+    },
+    {
+        path: '/payments-history/',
+        name: 'PaymentsHistory',
+        component: PaymentsHistory,
+        meta: {guest: true, layout: profileLayout}
+    },
+    {
+        path: '/payment-method/',
+        name: 'PaymentMethod',
+        component: PaymentMethod,
+        meta: {guest: true, layout: profileLayout}
+    },
+    {
+        path: '/notifications/',
+        name: 'Notifications',
+        component: Notifications,
         meta: {guest: true, layout: profileLayout}
     },
     //Errors
