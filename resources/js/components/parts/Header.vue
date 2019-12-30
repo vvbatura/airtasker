@@ -179,15 +179,15 @@ export default {
         handleSCroll (event) {
             let header = document.querySelector("header");
             if (window.scrollY > 100 && !header.className.includes('fix_header')) {
-            header.classList.add('fix_header'); 
+                header.classList.add('fix_header'); 
             } else if (window.scrollY < 100) {
-            header.classList.remove('fix_header');
+                header.classList.remove('fix_header');
             }
         },
         changeLocale() {
             this.$store.dispatch('setLocale', {locale: this.locale});
             this.$i18n.locale = this.locale;
-        }
+        },
     },
     beforeMount() {
         this.locale = this.$store.getters.locale;

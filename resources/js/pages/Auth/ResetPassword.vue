@@ -68,6 +68,7 @@ import {
 export default {
     data() {
         return {
+            locale: null,
             message: '',
             token: '',
             password: '',
@@ -119,6 +120,8 @@ export default {
     },
     beforeMount() {
         this.getToken();
+        this.locale = this.$store.getters.locale;
+        this.$i18n.locale = this.locale;
     },
     filters: {
         toString: function (value) {
