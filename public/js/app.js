@@ -105050,9 +105050,9 @@ vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(vuelidate__WEBPACK_IMPORTED_MODUL
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.router = _router__WEBPACK_IMPORTED_MODULE_9__["default"];
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_6__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_5___default.a, axios__WEBPACK_IMPORTED_MODULE_0___default.a);
-var tmpURL = 'https://d:d@dooditask.com'; //axios.defaults.baseURL = tmpURL + '/api';
+axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.baseURL = 'https://d:d@dooditask.com/api'; //axios.defaults.baseURL = '/api';
+//axios.defaults.baseURL = 'http://d:d@localhost/api';
 
-axios__WEBPACK_IMPORTED_MODULE_0___default.a.defaults.baseURL = '/api';
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(_websanova_vue_auth__WEBPACK_IMPORTED_MODULE_3___default.a, _auth__WEBPACK_IMPORTED_MODULE_8__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(vue_inputmask_ng__WEBPACK_IMPORTED_MODULE_14___default.a);
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(vue_instant__WEBPACK_IMPORTED_MODULE_15___default.a); // Load Index
@@ -105089,7 +105089,24 @@ __webpack_require__.r(__webpack_exports__);
 // can be override in method calls
 
 var config = {
-  auth: _websanova_vue_auth_drivers_auth_bearer__WEBPACK_IMPORTED_MODULE_0___default.a,
+  auth: {
+    request: function request(req, token) {
+      this.options.http._setHeaders.call(this, req, {
+        Authorization: 'Basic ZDpk, Bearer ' + token
+      });
+    },
+    response: function response(res) {
+      var headers = this.options.http._getHeaders.call(this, res),
+          token = headers.Authorization || headers.authorization;
+
+      console.log(token);
+
+      if (token) {
+        token = token.split(/Bearer\:?\s?/i);
+        return token[token.length > 1 ? 1 : 0].trim();
+      }
+    }
+  },
   http: _websanova_vue_auth_drivers_http_axios_1_x__WEBPACK_IMPORTED_MODULE_1___default.a,
   router: _websanova_vue_auth_drivers_router_vue_router_2_x__WEBPACK_IMPORTED_MODULE_2___default.a,
   tokenDefaultName: 'token',

@@ -34,9 +34,9 @@ Vue.use(Vuelidate);
 Vue.router = router;
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
-const tmpURL = 'https://d:d@dooditask.com';
-//axios.defaults.baseURL = tmpURL + '/api';
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = 'https://d:d@dooditask.com/api';
+//axios.defaults.baseURL = '/api';
+//axios.defaults.baseURL = 'http://d:d@localhost/api';
 
 Vue.use(VueAuth, auth);
 
