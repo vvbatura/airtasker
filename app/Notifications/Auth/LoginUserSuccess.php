@@ -47,7 +47,7 @@ class LoginUserSuccess extends Notification implements ShouldQueue
     {
         return (new MailMessage)
             ->subject('Login User Success')
-            ->greeting('Hello,'. $this->user->getFirstName() . '!')
+            ->greeting('Hello,'. $this->user->getFirstName() . '!'.trans('auth.test'))
             ->line('You login success!')
             ->line('Thank you for using our application!');
     }
