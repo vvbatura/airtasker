@@ -120,6 +120,7 @@ export default {
             if (this.isEmail && this.email) {
                 axios
                     .post('auth/forgot-password-email', {
+                        locale: this.locale,
                         email: this.email
                     })
                     .then(response => {
@@ -138,6 +139,7 @@ export default {
             } else {
                 axios
                     .post('auth/forgot-password-phone', {
+                        locale: this.locale,
                         phone: this.phone
                     })
                     .then(response => {

@@ -171,7 +171,6 @@ export default {
     },
     data() {
         return {
-            selected: null,
             locale: null,
             languages: { en: 'en', de: 'de'}
         }

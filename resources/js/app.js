@@ -19,9 +19,10 @@ import 'vue-instant/dist/vue-instant.css'
 import Suggestions from 'v-suggestions'
 import 'v-suggestions/dist/v-suggestions.css' // you can import the stylesheets also (optional)
 import VModal from 'vue-js-modal'
+import vSelect from 'vue-select'
 
+Vue.component('v-select', vSelect);
 Vue.use(VModal);
-
 Vue.component('suggestions', Suggestions);
 
 // Set Vue globally

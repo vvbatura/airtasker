@@ -137,6 +137,7 @@ export default {
             this.has_error = false;
 
             axios.post('auth/reset-password', {
+                locale: this.locale,
                 token: this.token,
                 password: this.password,
                 password_confirmation: this.password_confirmation
