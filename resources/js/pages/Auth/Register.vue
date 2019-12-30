@@ -44,7 +44,7 @@
                 <div class="form-group">
                     <label for="email">{{$t('city')}}</label>
                     <div class="input-group input-group-city mb-2 mr-sm-2 mb-sm-0">
-                        <!-- <vue-instant
+                        <vue-instant
                             :suggestion-attribute="suggestionAttribute"
                             v-model="location.long_name"
                             :disabled="false"
@@ -56,7 +56,7 @@
                             name="customName"
                             :placeholder="$t('city')"
                             type="google">
-                        </vue-instant> -->
+                        </vue-instant>
 
 
                         <!-- <vue-instant
@@ -100,12 +100,14 @@
                                     </div>
                                 </template>
                         </v-select> -->
-                        <input
-                            v-model="location.long_name"
-                            class="form-control"
-                            @input="changed"
-                            :placeholder="$t('city')"
-                            type="text"/>
+                        <!-- <div>
+                            <input
+                                v-model="location.long_name"
+                                class="form-control"
+                                @input="changed"
+                                :placeholder="$t('city')"
+                                type="text"/>
+                        </div>
                         <select
                             v-model="location.long_name"
                             :suggestions="suggestions">
@@ -115,7 +117,7 @@
                                 :value="suggestions.long_name" selected>
                                     {{ item.long_name }}
                             </option>
-                        </select>
+                        </select> -->
                     </div>
                 </div>
                 <div class="form-group">
@@ -272,9 +274,9 @@ export default {
         selected: function() {
             this.selectedEvent = 'selection changed'
         },
-        selected: function(i) {
-          console.log(i, 'selected')
-        },
+        // selected: function(i) {
+        //   console.log(i, 'selected')
+        // },
         submit() {
             this.submitted = true;
             // stop here if form is invalid
@@ -332,7 +334,6 @@ export default {
                         this.location.lat = result.lat.toString();
                         this.location.lng = result.lng.toString();
                         this.suggestions.push(result)
-                        console.log(result)
                     })
                 })
         }
