@@ -77,6 +77,18 @@ export default {
         }
     }
 }
+.sidebar_box {
+    position: fixed;
+    width: 210px;
+}
+.profile_content {
+    padding-left: 210px;
+    width: 100%;
+}
+.img_name {
+    padding-top: 30px;
+    margin: 0 auto;
+}
 </style>
 
 

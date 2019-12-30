@@ -3422,6 +3422,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
@@ -3452,6 +3453,15 @@ __webpack_require__.r(__webpack_exports__);
         locale: this.locale
       });
       this.$i18n.locale = this.locale;
+    },
+    logoutLang: function logoutLang() {
+      var _this = this;
+
+      axios.post('/auth/logout', {
+        locale: this.locale
+      }).then(function (response) {
+        _this.router(window.location.href = '/');
+      });
     }
   },
   beforeMount: function beforeMount() {
@@ -34891,7 +34901,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".profile_header header {\n  position: fixed;\n}\n.wrapper_profile {\n  padding-top: 58px;\n}\n.img_name .img_size {\n  width: 130px;\n  height: 130px;\n  margin-bottom: 10px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.img_name .img_size img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100;\n  width: 100;\n}", ""]);
+exports.push([module.i, ".profile_header header {\n  position: fixed;\n}\n.wrapper_profile {\n  padding-top: 58px;\n}\n.img_name .img_size {\n  width: 130px;\n  height: 130px;\n  margin-bottom: 10px;\n  border-radius: 50%;\n  overflow: hidden;\n}\n.img_name .img_size img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100;\n  width: 100;\n}\n.sidebar_box {\n  position: fixed;\n  width: 210px;\n}\n.profile_content {\n  padding-left: 210px;\n  width: 100%;\n}\n.img_name {\n  padding-top: 30px;\n  margin: 0 auto;\n}", ""]);
 
 // exports
 
@@ -82289,7 +82299,7 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.$auth.logout()
+                            return _vm.logoutLang()
                           }
                         }
                       },
@@ -82499,7 +82509,7 @@ var render = function() {
                               on: {
                                 click: function($event) {
                                   $event.preventDefault()
-                                  return _vm.$auth.logout()
+                                  return _vm.logoutLang()
                                 }
                               }
                             },

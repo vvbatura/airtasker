@@ -50,7 +50,8 @@
                         </router-link>
                     </li>
                     <li v-if="$auth.check()">
-                        <a href="#" @click.prevent="$auth.logout()">{{$t('logout')}}</a>
+                        <!-- <a href="#" @click.prevent="$auth.logout()">{{$t('logout')}}</a> -->
+                        <a href="#" @click.prevent="logoutLang()">{{$t('logout')}}</a>
                     </li>
                     <li>
                         <div class="arrow_select">
@@ -130,7 +131,7 @@
                                 </router-link>
                             </li>
                             <li v-if="$auth.check()">
-                                <a href="#" @click.prevent="$auth.logout()">{{$t('logout')}}</a>
+                                <a href="#" @click.prevent="logoutLang()">{{$t('logout')}}</a>
                             </li>
                             <li>
                                 <div class="arrow_select">
@@ -188,6 +189,15 @@ export default {
             this.$store.dispatch('setLocale', {locale: this.locale});
             this.$i18n.locale = this.locale;
         },
+        logoutLang() { 
+            axios.post('/auth/logout', {
+                locale: this.locale,
+            })
+            .then(response => {
+                    this.router(window.location.href = '/')
+                }
+            )
+        }
     },
     beforeMount() {
         this.locale = this.$store.getters.locale;
