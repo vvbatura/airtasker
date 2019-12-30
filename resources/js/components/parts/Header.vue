@@ -50,7 +50,6 @@
                         </router-link>
                     </li>
                     <li v-if="$auth.check()">
-                        <!-- <a href="#" @click.prevent="$auth.logout()">{{$t('logout')}}</a> -->
                         <a href="#" @click.prevent="logoutLang()">{{$t('logout')}}</a>
                     </li>
                     <li>
@@ -135,14 +134,14 @@
                             </li>
                             <li>
                                 <div class="arrow_select">
-                                    <select class="header_lang" v-model="locale" @change="changeLocale">
+                                    <b-form-select class="header_lang" v-model="locale" @change="changeLocale">
                                         <option :value="languages.en" selected>
                                             EN
                                         </option>
                                         <option :value="languages.de">
                                             DE
                                         </option>
-                                    </select>
+                                    </b-form-select>
                                     <i class="ri-arrow-down-s-fill"></i>
                                 </div>
                             </li>
@@ -173,7 +172,8 @@ export default {
     data() {
         return {
             locale: null,
-            languages: { en: 'en', de: 'de'}
+            languages: { en: 'en', de: 'de'},
+            showLink: true
         }
     },
     methods:{
@@ -190,13 +190,11 @@ export default {
             this.$i18n.locale = this.locale;
         },
         logoutLang() { 
-            axios.post('/auth/logout', {
-                locale: this.locale,
-            })
-            .then(response => {
-                    this.router(window.location.href = '/')
-                }
-            )
+            this.$auth.logout({
+                params: {
+                    locale: this.locale
+                },
+            });
         }
     },
     beforeMount() {

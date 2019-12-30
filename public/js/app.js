@@ -3422,7 +3422,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
@@ -3435,7 +3434,8 @@ __webpack_require__.r(__webpack_exports__);
       languages: {
         en: 'en',
         de: 'de'
-      }
+      },
+      showLink: true
     };
   },
   methods: {
@@ -3455,12 +3455,10 @@ __webpack_require__.r(__webpack_exports__);
       this.$i18n.locale = this.locale;
     },
     logoutLang: function logoutLang() {
-      var _this = this;
-
-      axios.post('/auth/logout', {
-        locale: this.locale
-      }).then(function (response) {
-        _this.router(window.location.href = '/');
+      this.$auth.logout({
+        params: {
+          locale: this.locale
+        }
       });
     }
   },
@@ -82519,67 +82517,53 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("li", [
-                      _c("div", { staticClass: "arrow_select" }, [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
+                      _c(
+                        "div",
+                        { staticClass: "arrow_select" },
+                        [
+                          _c(
+                            "b-form-select",
+                            {
+                              staticClass: "header_lang",
+                              on: { change: _vm.changeLocale },
+                              model: {
                                 value: _vm.locale,
+                                callback: function($$v) {
+                                  _vm.locale = $$v
+                                },
                                 expression: "locale"
                               }
-                            ],
-                            staticClass: "header_lang",
-                            on: {
-                              change: [
-                                function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.locale = $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
+                            },
+                            [
+                              _c(
+                                "option",
+                                {
+                                  attrs: { selected: "" },
+                                  domProps: { value: _vm.languages.en }
                                 },
-                                _vm.changeLocale
-                              ]
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                attrs: { selected: "" },
-                                domProps: { value: _vm.languages.en }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                        EN\n                                    "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "option",
-                              { domProps: { value: _vm.languages.de } },
-                              [
-                                _vm._v(
-                                  "\n                                        DE\n                                    "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("i", { staticClass: "ri-arrow-down-s-fill" })
-                      ])
+                                [
+                                  _vm._v(
+                                    "\n                                        EN\n                                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "option",
+                                { domProps: { value: _vm.languages.de } },
+                                [
+                                  _vm._v(
+                                    "\n                                        DE\n                                    "
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "ri-arrow-down-s-fill" })
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
                     _c("li", [
@@ -105404,14 +105388,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************!*\
   !*** ./resources/js/components/parts/Header.vue ***!
   \**************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header_vue_vue_type_template_id_8ecdeaf2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue?vue&type=template&id=8ecdeaf2& */ "./resources/js/components/parts/Header.vue?vue&type=template&id=8ecdeaf2&");
 /* harmony import */ var _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header.vue?vue&type=script&lang=js& */ "./resources/js/components/parts/Header.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Header_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/parts/Header.vue?vue&type=style&index=0&lang=scss&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Header_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _Header_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/parts/Header.vue?vue&type=style&index=0&lang=scss&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -105443,7 +105428,7 @@ component.options.__file = "resources/js/components/parts/Header.vue"
 /*!***************************************************************************!*\
   !*** ./resources/js/components/parts/Header.vue?vue&type=script&lang=js& ***!
   \***************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
