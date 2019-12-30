@@ -6,6 +6,7 @@ import Login from '../pages/Auth/Login';
 import HomePage from '../pages/Home';
 import VerifyEmail from "../pages/Auth/VerifyEmail";
 import ConfirmPhone from "../pages/Auth/ConfirmPhone";
+import Dashboard from "../pages/Profile/Dashboard";
 import store from "../store"
 
 //Errors
@@ -13,7 +14,7 @@ import AccessDeniedComponent from '../pages/errors/403';
 import NoFoundComponent from '../pages/errors/404';
 
 //variables
-import {authLayout, appLayout, errorLayout} from '../common/variables/layout';
+import {authLayout, appLayout, errorLayout, profileLayout} from '../common/variables/layout';
 import beforeEach from "../common/module/websanovaRoueterBeforeEach";
 
 const routes = [
@@ -58,6 +59,13 @@ const routes = [
         name: 'ConfirmPhone',
         component: ConfirmPhone,
         meta: {guest: true, layout: authLayout}
+    },
+    //Profile
+    {
+        path: '/dashboard/',
+        name: 'Dashboard',
+        component: Dashboard,
+        meta: {guest: true, layout: profileLayout}
     },
     //Errors
     {

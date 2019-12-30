@@ -13,6 +13,7 @@
 import AppLayout from './layouts/AppLayout'
 import AuthLayout from './layouts/AuthLayout'
 import ErrorLayout from "./layouts/ErrorLayout";
+import ProfileLayout from "./layouts/ProfileLayout";
 
 export default {
     computed: {
@@ -23,7 +24,8 @@ export default {
     components: {
         AppLayout,
         AuthLayout,
-        ErrorLayout
+        ErrorLayout,
+        ProfileLayout
     }
 }
 </script>

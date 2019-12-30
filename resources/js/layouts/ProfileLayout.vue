@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div class="profile_header custom_header">
         <Header />
-        <main class="wrapper_box">
+        <main class="wrapper_box wrapper_profile">
             <div class="container">
                 <h1>Profile layout</h1>
                 <router-view></router-view>
             </div>
         </main>
-        <Footer />
+        <!-- <Footer /> -->
     </div>
 </template>
 
@@ -31,7 +31,14 @@ export default {
 </script>
 
 <style lang="scss">
-
+.profile_header {
+    header {
+        position: fixed;
+    }
+}
+.wrapper_profile {
+    padding-top: 58px;
+}
 </style>
 
 

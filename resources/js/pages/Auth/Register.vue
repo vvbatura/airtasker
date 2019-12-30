@@ -1,180 +1,182 @@
 <template>
     <div class="login-form">
-        <form class="form-horizontal" @submit.prevent="submit">
-            <h2 class="text-center">{{$t('join-us')}}</h2>
-            <div class="form-group">
-                <label for="name">{{$t('name')}}</label>
-                <input
-                    type="text"
-                    v-model="first_name"
-                    id="name"
-                    name="name"
-                    class="form-control"
-                    :placeholder="$t('name')"
-                    :class="{ 'is-invalid': submitted && $v.first_name.$error }" />
-                <div v-if="submitted && !$v.first_name.required" class="invalid-feedback">{{$t('first-name-is-required')}}</div>
-            </div>
-            <div class="form-group">
-                <label for="surname">{{$t('surname')}}</label>
-                <input
-                    type="text"
-                    v-model="last_name"
-                    id="surname"
-                    name="surname"
-                    class="form-control"
-                    :placeholder="$t('surname')"
-                    :class="{ 'is-invalid': submitted && $v.last_name.$error }" />
-                <div v-if="submitted && !$v.last_name.required" class="invalid-feedback">{{$t('last-name-is-required')}}</div>
-            </div>
-            <div class="form-group">
-                <label for="email">{{$t('email')}}</label>
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <div class="register_page">
+            <form class="form-horizontal" @submit.prevent="submit">
+                <h2 class="text-center">{{$t('join-us')}}</h2>
+                <div class="form-group">
+                    <label for="name">{{$t('name')}}</label>
                     <input
                         type="text"
-                        v-model="email"
+                        v-model="first_name"
+                        id="name"
+                        name="name"
                         class="form-control"
-                        id="email"
-                        name="email"
-                        placeholder="you@example.com"
-                        :class="{ 'is-invalid': submitted && $v.email.$error }">
-                    <div v-if="submitted && !$v.email.required" class="invalid-feedback">{{$t('email-is-required')}}</div>
+                        :placeholder="$t('name')"
+                        :class="{ 'is-invalid': submitted && $v.first_name.$error }" />
+                    <div v-if="submitted && !$v.first_name.required" class="invalid-feedback">{{$t('first-name-is-required')}}</div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="email">{{$t('city')}}</label>
-                <div class="input-group input-group-city mb-2 mr-sm-2 mb-sm-0">
-                    <!-- <vue-instant
-                        :suggestion-attribute="suggestionAttribute"
-                        v-model="location.long_name"
-                        :disabled="false"
-                        @input="changed"
-                        @selected="selected"
-                        :show-autocomplete="false"
-                        :autofocus="true"
-                        :suggestions="suggestions"
-                        name="customName"
-                        :placeholder="$t('city')"
-                        type="google">
-                    </vue-instant> -->
+                <div class="form-group">
+                    <label for="surname">{{$t('surname')}}</label>
+                    <input
+                        type="text"
+                        v-model="last_name"
+                        id="surname"
+                        name="surname"
+                        class="form-control"
+                        :placeholder="$t('surname')"
+                        :class="{ 'is-invalid': submitted && $v.last_name.$error }" />
+                    <div v-if="submitted && !$v.last_name.required" class="invalid-feedback">{{$t('last-name-is-required')}}</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">{{$t('email')}}</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input
+                            type="text"
+                            v-model="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            :class="{ 'is-invalid': submitted && $v.email.$error }">
+                        <div v-if="submitted && !$v.email.required" class="invalid-feedback">{{$t('email-is-required')}}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">{{$t('city')}}</label>
+                    <div class="input-group input-group-city mb-2 mr-sm-2 mb-sm-0">
+                        <!-- <vue-instant
+                            :suggestion-attribute="suggestionAttribute"
+                            v-model="location.long_name"
+                            :disabled="false"
+                            @input="changed"
+                            @selected="selected"
+                            :show-autocomplete="false"
+                            :autofocus="true"
+                            :suggestions="suggestions"
+                            name="customName"
+                            :placeholder="$t('city')"
+                            type="google">
+                        </vue-instant> -->
 
 
-                    <!-- <vue-instant
-                        :suggestOnAllWords="true"
-                        :suggestion-attribute="suggestionAttribute"
-                        v-model="value" :disabled="false"
-                        @input="changed"
-                        @click-input="clickInput"
-                        @click-button="clickButton"
-                        @selected="selected"
-                        @enter="enter" @key-up="keyUp"
-                        @key-down="keyDown"
-                        @key-right="keyRight"
-                        @clear="clear" 
-                        @escape="escape"
-                        :show-autocomplete="true"
-                        :autofocus="false"
-                        :suggestions="suggestions"
-                        name="customName"
-                        placeholder="custom placeholder"
-                        type="google">
-                    </vue-instant> -->
-                    <!-- <v-select
-                        label="name"
-                        v-model="selected"
-                        :options="options"
-                        @search="onSearch">
-                         <template slot="no-options">
-                                type to search GitHub repositories..
-                            </template>
-                            <template slot="option" slot-scope="option">
-                                <div class="d-center">
-                                    <img :src='option.owner.avatar_url'/> 
-                                    {{ option.full_name }}
-                                </div>
-                            </template>
-                            <template slot="selected-option" slot-scope="option">
-                                <div class="selected d-center">
-                                    <img :src='option.owner.avatar_url'/> 
-                                    {{ option.full_name }}
-                                </div>
-                            </template>
-                    </v-select> -->
+                        <!-- <vue-instant
+                            :suggestOnAllWords="true"
+                            :suggestion-attribute="suggestionAttribute"
+                            v-model="value" :disabled="false"
+                            @input="changed"
+                            @click-input="clickInput"
+                            @click-button="clickButton"
+                            @selected="selected"
+                            @enter="enter" @key-up="keyUp"
+                            @key-down="keyDown"
+                            @key-right="keyRight"
+                            @clear="clear" 
+                            @escape="escape"
+                            :show-autocomplete="true"
+                            :autofocus="false"
+                            :suggestions="suggestions"
+                            name="customName"
+                            placeholder="custom placeholder"
+                            type="google">
+                        </vue-instant> -->
+                        <!-- <v-select
+                            label="name"
+                            v-model="selected"
+                            :options="options"
+                            @search="onSearch">
+                            <template slot="no-options">
+                                    type to search GitHub repositories..
+                                </template>
+                                <template slot="option" slot-scope="option">
+                                    <div class="d-center">
+                                        <img :src='option.owner.avatar_url'/> 
+                                        {{ option.full_name }}
+                                    </div>
+                                </template>
+                                <template slot="selected-option" slot-scope="option">
+                                    <div class="selected d-center">
+                                        <img :src='option.owner.avatar_url'/> 
+                                        {{ option.full_name }}
+                                    </div>
+                                </template>
+                        </v-select> -->
+                        <input
+                            v-model="location.long_name"
+                            class="form-control"
+                            @input="changed"
+                            :placeholder="$t('city')"
+                            type="text"/>
+                        <select
+                            v-model="location.long_name"
+                            :suggestions="suggestions">
+                            <option
+                                v-for="(item, index) in suggestions"
+                                :key="index"
+                                :value="suggestions.long_name" selected>
+                                    {{ item.long_name }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">{{$t('phone')}}</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input
+                            type="tel"
+                            v-model="phone"
+                            class="form-control"
+                            id="phone"
+                            :placeholder="$t('phone')"
+                            :class="{ 'is-invalid': submitted && $v.email.$error }"/>
+                        <div v-if="submitted && !$v.phone.required" class="invalid-feedback">{{$t('phone-is-required')}}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">{{$t('password')}}</label>
                     <input
-                        v-model="location.long_name"
+                        type="password"
+                        v-model="password"
+                        id="password" name="password"
                         class="form-control"
-                        @input="changed"
-                        :placeholder="$t('city')"
-                        type="text"/>
-                    <select
-                        v-model="location.long_name"
-                        :suggestions="suggestions">
-                        <option
-                            v-for="(item, index) in suggestions"
-                            :key="index"
-                            :value="suggestions.long_name" selected>
-                                {{ item.long_name }}
-                        </option>
-                    </select>
+                        :placeholder="$t('password')"
+                        :class="{ 'is-invalid': submitted && $v.password.$error }" />
+                    <div v-if="submitted && $v.password.$error" class="invalid-feedback">
+                        <span v-if="!$v.password.required">{{$t('password-is-required')}}</span>
+                        <span v-if="!$v.password.minLength">{{$t('password-must-contain')}}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="email">{{$t('phone')}}</label>
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                <div class="form-group">
+                    <label for="password_confirmation">{{$t('password-confirmation')}}</label>
                     <input
-                        type="tel"
-                        v-model="phone"
+                        type="password"
+                        v-model="password_confirmation"
+                        id="password_confirmation"
+                        name="password_confirmation"
                         class="form-control"
-                        id="phone"
-                        :placeholder="$t('phone')"
-                        :class="{ 'is-invalid': submitted && $v.email.$error }"/>
-                    <div v-if="submitted && !$v.phone.required" class="invalid-feedback">{{$t('phone-is-required')}}</div>
+                        :placeholder="$t('password-confirmation')"
+                        :class="{ 'is-invalid': submitted && $v.password_confirmation.$error }" />
+                    <div v-if="submitted && $v.password_confirmation.$error" class="invalid-feedback">
+                        <span v-if="!$v.password_confirmation.required">{{$t('confirm-password-is-required')}}</span>
+                        <span v-else-if="!$v.password_confirmation.sameAsPassword">{{$t('passwords-must-match')}}</span>
+                    </div>
                 </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-lg">{{$t('join-airtasker')}}</button>
+                    <div class="login_with text-center">
+                        <span>{{$t('or-sign-up-with')}}</span>
+                    </div>
+                    <div class="d-flex justify-content-between btn_media">
+                        <login-with-facebook />
+                        <login-with-google />
+                    </div>
+                </div>
+            </form>
+            <div class="d-flex justify-content-between">
+                <p>{{$t('already-have')}}</p>
+                <router-link :to="{ name: 'login'}">
+                    {{$t('login')}}
+                </router-link>
             </div>
-            <div class="form-group">
-                <label for="password">{{$t('password')}}</label>
-                <input
-                    type="password"
-                    v-model="password"
-                    id="password" name="password"
-                    class="form-control"
-                    :placeholder="$t('password')"
-                    :class="{ 'is-invalid': submitted && $v.password.$error }" />
-                <div v-if="submitted && $v.password.$error" class="invalid-feedback">
-                    <span v-if="!$v.password.required">{{$t('password-is-required')}}</span>
-                    <span v-if="!$v.password.minLength">{{$t('password-must-contain')}}</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="password_confirmation">{{$t('password-confirmation')}}</label>
-                <input
-                    type="password"
-                    v-model="password_confirmation"
-                    id="password_confirmation"
-                    name="password_confirmation"
-                    class="form-control"
-                    :placeholder="$t('password-confirmation')"
-                    :class="{ 'is-invalid': submitted && $v.password_confirmation.$error }" />
-                <div v-if="submitted && $v.password_confirmation.$error" class="invalid-feedback">
-                    <span v-if="!$v.password_confirmation.required">{{$t('confirm-password-is-required')}}</span>
-                    <span v-else-if="!$v.password_confirmation.sameAsPassword">{{$t('passwords-must-match')}}</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-block btn-lg">{{$t('join-airtasker')}}</button>
-                <div class="login_with text-center">
-                    <span>{{$t('or-sign-up-with')}}</span>
-                </div>
-                <div class="d-flex justify-content-between btn_media">
-                    <login-with-facebook />
-                    <login-with-google />
-                </div>
-            </div>
-        </form>
-        <div class="d-flex justify-content-between">
-            <p>{{$t('already-have')}}</p>
-            <router-link :to="{ name: 'login'}">
-                {{$t('login')}}
-            </router-link>
         </div>
     </div>
 </template>
@@ -346,3 +348,8 @@ export default {
 };
 </script>
 
+<style lang="scss">
+.register_page {
+    padding-top: 58px;
+}
+</style>
