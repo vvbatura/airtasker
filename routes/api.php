@@ -41,14 +41,19 @@ Route::group(['namespace' => 'Api'], function () {
             Route::get('/', 'UserController@index');
             Route::get('/{user}', 'UserController@show');
             Route::get('/{user}/skills', 'UserController@showSkills');
+            Route::get('/{user}/notification', 'UserController@showNotifications');
             Route::put('/{user}', 'UserController@update');
             Route::patch('/{user}/image', 'UserController@saveImage');
-            Route::patch('/{user}/skills', 'UserController@saveSkills');
+            Route::put('/{user}/skills', 'UserController@saveSkills');
+            Route::patch('/{user}/notification/{notification}', 'UserController@saveNotification');
             Route::patch('/{user}/password', 'UserController@savePassword');
             Route::delete('/{user}', 'UserController@delete');
             Route::delete('/', 'UserController@deleteMany');
         });
 
+        Route::group(['prefix' => 'notification'], function () {
+            Route::get('/', 'NotificationController@index');
+        });
     });
 
 

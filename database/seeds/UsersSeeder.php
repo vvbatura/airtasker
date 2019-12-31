@@ -23,7 +23,7 @@ class UsersSeeder extends Seeder
         DB::statement('ALTER TABLE ' . self::TABLE . ' AUTO_INCREMENT = 1');
         DB::statement('ALTER TABLE ' . self::TABLE_PROFILE . ' AUTO_INCREMENT = 1');
 
-        $this->actions = NotificationAction::get();
+        $this->actionIds = NotificationAction::get()->pluck('id')->toArray();
 
         $this->createUsers(UserConstants::ROLE_ADMIN, 1, [
             'first_name' => 'admin',
@@ -37,7 +37,7 @@ class UsersSeeder extends Seeder
 
     }
 
-    protected $actions;
+    protected $actionIds;
 
     protected function createUsers($role, $number =1, $data =[])
     {
@@ -46,11 +46,7 @@ class UsersSeeder extends Seeder
         foreach ($users as $user) {
             $user->assignRole($role);
             $user->_profile()->save(factory(Profile::class)->make());
-            foreach ($this->actions as $action) {
-                $user->_actions()->attach($action->getId(), [
-                    'email' => 1, 'sms' => 1, 'push' => 1,
-                ]);
-            }
+            $user->_actions()->attach($this->actionIds);
         }
     }
 }

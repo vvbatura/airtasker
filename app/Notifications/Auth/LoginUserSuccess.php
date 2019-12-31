@@ -2,7 +2,9 @@
 
 namespace App\Notifications\Auth;
 
+use App\Constants\NotificationActionConstants;
 use App\Traits\NexmoTrait;
+use App\Traits\NotificationTrait;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -13,6 +15,7 @@ class LoginUserSuccess extends Notification implements ShouldQueue
 {
     use Queueable;
     use NexmoTrait;
+    use NotificationTrait;
 
     public $user;
 
@@ -34,7 +37,7 @@ class LoginUserSuccess extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail', 'database', 'nexmo'];
+        return $this->buildActions(NotificationActionConstants::ACTION_LOGIN_NAME);
     }
 
     /**
@@ -61,7 +64,7 @@ class LoginUserSuccess extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'action' => 'LoginUserSuccess',
+            'action' => NotificationActionConstants::ACTION_LOGIN_NAME,
             'data' => ['user' => $this->user],
         ];
     }

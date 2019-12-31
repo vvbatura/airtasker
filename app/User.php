@@ -5,6 +5,7 @@ namespace App;
 use App\Constants\UserConstants;
 use App\Models\AuthProvider;
 use App\Models\Location;
+use App\Models\Notification;
 use App\Models\NotificationAction;
 use App\Models\Profile;
 use App\Models\Skill;
@@ -118,6 +119,10 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     {
         return $this->belongsToMany(NotificationAction::class, 'notification_user', 'user_id', 'action_id')
             ->withPivot('email', 'sms', 'push');
+    }
+    public function _notifications()
+    {
+        return $this->morphMany(Notification::class, 'notifiable');
     }
     public function _tasks()
     {

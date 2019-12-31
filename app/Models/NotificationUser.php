@@ -35,10 +35,10 @@ class NotificationUser extends Model
     //-relations
     public function _user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
     public function _action()
     {
-        return $this->belongsTo(NotificationAction::class, 'id', 'action_id');
+        return $this->hasOne(NotificationAction::class, 'id', 'action_id');
     }
 }

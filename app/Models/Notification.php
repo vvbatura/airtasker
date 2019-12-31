@@ -6,18 +6,18 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class NotificationAction extends Model
+class Notification extends Model
 {
     use SoftDeletes;
     //-data
-    protected $table = 'notification_actions';
+    protected $table = 'notifications';
 
     protected $fillable = [
-        'name',
-        'title',
+        'data',
+        'read_at',
     ];
     protected $casts = [
-        'title' => 'array',
+        'data' => 'array',
     ];
 
     //-setters
@@ -26,12 +26,13 @@ class NotificationAction extends Model
 
     //-getters
     public function getId() { return $this->id; }
-    public function getName() { return $this->name; }
-    public function getTitle() { return $this->title; }
+    public function getData() { return $this->data; }
+    public function getReadAt() { return $this->read_at; }
+    public function getActionTitle() { return $this->_action ? $this->_action->getTitle() : null; }
 
     //-relations
-    public function _users()
+    public function _action()
     {
-        return $this->belongsToMany(User::class, 'notification_user', 'action_id', 'user_id');
+        return $this->hasOne(NotificationAction::class, 'name', 'data->action');
     }
 }

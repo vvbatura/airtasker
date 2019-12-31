@@ -33,7 +33,7 @@ class UserPublicProfileResource extends JsonResource
             'image' => $this->getImagePath(),
             'roles' => RoleResource::collection($this->roles),
             'location' => new LocationResource($this->_location),
-            'skills' => new UserSkillsResource($this->_skills),
+            'skills' => new UserSkillResource($this->_skills),
             'tasks' => $this->_tasks,
         ];
     }

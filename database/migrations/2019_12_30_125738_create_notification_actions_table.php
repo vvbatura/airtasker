@@ -15,6 +15,7 @@ class CreateNotificationActionsTable extends Migration
     {
         Schema::create('notification_actions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->json('title');
             $table->softDeletes();
             $table->timestamps();

@@ -5,7 +5,7 @@ import router from '@websanova/vue-auth/drivers/router/vue-router.2.x'
 // Auth base configuration some of this options
 // can be override in method calls
 const config = {
-    /*auth: {
+    auth: {
         request: function (req, token) {
             this.options.http._setHeaders.call(this, req, {Authorization: 'Basic ZDpk, Bearer ' + token});
         },
@@ -18,8 +18,8 @@ const config = {
                 return token[token.length > 1 ? 1 : 0].trim();
             }
         }
-    },*/
-    auth: bearer,
+    },
+    //auth: bearer,
     http: axios,
     router: router,
     tokenDefaultName: 'token',

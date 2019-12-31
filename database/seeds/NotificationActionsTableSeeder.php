@@ -20,7 +20,7 @@ class NotificationActionsTableSeeder extends Seeder
         DB::table(self::TABLE)->delete();
         DB::statement('ALTER TABLE ' . self::TABLE . ' AUTO_INCREMENT = 1');
 
-        NotificationAction::create([ 'title' => NotificationActionConstants::ACTION_LOGIN ]);
-        NotificationAction::create([ 'title' => NotificationActionConstants::ACTION_LOGOUT ]);
+        NotificationAction::create([ 'name' => NotificationActionConstants::ACTION_LOGIN_NAME, 'title' => NotificationActionConstants::ACTION_LOGIN ]);
+        NotificationAction::create([ 'name' => NotificationActionConstants::ACTION_LOGOUT_NAME, 'title' => NotificationActionConstants::ACTION_LOGOUT ]);
     }
 }

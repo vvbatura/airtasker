@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Auth;
 
+use App\Constants\NotificationActionConstants;
 use App\Traits\NexmoTrait;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -67,7 +68,7 @@ class ForgotPasswordUser extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'action' => 'ForgotPassword',
+            'action' => NotificationActionConstants::ACTION_FORGOT_PASSWORD_NAME,
             'data' => ['user' => $this->user],
         ];
     }

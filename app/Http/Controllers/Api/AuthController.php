@@ -12,6 +12,7 @@ use App\Http\Requests\Auth\LogoutRequest;
 use App\Http\Requests\Auth\RegisterFormRequest;
 use App\Http\Requests\Auth\ResetPasswordFormRequest;
 use App\Http\Requests\Auth\VerifyRequest;
+use App\Models\NotificationAction;
 use App\Notifications\Auth\ForgotPasswordUser;
 use App\Notifications\Auth\LoginUserSuccess;
 use App\Notifications\Auth\LogoutUserSuccess;
@@ -90,6 +91,7 @@ class AuthController extends BaseController
                 'verified_at' => Carbon::now(),
             ]);
             $user->_profile()->create();
+            $user->_actions()->attach(NotificationAction::get()->pluck('id')->toArray());
 
             try {
                 $user->notify((new VerificationUserSuccess($user))->locale($locale));

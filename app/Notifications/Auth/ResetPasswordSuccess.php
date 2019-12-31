@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Auth;
 
+use App\Constants\NotificationActionConstants;
 use App\Traits\NexmoTrait;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -61,7 +62,7 @@ class ResetPasswordSuccess extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'action' => 'ChangedPasswordSuccess',
+            'action' => NotificationActionConstants::ACTION_RESET_PASSWORD_NAME,
             'data' => ['user' => $this->user],
         ];
     }
