@@ -1,11 +1,10 @@
 <?php
 
-use App\Constants\UserConstants;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilesTable extends Migration
+class CreateNotificationUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +13,17 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('notification_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->date('birth_date')->nullable();
-            $table->json('address')->nullable();
-            $table->enum('sex', UserConstants::SEX)->nullable();
-            $table->string('tag_line')->nullable();
-            $table->string('abn')->nullable();
-            $table->string('description')->nullable();
+            $table->unsignedBigInteger('action_id');
+            $table->boolean('email')->default(true);
+            $table->boolean('sms')->default(false);
+            $table->boolean('push')->default(true);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('action_id')->references('id')->on('notification_actions')->onDelete('cascade');
         });
     }
 
@@ -36,6 +34,6 @@ class CreateProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('notification_user');
     }
 }

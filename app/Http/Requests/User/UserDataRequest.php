@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\User;
 
-use App\ConfigProject\Constants;
+use App\Constants\UserConstants;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -38,7 +38,7 @@ class UserDataRequest extends FormRequest
             'abn' => ['required', 'string', 'max:150'],
             'description' => ['required', 'string', 'max:3000'],
             'type' => ['nullable', 'array', 'max:150'],
-            'type.*' => ['nullable', 'string', Rule::in(Constants::TYPES)],
+            'type.*' => ['nullable', 'string', Rule::in(UserConstants::TYPES)],
             'location' => ['required', 'array'],
             'location.name' => ['required', 'string', 'max:150'],
             'location.long_name' => ['required', 'string', 'max:150'],

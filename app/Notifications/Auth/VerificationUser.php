@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Auth;
 
+use App\Constants\NotificationActionConstants;
 use App\Traits\NexmoTrait;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -64,7 +65,7 @@ class VerificationUser extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'action' => 'VerificationUser',
+            'action' => NotificationActionConstants::ACTION_REGISTRATION_NAME,
             'data' => ['user' => $this->user],
         ];
     }

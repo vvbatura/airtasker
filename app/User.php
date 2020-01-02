@@ -2,9 +2,11 @@
 
 namespace App;
 
-use App\ConfigProject\Constants;
+use App\Constants\UserConstants;
 use App\Models\AuthProvider;
 use App\Models\Location;
+use App\Models\Notification;
+use App\Models\NotificationAction;
 use App\Models\Profile;
 use App\Models\Skill;
 use App\Traits\TableData;
@@ -86,7 +88,7 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     }
     public function isActiveAccount()
     {
-        return $this->status == Constants::STATUS_ACTIVE;
+        return $this->status == UserConstants::STATUS_ACTIVE;
     }
     public static function makeHash() {
         return md5(uniqid());
@@ -112,6 +114,15 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     public function _skills()
     {
         return $this->hasMany(Skill::class);
+    }
+    public function _actions()
+    {
+        return $this->belongsToMany(NotificationAction::class, 'notification_user', 'user_id', 'action_id')
+            ->withPivot('email', 'sms', 'push');
+    }
+    public function _notifications()
+    {
+        return $this->morphMany(Notification::class, 'notifiable');
     }
     public function _tasks()
     {

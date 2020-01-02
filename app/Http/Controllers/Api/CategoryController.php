@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\ConfigProject\Constants;
+use App\Constants\SystemConstants;
 use App\Http\Requests\Category\CategoriesRequest;
 use App\Http\Requests\Category\CategoryDataRequest;
 use App\Http\Requests\Category\CategoryRequest;
@@ -17,7 +17,7 @@ class CategoryController extends BaseController
     public function index (CategoriesRequest $request)
     {
         $itemIds = $request->get('ids', []);
-        $perPage = $request->get('per_page', Constants::PAGINATE_PER_PAGE);
+        $perPage = $request->get('per_page', SystemConstants::PAGINATE_PER_PAGE);
         if (count($itemIds)) {
             $perPage = $request->get('per_page', Category::count());
         }
@@ -42,7 +42,7 @@ class CategoryController extends BaseController
             if ($imageBase64 = $request->get('image', false)) {
                 $fileName = $item->getId() . '_' . time() .'.png';
                 $item->addMediaFromBase64($imageBase64)
-                    ->usingName($item->getTitle()[Constants::LANGUAGE_EN])->usingFileName($fileName)
+                    ->usingName($item->getTitle()[SystemConstants::LANGUAGE_EN])->usingFileName($fileName)
                     ->toMediaCollection($item->getTable());
             }
 
@@ -74,7 +74,7 @@ class CategoryController extends BaseController
             if ($imageBase64 = $request->get('image', false)) {
                 $fileName = $item->getId() . '_' . time() .'.png';
                 $item->addMediaFromBase64($imageBase64)
-                    ->usingName($item->getTitle()[Constants::LANGUAGE_EN])->usingFileName($fileName)
+                    ->usingName($item->getTitle()[SystemConstants::LANGUAGE_EN])->usingFileName($fileName)
                     ->toMediaCollection($item->getTable());
             }
 

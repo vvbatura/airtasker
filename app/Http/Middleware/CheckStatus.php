@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\ConfigProject\Constants;
+use App\Constants\UserConstants;
 use App\Traits\JWTUserTrait;
 use Closure;
 use Tymon\JWTAuth\Http\Middleware\BaseMiddleware;
@@ -29,7 +29,7 @@ class CheckStatus extends BaseMiddleware
             ], 403);
         };
 
-        if ($user->status !== Constants::STATUS_BLOCK ) {
+        if ($user->status !== UserConstants::STATUS_BLOCK ) {
             return $next($request);
         }else {
             return response()->json([

@@ -2,13 +2,13 @@
 
 namespace App\Http\Requests\User;
 
-use App\ConfigProject\Constants;
+use App\Constants\UserConstants;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Validation\Rule;
 
-class UserSkillsDataRequest extends FormRequest
+class UserSkillDataRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +31,7 @@ class UserSkillsDataRequest extends FormRequest
             'user' => ['numeric', 'exists:users,id'],
             'good_at' => ['required', 'string', 'max:1000'],
             'get_around' => ['required', 'array'],
-            'get_around.*' => ['required', 'array', Rule::in(Constants::SKILLS_GET_AROUND)],
+            'get_around.*' => ['required', 'array', Rule::in(UserConstants::SKILLS_GET_AROUND)],
             'languages' => ['required', 'string', 'max:1000'],
             'qualifications' => ['required', 'string', 'max:1000'],
             'experience' => ['required', 'string', 'max:1000'],

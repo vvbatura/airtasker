@@ -2,9 +2,6 @@
 
 namespace App\Traits;
 
-use App\ConfigProject\Constants;
-use Illuminate\Validation\Rule;
-
 trait NexmoTrait
 {
 

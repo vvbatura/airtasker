@@ -2,11 +2,13 @@
 
 namespace App\Http\Requests\User;
 
+use App\Constants\UserConstants;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
-class UserPasswordDataRequest extends FormRequest
+class UserNotificationDataRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +29,10 @@ class UserPasswordDataRequest extends FormRequest
     {
         return [
             'user' => ['numeric', 'exists:users,id'],
-            'current_password' => 'required|string|min:6|max:25',
-            'password' => 'required|string|min:6|max:25|confirmed',
+            'notification' => ['numeric', 'exists:notification_user,id'],
+            'email' => ['boolean'],
+            'sms' => ['boolean'],
+            'push' => ['boolean'],
         ];
     }
 

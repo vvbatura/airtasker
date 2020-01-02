@@ -1,6 +1,6 @@
 <?php
 
-use App\ConfigProject\Constants;
+use App\Constants\UserConstants;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -19,8 +19,8 @@ class RolesTableSeeder extends Seeder
         DB::table(self::TABLE)->delete();
         DB::statement('ALTER TABLE ' . self::TABLE . ' AUTO_INCREMENT = 1');
 
-        Role::create([ 'name' => Constants::ROLE_ADMIN ]);
-        Role::create([ 'name' => Constants::ROLE_MODERATOR ]);
-        Role::create([ 'name' => Constants::ROLE_CLIENT ]);
+        Role::create([ 'name' => UserConstants::ROLE_ADMIN ]);
+        Role::create([ 'name' => UserConstants::ROLE_MODERATOR ]);
+        Role::create([ 'name' => UserConstants::ROLE_CLIENT ]);
     }
 }

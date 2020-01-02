@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use App\ConfigProject\Constants;
+use App\Constants\SystemConstants;
 use Illuminate\Http\Request;
 
 trait TableData
@@ -27,7 +27,7 @@ trait TableData
     {
         $searchField = $request->get('search_field', false);
         $searchQuery = $request->get('search_query', false);
-        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
         $searchFields = self::getSortSearchFields();
 
         if (!$searchQuery) {
@@ -63,7 +63,7 @@ trait TableData
     {
         $orderField = $request->get('order_field', 'date');
         $orderType = $request->get('order_type',  'asc');
-        $locale = $request->get('locale', Constants::LANGUAGE_EN);
+        $locale = $request->get('locale', SystemConstants::LANGUAGE_EN);
         $sortFields = self::getSortSearchFields();
         $localeFields = self::getLocaleFields();
 
