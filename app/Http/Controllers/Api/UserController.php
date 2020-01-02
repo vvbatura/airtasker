@@ -98,28 +98,86 @@ class UserController extends BaseController
         }
     }
 
-    public function saveImage(UserImageDataRequest $request, $id)
+    protected function saveImage($image, $item, $collection, $extension ='.png', $isReplace =false)
+    {
+        if($isReplace) {
+            $item->clearMediaCollection($collection);
+        }
+
+        if (strpos($image, ';base64') !== false) {
+            list($extensionImage, $image) = explode(';', $image);
+            list(, $extensionImage) = explode('/', $extensionImage);
+            list(, $image) = explode(',', $image);
+            if ($extensionImage == 'jpeg') {
+                $extensionImage = 'jpg';
+            }
+            if (in_array($extensionImage, SystemConstants::SAVE_fILE_EXTENSIONS)) {
+                $extension = '.' . $extensionImage;
+            }
+        }
+
+        $fileName = $item->getId() . '_' . $collection . '_' . time() . $extension;
+        $item->addMediaFromBase64($image)
+            ->usingName($item->getName())->usingFileName($fileName)
+            ->toMediaCollection($collection);
+
+        return $fileName;
+    }
+
+    public function saveAvatar(UserImageDataRequest $request, $id)
     {
         DB::beginTransaction();
         try {
             $item = User::find($id);
-
-            $item->clearMediaCollection($item->getTable());
-            $imageBase64 = $request->get('image');
-            $fileName = $item->getId() . '_' . time() .'.png';
-            $item->addMediaFromBase64($imageBase64)
-                ->usingName($item->getName())->usingFileName($fileName)
-                ->toMediaCollection($item->getTable());
+            $fileName = $this->saveImage($request->get('image'), $item, $item->getTable().'_avatar', '.png', true);
 
             DB::commit();
-            return $this->sendResponse('Successfully save image.', new UserProfileResource($item));
+            return $this->sendResponse('Successfully save avatar.', $fileName);
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Exception in save image: ', ['exception' => $e]);
-            return $this->sendError('Cannot save image.', [], 409);
+            Log::error('Exception in save avatar: ', ['exception' => $e]);
+            return $this->sendError('Cannot save avatar.', [], 409);
         }
     }
+
+    public function saveResume(UserImageDataRequest $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            $item = User::find($id);
+            $fileName = $this->saveImage($request->get('image'), $item, $item->getTable().'_resume', '.doc', true);
+
+            DB::commit();
+            return $this->sendResponse('Successfully save .', $fileName);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Exception in save resume: ', ['exception' => $e]);
+            return $this->sendError('Cannot save resume.', [], 409);
+        }
+    }
+
+    public function savePortfolio(UserImageDataRequest $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            $item = User::find($id);
+            $fileNames = [];
+            foreach ($request->get('image') as $image) {
+                $fileNames[] = $this->saveImage($request->get('image'), $item, $item->getTable().'_portfolio');
+            }
+
+            DB::commit();
+            return $this->sendResponse('Successfully save portfolio.', $fileNames);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Exception in save portfolio: ', ['exception' => $e]);
+            return $this->sendError('Cannot save portfolio.', [], 409);
+        }
+    }
+
     public function saveSkills(UserSkillDataRequest $request, $id)
     {
         try {

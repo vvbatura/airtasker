@@ -26,7 +26,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/reset-password', 'AuthController@resetPassword');
     });
 
-    Route::group(['middleware' => 'jwt'], function() {
+    //Route::group(['middleware' => 'jwt'], function() {
 
         Route::group(['prefix' => 'category'], function () {
             Route::get('/', 'CategoryController@index');
@@ -43,7 +43,9 @@ Route::group(['namespace' => 'Api'], function () {
             Route::get('/{user}/skills', 'UserController@showSkills');
             Route::get('/{user}/notification', 'UserController@showNotifications');
             Route::put('/{user}', 'UserController@update');
-            Route::patch('/{user}/image', 'UserController@saveImage');
+            Route::patch('/{user}/avatar', 'UserController@saveAvatar');
+            Route::patch('/{user}/resume', 'UserController@saveResume');
+            Route::patch('/{user}/portfolio', 'UserController@savePortfolio');
             Route::put('/{user}/skills', 'UserController@saveSkills');
             Route::patch('/{user}/notification/{notification}', 'UserController@saveNotification');
             Route::patch('/{user}/password', 'UserController@savePassword');
@@ -54,7 +56,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::group(['prefix' => 'notification'], function () {
             Route::get('/', 'NotificationController@index');
         });
-    });
+    //});
 
 
 });

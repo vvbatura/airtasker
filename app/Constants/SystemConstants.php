@@ -12,4 +12,8 @@ class SystemConstants
     ];
     const PAGINATE_PER_PAGE = 15;
 
+    const SAVE_fILE_EXTENSIONS = [
+        'jpg', 'png', 'pdf', 'doc', 'docx', 'txt',
+    ];
+
 }
