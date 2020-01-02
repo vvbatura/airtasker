@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
-use App\User;
-
-class UserLocation extends BaseModel
+class TaskLocation extends BaseModel
 {
     //-data
-    protected $table = 'user_locations';
+    protected $table = 'task_locations';
 
     protected $fillable = [
-        'user_id',
+        'task_id',
         'name',
         'long_name',
         'place_id',
@@ -26,8 +24,8 @@ class UserLocation extends BaseModel
     public function getLng() { return $this->lng; }
 
     //-relations
-    public function _user()
+    public function _task()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Task::class);
     }
 }

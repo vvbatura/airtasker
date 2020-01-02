@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use App\User;
-use Illuminate\Database\Eloquent\Model;
 
-class AuthProvider extends Model
+class AuthProvider extends BaseModel
 {
     protected $table = 'auth_providers';
 

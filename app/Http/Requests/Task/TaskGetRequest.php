@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Task;
 
-use App\Traits\TableRequest;
+use App\Constants\TaskConstants;
+use Composer\DependencyResolver\Rule;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class CategoriesRequest extends FormRequest
+class TaskGetRequest extends FormRequest
 {
-    use TableRequest;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,10 +27,9 @@ class CategoriesRequest extends FormRequest
      */
     public function rules()
     {
-        return $this->merge([
-            'ids' => ['nullable', 'array'],
-            'ids.*' => ['numeric', 'exists:categories,id'],
-        ]);
+        return [
+            'type' => ['nullable', 'string', Rule::in(TaskConstants::TYPES)],
+        ];
     }
 
     /**

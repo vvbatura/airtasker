@@ -2,6 +2,7 @@
 
 use App\Constants\UserConstants;
 use App\Models\NotificationAction;
+use App\Models\Task;
 use App\Models\UserProfile;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -47,6 +48,7 @@ class UsersSeeder extends Seeder
             $user->assignRole($role);
             $user->_profile()->save(factory(UserProfile::class)->make());
             $user->_actions()->attach($this->actionIds);
+            $user->_tasks()->save(factory(Task::class)->make(), rand(1,3));
         }
     }
 }

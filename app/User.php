@@ -4,6 +4,7 @@ namespace App;
 
 use App\Constants\UserConstants;
 use App\Models\AuthProvider;
+use App\Models\Task;
 use App\Models\UserLocation;
 use App\Models\Notification;
 use App\Models\NotificationAction;
@@ -126,6 +127,6 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     }
     public function _tasks()
     {
-        //return $this->hasMany(Task::class);
+        return $this->hasMany(Task::class);
     }
 }

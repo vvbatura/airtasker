@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use App\User;
-use Illuminate\Database\Eloquent\Model;
 
-class NotificationUser extends Model
+class NotificationUser extends BaseModel
 {
     //-data
     protected $table = 'notification_user';
@@ -18,12 +17,7 @@ class NotificationUser extends Model
         'push',
     ];
 
-    //-setters
-    public function setCreatedAtAttribute($date) { $this->attributes['created_at'] = $date; }
-    public function setUpdatedAtAttribute($date) { $this->attributes['updated_at'] = $date; }
-
     //-getters
-    public function getId() { return $this->id; }
     public function getEmail() { return $this->email; }
     public function getSms() { return $this->sms; }
     public function getPush() { return $this->push; }

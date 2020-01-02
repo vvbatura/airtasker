@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Task;
 
 use App\Traits\TableRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class CategoriesRequest extends FormRequest
+class TasksRequest extends FormRequest
 {
     use TableRequest;
     /**
@@ -29,7 +29,7 @@ class CategoriesRequest extends FormRequest
     {
         return $this->merge([
             'ids' => ['nullable', 'array'],
-            'ids.*' => ['numeric', 'exists:categories,id'],
+            'ids.*' => ['numeric', 'exists:tasks,id'],
         ]);
     }
 

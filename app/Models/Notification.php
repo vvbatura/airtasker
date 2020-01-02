@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use App\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Notification extends Model
+class Notification extends BaseModel
 {
     use SoftDeletes;
     //-data
@@ -20,12 +18,7 @@ class Notification extends Model
         'data' => 'array',
     ];
 
-    //-setters
-    public function setCreatedAtAttribute($date) { $this->attributes['created_at'] = $date; }
-    public function setUpdatedAtAttribute($date) { $this->attributes['updated_at'] = $date; }
-
     //-getters
-    public function getId() { return $this->id; }
     public function getData() { return $this->data; }
     public function getReadAt() { return $this->read_at; }
     public function getActionTitle() { return $this->_action ? $this->_action->getTitle() : null; }

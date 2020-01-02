@@ -26,7 +26,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/reset-password', 'AuthController@resetPassword');
     });
 
-    //Route::group(['middleware' => 'jwt'], function() {
+    Route::group(['middleware' => 'jwt'], function() {
 
         Route::group(['prefix' => 'category'], function () {
             Route::get('/', 'CategoryController@index');
@@ -56,7 +56,18 @@ Route::group(['namespace' => 'Api'], function () {
         Route::group(['prefix' => 'notification'], function () {
             Route::get('/', 'NotificationController@index');
         });
-    //});
 
+        Route::group(['prefix' => 'user'], function () {
+            Route::get('/', 'TaskController@index');
+            Route::post('/', 'TaskController@store');
+            Route::get('/{user}', 'TaskController@show');
+            Route::put('/{user}', 'TaskController@update');
+            Route::patch('/{user}/cancel', 'TaskController@cancel');
+            Route::delete('/{user}', 'UserController@delete');
+            Route::delete('/', 'UserController@deleteMany');
+        });
+
+
+    });
 
 });

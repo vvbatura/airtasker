@@ -47,12 +47,12 @@ class CategoryController extends BaseController
             }
 
             DB::commit();
-            return $this->sendResponse('Successfully create new category.', new CategoryResource($item));
+            return $this->sendResponse('Successfully created new category.', new CategoryResource($item));
 
         } catch (\Exception $e){
             DB::rollBack();
-            Log::error('Exception in create new category: ', ['exception' => $e]);
-            return $this->sendError('Cannot create category.', [], 409);
+            Log::error('Exception in created new category: ', ['exception' => $e]);
+            return $this->sendError('Cannot created category.', [], 409);
         }
     }
 
@@ -79,12 +79,12 @@ class CategoryController extends BaseController
             }
 
             DB::commit();
-            return $this->sendResponse('Successfully update category.', new CategoryResource($item));
+            return $this->sendResponse('Successfully updated category.', new CategoryResource($item));
 
         } catch (\Exception $e){
             DB::rollBack();
-            Log::error('Exception in update category: ', ['exception' => $e]);
-            return $this->sendError('Cannot update category.', [], 409);
+            Log::error('Exception in updated category: ', ['exception' => $e]);
+            return $this->sendError('Cannot updated category.', [], 409);
         }
     }
 
@@ -92,11 +92,11 @@ class CategoryController extends BaseController
     {
         try {
             Category::whereId($id)->delete();
-            return $this->sendResponse('Successfully delete category.');
+            return $this->sendResponse('Successfully deleted category.');
 
         } catch (\Exception $e) {
-            Log::error('Exception delete category: ', ['exception' => $e]);
-            return $this->sendError('Cannot delete category.', [], 409);
+            Log::error('Exception deleted category: ', ['exception' => $e]);
+            return $this->sendError('Cannot deleted category.', [], 409);
         }
     }
 
@@ -107,8 +107,8 @@ class CategoryController extends BaseController
             return $this->sendResponse('Successfully delete categories.');
 
         } catch (\Exception $e) {
-            Log::error('Exception delete categories: ', ['exception' => $e]);
-            return $this->sendError('Cannot delete categories.', [], 409);
+            Log::error('Exception deleted categories: ', ['exception' => $e]);
+            return $this->sendError('Cannot deleted categories.', [], 409);
         }
     }
 

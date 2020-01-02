@@ -56,21 +56,21 @@ class AuthController extends BaseController
         try {
             $user = User::create($data);
             $user->assignRole(UserConstants::ROLE_CLIENT);
-            $user->_location()->create($request->only('location')['location']);
+            $user->_location()->create($request->get('location'));
 
             try {
                 $user->notify((new VerificationUser($user, $user->getAttribute('verify_token')))->locale($locale));
             } catch (\Exception $e) {
-                Log::error('Exception notify register user: ', ['exception' => $e]);
+                Log::error('Exception notify registered user: ', ['exception' => $e]);
             }
 
             DB::commit();
-            return $this->sendResponse('Successfully register.', new UserResource($user));
+            return $this->sendResponse('Successfully registered.', new UserResource($user));
 
         } catch (\Exception $e) {
             DB::rollback();
-            Log::error('Exception create user: ', ['exception' => $e]);
-            return $this->sendError('Cannot create user.', [], 409);
+            Log::error('Exception registered user: ', ['exception' => $e]);
+            return $this->sendError('Cannot registered user.', [], 409);
         }
     }
 
@@ -96,7 +96,7 @@ class AuthController extends BaseController
             try {
                 $user->notify((new VerificationUserSuccess($user))->locale($locale));
             } catch (\Exception $e) {
-                Log::error('Exception notify verify user: ', ['exception' => $e]);
+                Log::error('Exception notify verified user: ', ['exception' => $e]);
             }
 
             DB::commit();
@@ -188,7 +188,7 @@ class AuthController extends BaseController
             try {
                 $user->notify((new ResetPasswordSuccess($user))->locale($locale));
             } catch (\Exception $e) {
-                Log::error('Exception notify reset password user: ', ['exception' => $e]);
+                Log::error('Exception notify changed password user: ', ['exception' => $e]);
             }
 
             return $this->sendResponse('Password successfully changed.');
@@ -259,7 +259,7 @@ class AuthController extends BaseController
         try {
             $user->notify((new LogoutUserSuccess($user))->locale($locale));
         } catch (\Exception $e) {
-            Log::error('Exception notify logout user: ', ['exception' => $e]);
+            Log::error('Exception notify logged user: ', ['exception' => $e]);
         }
 
         $this->guard()->logout();

@@ -22,5 +22,7 @@ class NotificationActionsTableSeeder extends Seeder
 
         NotificationAction::create([ 'name' => NotificationActionConstants::ACTION_LOGIN_NAME, 'title' => NotificationActionConstants::ACTION_LOGIN ]);
         NotificationAction::create([ 'name' => NotificationActionConstants::ACTION_LOGOUT_NAME, 'title' => NotificationActionConstants::ACTION_LOGOUT ]);
+        NotificationAction::create([ 'name' => NotificationActionConstants::ACTION_CREATED_TASK_NAME, 'title' => NotificationActionConstants::ACTION_CREATED_TASK ]);
+        NotificationAction::create([ 'name' => NotificationActionConstants::ACTION_UPDATED_TASK_NAME, 'title' => NotificationActionConstants::ACTION_UPDATED_TASK ]);
     }
 }

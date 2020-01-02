@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Task;
 
-use App\Traits\TableRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class CategoriesRequest extends FormRequest
+class TaskRequest extends FormRequest
 {
-    use TableRequest;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,10 +25,19 @@ class CategoriesRequest extends FormRequest
      */
     public function rules()
     {
-        return $this->merge([
-            'ids' => ['nullable', 'array'],
-            'ids.*' => ['numeric', 'exists:categories,id'],
-        ]);
+        return [
+            'task' => ['numeric', 'exists:tasks,id'],
+        ];
+    }
+
+    /**
+     * Get data to be validated from the request.
+     *
+     * @return array
+     */
+    public function validationData()
+    {
+        return array_merge($this->route()->parameters(), $this->all());
     }
 
     /**

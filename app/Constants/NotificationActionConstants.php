@@ -21,4 +21,16 @@ class NotificationActionConstants
     const ACTION_LOGOUT = [
         SystemConstants::LANGUAGE_EN => self::ACTION_LOGOUT_EN, SystemConstants::LANGUAGE_DE => self::ACTION_LOGOUT_DE
     ];
+    const ACTION_CREATED_TASK_NAME = 'created-task';
+    const ACTION_CREATED_TASK__EN = 'Created Task';
+    const ACTION_CREATED_TASK__DE = 'Erstellte Aufgabe';
+    const ACTION_CREATED_TASK = [
+        SystemConstants::LANGUAGE_EN => self::ACTION_CREATED_TASK__EN, SystemConstants::LANGUAGE_DE => self::ACTION_CREATED_TASK__DE
+    ];
+    const ACTION_UPDATED_TASK_NAME = 'updated-task';
+    const ACTION_UPDATED_TASK__EN = 'Updated Task';
+    const ACTION_UPDATED_TASK__DE = 'Aktualisierte Aufgabe';
+    const ACTION_UPDATED_TASK = [
+        SystemConstants::LANGUAGE_EN => self::ACTION_UPDATED_TASK__EN, SystemConstants::LANGUAGE_DE => self::ACTION_UPDATED_TASK__DE
+    ];
 }

@@ -4,12 +4,11 @@ namespace App\Models;
 
 use App\Traits\CategoryData;
 use App\Traits\TableData;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Category extends Model implements HasMedia
+class Category extends BaseModel implements HasMedia
 {
     use SoftDeletes;
     use TableData, CategoryData;
@@ -30,12 +29,7 @@ class Category extends Model implements HasMedia
     protected static $sortSearchFields = ['title', 'description', 'created_at'];
     protected static $localeFields = ['title', 'description'];
 
-    //-setters
-    public function setCreatedAtAttribute($date) { $this->attributes['created_at'] = $date; }
-    public function setUpdatedAtAttribute($date) { $this->attributes['updated_at'] = $date; }
-
     //-getters
-    public function getId() { return $this->id; }
     public function getTitle() { return $this->title; }
     public function getDescription() { return $this->description; }
     public function getCreatedAt() { return $this->created_at; }

@@ -86,15 +86,15 @@ class UserController extends BaseController
                 'birth_date', 'sex',
                 'tag_line', 'abn', 'description'
             ]));
-            $item->_location->update($request->only('location'));
+            $item->_location->update($request->get('location'));
 
             DB::commit();
-            return $this->sendResponse('Successfully update user.', new UserProfileResource($item));
+            return $this->sendResponse('Successfully updated user.', new UserProfileResource($item));
 
         } catch (\Exception $e){
             DB::rollBack();
-            Log::error('Exception in update user: ', ['exception' => $e]);
-            return $this->sendError('Cannot update user.', [], 409);
+            Log::error('Exception in updated user: ', ['exception' => $e]);
+            return $this->sendError('Cannot updated user.', [], 409);
         }
     }
 
@@ -132,12 +132,12 @@ class UserController extends BaseController
             $fileName = $this->saveImage($request->get('image'), $item, $item->getTable().'_avatar', '.png', true);
 
             DB::commit();
-            return $this->sendResponse('Successfully save avatar.', $fileName);
+            return $this->sendResponse('Successfully saved avatar.', $fileName);
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Exception in save avatar: ', ['exception' => $e]);
-            return $this->sendError('Cannot save avatar.', [], 409);
+            Log::error('Exception in saved avatar: ', ['exception' => $e]);
+            return $this->sendError('Cannot saved avatar.', [], 409);
         }
     }
 
@@ -149,12 +149,12 @@ class UserController extends BaseController
             $fileName = $this->saveImage($request->get('image'), $item, $item->getTable().'_resume', '.doc', true);
 
             DB::commit();
-            return $this->sendResponse('Successfully save .', $fileName);
+            return $this->sendResponse('Successfully saved resume.', $fileName);
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Exception in save resume: ', ['exception' => $e]);
-            return $this->sendError('Cannot save resume.', [], 409);
+            Log::error('Exception in saved resume: ', ['exception' => $e]);
+            return $this->sendError('Cannot saved resume.', [], 409);
         }
     }
 
@@ -169,12 +169,12 @@ class UserController extends BaseController
             }
 
             DB::commit();
-            return $this->sendResponse('Successfully save portfolio.', $fileNames);
+            return $this->sendResponse('Successfully saved portfolio.', $fileNames);
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Exception in save portfolio: ', ['exception' => $e]);
-            return $this->sendError('Cannot save portfolio.', [], 409);
+            Log::error('Exception in saved portfolio: ', ['exception' => $e]);
+            return $this->sendError('Cannot saved portfolio.', [], 409);
         }
     }
 
@@ -187,12 +187,12 @@ class UserController extends BaseController
                 'good_at', 'get_around', 'languages', 'qualifications', 'experience',
             ]));
 
-            return $this->sendResponse('Successfully save user skill.', new UserSkillResource($item));
+            return $this->sendResponse('Successfully saved user skill.', new UserSkillResource($item));
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Exception in save user skill: ', ['exception' => $e]);
-            return $this->sendError('Cannot save user skill.', [], 409);
+            Log::error('Exception in saved user skill: ', ['exception' => $e]);
+            return $this->sendError('Cannot saved user skill.', [], 409);
         }
     }
 
@@ -205,12 +205,12 @@ class UserController extends BaseController
                 'email', 'sms', 'push'
             ]));
 
-            return $this->sendResponse('Successfully save user notification.', new UserNotificationResource($item));
+            return $this->sendResponse('Successfully saved user notification.', new UserNotificationResource($item));
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Exception in save user notification: ', ['exception' => $e]);
-            return $this->sendError('Cannot save user notification.', [], 409);
+            Log::error('Exception in saved user notification: ', ['exception' => $e]);
+            return $this->sendError('Cannot saved user notification.', [], 409);
         }
     }
 
@@ -225,11 +225,11 @@ class UserController extends BaseController
             $item->update([
                 'password' => $request->get('password')
             ]);
-            return $this->sendResponse('Successfully save password.', new UserProfileResource($item));
+            return $this->sendResponse('Successfully saved password.', new UserProfileResource($item));
 
         } catch (\Exception $e) {
-            Log::error('Exception in save password: ', ['exception' => $e]);
-            return $this->sendError('Cannot save password.', [], 409);
+            Log::error('Exception in saved password: ', ['exception' => $e]);
+            return $this->sendError('Cannot saved password.', [], 409);
         }
     }
 
@@ -240,8 +240,8 @@ class UserController extends BaseController
             return $this->sendResponse('Successfully delete user.');
 
         } catch (\Exception $e) {
-            Log::error('Exception delete user: ', ['exception' => $e]);
-            return $this->sendError('Cannot delete user.', [], 409);
+            Log::error('Exception deleted user: ', ['exception' => $e]);
+            return $this->sendError('Cannot deleted user.', [], 409);
         }
     }
 
@@ -249,11 +249,11 @@ class UserController extends BaseController
     {
         try {
             User::whereIn('id', $request->get('ids', []))->delete();
-            return $this->sendResponse('Successfully delete users.');
+            return $this->sendResponse('Successfully deleted users.');
 
         } catch (\Exception $e) {
-            Log::error('Exception delete users: ', ['exception' => $e]);
-            return $this->sendError('Cannot delete users.', [], 409);
+            Log::error('Exception deleted users: ', ['exception' => $e]);
+            return $this->sendError('Cannot deleted users.', [], 409);
         }
     }
 
