@@ -2,7 +2,7 @@
 
 use App\Constants\UserConstants;
 use App\Models\NotificationAction;
-use App\Models\Profile;
+use App\Models\UserProfile;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class UsersSeeder extends Seeder
 {
     const TABLE = 'users';
-    const TABLE_PROFILE = 'profiles';
+    const TABLE_PROFILE = 'user_profiles';
 
     /**
      * Run the database seeds.
@@ -45,7 +45,7 @@ class UsersSeeder extends Seeder
 
         foreach ($users as $user) {
             $user->assignRole($role);
-            $user->_profile()->save(factory(Profile::class)->make());
+            $user->_profile()->save(factory(UserProfile::class)->make());
             $user->_actions()->attach($this->actionIds);
         }
     }

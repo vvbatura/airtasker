@@ -4,11 +4,11 @@ namespace App;
 
 use App\Constants\UserConstants;
 use App\Models\AuthProvider;
-use App\Models\Location;
+use App\Models\UserLocation;
 use App\Models\Notification;
 use App\Models\NotificationAction;
-use App\Models\Profile;
-use App\Models\Skill;
+use App\Models\UserSkill;
+use App\Models\UserProfile;
 use App\Traits\TableData;
 use App\Traits\UserData;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -105,15 +105,15 @@ class User extends Authenticatable implements JWTSubject, HasMedia
     }
     public function _profile()
     {
-        return $this->hasOne(Profile::class);
+        return $this->hasOne(UserProfile::class);
     }
     public function _location()
     {
-        return $this->hasOne(Location::class);
+        return $this->hasOne(UserLocation::class);
     }
     public function _skills()
     {
-        return $this->hasMany(Skill::class);
+        return $this->hasMany(UserSkill::class);
     }
     public function _actions()
     {

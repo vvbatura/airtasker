@@ -5,10 +5,10 @@ namespace App\Models;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Skill extends Model
+class UserSkill extends Model
 {
     //-data
-    protected $table = 'skills';
+    protected $table = 'user_skills';
 
     protected $fillable = [
         'user_id',

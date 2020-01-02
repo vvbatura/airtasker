@@ -15,7 +15,7 @@ use App\Http\Resources\User\UserProfileResource;
 use App\Http\Resources\User\UserResource;
 use App\Http\Resources\User\UserSkillResource;
 use App\Models\NotificationUser;
-use App\Models\Skill;
+use App\Models\UserSkill;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -52,7 +52,7 @@ class UserController extends BaseController
 
     public function showSkills(UserRequest $request, $id)
     {
-        $item = Skill::where('user_id', $id)->first();
+        $item = UserSkill::where('user_id', $id)->first();
 
         return new UserSkillResource($item);
     }
@@ -181,7 +181,7 @@ class UserController extends BaseController
     public function saveSkills(UserSkillDataRequest $request, $id)
     {
         try {
-            $item = Skill::find($id);
+            $item = UserSkill::find($id);
 
             $item->update($request->only([
                 'good_at', 'get_around', 'languages', 'qualifications', 'experience',

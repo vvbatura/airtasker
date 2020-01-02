@@ -5,11 +5,11 @@ namespace App\Models;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class UserProfile extends Model
 {
 
     //-data
-    protected $table = 'profiles';
+    protected $table = 'user_profiles';
 
     protected $fillable = [
         'user_id',
