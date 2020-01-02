@@ -92,10 +92,15 @@ export default {
 .sidebar_box {
     position: fixed;
     width: 210px;
+    height: calc(100vh - 58px);
+    border-right: 1px solid #bbc2dc;
 }
 .profile_content {
     padding-left: 210px;
     width: 100%;
+    height: calc(100vh - 58px);
+    border-right: 1px solid #bbc2dc;
+    overflow-y: hidden;
 }
 .dash_list_route {
     padding-left: 15px;
@@ -112,9 +117,6 @@ export default {
             }
         }
     }
-}
-.sidebar_box {
-    height: calc(100vh - 58px);
 }
 </style>
 
