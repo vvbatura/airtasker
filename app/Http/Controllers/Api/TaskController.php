@@ -77,8 +77,8 @@ class TaskController extends BaseController
         DB::beginTransaction();
         try{
             $data = $request->only(['title', 'details', 'date', 'price_total', 'price_hourly']);
-            //$data['user_id'] = $user = $this->guard()->user()->id;
-            $data['user_id'] = 1;
+            $data['user_id'] = $this->guard()->user()->id;
+            //$data['user_id'] = 1;
             $task = Task::create($data);
             if ($location = $request->get('location', null)) {
                 $task->_location()->create($location);
