@@ -25,6 +25,7 @@ class TaskResource extends JsonResource
             'user_name' => $this->getUserName(),
             'location_name' => $this->getLocationName(),
             'location_long_name' => $this->getLocationLongName(),
+            'location' => new TaskResource($this->_location),
         ];
     }
 }

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Constants\SystemConstants;
 use App\Constants\TaskConstants;
 use App\Http\Requests\Task\TaskDataRequest;
-use App\Http\Requests\Task\TaskGetRequest;
 use App\Http\Requests\Task\TaskRequest;
 use App\Http\Requests\Task\TasksRequest;
+use App\Http\Requests\Task\TasksShowRequest;
 use App\Http\Resources\Task\TaskResource;
 use App\Models\Task;
 use App\Notifications\Task\CreatedTask;
@@ -18,32 +18,47 @@ use Illuminate\Support\Facades\Log;
 class TaskController extends BaseController
 {
 
-    public function index (TaskGetRequest $request)
+    public function index(TasksShowRequest $request)
     {
+        $tasks = Task::with('_location')->query();
+        if ($userId =$request->get('user_id', null)) {
+            $tasks = $tasks->where('user_id', $userId);
+        }
+        if ($price = $request->get('price', null)) {
+            $tasks = $tasks->where(function ($query) use ($price) {
+                $query->whereBetween('price_total', $price)
+                    ->orWhereBetween('price_hourly', $price);
+            });
+        }
+        if ($location =$request->get('location', null)) {
+            $tasks = $tasks->where('user_id', $userId);
+        } else {
+            $tasks = $tasks->doesnthave('_location');
+        }
+
         $type = $request->get('type', TaskConstants::TYPE_ALL);
-        //$userId'] = $user = $this->guard()->user()->id;
-        $userId = 1;
-        $tasks = Task::where('user_id', $userId)->query();
         switch ($type) {
             case TaskConstants::TYPE_ALL:
-                $tasks = $tasks->get();
                 break;
             case TaskConstants::TYPE_POSTED:
-                $tasks = $tasks->where('status', TaskConstants::STATUS_OPENED)->get();
+                $tasks = $tasks->where('status', TaskConstants::STATUS_OPENED);
                 break;
             case TaskConstants::TYPE_DRAFT:
-                $tasks = $tasks->get();
                 break;
             case TaskConstants::TYPE_ASSIGNED:
-                $tasks = $tasks->get();
+                break;
+            case TaskConstants::TYPE_NOT_ASSIGNED:
                 break;
             case TaskConstants::TYPE_OFFERS:
-                $tasks = $tasks->get();
                 break;
             case TaskConstants::TYPE_COMPLETED:
-                $tasks = $tasks->where('status', TaskConstants::STATUS_OPENED)->get();
+                $tasks = $tasks->where('status', TaskConstants::STATUS_OPENED);
                 break;
         }
+        $after = $request->get('after', 0);
+        $tasks = $tasks->skip($after)->take(SystemConstants::PAGINATE_PER_PAGE)
+            ->orderBy('created_at','desc')->get();
+
         return TaskResource::collection($tasks);
     }
 

@@ -2,13 +2,13 @@
 
 namespace App\Http\Requests\Task;
 
-use App\Constants\SystemConstants;
+use App\Constants\TaskConstants;
+use Composer\DependencyResolver\Rule;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
-class TaskDataRequest extends FormRequest
+class TasksShowRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,37 +28,26 @@ class TaskDataRequest extends FormRequest
     public function rules()
     {
         return [
-            'task' => ['numeric', 'exists:tasks,id'],
-            'title' => ['required', 'string', 'max:150'],
-            'details' => ['required', 'string', 'max:3000'],
-            'date' => ['required', 'date'],
-            'price_total' => ['required_without:price_hourly', 'integer'],
-            'price_hourly' => ['required_without:price_total', 'integer'],
+            'user_id' => ['nullable', 'exists:tasks,id'],
+            'type' => ['nullable', 'string', Rule::in(TaskConstants::TYPES)],
+            'after' => ['nullable', 'integer'],
+            'price' => ['nullable', 'array'],
+            'price.*' => ['required_with:price', 'integer'],
             'location' => ['nullable', 'array'],
             'location.name' => ['required_with:location', 'string', 'max:150'],
             'location.long_name' => ['required_with:location', 'string', 'max:150'],
             'location.place_id' => ['required_with:location', 'string', 'max:150'],
             'location.lat' => ['required_with:location', 'string', 'max:150'],
             'location.lng' => ['required_with:location', 'string', 'max:150'],
-            'locale' => ['nullable', 'string', Rule::in(SystemConstants::LANGUAGES)],
+            'location.distance' => ['required_with:location', 'integer', 'max:101'],
+            'location.type' => ['required_with:location', 'string', Rule::in(TaskConstants::PLACES)],
         ];
-    }
-
-    /**
-     * Get data to be validated from the request.
-     *
-     * @return array
-     */
-    public function validationData()
-    {
-        return array_merge($this->route()->parameters(), $this->all());
     }
 
     /**
      * @param Validator $validator
      */
-    protected function failedValidation(Validator $validator)
-    {
+    protected function failedValidation(Validator $validator) {
         throw new HttpResponseException(response()->json($validator->errors(),422));
     }
 }

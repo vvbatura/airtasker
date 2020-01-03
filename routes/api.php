@@ -57,7 +57,7 @@ Route::group(['namespace' => 'Api'], function () {
             Route::get('/', 'NotificationController@index');
         });
 
-        Route::group(['prefix' => 'user'], function () {
+        Route::group(['prefix' => 'task'], function () {
             Route::get('/', 'TaskController@index');
             Route::post('/', 'TaskController@store');
             Route::get('/{user}', 'TaskController@show');
