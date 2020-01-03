@@ -31,9 +31,15 @@ class TaskController extends BaseController
             });
         }
         if ($location =$request->get('location', null)) {
-            $tasks = $tasks->where('user_id', $userId);
+            //-----need think
         } else {
             $tasks = $tasks->doesnthave('_location');
+        }
+        if ($search =$request->get('search', null)) {
+            $tasks = $tasks->where(function ($query) use ($search) {
+                $query->where('title', 'LIKE', '%'.$search.'%')
+                    ->orWhere('details', 'LIKE', '%'.$search.'%');
+            });
         }
 
         $type = $request->get('type', TaskConstants::TYPE_ALL);
@@ -44,12 +50,16 @@ class TaskController extends BaseController
                 $tasks = $tasks->where('status', TaskConstants::STATUS_OPENED);
                 break;
             case TaskConstants::TYPE_DRAFT:
+                //-----need think
                 break;
             case TaskConstants::TYPE_ASSIGNED:
+                //-----need think
                 break;
             case TaskConstants::TYPE_NOT_ASSIGNED:
+                //-----need think
                 break;
             case TaskConstants::TYPE_OFFERS:
+                //-----need think
                 break;
             case TaskConstants::TYPE_COMPLETED:
                 $tasks = $tasks->where('status', TaskConstants::STATUS_OPENED);

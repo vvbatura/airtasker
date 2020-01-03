@@ -41,6 +41,7 @@ class TasksShowRequest extends FormRequest
             'location.lng' => ['required_with:location', 'string', 'max:150'],
             'location.distance' => ['required_with:location', 'integer', 'max:101'],
             'location.type' => ['required_with:location', 'string', Rule::in(TaskConstants::PLACES)],
+            'search' => ['nullable', 'string'],
         ];
     }
 
